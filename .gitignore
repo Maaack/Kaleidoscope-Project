@@ -1,0 +1,7 @@
+.import/
+.idea/
+exports/
+*.import
+*.png.import
+export.cfg
+export_presets.cfg
