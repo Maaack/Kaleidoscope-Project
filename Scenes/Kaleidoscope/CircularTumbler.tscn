@@ -1,5 +1,10 @@
-[gd_scene format=2]
+[gd_scene load_steps=3 format=2]
 
-[node name="CircularTumbler" type="Node2D"]
+[ext_resource path="res://Scenes/Kaleidoscope/CircularTumbler.gd" type="Script" id=1]
 
-[node name="KinematicBody2D" type="KinematicBody2D" parent="."]
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 40, 10 )
+
+[node name="CircularTumbler" type="KinematicBody2D"]
+script = ExtResource( 1 )
+edge_shape = SubResource( 1 )
