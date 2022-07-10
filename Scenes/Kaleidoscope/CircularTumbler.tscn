@@ -5,6 +5,6 @@
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 40, 10 )
 
-[node name="CircularTumler" type="KinematicBody2D"]
+[node name="CircularTumbler" type="KinematicBody2D"]
 script = ExtResource( 1 )
 edge_shape = SubResource( 1 )
