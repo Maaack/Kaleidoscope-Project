@@ -32,6 +32,12 @@ func _input(event : InputEvent) -> void:
 			next_rotation = -ROTATION_STEP
 
 
-func set_visible(value : bool):
-	.set_visible(value)
-	$Viewport/Camera2D.current = value # so the camera is not current when not visible
+func change_tumbler_scene_to(to : PackedScene):
+	var instance = to.instance()
+	instance.name = "TumblerScene"
+	
+	var old_tumbler = get_node_or_null("TumblerScene")
+	if old_tumbler:
+		remove_child(old_tumbler)
+		old_tumbler.queue_free()
+	add_child(instance)

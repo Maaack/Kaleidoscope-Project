@@ -2,9 +2,7 @@
 
 [ext_resource path="res://Scenes/UI/CustomComponents/SoundButton.gd" type="Script" id=1]
 
-[node name="Button" type="Button"]
-margin_right = 40.0
-margin_bottom = 40.0
+[node name="SoundButton" type="Button"]
 script = ExtResource( 1 )
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
