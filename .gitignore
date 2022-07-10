@@ -1,5 +1,6 @@
 .import/
 .idea/
+.DS_Store
 exports/
 *.import
 *.png.import
