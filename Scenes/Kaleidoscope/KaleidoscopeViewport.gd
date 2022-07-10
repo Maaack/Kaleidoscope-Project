@@ -1,4 +1,6 @@
+class_name KaleidoscopeViewport
 extends ViewportContainer
+
 const ROTATION_STEP = 3 # rotation step when using keyboard or scroll wheel to move the kaleidoscope
 const MAX_ROTATION_STEP = 5 # maximum rotation that can be applied at each movement
 const MOUSE_SENSITIVITY = 0.001 # sensitivity of the mouse
@@ -28,3 +30,8 @@ func _input(event : InputEvent) -> void:
 			next_rotation = ROTATION_STEP
 		elif event.get_action_strength("turn_tumbler_left") > 0:
 			next_rotation = -ROTATION_STEP
+
+
+func set_visible(value : bool):
+	.set_visible(value)
+	$Viewport/Camera2D.current = value # so the camera is not current when not visible

@@ -9,12 +9,18 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "ViewportContainer",
+"class": "KaleidoscopeViewport",
+"language": "GDScript",
+"path": "res://Scenes/Kaleidoscope/KaleidoscopeViewport.gd"
+}, {
 "base": "Button",
 "class": "SoundButton",
 "language": "GDScript",
-"path": "res://Scenes/MainScene/SoundButton.gd"
+"path": "res://Scenes/UI/CustomComponents/SoundButton.gd"
 } ]
 _global_script_class_icons={
+"KaleidoscopeViewport": "",
 "SoundButton": ""
 }
 
