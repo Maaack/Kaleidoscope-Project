@@ -1,0 +1,73 @@
+[gd_resource type="ShaderMaterial" load_steps=2 format=2]
+
+[sub_resource type="Shader" id=4]
+code = "shader_type canvas_item;
+
+uniform float border_radius = 0.25;
+uniform float blue = 1.0;
+
+uniform float segments = 4.0;
+
+const float PI = 3.14159265358979323846;
+const float PI_TWO = 6.28318530718f;
+
+// can I define macros in godot shader language?
+const float SEG_BORDER_ANGLE () {
+	return (PI_TWO) / segments;
+}
+
+vec2 cartToPolarUV(vec2 coord){
+	//shift to the center
+	vec2 shiftCoord = coord - 0.5;
+	//pythagorias
+	float uvRadius = sqrt(dot(shiftCoord, shiftCoord));
+	// arc tan of coords gives angle
+	float uvAngle = atan(shiftCoord.y, shiftCoord.x);
+
+	return vec2(uvRadius, uvAngle);
+}
+
+vec2 polarToCartUV(float angle, float radius){
+	//add 0.5 to shift center back
+	return vec2(cos(angle), sin(angle) )* radius + 0.5;
+}
+
+float angleIsInSegment(float angle){
+	return floor(angle / SEG_BORDER_ANGLE());
+}
+
+vec2 sliceUV(vec2 uv){
+	
+	//get polar coordinates
+	vec2 pRadAngle = cartToPolarUV(uv);
+	float uvRadius = pRadAngle.x;
+	float uvAngle = pRadAngle.y;
+				
+	//where is the angle in segment space
+	float angleInSegment = uvAngle - SEG_BORDER_ANGLE() * angleIsInSegment(uvAngle);
+
+	//reflect across the segment.
+	angleInSegment = min(angleInSegment, SEG_BORDER_ANGLE()  - angleInSegment);
+
+	vec2 sliceUV = polarToCartUV(angleInSegment, uvRadius);
+
+	sliceUV = max(min(sliceUV, 2.0 - sliceUV), -sliceUV);
+
+	return sliceUV;
+}
+
+void fragment(){
+	vec2 samp = sliceUV(UV);
+	COLOR = texture(TEXTURE, samp);// vec4(UV,0, 1.0);
+	
+	float dist = distance(vec2(0.5, 0.5),UV);
+    if (dist > border_radius){
+		COLOR = vec4(0.0,0.0,0.0,1.0);
+	}
+}"
+
+[resource]
+shader = SubResource( 4 )
+shader_param/border_radius = 0.25
+shader_param/blue = 0.476
+shader_param/segments = 6.0
