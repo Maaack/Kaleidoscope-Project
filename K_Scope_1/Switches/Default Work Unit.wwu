@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WwiseDocument Type="WorkUnit" ID="{65A9A595-EA44-4316-8172-13D71A0331DE}" SchemaVersion="103">
+	<Switches>
+		<WorkUnit Name="Default Work Unit" ID="{65A9A595-EA44-4316-8172-13D71A0331DE}" PersistMode="Standalone">
+			<ChildrenList>
+				<SwitchGroup Name="Music_CalmIntenseMax" ID="{BE410F95-87FE-4C5E-9B23-4A329C23A6EC}">
+					<ChildrenList>
+						<Switch Name="Calm" ID="{A999F13E-94F8-448A-9671-6138870A604B}"/>
+						<Switch Name="Intense" ID="{07C83298-3580-47AC-B946-8FDC1E4D0683}"/>
+						<Switch Name="Max" ID="{A99B6341-675B-44B6-BC71-7916EF658254}"/>
+					</ChildrenList>
+				</SwitchGroup>
+			</ChildrenList>
+		</WorkUnit>
+	</Switches>
+</WwiseDocument>
