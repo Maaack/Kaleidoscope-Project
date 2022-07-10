@@ -20,58 +20,58 @@
 [node name="CircularTumbler" parent="." instance=ExtResource( 2 )]
 
 [node name="CircleGemstone" parent="." instance=ExtResource( 4 )]
-position = Vector2( -35, -30 )
+position = Vector2( -37, -66 )
 
 [node name="CircleGemstone2" parent="." instance=ExtResource( 4 )]
-position = Vector2( 49, -31 )
+position = Vector2( 29, -62 )
 
 [node name="CircleGemstone3" parent="." instance=ExtResource( 4 )]
-position = Vector2( -61, 6 )
+position = Vector2( -71, 0 )
 
 [node name="CircleGemstone4" parent="." instance=ExtResource( 4 )]
-position = Vector2( 1, -46 )
+position = Vector2( 6, -77 )
 
 [node name="CircleGemstone5" parent="." instance=ExtResource( 4 )]
-position = Vector2( 81, -12 )
+position = Vector2( 55, 50 )
 
 [node name="DiamondGemstone" parent="." instance=ExtResource( 3 )]
-position = Vector2( 77, 25 )
+position = Vector2( 24, 75 )
 sprite_texture = ExtResource( 5 )
 
 [node name="DiamondGemstone2" parent="." instance=ExtResource( 3 )]
-position = Vector2( 93, -47 )
+position = Vector2( 59, 12 )
 sprite_texture = ExtResource( 13 )
 
 [node name="DiamondGemstone3" parent="." instance=ExtResource( 3 )]
-position = Vector2( -82, -38 )
+position = Vector2( -49, -33 )
 sprite_texture = ExtResource( 12 )
 
 [node name="DiamondGemstone4" parent="." instance=ExtResource( 3 )]
-position = Vector2( -44, -70 )
+position = Vector2( -10, -46 )
 sprite_texture = ExtResource( 14 )
 
 [node name="PolygonGemstone" parent="." instance=ExtResource( 6 )]
-position = Vector2( -2, -95 )
+position = Vector2( 62, -38 )
 
 [node name="PolygonGemstone2" parent="." instance=ExtResource( 6 )]
-position = Vector2( -48, 43 )
+position = Vector2( -58, 37 )
 sprite_texture = ExtResource( 10 )
 
 [node name="PolygonGemstone3" parent="." instance=ExtResource( 6 )]
-position = Vector2( 32, -3 )
+position = Vector2( 19, -11 )
 sprite_texture = ExtResource( 11 )
 
 [node name="SquareGemstone" parent="." instance=ExtResource( 1 )]
-position = Vector2( 60, -85 )
+position = Vector2( -18, 68 )
 
 [node name="SquareGemstone2" parent="." instance=ExtResource( 1 )]
-position = Vector2( -18, 4 )
+position = Vector2( -21, 1 )
 sprite_texture = ExtResource( 9 )
 
 [node name="SquareGemstone3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 36, 40 )
+position = Vector2( 26, 34 )
 sprite_texture = ExtResource( 7 )
 
 [node name="SquareGemstone4" parent="." instance=ExtResource( 1 )]
-position = Vector2( -1, 45 )
+position = Vector2( -10, 34 )
 sprite_texture = ExtResource( 8 )

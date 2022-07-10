@@ -24,7 +24,7 @@ margin_bottom = -1095.0
 transparent_bg = true
 
 [node name="Camera2D" parent="KaleidoscopeViewport/Viewport" index="1"]
-zoom = Vector2( 0.1, 0.1 )
+zoom = Vector2( 0.2, 0.2 )
 
 [node name="TestViewport" type="Viewport" parent="."]
 size = Vector2( 1000, 1000 )
