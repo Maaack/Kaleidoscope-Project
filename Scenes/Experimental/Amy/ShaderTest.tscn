@@ -1,0 +1,87 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Scenes/Experimental/Amy/128844-pink-blue-and-white-abstract-curve-background-vector-art.jpg" type="Texture" id=1]
+[ext_resource path="res://Scenes/Experimental/Amy/ShaderTest.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Experimental/Amy/ShaderTest.tres" type="Material" id=3]
+[ext_resource path="res://Scenes/Experimental/Amy/Screenshot from 2020-09-23 14-23-49.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/Kaleidoscope/KaleidoscopeViewport.tscn" type="PackedScene" id=5]
+
+[sub_resource type="CubeMesh" id=1]
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="ViewportTexture" id=4]
+viewport_path = NodePath("Viewport")
+
+[sub_resource type="ViewportTexture" id=3]
+viewport_path = NodePath("Viewport")
+
+[node name="Node" type="Node"]
+
+[node name="Viewport" type="Viewport" parent="."]
+size = Vector2( 1000, 1000 )
+hdr = false
+disable_3d = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="Viewport"]
+
+[node name="TextureRect2" type="TextureRect" parent="Viewport/CanvasLayer"]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_rotation = -15.0
+rect_scale = Vector2( 0.785, 1.201 )
+texture = ExtResource( 4 )
+expand = true
+flip_h = true
+
+[node name="Sprite" type="Sprite" parent="Viewport"]
+position = Vector2( 0.283, 0.209 )
+rotation = 0.106465
+scale = Vector2( 4.621, 2.965 )
+texture = ExtResource( 1 )
+offset = Vector2( 0.479, 0.249 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 1 )
+material/0 = SubResource( 2 )
+
+[node name="ShaderTest" type="Sprite" parent="."]
+visible = false
+material = ExtResource( 3 )
+texture = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+material = ExtResource( 3 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -908.0
+margin_top = -529.0
+margin_right = 172.0
+margin_bottom = 551.0
+rect_scale = Vector2( 1, 0.988753 )
+texture = SubResource( 4 )
+expand = true
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = 1978.0
+margin_top = -471.0
+margin_right = 3058.0
+margin_bottom = 609.0
+rect_scale = Vector2( 1, 0.988753 )
+texture = SubResource( 3 )
+expand = true
+
+[node name="KaleidoscopeViewport" parent="." instance=ExtResource( 5 )]
+margin_left = -93.0
+margin_top = 1433.0
+margin_right = -93.0
+margin_bottom = 1433.0
