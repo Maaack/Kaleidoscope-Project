@@ -1,23 +1,77 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=15 format=2]
 
-[ext_resource path="res://Scenes/Kaleidoscope/Gemstone.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Kaleidoscope/Gemstones/SquareGemstone.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Kaleidoscope/CircularTumbler.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/Kaleidoscope/Gemstones/DiamondGemstone.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Kaleidoscope/Gemstones/CircleGemstone.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Assets/Sourced/Textures/element_yellow_diamond.png" type="Texture" id=5]
+[ext_resource path="res://Scenes/Kaleidoscope/Gemstones/PolygonGemstone.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Sourced/Textures/element_purple_square.png" type="Texture" id=7]
+[ext_resource path="res://Assets/Sourced/Textures/element_red_square.png" type="Texture" id=8]
+[ext_resource path="res://Assets/Sourced/Textures/element_green_square.png" type="Texture" id=9]
+[ext_resource path="res://Assets/Sourced/Textures/element_grey_polygon.png" type="Texture" id=10]
+[ext_resource path="res://Assets/Sourced/Textures/element_green_polygon.png" type="Texture" id=11]
+[ext_resource path="res://Assets/Sourced/Textures/element_red_diamond.png" type="Texture" id=12]
+[ext_resource path="res://Assets/Sourced/Textures/element_purple_diamond.png" type="Texture" id=13]
+[ext_resource path="res://Assets/Sourced/Textures/element_green_diamond.png" type="Texture" id=14]
 
 [node name="TumblerScene" type="Node2D"]
 
 [node name="CircularTumbler" parent="." instance=ExtResource( 2 )]
 
-[node name="Gemstone" parent="." instance=ExtResource( 1 )]
-position = Vector2( -37, -95 )
+[node name="CircleGemstone" parent="." instance=ExtResource( 4 )]
+position = Vector2( -35, -30 )
 
-[node name="Gemstone2" parent="." instance=ExtResource( 1 )]
-position = Vector2( 34, -69 )
+[node name="CircleGemstone2" parent="." instance=ExtResource( 4 )]
+position = Vector2( 49, -31 )
 
-[node name="Gemstone3" parent="." instance=ExtResource( 1 )]
-position = Vector2( 103, -11 )
+[node name="CircleGemstone3" parent="." instance=ExtResource( 4 )]
+position = Vector2( -61, 6 )
 
-[node name="Gemstone4" parent="." instance=ExtResource( 1 )]
-position = Vector2( -60, -12 )
+[node name="CircleGemstone4" parent="." instance=ExtResource( 4 )]
+position = Vector2( 1, -46 )
 
-[node name="Gemstone5" parent="." instance=ExtResource( 1 )]
-position = Vector2( 23, 42 )
+[node name="CircleGemstone5" parent="." instance=ExtResource( 4 )]
+position = Vector2( 81, -12 )
+
+[node name="DiamondGemstone" parent="." instance=ExtResource( 3 )]
+position = Vector2( 77, 25 )
+sprite_texture = ExtResource( 5 )
+
+[node name="DiamondGemstone2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 93, -47 )
+sprite_texture = ExtResource( 13 )
+
+[node name="DiamondGemstone3" parent="." instance=ExtResource( 3 )]
+position = Vector2( -82, -38 )
+sprite_texture = ExtResource( 12 )
+
+[node name="DiamondGemstone4" parent="." instance=ExtResource( 3 )]
+position = Vector2( -44, -70 )
+sprite_texture = ExtResource( 14 )
+
+[node name="PolygonGemstone" parent="." instance=ExtResource( 6 )]
+position = Vector2( -2, -95 )
+
+[node name="PolygonGemstone2" parent="." instance=ExtResource( 6 )]
+position = Vector2( -48, 43 )
+sprite_texture = ExtResource( 10 )
+
+[node name="PolygonGemstone3" parent="." instance=ExtResource( 6 )]
+position = Vector2( 32, -3 )
+sprite_texture = ExtResource( 11 )
+
+[node name="SquareGemstone" parent="." instance=ExtResource( 1 )]
+position = Vector2( 60, -85 )
+
+[node name="SquareGemstone2" parent="." instance=ExtResource( 1 )]
+position = Vector2( -18, 4 )
+sprite_texture = ExtResource( 9 )
+
+[node name="SquareGemstone3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 36, 40 )
+sprite_texture = ExtResource( 7 )
+
+[node name="SquareGemstone4" parent="." instance=ExtResource( 1 )]
+position = Vector2( -1, 45 )
+sprite_texture = ExtResource( 8 )
