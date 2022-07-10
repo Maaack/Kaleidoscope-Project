@@ -3,8 +3,9 @@
 [ext_resource path="res://Scenes/Kaleidoscope/CircularTumbler.gd" type="Script" id=1]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 40, 10 )
+extents = Vector2( 20, 10 )
 
 [node name="CircularTumbler" type="KinematicBody2D"]
 script = ExtResource( 1 )
+radius = 125.0
 edge_shape = SubResource( 1 )
