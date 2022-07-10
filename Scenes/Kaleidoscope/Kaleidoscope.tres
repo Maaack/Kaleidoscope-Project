@@ -4,7 +4,6 @@
 code = "shader_type canvas_item;
 
 uniform float border_radius = 0.25;
-uniform float blue = 1.0;
 
 uniform float segments = 4.0;
 
@@ -68,6 +67,5 @@ void fragment(){
 
 [resource]
 shader = SubResource( 4 )
-shader_param/border_radius = 0.25
-shader_param/blue = 0.476
+shader_param/border_radius = 0.48
 shader_param/segments = 6.0

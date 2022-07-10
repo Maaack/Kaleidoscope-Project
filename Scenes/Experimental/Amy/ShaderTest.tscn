@@ -7,18 +7,24 @@
 [ext_resource path="res://Scenes/Kaleidoscope/KaleidoscopeViewport.tscn" type="PackedScene" id=5]
 
 [sub_resource type="ViewportTexture" id=4]
-viewport_path = NodePath("TestViewport")
+viewport_path = NodePath("KaleidoscopeViewport/Viewport")
 
 [sub_resource type="ViewportTexture" id=3]
-viewport_path = NodePath("TestViewport")
+viewport_path = NodePath("KaleidoscopeViewport/Viewport")
 
 [node name="Node" type="Node"]
 
 [node name="KaleidoscopeViewport" parent="." instance=ExtResource( 5 )]
-margin_left = 4.0
-margin_top = 23.0
-margin_right = 4.0
-margin_bottom = 23.0
+margin_left = -10.0
+margin_top = -1095.0
+margin_right = -10.0
+margin_bottom = -1095.0
+
+[node name="Viewport" parent="KaleidoscopeViewport" index="0"]
+transparent_bg = true
+
+[node name="Camera2D" parent="KaleidoscopeViewport/Viewport" index="1"]
+zoom = Vector2( 0.1, 0.1 )
 
 [node name="TestViewport" type="Viewport" parent="."]
 size = Vector2( 1000, 1000 )
@@ -39,16 +45,32 @@ material = ExtResource( 3 )
 texture = ExtResource( 1 )
 script = ExtResource( 2 )
 
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -400.0
+margin_top = -400.0
+margin_right = 400.0
+margin_bottom = 400.0
+color = Color( 0.588235, 0.580392, 0.733333, 1 )
+
 [node name="Kaleidoscope" type="TextureRect" parent="."]
 material = ExtResource( 3 )
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -540.0
-margin_top = -540.0
-margin_right = 540.0
-margin_bottom = 540.0
+margin_left = -400.0
+margin_top = -400.0
+margin_right = 400.0
+margin_bottom = 400.0
 rect_scale = Vector2( 1, 0.988753 )
 texture = SubResource( 4 )
 expand = true
@@ -56,11 +78,12 @@ expand = true
 [node name="Preview" type="TextureRect" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -414.0
-margin_right = -14.0
-margin_bottom = 400.0
+margin_left = -212.0
+margin_right = -12.0
+margin_bottom = 200.0
 rect_scale = Vector2( 1, 0.988753 )
 texture = SubResource( 3 )
 expand = true
+flip_v = true
 
 [editable path="KaleidoscopeViewport"]
