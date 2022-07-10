@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Kaleidoscope/Gemstone.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Kaleidoscope/CircularTumbler.tscn" type="PackedScene" id=2]
+
+[node name="TumblerScene" type="Node2D"]
+
+[node name="CircularTumbler" parent="." instance=ExtResource( 2 )]
+
+[node name="Gemstone" parent="." instance=ExtResource( 1 )]
+position = Vector2( -37, -95 )
+
+[node name="Gemstone2" parent="." instance=ExtResource( 1 )]
+position = Vector2( 34, -69 )
+
+[node name="Gemstone3" parent="." instance=ExtResource( 1 )]
+position = Vector2( 103, -11 )
+
+[node name="Gemstone4" parent="." instance=ExtResource( 1 )]
+position = Vector2( -60, -12 )
+
+[node name="Gemstone5" parent="." instance=ExtResource( 1 )]
+position = Vector2( 23, 42 )
