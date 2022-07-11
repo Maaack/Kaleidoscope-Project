@@ -9,12 +9,24 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Reference",
+"class": "AK",
+"language": "GDScript",
+"path": "res://wwise/GeneratedSoundBanks/wwise_ids.gd"
+}, {
+"base": "Reference",
+"class": "AkUtils",
+"language": "GDScript",
+"path": "res://addons/wwise/runtime/helpers/ak_utils.gd"
+}, {
 "base": "Button",
 "class": "SoundButton",
 "language": "GDScript",
 "path": "res://Scenes/MainScene/SoundButton.gd"
 } ]
 _global_script_class_icons={
+"AK": "",
+"AkUtils": "",
 "SoundButton": ""
 }
 
@@ -24,10 +36,20 @@ config/name="Kaleidoscope Project"
 run/main_scene="res://Scenes/Experimental/Amy/ShaderTest.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+WwiseSettings="*res://addons/wwise/editor/wwise_settings.gd"
+Wwise="*res://addons/wwise/bin/wwise-gdnative.gdns"
+Waapi="*res://addons/wwise/bin/waapi-gdnative.gdns"
+
 [display]
 
 window/size/width=1920
 window/size/height=1080
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/wwise/plugin.cfg" )
 
 [gui]
 
@@ -40,3 +62,7 @@ common/enable_pause_aware_picking=true
 [rendering]
 
 environment/default_environment="res://default_env.tres"
+
+[wwise]
+
+common_user_settings/load_init_bank_at_startup=true

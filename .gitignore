@@ -6,3 +6,93 @@ exports/
 *.png.import
 export.cfg
 export_presets.cfg
+addons/*
+addons/wwise/bin/linux/debug/libWwiseGDNative.so
+addons/wwise/bin/linux/release/libWwiseGDNative.so
+addons/wwise/bin/osx/debug/libWaapiGDNative.dylib
+addons/wwise/bin/osx/debug/libWwiseGDNative.dylib
+addons/wwise/bin/osx/release/libWaapiGDNative.dylib
+addons/wwise/bin/osx/release/libWwiseGDNative.dylib
+addons/wwise/bin/waapi-gdnative.gdnlib
+addons/wwise/bin/waapi-gdnative.gdns
+addons/wwise/bin/win64/debug/WaapiGDNative.dll
+addons/wwise/bin/win64/debug/WaapiGDNative.exp
+addons/wwise/bin/win64/debug/WaapiGDNative.ilk
+addons/wwise/bin/win64/debug/WaapiGDNative.lib
+addons/wwise/bin/win64/debug/WaapiGDNative.pdb
+addons/wwise/bin/win64/debug/WwiseGDNative.dll
+addons/wwise/bin/win64/debug/WwiseGDNative.exp
+addons/wwise/bin/win64/debug/WwiseGDNative.ilk
+addons/wwise/bin/win64/debug/WwiseGDNative.lib
+addons/wwise/bin/win64/debug/WwiseGDNative.pdb
+addons/wwise/bin/win64/release/WaapiGDNative.dll
+addons/wwise/bin/win64/release/WaapiGDNative.exp
+addons/wwise/bin/win64/release/WaapiGDNative.lib
+addons/wwise/bin/win64/release/WwiseGDNative.dll
+addons/wwise/bin/win64/release/WwiseGDNative.exp
+addons/wwise/bin/win64/release/WwiseGDNative.lib
+addons/wwise/bin/wwise-gdnative.gdnlib
+addons/wwise/bin/wwise-gdnative.gdns
+addons/wwise/editor/ak_event_gizmo.gd
+addons/wwise/editor/images/.gdignore
+addons/wwise/editor/images/wwise_node.png
+addons/wwise/editor/images/WwiseAudioSpeaker.png
+addons/wwise/editor/inspector_browser/inspector_browser.tscn
+addons/wwise/editor/inspector_browser/inspector_browser_editor.gd
+addons/wwise/editor/inspector_browser/inspector_browser_editor_plugin.gd
+addons/wwise/editor/inspector_browser/inspector_browser_plugin.gd
+addons/wwise/editor/inspector_browser/inspector_browser_tree.gd
+addons/wwise/editor/waapi_picker/icons/.gdignore
+addons/wwise/editor/waapi_picker/icons/acoustictexture.png
+addons/wwise/editor/waapi_picker/icons/auxbus.png
+addons/wwise/editor/waapi_picker/icons/bus.png
+addons/wwise/editor/waapi_picker/icons/event.png
+addons/wwise/editor/waapi_picker/icons/folder.png
+addons/wwise/editor/waapi_picker/icons/rtpc.png
+addons/wwise/editor/waapi_picker/icons/search.png
+addons/wwise/editor/waapi_picker/icons/soundbank.png
+addons/wwise/editor/waapi_picker/icons/state.png
+addons/wwise/editor/waapi_picker/icons/stategroup.png
+addons/wwise/editor/waapi_picker/icons/switch.png
+addons/wwise/editor/waapi_picker/icons/switchgroup.png
+addons/wwise/editor/waapi_picker/icons/workunit.png
+addons/wwise/editor/waapi_picker/icons/wwise_project.png
+addons/wwise/editor/waapi_picker/plugin.cfg
+addons/wwise/editor/waapi_picker/waapi_picker.gd
+addons/wwise/editor/waapi_picker/waapi_picker.tscn
+addons/wwise/editor/waapi_picker/waapi_picker_drag.gd
+addons/wwise/editor/wwise_build_export.gd
+addons/wwise/editor/wwise_custom_nodes.gd
+addons/wwise/editor/wwise_settings.gd
+addons/wwise/plugin.cfg
+addons/wwise/runtime/helpers/ak_aux_data.gd
+addons/wwise/runtime/helpers/ak_event_handler.gd
+addons/wwise/runtime/helpers/ak_event_handler_2d.gd
+addons/wwise/runtime/helpers/ak_game_obj.gd
+addons/wwise/runtime/helpers/ak_game_obj_2d.gd
+addons/wwise/runtime/helpers/ak_game_obj_environment_data.gd
+addons/wwise/runtime/helpers/ak_utils.gd
+addons/wwise/runtime/nodes/ak_acoustic_texture.gd
+addons/wwise/runtime/nodes/ak_bank.gd
+addons/wwise/runtime/nodes/ak_early_reflections.gd
+addons/wwise/runtime/nodes/ak_environment.gd
+addons/wwise/runtime/nodes/ak_event.gd
+addons/wwise/runtime/nodes/ak_event_2d.gd
+addons/wwise/runtime/nodes/ak_geometry.gd
+addons/wwise/runtime/nodes/ak_listener.gd
+addons/wwise/runtime/nodes/ak_listener_2d.gd
+addons/wwise/runtime/nodes/ak_portal.gd
+addons/wwise/runtime/nodes/ak_room.gd
+addons/wwise/runtime/nodes/ak_state.gd
+addons/wwise/runtime/nodes/ak_switch.gd
+addons/wwise/runtime/visual nodes/ak_get_rtpc_value_vs.gd
+addons/wwise/runtime/visual nodes/ak_load_bank_vs.gd
+addons/wwise/runtime/visual nodes/ak_post_event_2d_vs.gd
+addons/wwise/runtime/visual nodes/ak_post_event_vs.gd
+addons/wwise/runtime/visual nodes/ak_set_2d_position_vs.gd
+addons/wwise/runtime/visual nodes/ak_set_3d_position_vs.gd
+addons/wwise/runtime/visual nodes/ak_set_rtpc_value_vs.gd
+addons/wwise/runtime/visual nodes/ak_set_state_vs.gd
+addons/wwise/runtime/visual nodes/ak_set_switch_vs.gd
+addons/wwise/runtime/visual nodes/ak_unload_bank_vs.gd
+addons/wwise/wwise.gd
