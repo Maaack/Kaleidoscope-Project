@@ -1,19 +1,26 @@
 extends ViewportContainer
-const ROTATION_STEP = 3 # rotation step when using keyboard or scroll wheel to move the kaleidoscope
+const ROTATION_STEP = 0.5# rotation step when using keyboard or scroll wheel to move the kaleidoscope
 const MAX_ROTATION_STEP = 5 # maximum rotation that can be applied at each movement
 const MOUSE_SENSITIVITY = 0.001 # sensitivity of the mouse
 const CAPTURED_MOUSE_SENSITIVITY = 0.5# sensitivity of the mouse in captured mode (somewhat the speed is different in each mode)
+
+export var auto_rotate = false;
 
 var next_rotation = 0 # the next rotation to apply to the tumbler
 
 
 func _physics_process(delta : float) -> void:
+	if auto_rotate:
+		next_rotation = ROTATION_STEP
 	$Viewport/TumblerScene.rotate(next_rotation * delta)
 	next_rotation = 0
 
 
 func _input(event : InputEvent) -> void:
-	if event is InputEventMouseMotion:
+	if auto_rotate:
+		return;
+		
+	elif event is InputEventMouseMotion:
 		var x_speed : float
 		
 		if Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
