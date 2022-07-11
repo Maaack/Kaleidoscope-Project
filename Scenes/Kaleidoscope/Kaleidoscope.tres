@@ -1,11 +1,14 @@
 [gd_resource type="ShaderMaterial" load_steps=2 format=2]
 
-[sub_resource type="Shader" id=4]
+[sub_resource type="Shader" id=5]
 code = "shader_type canvas_item;
 
 uniform float border_radius = 0.25;
+uniform float center_radius = 0.25;
 
 uniform float segments = 4.0;
+
+uniform bool show_slice_only = false;
 
 const float PI = 3.14159265358979323846;
 const float PI_TWO = 6.28318530718f;
@@ -15,9 +18,15 @@ const float SEG_BORDER_ANGLE () {
 	return (PI_TWO) / segments;
 }
 
-vec2 cartToPolarUV(vec2 coord){
+// can I define macros in godot shader language?
+const float HALF_SEG_BORDER_ANGLE () {
+	return (PI) / segments;
+}
+
+
+vec2 cartToPolarUV(vec2 coord, vec2 center){
 	//shift to the center
-	vec2 shiftCoord = coord - 0.5;
+	vec2 shiftCoord = coord - center;
 	//pythagorias
 	float uvRadius = sqrt(dot(shiftCoord, shiftCoord));
 	// arc tan of coords gives angle
@@ -26,46 +35,124 @@ vec2 cartToPolarUV(vec2 coord){
 	return vec2(uvRadius, uvAngle);
 }
 
-vec2 polarToCartUV(float angle, float radius){
+vec2 polarToCartUV(float angle, float radius, vec2 center){
 	//add 0.5 to shift center back
-	return vec2(cos(angle), sin(angle) )* radius + 0.5;
+	return vec2(cos(angle), sin(angle) )* radius + center;
 }
 
 float angleIsInSegment(float angle){
-	return floor(angle / SEG_BORDER_ANGLE());
+	return round(angle / SEG_BORDER_ANGLE());
+}
+
+float doMod(float mod1, float mod2){
+	return mod1 - mod2 * floor(mod1 / mod2);
+}
+
+vec2 getCenterUV(vec2 uv){
+	vec2 center = vec2(0.5, 0.5);
+	
+	//get polar coordinates
+	vec2 pRadAngle = cartToPolarUV(uv, center);
+	//float uvRadius = pRadAngle.x;
+	//float uvAngle = pRadAngle.y;
+	
+	if (distance(center, uv) > center_radius){
+		float seg = angleIsInSegment(pRadAngle.y);
+		
+		float angleToCenter = seg * SEG_BORDER_ANGLE();// HALF_SEG_BORDER_ANGLE() ;
+		
+		//angleToCenter = min(angleToCenter, HALF_SEG_BORDER_ANGLE()) - angleToCenter;
+		float radiusToCenter = center_radius * 2.0;
+		
+		center = polarToCartUV(angleToCenter, radiusToCenter, center);
+	}
+	return center;
 }
 
 vec2 sliceUV(vec2 uv){
-	
+	//vec2 center = vec2(0.5, 0.5);
+	/*
 	//get polar coordinates
-	vec2 pRadAngle = cartToPolarUV(uv);
+	vec2 pRadAngle = cartToPolarUV(uv, center);
+	float uvRadius = pRadAngle.x;
+	float uvAngle = pRadAngle.y;
+	
+	if (distance(center, uv) > center_radius){
+		float seg = angleIsInSegment(uvAngle);
+		
+		float angleToCenter =seg * HALF_SEG_BORDER_ANGLE();// HALF_SEG_BORDER_ANGLE() ;
+		//angleToCenter = min(angleToCenter, HALF_SEG_BORDER_ANGLE()) - angleToCenter;
+		float radiusToCenter = center_radius * 2.0;
+		
+		center = polarToCartUV(angleToCenter, radiusToCenter, center);
+		pRadAngle = cartToPolarUV(uv, center);
+		uvRadius = pRadAngle.x;
+		uvAngle = pRadAngle.y;
+	}*/
+	vec2 center = getCenterUV(uv);
+	vec2 pRadAngle = cartToPolarUV(uv, center);
 	float uvRadius = pRadAngle.x;
 	float uvAngle = pRadAngle.y;
 				
 	//where is the angle in segment space
-	float angleInSegment = uvAngle - SEG_BORDER_ANGLE() * angleIsInSegment(uvAngle);
+	float angleInSegment = doMod(uvAngle, SEG_BORDER_ANGLE());//uvAngle - SEG_BORDER_ANGLE() * angleIsInSegment(uvAngle);
 
 	//reflect across the segment.
 	angleInSegment = min(angleInSegment, SEG_BORDER_ANGLE()  - angleInSegment);
 
-	vec2 sliceUV = polarToCartUV(angleInSegment, uvRadius);
+	float segRadius = uvRadius / 2.0;
+	float radiusInSegment =uvRadius; //doMod(uvRadius, center_radius);
+	
+	vec2 sliceUV = polarToCartUV(angleInSegment, radiusInSegment, vec2 (0.5, 0.5));
 
 	sliceUV = max(min(sliceUV, 2.0 - sliceUV), -sliceUV);
 
 	return sliceUV;
 }
+// for Debugging
+bool isSegBorderLine(vec2 uv){
+	float pAngle = cartToPolarUV(uv, vec2 (0.5, 0.5)).y;
+	float degUV = ((pAngle * ( 180.0 / PI )) / 360.0) + 0.5;
+	float degSeg = ((SEG_BORDER_ANGLE() / 2.0 * ( 180.0 / PI )) / 360.0) ;
+	return (degUV > degSeg - 0.001 && degUV < degSeg + 0.001);
+}
+bool inOriginalSlice(vec2 uv){
+	float pAngle = cartToPolarUV(uv, vec2 (0.5, 0.5)).y;
+	float degUV = ((pAngle * ( 180.0 / PI )) / 360.0) + 0.5;
+	float degSeg = ((SEG_BORDER_ANGLE() / 2.0 * ( 180.0 / PI )) / 360.0) ;
+	//COLOR = vec4(0,  degUV, 0, 1.0);
+	
+	return degUV < degSeg;
+}
+
+
 
 void fragment(){
 	vec2 samp = sliceUV(UV);
 	COLOR = texture(TEXTURE, samp);// vec4(UV,0, 1.0);
 	
 	float dist = distance(vec2(0.5, 0.5),UV);
+	
+	
+	if (distance(getCenterUV(UV), UV) < 0.01){
+		COLOR = vec4(1.0, 0, 0, 1.0);
+	}
+	if (show_slice_only){
+		if (!inOriginalSlice(UV)){
+			discard;
+		}
+	}
     if (dist > border_radius){
 		COLOR = vec4(0.0,0.0,0.0,1.0);
+		//discard;
 	}
+	
+	
 }"
 
 [resource]
-shader = SubResource( 4 )
-shader_param/border_radius = 0.48
+shader = SubResource( 5 )
+shader_param/border_radius = 0.5
+shader_param/center_radius = 0.167
 shader_param/segments = 6.0
+shader_param/show_slice_only = false
