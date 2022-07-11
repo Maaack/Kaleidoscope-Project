@@ -27,7 +27,6 @@ func set_radius(value : float) -> void:
 	_clear_children()
 	_place_collision_shapes_in_circle()
 
-
 func set_segments(value : int) -> void:
 	segments = value
 	if segments == null:
