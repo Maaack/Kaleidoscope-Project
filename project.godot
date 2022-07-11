@@ -9,7 +9,7 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "ViewportContainer",
+"base": "Viewport",
 "class": "KaleidoscopeViewport",
 "language": "GDScript",
 "path": "res://Scenes/Kaleidoscope/KaleidoscopeViewport.gd"

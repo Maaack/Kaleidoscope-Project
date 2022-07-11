@@ -11,4 +11,3 @@ func _process(_delta : float):
 			$AnimationPlayer.play("show")
 			
 		showing_pattern = !showing_pattern
-

@@ -6,25 +6,15 @@
 [ext_resource path="res://Scenes/Experimental/Amy/TestSprite.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Kaleidoscope/KaleidoscopeViewport.tscn" type="PackedScene" id=5]
 
-[sub_resource type="ViewportTexture" id=4]
-viewport_path = NodePath("KaleidoscopeViewport/Viewport")
+[sub_resource type="ViewportTexture" id=1]
+viewport_path = NodePath("KaleidoscopeViewport")
 
-[sub_resource type="ViewportTexture" id=3]
-viewport_path = NodePath("KaleidoscopeViewport/Viewport")
+[sub_resource type="ViewportTexture" id=2]
+viewport_path = NodePath("KaleidoscopeViewport")
 
 [node name="Node" type="Node"]
 
 [node name="KaleidoscopeViewport" parent="." instance=ExtResource( 5 )]
-margin_left = -10.0
-margin_top = -1095.0
-margin_right = -10.0
-margin_bottom = -1095.0
-
-[node name="Viewport" parent="KaleidoscopeViewport" index="0"]
-transparent_bg = true
-
-[node name="Camera2D" parent="KaleidoscopeViewport/Viewport" index="1"]
-zoom = Vector2( 0.2, 0.2 )
 
 [node name="TestViewport" type="Viewport" parent="."]
 size = Vector2( 1000, 1000 )
@@ -48,6 +38,7 @@ script = ExtResource( 2 )
 [node name="ColorRect2" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
+mouse_filter = 2
 color = Color( 0, 0, 0, 1 )
 
 [node name="ColorRect" type="ColorRect" parent="."]
@@ -59,6 +50,7 @@ margin_left = -400.0
 margin_top = -400.0
 margin_right = 400.0
 margin_bottom = 400.0
+mouse_filter = 2
 color = Color( 0.588235, 0.580392, 0.733333, 1 )
 
 [node name="Kaleidoscope" type="TextureRect" parent="."]
@@ -72,7 +64,8 @@ margin_top = -400.0
 margin_right = 400.0
 margin_bottom = 400.0
 rect_scale = Vector2( 1, 0.988753 )
-texture = SubResource( 4 )
+mouse_filter = 2
+texture = SubResource( 1 )
 expand = true
 
 [node name="Preview" type="TextureRect" parent="."]
@@ -82,7 +75,8 @@ margin_left = -212.0
 margin_right = -12.0
 margin_bottom = 200.0
 rect_scale = Vector2( 1, 0.988753 )
-texture = SubResource( 3 )
+mouse_filter = 2
+texture = SubResource( 2 )
 expand = true
 flip_v = true
 
