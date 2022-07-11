@@ -5,12 +5,16 @@ const ROTATION_STEP = 3 # rotation step when using keyboard or scroll wheel to m
 const MAX_ROTATION_STEP = 5 # maximum rotation that can be applied at each movement
 const MOUSE_SENSITIVITY = 0.001 # sensitivity of the mouse
 const CAPTURED_MOUSE_SENSITIVITY = 0.5# sensitivity of the mouse in captured mode (somewhat the speed is different in each mode)
+const ROTATION_3D_MOD = 4
 
 var next_rotation = 0 # the next rotation to apply to the tumbler
 
 
 func _physics_process(delta : float) -> void:
-	$Viewport/TumblerScene.rotate(next_rotation * delta)
+	if $Viewport/TumblerScene is Spatial: # bit hacky for now, but didn't want to duplicate code
+		$Viewport/TumblerScene/CircularTumbler3D.rotate_z(next_rotation * delta * ROTATION_3D_MOD)
+	else:
+		$Viewport/TumblerScene.rotate(next_rotation * delta)
 	next_rotation = 0
 
 
