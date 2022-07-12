@@ -7,6 +7,7 @@
 size = Vector2( 1000, 1000 )
 
 [node name="KaleidoscopeViewport" parent="." instance=ExtResource( 2 )]
+auto_rotate = true
 
 [node name="Viewport" parent="KaleidoscopeViewport" index="0"]
 size = Vector2( 1000, 1000 )
