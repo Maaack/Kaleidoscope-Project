@@ -1,10 +1,13 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Experimental/Amy/128844-pink-blue-and-white-abstract-curve-background-vector-art.jpg" type="Texture" id=1]
 [ext_resource path="res://Scenes/Experimental/Amy/ShaderTest.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Kaleidoscope/Kaleidoscope.tres" type="Material" id=3]
 [ext_resource path="res://Scenes/Experimental/Amy/TestSprite.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Kaleidoscope/KaleidoscopeViewport.tscn" type="PackedScene" id=5]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=6]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=7]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Kaleidoscope/KaleidoscopeControl.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/Kaleidoscope/BaseKaleidoscopeViewer.gd" type="Script" id=10]
 
@@ -48,17 +51,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="ColorRect" type="ColorRect" parent="."]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -400.0
-margin_top = -400.0
-margin_right = 400.0
-margin_bottom = 400.0
-color = Color( 0.588235, 0.580392, 0.733333, 1 )
-
 [node name="Kaleidoscope" type="TextureRect" parent="."]
 material = ExtResource( 3 )
 anchor_left = 0.5
@@ -76,14 +68,30 @@ expand = true
 [node name="Preview" type="TextureRect" parent="."]
 anchor_left = 1.0
 anchor_right = 1.0
-margin_left = -212.0
-margin_right = -12.0
+margin_left = -200.0
 margin_bottom = 200.0
 rect_scale = Vector2( 1, 0.988753 )
 texture = SubResource( 3 )
 expand = true
 flip_v = true
 
-[connection signal="player_rotated" from="KaleidoscopeControl" to="." method="_on_KaleidoscopeControl_player_rotated"]
+[node name="AkBank" type="Node" parent="."]
+script = ExtResource( 7 )
+bank = {
+"Id": 1509027703,
+"Name": "KSCOPEMAIN"
+}
+load_on = 3
 
-[editable path="KaleidoscopeViewport"]
+[node name="AkListener2D" type="Node2D" parent="."]
+script = ExtResource( 8 )
+
+[node name="AkEvent2D" type="Node2D" parent="."]
+script = ExtResource( 6 )
+event = {
+"Id": 1001937282,
+"Name": "LEVEL1 LOADED"
+}
+trigger_on = 3
+
+[connection signal="player_rotated" from="KaleidoscopeControl" to="." method="_on_KaleidoscopeControl_player_rotated"]

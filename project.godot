@@ -33,7 +33,7 @@ _global_script_class_icons={
 [application]
 
 config/name="Kaleidoscope Project"
-run/main_scene="res://Scenes/Experimental/Amy/ShaderTest.tscn"
+run/main_scene="res://Scenes/Experimental/Wwise/WwiseShaderTest.tscn"
 config/icon="res://icon.png"
 
 [autoload]
