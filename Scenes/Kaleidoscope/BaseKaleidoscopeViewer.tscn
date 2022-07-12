@@ -1,8 +1,5 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=1]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=2]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=3]
 [ext_resource path="res://Scenes/Kaleidoscope/Kaleidoscope.tres" type="Material" id=4]
 [ext_resource path="res://Scenes/Kaleidoscope/BaseKaleidoscopeViewer.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Kaleidoscope/KaleidoscopeControl.gd" type="Script" id=9]
@@ -11,7 +8,9 @@
 [sub_resource type="ViewportTexture" id=4]
 viewport_path = NodePath("KaleidoscopeViewport")
 
-[node name="BaseKaleidoscopeViewer" type="Node"]
+[node name="BaseKaleidoscopeViewer" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 script = ExtResource( 8 )
 
 [node name="KaleidoscopeControl" type="Control" parent="."]
@@ -20,44 +19,34 @@ anchor_bottom = 1.0
 script = ExtResource( 9 )
 
 [node name="KaleidoscopeViewport" parent="." instance=ExtResource( 10 )]
+size = Vector2( 400, 400 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0, 0, 0, 1 )
 
-[node name="Kaleidoscope" type="TextureRect" parent="."]
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 64
+custom_constants/margin_top = 64
+custom_constants/margin_left = 64
+custom_constants/margin_bottom = 64
+
+[node name="Control" type="Control" parent="MarginContainer"]
+margin_left = 64.0
+margin_top = 64.0
+margin_right = 1856.0
+margin_bottom = 1016.0
+
+[node name="Kaleidoscope" type="TextureRect" parent="MarginContainer/Control"]
 material = ExtResource( 4 )
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -400.0
-margin_top = -400.0
-margin_right = 400.0
-margin_bottom = 400.0
-rect_scale = Vector2( 1, 0.988753 )
+anchor_right = 1.0
+anchor_bottom = 1.0
+size_flags_vertical = 3
 texture = SubResource( 4 )
 expand = true
+stretch_mode = 6
 
-[node name="AkBank" type="Node" parent="."]
-script = ExtResource( 1 )
-bank = {
-"Id": 1509027703,
-"Name": "KSCOPEMAIN"
-}
-load_on = 3
-
-[node name="AkListener2D" type="Node2D" parent="."]
-script = ExtResource( 2 )
-
-[node name="AkEvent2D" type="Node2D" parent="."]
-script = ExtResource( 3 )
-event = {
-"Id": 1001937282,
-"Name": "LEVEL1 LOADED"
-}
-trigger_on = 3
-
-[connection signal="player_double_clicked" from="KaleidoscopeControl" to="." method="_on_KaleidoscopeControl_player_double_clicked"]
 [connection signal="player_rotated" from="KaleidoscopeControl" to="." method="_on_KaleidoscopeControl_player_rotated"]
