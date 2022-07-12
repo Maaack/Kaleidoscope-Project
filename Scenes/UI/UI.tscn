@@ -63,7 +63,6 @@ tracks/1/keys = {
 script = ExtResource( 2 )
 
 [node name="KaleidoscopeSelection" parent="." instance=ExtResource( 1 )]
-visible = false
 
 [node name="PatternImage" type="TextureRect" parent="."]
 visible = false
@@ -92,3 +91,5 @@ color = Color( 0, 1, 0.811765, 1 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 1 )
 anims/show = SubResource( 3 )
+
+[connection signal="tumbler_selected" from="KaleidoscopeSelection" to="." method="_on_KaleidoscopeSelection_tumbler_selected"]
