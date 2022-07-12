@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Kaleidoscope/Kaleidoscope.tres" type="Material" id=4]
 
 [sub_resource type="ViewportTexture" id=1]
-viewport_path = NodePath("Viewport")
+viewport_path = NodePath("KaleidoscopeViewport")
 
 [node name="MainScene" type="Node2D"]
 
