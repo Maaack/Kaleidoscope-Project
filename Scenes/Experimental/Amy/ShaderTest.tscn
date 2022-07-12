@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://Scenes/Experimental/Amy/128844-pink-blue-and-white-abstract-curve-background-vector-art.jpg" type="Texture" id=1]
 [ext_resource path="res://Scenes/Experimental/Amy/ShaderTest.gd" type="Script" id=2]
@@ -8,26 +8,24 @@
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=6]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=7]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=8]
+[ext_resource path="res://Scenes/Experimental/Amy/KaleidoscopeControl.gd" type="Script" id=9]
+[ext_resource path="res://Scenes/Experimental/Amy/BaseKaleidoscopeViewer.gd" type="Script" id=10]
 
 [sub_resource type="ViewportTexture" id=4]
-viewport_path = NodePath("KaleidoscopeViewport/Viewport")
+viewport_path = NodePath("KaleidoscopeViewport")
 
 [sub_resource type="ViewportTexture" id=3]
-viewport_path = NodePath("KaleidoscopeViewport/Viewport")
+viewport_path = NodePath("KaleidoscopeViewport")
 
 [node name="Node" type="Node"]
+script = ExtResource( 10 )
+
+[node name="KaleidoscopeControl" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 9 )
 
 [node name="KaleidoscopeViewport" parent="." instance=ExtResource( 5 )]
-margin_left = -10.0
-margin_top = -1095.0
-margin_right = -10.0
-margin_bottom = -1095.0
-
-[node name="Viewport" parent="KaleidoscopeViewport" index="0"]
-transparent_bg = true
-
-[node name="Camera2D" parent="KaleidoscopeViewport/Viewport" index="1"]
-zoom = Vector2( 0.2, 0.2 )
 
 [node name="TestViewport" type="Viewport" parent="."]
 size = Vector2( 1000, 1000 )
@@ -108,4 +106,4 @@ event = {
 }
 trigger_on = 3
 
-[editable path="KaleidoscopeViewport"]
+[connection signal="player_rotated" from="KaleidoscopeControl" to="." method="_on_KaleidoscopeControl_player_rotated"]
