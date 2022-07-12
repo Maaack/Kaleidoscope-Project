@@ -2,6 +2,7 @@ extends Control
 
 
 signal player_rotated(rotation)
+signal player_double_clicked
 
 const ROTATION_STEP = 3 # rotation step when using keyboard or scroll wheel to move the kaleidoscope
 const MAX_ROTATION_STEP = 5 # maximum rotation that can be applied at each movement
@@ -22,6 +23,8 @@ func _input(event : InputEvent) -> void:
 	
 
 	elif event is InputEventMouseButton or event is InputEventKey:
+		if event is InputEventMouseButton and event.doubleclick:
+			emit_signal("player_double_clicked")
 		if event.get_action_strength("turn_tumbler_right") > 0: #using get_action_strength instead of is_action_pressed so you can keep the key pressed
 			next_rotation = ROTATION_STEP
 		elif event.get_action_strength("turn_tumbler_left") > 0:

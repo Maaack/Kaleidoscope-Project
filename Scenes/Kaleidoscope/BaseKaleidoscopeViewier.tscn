@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=1]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=2]
@@ -9,9 +9,6 @@
 [ext_resource path="res://Scenes/Kaleidoscope/KaleidoscopeViewport.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ViewportTexture" id=4]
-viewport_path = NodePath("KaleidoscopeViewport")
-
-[sub_resource type="ViewportTexture" id=3]
 viewport_path = NodePath("KaleidoscopeViewport")
 
 [node name="BaseKaleidoscopeViewer" type="Node"]
@@ -43,16 +40,6 @@ rect_scale = Vector2( 1, 0.988753 )
 texture = SubResource( 4 )
 expand = true
 
-[node name="Preview" type="TextureRect" parent="."]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -200.0
-margin_bottom = 200.0
-rect_scale = Vector2( 1, 0.988753 )
-texture = SubResource( 3 )
-expand = true
-flip_v = true
-
 [node name="AkBank" type="Node" parent="."]
 script = ExtResource( 1 )
 bank = {
@@ -72,4 +59,5 @@ event = {
 }
 trigger_on = 3
 
+[connection signal="player_double_clicked" from="KaleidoscopeControl" to="." method="_on_KaleidoscopeControl_player_double_clicked"]
 [connection signal="player_rotated" from="KaleidoscopeControl" to="." method="_on_KaleidoscopeControl_player_rotated"]
