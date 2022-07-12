@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+tool
 
 export(float) var radius : float = 300.0
 export(int) var segments : int = 32
