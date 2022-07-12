@@ -8,9 +8,9 @@ const MAX_ROTATION_STEP = 5 # maximum rotation that can be applied at each movem
 const MOUSE_SENSITIVITY = 0.001 # sensitivity of the mouse
 const CAPTURED_MOUSE_SENSITIVITY = 0.5# sensitivity of the mouse in captured mode (somewhat the speed is different in each mode)
 
+var next_rotation : float
 
 func _input(event : InputEvent) -> void:
-	var next_rotation : float
 	if event is InputEventMouseMotion:
 		var x_speed : float
 		
