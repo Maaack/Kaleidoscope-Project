@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<SoundBanksInfo Platform="Linux" BasePlatform="Linux" SchemaVersion="12" SoundbankVersion="140">
+	<RootPaths>
+		<ProjectRoot>/Users/mikezimean/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/WwiseProjects/K_Scope_1/</ProjectRoot>
+		<SourceFilesRoot>/Users/mikezimean/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/WwiseProjects/K_Scope_1/.cache/Linux/</SourceFilesRoot>
+		<SoundBanksRoot>/Users/mikezimean/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/GitHub/Kaleidoscope-Project/wwise/GeneratedSoundBanks/Linux/</SoundBanksRoot>
+		<ExternalSourcesInputFile></ExternalSourcesInputFile>
+		<ExternalSourcesOutputRoot>/Users/mikezimean/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/WwiseProjects/K_Scope_1/GeneratedSoundBanks/Linux</ExternalSourcesOutputRoot>
+	</RootPaths>
+	<DialogueEvents/>
+	<StreamedFiles/>
+	<MediaFilesNotInAnyBank/>
+	<SoundBanks>
+		<SoundBank Id="1355168291" Language="SFX" Hash="1594150530">
+			<ObjectPath>Init</ObjectPath>
+			<ShortName>Init</ShortName>
+			<Path>1355168291.bnk</Path>
+		</SoundBank>
+		<SoundBank Id="1509027703" Language="SFX" Hash="2337085406">
+			<ObjectPath>\SoundBanks\Default Work Unit\KScopeMain</ObjectPath>
+			<ShortName>KScopeMain</ShortName>
+			<Path>1509027703.bnk</Path>
+			<IncludedEvents>
+				<Event Id="1001937282" Name="Level1_Loaded" ObjectPath="\Events\Default Work Unit\Level1_Loaded">
+					<IncludedMemoryFiles>
+						<File Id="247291830" Language="SFX">
+							<ShortName>K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post.wav</ShortName>
+							<Path>SFX/K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post_E84716CF.wem</Path>
+						</File>
+						<File Id="443895945" Language="SFX">
+							<ShortName>K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post.wav</ShortName>
+							<Path>SFX/K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post_E84716CF.wem</Path>
+						</File>
+						<File Id="740726191" Language="SFX">
+							<ShortName>K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post.wav</ShortName>
+							<Path>SFX/K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post_E84716CF.wem</Path>
+						</File>
+						<File Id="749771345" Language="SFX">
+							<ShortName>K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post.wav</ShortName>
+							<Path>SFX/K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post_E84716CF.wem</Path>
+						</File>
+						<File Id="754486317" Language="SFX">
+							<ShortName>K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post.wav</ShortName>
+							<Path>SFX/K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post_E84716CF.wem</Path>
+						</File>
+						<File Id="828893307" Language="SFX">
+							<ShortName>K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post.wav</ShortName>
+							<Path>SFX/K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post_E84716CF.wem</Path>
+						</File>
+						<File Id="838231795" Language="SFX">
+							<ShortName>K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post.wav</ShortName>
+							<Path>SFX/K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post_E84716CF.wem</Path>
+						</File>
+						<File Id="882270406" Language="SFX">
+							<ShortName>K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post.wav</ShortName>
+							<Path>SFX/K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post_E84716CF.wem</Path>
+						</File>
+						<File Id="954914616" Language="SFX">
+							<ShortName>K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post.wav</ShortName>
+							<Path>SFX/K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post_E84716CF.wem</Path>
+						</File>
+						<File Id="1073626052" Language="SFX">
+							<ShortName>K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post.wav</ShortName>
+							<Path>SFX/K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post_E84716CF.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{A999F13E-94F8-448A-9671-6138870A604B}">
+							<Media>
+								<File Id="749771345"/>
+								<File Id="754486317"/>
+								<File Id="954914616"/>
+								<File Id="1073626052"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{07C83298-3580-47AC-B946-8FDC1E4D0683}">
+							<Media>
+								<File Id="740726191"/>
+								<File Id="838231795"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{A99B6341-675B-44B6-BC71-7916EF658254}">
+							<Media>
+								<File Id="247291830"/>
+								<File Id="443895945"/>
+								<File Id="828893307"/>
+								<File Id="882270406"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+					<ActionSetSwitch>
+						<ActionSetSwitchEntry Id="3753286132" Name="Calm" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Calm"/>
+					</ActionSetSwitch>
+				</Event>
+			</IncludedEvents>
+			<SwitchGroups>
+				<SwitchGroup Id="397118060" Name="Music_CalmIntenseMax" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax" GUID="{BE410F95-87FE-4C5E-9B23-4A329C23A6EC}">
+					<Switches>
+						<Switch Id="3753286132" Name="Calm" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Calm" GUID="{A999F13E-94F8-448A-9671-6138870A604B}"/>
+						<Switch Id="4223512837" Name="Intense" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Intense" GUID="{07C83298-3580-47AC-B946-8FDC1E4D0683}"/>
+						<Switch Id="1048449613" Name="Max" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Max" GUID="{A99B6341-675B-44B6-BC71-7916EF658254}"/>
+					</Switches>
+				</SwitchGroup>
+				<SwitchGroup Id="3753286132" Name="Calm" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Calm" GUID="{A999F13E-94F8-448A-9671-6138870A604B}">
+					<Switches/>
+				</SwitchGroup>
+			</SwitchGroups>
+		</SoundBank>
+	</SoundBanks>
+</SoundBanksInfo>
