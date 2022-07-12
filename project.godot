@@ -32,12 +32,18 @@ config/icon="res://icon.png"
 
 [autoload]
 
-Waapi="res://addons/wwise/bin/waapi-gdnative.gdns"
+Waapi="*res://addons/wwise/bin/waapi-gdnative.gdns"
+WwiseSettings="*res://addons/wwise/editor/wwise_settings.gd"
+Wwise="*res://addons/wwise/bin/wwise-gdnative.gdns"
 
 [display]
 
 window/size/width=1920
 window/size/height=1080
+
+[editor_plugins]
+
+enabled=PoolStringArray( "res://addons/wwise/plugin.cfg" )
 
 [gui]
 
