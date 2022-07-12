@@ -1,5 +1,9 @@
 Event	ID	Name			Wwise Object Path	Notes
+	268881520	Glitter_Move			\Default Work Unit\Glitter_Move	
+	386312555	Glitter_Stop			\Default Work Unit\Glitter_Stop	
 	1001937282	Level1_Loaded			\Default Work Unit\Level1_Loaded	
+	3431993724	LevelGlitter_Loaded			\Default Work Unit\LevelGlitter_Loaded	
+	3954095848	Glitter_BigGlare			\Default Work Unit\Glitter_BigGlare	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	397118060	Music_CalmIntenseMax			\Default Work Unit\Music_CalmIntenseMax	
@@ -9,15 +13,35 @@ Switch	ID	Name	Switch Group			Notes
 	3753286132	Calm	Music_CalmIntenseMax			
 	4223512837	Intense	Music_CalmIntenseMax			
 
+Game Parameter	ID	Name			Wwise Object Path	Notes
+	3521723906	Glitter_Intensity			\Default Work Unit\Glitter_Intensity	
+	3982513867	TumblerSpeed			\Default Work Unit\TumblerSpeed	
+
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	69498981	SFX_GlareNote_4f	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\SFX_GlareNote_4f_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_4f		72433
+	164433797	SFX_GlareNote_7bb	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\SFX_GlareNote_7bb_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_7bb		72013
+	168423275	SFX_GlareNote_6ab	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\SFX_GlareNote_6ab_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_6ab		72545
 	247291830	K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Max\K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post\K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post		340696
+	253247321	Act_WaterIn2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Act_WaterIn2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Glitter_TumblerRotate\Glitter_WaterIn\Act_WaterIn2		19465
+	312837431	Act_WaterOut1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Act_WaterOut1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Glitter_TumblerRotate\Glitter_WaterOut\Act_WaterOut1		18179
+	355390271	Act_WaterOut2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Act_WaterOut2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Glitter_TumblerRotate\Glitter_WaterOut\Act_WaterOut2		27628
+	369630858	SFX_GlitterAmb_Chimes1_loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\SFX_GlitterAmb_Chimes1_loop_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter\SFX_GlitterAmb_Chimes1_loop		462932
+	380659325	SFX_GlitterAmb_Swirling_loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\SFX_GlitterAmb_Swirling_loop_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter\SFX_GlitterAmb_Swirling_loop		210612
 	443895945	K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Max\K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post\K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post		340134
+	450903553	Act_WaterMovement_loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Act_WaterMovement_loop_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Glitter_TumblerRotate\Act_WaterMovement_loop		145934
+	531524491	SFX_GlareNote_8c2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\SFX_GlareNote_8c2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_8c2		71186
+	613100099	SFX_GlareNote_5g	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\SFX_GlareNote_5g_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_5g		73916
+	712546054	SFX_GlareNote_1c	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\SFX_GlareNote_1c_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_1c		74031
 	740726191	K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Intense\K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post\K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post		344445
 	749771345	K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Calm\K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post\K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post		308227
 	754486317	K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Calm\K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post\K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post		324589
+	759050321	SFX_GlitterAmb_Chimes2_loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\SFX_GlitterAmb_Chimes2_loop_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter\SFX_GlitterAmb_Chimes2_loop		95390
 	828893307	K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Max\K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post\K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post		64498
 	838231795	K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Intense\K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post\K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post		345119
 	882270406	K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Max\K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post\K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post		340711
+	894601074	SFX_GlareNote_3e	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\SFX_GlareNote_3e_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_3e		72595
+	946680638	Act_WaterIn1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Act_WaterIn1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Glitter_TumblerRotate\Glitter_WaterIn\Act_WaterIn1		14426
 	954914616	K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Calm\K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post\K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post		295127
+	1010119657	SFX_GlareNote_2d	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\SFX_GlareNote_2d_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_2d		71396
 	1073626052	K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Calm\K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post\K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post		360255
 

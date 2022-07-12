@@ -11,16 +11,86 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="837375629">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1573267190">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>1355168291.bnk</Path>
+			<IncludedAuxBusses>
+				<AuxBus Id="2847424927" Name="Aux_Rev" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Aux_Rev"/>
+			</IncludedAuxBusses>
 		</SoundBank>
-		<SoundBank Id="1509027703" Language="SFX" Hash="2337085406">
+		<SoundBank Id="1509027703" Language="SFX" Hash="623784966">
 			<ObjectPath>\SoundBanks\Default Work Unit\KScopeMain</ObjectPath>
 			<ShortName>KScopeMain</ShortName>
 			<Path>1509027703.bnk</Path>
 			<IncludedEvents>
+				<Event Id="3954095848" Name="Glitter_BigGlare" ObjectPath="\Events\Default Work Unit\Glitter_BigGlare">
+					<IncludedMemoryFiles>
+						<File Id="69498981" Language="SFX">
+							<ShortName>SFX_GlareNote_4f.wav</ShortName>
+							<Path>SFX/SFX_GlareNote_4f_569C59C1.wem</Path>
+						</File>
+						<File Id="164433797" Language="SFX">
+							<ShortName>SFX_GlareNote_7bb.wav</ShortName>
+							<Path>SFX/SFX_GlareNote_7bb_569C59C1.wem</Path>
+						</File>
+						<File Id="168423275" Language="SFX">
+							<ShortName>SFX_GlareNote_6ab.wav</ShortName>
+							<Path>SFX/SFX_GlareNote_6ab_569C59C1.wem</Path>
+						</File>
+						<File Id="531524491" Language="SFX">
+							<ShortName>SFX_GlareNote_8c2.wav</ShortName>
+							<Path>SFX/SFX_GlareNote_8c2_569C59C1.wem</Path>
+						</File>
+						<File Id="613100099" Language="SFX">
+							<ShortName>SFX_GlareNote_5g.wav</ShortName>
+							<Path>SFX/SFX_GlareNote_5g_569C59C1.wem</Path>
+						</File>
+						<File Id="712546054" Language="SFX">
+							<ShortName>SFX_GlareNote_1c.wav</ShortName>
+							<Path>SFX/SFX_GlareNote_1c_569C59C1.wem</Path>
+						</File>
+						<File Id="894601074" Language="SFX">
+							<ShortName>SFX_GlareNote_3e.wav</ShortName>
+							<Path>SFX/SFX_GlareNote_3e_569C59C1.wem</Path>
+						</File>
+						<File Id="1010119657" Language="SFX">
+							<ShortName>SFX_GlareNote_2d.wav</ShortName>
+							<Path>SFX/SFX_GlareNote_2d_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2847424927" Name="Aux_Rev" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Aux_Rev"/>
+					</AuxBusSends>
+				</Event>
+				<Event Id="268881520" Name="Glitter_Move" ObjectPath="\Events\Default Work Unit\Glitter_Move">
+					<IncludedMemoryFiles>
+						<File Id="253247321" Language="SFX">
+							<ShortName>Act_WaterIn2.wav</ShortName>
+							<Path>SFX/Act_WaterIn2_569C59C1.wem</Path>
+						</File>
+						<File Id="450903553" Language="SFX">
+							<ShortName>Act_WaterMovement_loop.wav</ShortName>
+							<Path>SFX/Act_WaterMovement_loop_E84716CF.wem</Path>
+						</File>
+						<File Id="946680638" Language="SFX">
+							<ShortName>Act_WaterIn1.wav</ShortName>
+							<Path>SFX/Act_WaterIn1_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="386312555" Name="Glitter_Stop" ObjectPath="\Events\Default Work Unit\Glitter_Stop">
+					<IncludedMemoryFiles>
+						<File Id="312837431" Language="SFX">
+							<ShortName>Act_WaterOut1.wav</ShortName>
+							<Path>SFX/Act_WaterOut1_569C59C1.wem</Path>
+						</File>
+						<File Id="355390271" Language="SFX">
+							<ShortName>Act_WaterOut2.wav</ShortName>
+							<Path>SFX/Act_WaterOut2_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="1001937282" Name="Level1_Loaded" ObjectPath="\Events\Default Work Unit\Level1_Loaded">
 					<IncludedMemoryFiles>
 						<File Id="247291830" Language="SFX">
@@ -92,7 +162,30 @@
 						<ActionSetSwitchEntry Id="3753286132" Name="Calm" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Calm"/>
 					</ActionSetSwitch>
 				</Event>
+				<Event Id="3431993724" Name="LevelGlitter_Loaded" ObjectPath="\Events\Default Work Unit\LevelGlitter_Loaded">
+					<IncludedMemoryFiles>
+						<File Id="369630858" Language="SFX">
+							<ShortName>SFX_GlitterAmb_Chimes1_loop.wav</ShortName>
+							<Path>SFX/SFX_GlitterAmb_Chimes1_loop_E84716CF.wem</Path>
+						</File>
+						<File Id="380659325" Language="SFX">
+							<ShortName>SFX_GlitterAmb_Swirling_loop.wav</ShortName>
+							<Path>SFX/SFX_GlitterAmb_Swirling_loop_E84716CF.wem</Path>
+						</File>
+						<File Id="759050321" Language="SFX">
+							<ShortName>SFX_GlitterAmb_Chimes2_loop.wav</ShortName>
+							<Path>SFX/SFX_GlitterAmb_Chimes2_loop_E84716CF.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<AuxBusSends>
+						<AuxBus Id="2847424927" Name="Aux_Rev" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Aux_Rev"/>
+					</AuxBusSends>
+				</Event>
 			</IncludedEvents>
+			<GameParameters>
+				<GameParameter Id="3521723906" Name="Glitter_Intensity" ObjectPath="\Game Parameters\Default Work Unit\Glitter_Intensity"/>
+				<GameParameter Id="3982513867" Name="TumblerSpeed" ObjectPath="\Game Parameters\Default Work Unit\TumblerSpeed"/>
+			</GameParameters>
 			<SwitchGroups>
 				<SwitchGroup Id="397118060" Name="Music_CalmIntenseMax" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax" GUID="{BE410F95-87FE-4C5E-9B23-4A329C23A6EC}">
 					<Switches>
