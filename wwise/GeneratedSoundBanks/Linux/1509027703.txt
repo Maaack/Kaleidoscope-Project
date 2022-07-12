@@ -1,0 +1,23 @@
+Event	ID	Name			Wwise Object Path	Notes
+	1001937282	Level1_Loaded			\Default Work Unit\Level1_Loaded	
+
+Switch Group	ID	Name			Wwise Object Path	Notes
+	397118060	Music_CalmIntenseMax			\Default Work Unit\Music_CalmIntenseMax	
+
+Switch	ID	Name	Switch Group			Notes
+	1048449613	Max	Music_CalmIntenseMax			
+	3753286132	Calm	Music_CalmIntenseMax			
+	4223512837	Intense	Music_CalmIntenseMax			
+
+In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
+	247291830	K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Max\K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post\K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post		340696
+	443895945	K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Max\K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post\K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post		340134
+	740726191	K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Intense\K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post\K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post		344445
+	749771345	K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Calm\K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post\K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post		308227
+	754486317	K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Calm\K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post\K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post		324589
+	828893307	K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Max\K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post\K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post		64498
+	838231795	K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Intense\K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post\K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post		345119
+	882270406	K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Max\K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post\K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post		340711
+	954914616	K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Calm\K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post\K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post		295127
+	1073626052	K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Calm\K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post\K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post		360255
+
