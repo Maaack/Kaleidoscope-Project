@@ -13,7 +13,11 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID GLITTER_BIGGLARE = 3954095848U;
+        static const AkUniqueID GLITTER_MOVE = 268881520U;
+        static const AkUniqueID GLITTER_STOP = 386312555U;
         static const AkUniqueID LEVEL1_LOADED = 1001937282U;
+        static const AkUniqueID LEVELGLITTER_LOADED = 3431993724U;
     } // namespace EVENTS
 
     namespace SWITCHES
@@ -32,6 +36,12 @@ namespace AK
 
     } // namespace SWITCHES
 
+    namespace GAME_PARAMETERS
+    {
+        static const AkUniqueID GLITTER_INTENSITY = 3521723906U;
+        static const AkUniqueID TUMBLERSPEED = 3982513867U;
+    } // namespace GAME_PARAMETERS
+
     namespace BANKS
     {
         static const AkUniqueID INIT = 1355168291U;
@@ -42,6 +52,11 @@ namespace AK
     {
         static const AkUniqueID MASTER_AUDIO_BUS = 3803692087U;
     } // namespace BUSSES
+
+    namespace AUX_BUSSES
+    {
+        static const AkUniqueID AUX_REV = 2847424927U;
+    } // namespace AUX_BUSSES
 
     namespace AUDIO_DEVICES
     {
