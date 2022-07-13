@@ -14,6 +14,24 @@ func remove_gemstone(gemstone : RigidBody2D) -> void:
 		tumbler.remove_gemstone(gemstone)
 
 
+func disable_gemstone(gemstone : RigidBody2D) -> void:
+	var tumbler = get_node_or_null("KaleidoscopeViewport/TumblerScene")
+	if tumbler:
+		tumbler.disable_gemstone(gemstone)
+
+
+func enable_gemstone(gemstone : RigidBody2D) -> void:
+	var tumbler = get_node_or_null("KaleidoscopeViewport/TumblerScene")
+	if tumbler:
+		tumbler.enable_gemstone(gemstone)
+
+
+func toggle_gemstone(gemstone : RigidBody2D) -> void:
+	var tumbler = get_node_or_null("KaleidoscopeViewport/TumblerScene")
+	if tumbler:
+		tumbler.toggle_gemstone(gemstone)
+
+
 # return an array containing the gemstones childrens of the tumbler
 func get_gemstones() -> Array:
 	var gemstones = []

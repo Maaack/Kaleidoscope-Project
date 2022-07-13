@@ -30,6 +30,27 @@ func remove_gemstone(gemstone : RigidBody2D) -> void:
 				return
 
 
+func disable_gemstone(gemstone : RigidBody2D) -> void:
+	if static_tumbler:
+		for child in get_children():
+			if child == gemstone:
+				child.enabled = false
+
+
+func enable_gemstone(gemstone : RigidBody2D) -> void:
+	if static_tumbler:
+		for child in get_children():
+			if child == gemstone:
+				child.enabled = true
+
+
+func toggle_gemstone(gemstone : RigidBody2D) -> void:
+	if static_tumbler:
+		for child in get_children():
+			if child == gemstone:
+				child.enabled = !child.enabled
+
+
 # return an array containing the gemstones childrens
 func get_gemstones() -> Array:
 	var gemstones = []
