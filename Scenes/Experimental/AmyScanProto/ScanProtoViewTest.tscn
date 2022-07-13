@@ -1,0 +1,319 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Scenes/Experimental/AmyScanProto/Preview.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/Experimental/AmyScanProto/CamMove.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Experimental/AmyScanProto/Picture.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Shader" id=7]
+code = "shader_type canvas_item;
+
+uniform float border_radius = 0.25;
+uniform float center_radius = 0.25;
+
+uniform float segments = 4.0;
+uniform bool use_polygon_radius = false;
+uniform bool select_outside_slice = false;
+uniform bool show_slice_only = false;
+
+uniform bool show_debug = false;
+
+const float PI = 3.14159265358979323846;
+const float PI_TWO = 6.28318530718f;
+const vec2 CENTER = vec2 (0.5, 0.5);
+
+// can I define macros in godot shader language?
+const float SEG_BORDER_ANGLE () {
+	return (PI_TWO) / segments;
+}
+
+// can I define macros in godot shader language?
+const float HALF_SEG_BORDER_ANGLE () {
+	return (PI) / segments;
+}
+
+// level is [0,5], assumed to be a whole number
+vec3 debugRainbow(float level)
+{
+	/*
+		Target colors
+		=============
+		
+		L  x   color
+		0  0.0 vec4(1.0, 0.0, 0.0, 1.0);
+		1  0.2 vec4(1.0, 0.5, 0.0, 1.0);
+		2  0.4 vec4(1.0, 1.0, 0.0, 1.0);
+		3  0.6 vec4(0.0, 0.5, 0.0, 1.0);
+		4  0.8 vec4(0.0, 0.0, 1.0, 1.0);
+		5  1.0 vec4(0.5, 0.0, 0.5, 1.0);
+	*/
+	
+	float r = float(level <= 2.0) + float(level > 4.0) * 0.5;
+	float g = max(1.0 - abs(level - 2.0) * 0.5, 0.0);
+	float b = (1.0 - (level - 4.0) * 0.5) * float(level >= 4.0);
+	return vec3(r, g, b);
+}
+
+
+
+vec2 cartToPolarUV(vec2 coord, vec2 center){
+	//shift to the center
+	coord.y = 1.0 - coord.y;
+	center.y = 1.0 - center.y;
+	vec2 shiftCoord = (coord - center);
+	//pythagorias
+	float uvRadius = sqrt(dot(shiftCoord, shiftCoord));
+	// arc tan of coords gives angle
+	float uvAngle = atan(shiftCoord.y, shiftCoord.x);
+	//uvAngle = (uvAngle + 4.0) / 2.0;
+	return vec2(uvRadius, uvAngle);
+}
+
+vec2 polarToCartUV(float angle, float radius, vec2 center){
+	//add 0.5 to shift center back
+	vec2 c = vec2(cos(angle), sin(angle) )* radius + center;
+	
+	c.y = 1.0 - c.y;
+	return c;
+}
+
+float angleIsInSegment(float angle){
+	if (angle < 0.0){
+		angle = PI_TWO - abs(angle);
+	}
+	return floor(angle / SEG_BORDER_ANGLE());
+}
+float angleUV(float angle){
+	return angle / PI_TWO;
+}
+
+float doMod(float mod1, float mod2){
+	return mod1 - mod2 * floor(mod1 / mod2);
+}
+
+bool insideCenterShape (vec2 center, vec2 uv){
+	//sloooooowww but trippy
+	bool c = false;
+	int s = int(segments); 
+	int j = s - 1;
+	for (int i = 0; i < s; j = i++){
+		//float fI =  float(i);
+		vec2 pVtexI = polarToCartUV(float(i)*SEG_BORDER_ANGLE(), center_radius, CENTER);
+		vec2 pVtexJ = polarToCartUV(float(j)*SEG_BORDER_ANGLE(), center_radius, CENTER);
+		if (((pVtexI.y > uv.y) != (pVtexJ.y > uv.y))
+					&& (uv.x < (pVtexJ.x - pVtexI.x) * (uv.y -pVtexI.y) / (pVtexJ.y - pVtexI.y) + pVtexI.x)){
+				c = !c;
+				
+		}
+	}
+	return c;
+}
+
+bool insideCenterCircle (vec2 center, vec2 uv){
+	return distance(center, uv) < center_radius;
+}
+
+bool inside(vec2 center, vec2 uv){
+	bool ins;
+	/*if (use_polygon_radius){
+		ins = insideCenterShape(center, uv);
+	} else {
+		ins = insideCenterCircle(center, uv);
+	}*/
+	ins = use_polygon_radius? insideCenterShape(center, uv) : insideCenterCircle(center, uv);
+	return select_outside_slice? !ins : ins;
+}
+
+vec2 getCenterUV(vec2 uv){
+	vec2 center = CENTER;
+	
+	//get polar coordinates
+	vec2 pRadAngle = cartToPolarUV(uv, center);
+	//float uvRadius = pRadAngle.x;
+	//float uvAngle = pRadAngle.y;
+	
+	if (!inside(center, uv)){
+		float seg = angleIsInSegment(pRadAngle.y);
+		
+		float angleToCenter = seg * SEG_BORDER_ANGLE();
+		
+		float radiusToCenter = center_radius * 2.0;
+		
+		center = polarToCartUV(angleToCenter, radiusToCenter, center);
+	}
+	return center;
+}
+
+vec2 sliceUV(vec2 uv){
+	vec2 center = getCenterUV(uv);
+	vec2 pRadAngle = cartToPolarUV(uv, center);
+	float uvRadius = pRadAngle.x;
+	float uvAngle = pRadAngle.y;
+				
+	//where is the angle in segment space
+	float angleInSegment = doMod(uvAngle, SEG_BORDER_ANGLE());//uvAngle - SEG_BORDER_ANGLE() * angleIsInSegment(uvAngle);
+
+	//reflect across the segment.
+	//angleInSegment = min(angleInSegment, SEG_BORDER_ANGLE()  - angleInSegment);
+
+	float segRadius = uvRadius / 2.0;
+	float radiusInSegment = uvRadius; //doMod(uvRadius, center_radius);
+	
+	vec2 sliceUV = polarToCartUV(angleInSegment, radiusInSegment, CENTER);
+
+	sliceUV = max(min(sliceUV, 2.0 - sliceUV), -sliceUV);
+
+	return sliceUV;
+}
+// for Debugging
+bool isAngleClose(float pAngle, float targetAngle){
+	/*float degUV = ((pAngle * ( 180.0 / PI )) / 360.0) + 0.5;
+	float degSeg = ((targetAngle / 2.0 * ( 180.0 / PI )) / 360.0) ;
+	return (degUV > degSeg - 0.001 && degUV < degSeg + 0.001);*/
+	return (pAngle > targetAngle - 0.01 && pAngle < targetAngle + 0.01);
+}
+bool isSegBorderLine(float pAngle){
+	return isAngleClose(pAngle, SEG_BORDER_ANGLE());
+}
+
+bool isOffsetSegBorderLine(vec2 uv){
+	float pAngle = (cartToPolarUV(uv, CENTER).y);
+	/*float seg = angleIsInSegment(pAngle);
+	float origAngle = pAngle / seg;
+	return isSegBorderLine(origAngle);*/
+	//float seg = angleIsInSegment(pAngle) + 1.0;
+	for (float i=0.0; i< segments; i=i+1.0){
+		float sg = abs(SEG_BORDER_ANGLE() * float(i));
+		if (isAngleClose(pAngle, sg) ){
+			return true;
+		}
+	}
+	return false;
+	//return isAngleClose(pAngle, SEG_BORDER_ANGLE() * seg);
+}
+
+bool inOriginalSlice(vec2 uv){
+	if (!inside(CENTER, uv)) {
+		return false;
+	}
+	//return true;
+	float pAngle = cartToPolarUV(uv, CENTER).y;
+	/*float degUV = ((pAngle * ( 180.0 / PI )) / 360.0) + 0.5;
+	float degSeg = ((SEG_BORDER_ANGLE() / 2.0 * ( 180.0 / PI )) / 360.0) ;
+	//COLOR = vec4(0,  degUV, 0, 1.0);
+	
+	return degUV < degSeg;*/
+	return pAngle < SEG_BORDER_ANGLE();
+}
+
+vec4 sliceCol(vec2 uv){
+	float pAngle = (cartToPolarUV(uv, CENTER).y);
+	float seg = angleIsInSegment(pAngle);
+	vec3 col = debugRainbow(seg);
+	return vec4(col, 1.0);
+}
+
+
+
+void fragment(){
+	vec2 samp = sliceUV(UV);
+	COLOR = texture(TEXTURE, samp);// vec4(UV,0, 1.0);
+	
+	if (show_debug){
+		COLOR = sliceCol(UV);
+		float testAngle = 3.0 * PI;
+		if (isOffsetSegBorderLine(UV)){
+			COLOR = vec4(0, 1.0, 0.0, 1.0);
+		}
+		
+		if (isAngleClose(cartToPolarUV(UV, CENTER).y, testAngle)){
+			COLOR = vec4(0.0, 0, 1.0, 1.0);
+		}
+		//COLOR = sliceCol(UV);//vec4(angleUV(cartToPolarUV(UV, CENTER).y), 0,0, 1.0);
+		if (distance(getCenterUV(UV), UV) < 0.01){
+			COLOR = vec4(1.0, 0, 0, 1.0);
+		}
+		if (isSegBorderLine(cartToPolarUV(UV, CENTER).y)){
+			COLOR = vec4(1.0, 0, 0, 1.0);
+		}
+		
+	}
+	if (show_slice_only){
+		if (!inOriginalSlice(UV)){
+			discard;
+		}
+	}
+	float dist = distance(CENTER,UV);
+    if (dist > border_radius){
+		COLOR = vec4(0.0,0.0,0.0,1.0);
+		//discard;
+	}
+	
+	
+}"
+
+[sub_resource type="ShaderMaterial" id=8]
+shader = SubResource( 7 )
+shader_param/border_radius = 0.5
+shader_param/center_radius = 0.211
+shader_param/segments = 3.0
+shader_param/use_polygon_radius = false
+shader_param/select_outside_slice = false
+shader_param/show_slice_only = false
+shader_param/show_debug = false
+
+[sub_resource type="ViewportTexture" id=4]
+viewport_path = NodePath("ViewportContainer/Viewport")
+
+[node name="Node" type="Node"]
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+
+[node name="Kaleidoscope" type="TextureRect" parent="."]
+material = SubResource( 8 )
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -1834.0
+margin_top = -51.0
+margin_right = -1234.0
+margin_bottom = 549.0
+rect_scale = Vector2( 1, 0.988753 )
+rect_pivot_offset = Vector2( 400, 400 )
+texture = SubResource( 4 )
+expand = true
+flip_h = true
+script = ExtResource( 2 )
+
+[node name="KViewport" type="Viewport" parent="Kaleidoscope"]
+size = Vector2( 1080, 1080 )
+
+[node name="Picture" parent="Kaleidoscope/KViewport" instance=ExtResource( 3 )]
+margin_left = 35.0
+margin_top = 181.499
+margin_right = 35.0
+margin_bottom = 181.499
+
+[node name="ViewportContainer" type="ViewportContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+margin_left = -1167.0
+margin_top = -533.0
+margin_right = -87.0
+margin_bottom = 547.0
+mouse_filter = 2
+script = ExtResource( 1 )
+
+[node name="Viewport" type="Viewport" parent="ViewportContainer"]
+size = Vector2( 1080, 1080 )
+handle_input_locally = false
+render_target_update_mode = 3
+
+[node name="Picture" parent="ViewportContainer/Viewport" instance=ExtResource( 3 )]
+
+[connection signal="on_send_mouse_move" from="ViewportContainer/Viewport/Picture" to="Kaleidoscope/KViewport/Picture" method="_on_Picture_on_send_mouse_move"]
