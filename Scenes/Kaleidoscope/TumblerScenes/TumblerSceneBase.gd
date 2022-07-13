@@ -23,32 +23,31 @@ func add_gemstone(gemstone : PackedScene, position : Vector2 = Vector2.ZERO) -> 
 
 # remove a gemstone fomr the tumbler
 func remove_gemstone(gemstone : RigidBody2D) -> void:
-	if static_tumbler:
-		for child in get_children():
-			if child == gemstone:
-				remove_child(child)
-				return
+	for child in get_children():
+		if child == gemstone:
+			remove_child(child)
+			return
 
 
 func disable_gemstone(gemstone : RigidBody2D) -> void:
-	if static_tumbler:
-		for child in get_children():
-			if child == gemstone:
-				child.enabled = false
+	for child in get_children():
+		if child == gemstone:
+			child.enabled = false
+			return
 
 
 func enable_gemstone(gemstone : RigidBody2D) -> void:
-	if static_tumbler:
-		for child in get_children():
-			if child == gemstone:
-				child.enabled = true
+	for child in get_children():
+		if child == gemstone:
+			child.enabled = true
+			return
 
 
 func toggle_gemstone(gemstone : RigidBody2D) -> void:
-	if static_tumbler:
-		for child in get_children():
-			if child == gemstone:
-				child.enabled = !child.enabled
+	for child in get_children():
+		if child == gemstone:
+			child.enabled = !child.enabled
+			return
 
 
 # return an array containing the gemstones childrens
