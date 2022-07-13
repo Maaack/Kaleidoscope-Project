@@ -7,9 +7,9 @@ var max_speed = 8
 var jump_force = 10
 
 #camera vars
-var mouse_sensitivity : float = 0.002  #radians/pixel
-var minLookAngle : float = -90
-var maxLookAngle : float = 90
+var mouse_sensitivity : float = 0.02  #radians/pixel
+var minLookAngle : float = -50
+var maxLookAngle : float = 50
 
 var velocity = Vector3()
 var mouseDelta = Vector2()
