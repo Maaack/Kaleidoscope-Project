@@ -18,7 +18,7 @@ func _physics_process(delta : float) -> void:
 	next_rotation = 0
 
 
-func change_tumbler(new_tumbler : PackedScene):
+func change_tumbler(new_tumbler : PackedScene) -> void:
 	var instance = new_tumbler.instance()
 	instance.name = "TumblerScene"
 	

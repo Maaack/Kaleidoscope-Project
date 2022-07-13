@@ -23,6 +23,9 @@ func get_gemstones() -> Array:
 	return gemstones
 
 
+# change tumbler in the KaleidoscopeViewport
+func change_tumbler(new_tumbler : PackedScene) -> void:
+	$KaleidoscopeViewport.change_tumbler(new_tumbler)
 
 func _on_KaleidoscopeControl_player_rotated(rotation):
 	$KaleidoscopeViewport.next_rotation = rotation
