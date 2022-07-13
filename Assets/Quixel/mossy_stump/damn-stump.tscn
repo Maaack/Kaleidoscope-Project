@@ -7,6 +7,7 @@
 albedo_texture = ExtResource( 2 )
 
 [sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.916814, 1, 1 )
 
 [node name="damn-stump" instance=ExtResource( 1 )]
 
@@ -16,5 +17,5 @@ material/0 = SubResource( 1 )
 [node name="StaticBody" type="StaticBody" parent="RootNode/Aset_nature_tree_M_wd0pfjxbw_LOD0" index="0"]
 
 [node name="CollisionShape" type="CollisionShape" parent="RootNode/Aset_nature_tree_M_wd0pfjxbw_LOD0/StaticBody" index="0"]
-transform = Transform( 0.531582, 0, 0, 0, 0.60838, 0, 0, 0, 0.453972, 0.036369, 0.398672, 0 )
+transform = Transform( 0.455385, 0, 0, 0, 0.60838, 0, 0, 0, 0.359898, -0.0542856, 0.276616, 0.0757583 )
 shape = SubResource( 2 )

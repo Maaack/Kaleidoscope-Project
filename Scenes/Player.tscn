@@ -18,10 +18,10 @@ transform = Transform( 0.570637, 0, 0, 0, -0.0193902, 0.631897, 0, -0.473985, -0
 shape = SubResource( 1 )
 
 [node name="Feet" type="CollisionShape" parent="Player"]
-transform = Transform( 0.433847, 0, 0, 0, 0.123179, 0, 0, 0, 0.744858, 0, -1.15556, 0 )
+transform = Transform( 0.433847, 0, 0, 0, 0.123179, 0, 0, 0, 0.541849, 0, -1.15556, 0.0848761 )
 shape = SubResource( 2 )
 
 [node name="Pivot" type="Spatial" parent="Player"]
 
 [node name="Camera" type="Camera" parent="Player/Pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0157613, 0.199406 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.110838, -0.0331659 )
