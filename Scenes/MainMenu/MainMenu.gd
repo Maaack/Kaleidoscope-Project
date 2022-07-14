@@ -84,7 +84,7 @@ func _on_AmysKScopeButton_pressed():
 	menu_state = States.EXIT
 	$MenuAnimationPlayer.play("Outro")
 	yield($MenuAnimationPlayer, "animation_finished")
-	get_tree().change_scene("res://Scenes/Experimental/Amy/ShaderTest.tscn")
+	get_tree().change_scene("res://Scenes/MainKaleidoscope.tscn")
 
 func _on_WwiseSceneButton_pressed():
 	menu_state = States.EXIT
