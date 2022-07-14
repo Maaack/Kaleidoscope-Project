@@ -23,11 +23,17 @@ _global_script_classes=[ {
 "class": "SoundButton",
 "language": "GDScript",
 "path": "res://Scenes/UI/CustomComponents/SoundButton.gd"
+}, {
+"base": "Node2D",
+"class": "TumblerSceneBase",
+"language": "GDScript",
+"path": "res://Scenes/Kaleidoscope/TumblerScenes/TumblerSceneBase.gd"
 } ]
 _global_script_class_icons={
 "AK": "",
 "AkUtils": "",
-"SoundButton": ""
+"SoundButton": "",
+"TumblerSceneBase": ""
 }
 
 [application]

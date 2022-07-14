@@ -1,18 +1,21 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/UI/CustomComponents/KaleidoscopeButton.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Kaleidoscope/TumblerScenes/TumblerScene1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Kaleidoscope/TumblerScenes/TumblerScene2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Kaleidoscope/TumblerScenes/StaticTumblerSceneBase.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/UI/Menus/KaleidoscopeSelection.gd" type="Script" id=5]
 
 [node name="KaleidoscopeSelection" type="Control"]
 anchor_right = 1.0
 anchor_bottom = 1.0
+script = ExtResource( 5 )
 
 [node name="Label" type="Label" parent="."]
 anchor_right = 1.0
 margin_top = 50.0
 margin_bottom = 64.0
-text = "Choose a kaleidoscope"
+text = "Choose a tumbler"
 align = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -22,16 +25,23 @@ anchor_bottom = 0.5
 custom_constants/separation = 20
 alignment = 1
 
-[node name="KaleidoscopeButton" parent="HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 841.0
-margin_right = 950.0
+[node name="KaleidoscopeButton" parent="HBoxContainer" groups=["KaleidoscopeButtons"] instance=ExtResource( 1 )]
+margin_left = 811.0
+margin_right = 888.0
 margin_bottom = 20.0
-text = "Kaleidoscope 1"
+text = "Tumbler 1"
 tumbler_scene = ExtResource( 2 )
 
-[node name="KaleidoscopeButton2" parent="HBoxContainer" instance=ExtResource( 1 )]
-margin_left = 970.0
-margin_right = 1079.0
+[node name="KaleidoscopeButton2" parent="HBoxContainer" groups=["KaleidoscopeButtons"] instance=ExtResource( 1 )]
+margin_left = 908.0
+margin_right = 985.0
 margin_bottom = 20.0
-text = "Kaleidoscope 2"
+text = "Tumbler 2"
 tumbler_scene = ExtResource( 3 )
+
+[node name="KaleidoscopeButton3" parent="HBoxContainer" groups=["KaleidoscopeButtons"] instance=ExtResource( 1 )]
+margin_left = 1005.0
+margin_right = 1109.0
+margin_bottom = 20.0
+text = "Tumbler Static"
+tumbler_scene = ExtResource( 4 )

@@ -1,5 +1,6 @@
 extends CanvasLayer
 
+signal tumbler_selected(tumbler)
 
 var showing_pattern : bool = false
 
@@ -11,3 +12,7 @@ func _process(_delta : float):
 			$AnimationPlayer.play("show")
 			
 		showing_pattern = !showing_pattern
+
+
+func _on_KaleidoscopeSelection_tumbler_selected(tumbler):
+	emit_signal("tumbler_selected", tumbler)
