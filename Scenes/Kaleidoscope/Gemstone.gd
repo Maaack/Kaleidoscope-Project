@@ -17,8 +17,9 @@ func set_sprite_texture(value : Texture) -> void:
 func set_enabled(value : bool) -> void:
 	enabled = value
 	$Sprite.visible = enabled
-	if $CollisionShape2D != null:
-		$CollisionShape2D.disabled = !enabled
-	if $CollisionPolygon2D != null:
-		$CollisionPolygon2D.disabled = !enabled
+	var collisionShape : Node2D = get_node_or_null("CollisionShape2D")
+	if collisionShape == null:
+		collisionShape = get_node_or_null("CollisionPolygon2D")
+	if collisionShape != null:
+		collisionShape.disabled = !enabled
 	
