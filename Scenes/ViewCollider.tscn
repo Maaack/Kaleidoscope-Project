@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/ViewCollider.gd" type="Script" id=1]
+
+[sub_resource type="SphereShape" id=1]
+
+[node name="ViewCollider" type="KinematicBody"]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource( 1 )
+__meta__ = {
+"_editor_description_": "a physics body which can be picked by a \"looking at raycast\" (used in Player Controller),
+
+you can use the custom signal looked_at and stop_looked at to know when the player is looking at the collider (those signals are triggered by the Player Controller)"
+}
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
