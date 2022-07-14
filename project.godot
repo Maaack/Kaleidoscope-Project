@@ -23,17 +23,23 @@ _global_script_classes=[ {
 "class": "SoundButton",
 "language": "GDScript",
 "path": "res://Scenes/UI/CustomComponents/SoundButton.gd"
+}, {
+"base": "Node2D",
+"class": "TumblerSceneBase",
+"language": "GDScript",
+"path": "res://Scenes/Kaleidoscope/TumblerScenes/TumblerSceneBase.gd"
 } ]
 _global_script_class_icons={
 "AK": "",
 "AkUtils": "",
-"SoundButton": ""
+"SoundButton": "",
+"TumblerSceneBase": ""
 }
 
 [application]
 
 config/name="Kaleidoscope Project"
-run/main_scene="res://Scenes/Experimental/Wwise/WwiseShaderTest.tscn"
+run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
