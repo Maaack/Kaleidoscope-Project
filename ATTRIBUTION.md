@@ -1,21 +1,11 @@
 # Attribution
 ## Collaborators
-### Team Lead
 [Marek](https://github.com/Maaack)  
-
-### Story
-Katie
-
-### Programming
 Tomy  
-Amy
-
-### Composer & SFX
-Mussar
-
-### SFX & Wwise Integration
-Mike
-
+Amy  
+Mike  
+Mussar  
+Katie  
 
 ## Sourced / Unaffiliated
 ### Fonts
