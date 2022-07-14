@@ -1,7 +1,5 @@
 extends Control
 
-signal return_button_pressed
-
 const MASTER_AUDIO_BUS = 'Master'
 const VOICE_AUDIO_BUS = 'Voice'
 const SFX_AUDIO_BUS = 'SFX'
