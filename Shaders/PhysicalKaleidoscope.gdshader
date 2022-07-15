@@ -42,8 +42,9 @@ void fragment()
 	uv = uv + texOffset;
 	float size = sqrt(0.75);
 	
+	float xFac = 2.0;
     uv.y = abs(fract((uv.y-1.0)*0.5)*2.0-1.0);
-    uv.x = fract(uv.x/l/3.0)*l*3.0;
+    uv.x = fract(uv.x/l/xFac)*l*xFac;
     if(uv.y < 2.0*uv.x/l) uv = refl(uv, vec2(0), vec2(0.5, size));
     if(uv.y > 1.0) uv = refl(uv, vec2(0.0, 1.0), vec2(1.0, 0.0));
     if(uv.y < -2.0*uv.x/l) uv = refl(uv, vec2(0), vec2(-0.5, size));

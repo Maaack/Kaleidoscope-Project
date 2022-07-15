@@ -4,10 +4,18 @@ uniform bool enabled = true;
 
 uniform bool triangles = false;
 
-uniform vec2 viewOffset = vec2(0);
-uniform vec2 texOffset = vec2(0);
-uniform float texRotationOffset = 0.5;
+uniform vec2 polarOutOffset = vec2(0);
+uniform vec2 polarInOffset = vec2(0);
+uniform float polarInRotationOffset = 0.5;
+
+
+uniform vec2 triOutOffset = vec2(0);
+uniform vec2 triInOffset = vec2(0);
+uniform float triInRotationOffset = 0.5;
+
 uniform float viewRotationOffset = -0.5;
+
+
 uniform float texMultiplier = 1.0;
 uniform float zoom = 1.0;
 
@@ -244,20 +252,20 @@ float radiusUV(float radius, bool isInside){
 
 }
 
-vec2 triangleUV (vec2 uv) {
+vec2 triangleUV (vec2 uv, vec2 frag_coord) {
+	float tri_sides =3.0;
+	float l = sqrt(4.0/tri_sides);
+	float size = sqrt(.75);
 
-	float l = sqrt(4.0/3.0);
-
-	float size = sqrt(0.75);
-	
     uv.y = abs(fract((uv.y-1.0)*0.5)*2.0-1.0);
-    uv.x = fract(uv.x/l/3.0)*l*3.0;
+    uv.x = fract(uv.x/l/tri_sides)*l*tri_sides;
     if(uv.y < 2.0*uv.x/l) uv = refl(uv, vec2(0), vec2(0.5, size));
     if(uv.y > 1.0) uv = refl(uv, vec2(0.0, 1.0), vec2(1.0, 0.0));
     if(uv.y < -2.0*uv.x/l) uv = refl(uv, vec2(0), vec2(-0.5, size));
     if(uv.y < 2.0*uv.x/l) uv = refl(uv, vec2(0), vec2(0.5,size));
     if(uv.y > 1.0) uv = refl(uv, vec2(0.0, 1.0), vec2(1.0, 0.0));
     if(uv.y < -2.0*uv.x/l) uv = refl(uv, vec2(0), vec2(-0.5, size));
+	uv.x = -uv.x * frag_coord.y / frag_coord.x + 0.5;
     //uv.x = -uv.x*iChannelResolution[0].y/iChannelResolution[0].x + 0.5;
 	return uv;
 }
@@ -380,19 +388,24 @@ void fragment(){
 	vec2 uv;
 	uv = UV;
 	if (!enabled){
-		if (triangles) {
-			uv = uv*texMultiplier;
-		}
 		COLOR = texture(TEXTURE, uv);
 		samp = uv;
 
 	} else {
-		uv = rot(uv, vec2(0.5), texRotationOffset);
-
+		float texRotationOffset =  triangles? triInRotationOffset : polarInRotationOffset;
+		vec2 texOffset = triangles ? triInOffset : polarInOffset;
+		vec2 viewOffset = triangles ? triOutOffset : polarOutOffset;
+		
+		uv = rot(uv, CENTER, texRotationOffset);
 		uv = uv + texOffset;
+
+
 		if (triangles) {
+			vec2 res = vec2 (1080., 1080.);
+			uv = (uv * res - res.xy*0.5)/min(res.x,res.y);
+			
 			uv = (uv - CENTER) * texMultiplier + CENTER;
-			samp = triangleUV(uv);
+			samp = triangleUV(uv, res);
 		} else {
 			samp = sliceUV(uv);
 			
