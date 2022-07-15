@@ -1,3 +1,21 @@
+Switch Group	ID	Name			Wwise Object Path	Notes
+	397118060	Music_CalmIntenseMax			\Default Work Unit\Music_CalmIntenseMax	
+
+Switch	ID	Name	Switch Group			Notes
+	1048449613	Max	Music_CalmIntenseMax			
+	3753286132	Calm	Music_CalmIntenseMax			
+	4223512837	Intense	Music_CalmIntenseMax			
+
+State Group	ID	Name			Wwise Object Path	Notes
+	3223913734	MenuGame			\Default Work Unit\MenuGame	
+
+State	ID	Name	State Group			Notes
+	702482391	Game	MenuGame			
+	748895195	None	MenuGame			
+	2201105581	Credits	MenuGame			
+	2607556080	Menu	MenuGame			
+	4184794294	Outro	MenuGame			
+
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	504532776	Brick			\Factory Acoustic Textures\Textures\Brick	
 	513139656	Mountain			\Factory Acoustic Textures\Textures\Mountain	
@@ -8,6 +26,7 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	2058049674	Wood			\Factory Acoustic Textures\Textures\Wood	
 	2412606308	Carpet			\Factory Acoustic Textures\Textures\Carpet	
 	2637588553	Tile			\Factory Acoustic Textures\Textures\Tile	
+	2827693126	WorldChangeLoudness			\Default Work Unit\WorldChangeLoudness	
 	2928161104	Curtains			\Factory Acoustic Textures\Textures\Curtains	
 	3195498748	Cork_Tiles			\Factory Acoustic Textures\Textures\Cork_Tiles	
 	3670307564	Drywall			\Factory Acoustic Textures\Textures\Drywall	
@@ -15,12 +34,17 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 	4262522749	Wood_Bright			\Factory Acoustic Textures\Textures\Wood_Bright	
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
+	1162281553	BUS_Music			\Default Work Unit\Master Audio Bus\BUS_Music	
+	2165879900	BUS_WorldChange			\Default Work Unit\Master Audio Bus\BUS_WorldChange	
+	2724561296	BUS_Heartbeat			\Default Work Unit\Master Audio Bus\BUS_Heartbeat	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 	2847424927	Aux_Rev			\Default Work Unit\Master Audio Bus\Aux_Rev	
 
 Effect plug-ins	ID	Name	Type				Notes
+	2543247750	Wwise_Meter	Wwise Meter			
+	2781261543	Brick_Wall_Minus_6dB_Peak_Slow_Release	Wwise Peak Limiter			
 	3673681183	Large_Bright_Chamber1	Wwise Matrix Reverb			
 
 Audio Devices	ID	Name	Type				Notes
