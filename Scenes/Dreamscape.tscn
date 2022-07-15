@@ -1,46 +1,64 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
-[ext_resource path="res://Assets/Quixel/sfknaeoa_4K_Albedo.jpg" type="Texture" id=1]
+[ext_resource path="res://Assets/Quixel/mossy_stump/damn-stump.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scripts/Dreamscape.gd" type="Script" id=3]
-[ext_resource path="res://Themes/TitleFont.tres" type="DynamicFont" id=4]
+[ext_resource path="res://Assets/Textures/ForestFloor.jpg" type="Texture" id=4]
+[ext_resource path="res://Assets/Quixel/flat_rock/flat_rock.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Assets/Quixel/chunky_branch/chunky_branch.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Assets/Quixel/tiny_shrooms/tiny_shrooms.tscn" type="PackedScene" id=7]
 
 [sub_resource type="SpatialMaterial" id=1]
-albedo_texture = ExtResource( 1 )
+albedo_texture = ExtResource( 4 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 4 )
 
 [node name="Dreamscape" type="Spatial"]
-transform = Transform( 2.55397, 0, 0, 0, 1, 0, 0, 0, 1.3064, 0, 0, 0 )
+transform = Transform( 2.55397, 0, 0, 0, 1, 0, 0, 0, 1.3064, -0.000946999, -0.0211239, 0.0190258 )
 script = ExtResource( 3 )
-
-[node name="CSGBox" type="CSGBox" parent="."]
-transform = Transform( 2.28771, 0, 0, 0, 0.449731, 0, 0, 0, 10.972, -0.00420332, -0.391771, 0.00229597 )
-material_override = SubResource( 1 )
-use_collision = true
-
-[node name="CSGBox2" type="CSGBox" parent="."]
-transform = Transform( -0.031662, 0, -1.39174, 0, 1.97777, 0, 4.47198, 0, -0.0376598, 2.59179, -0.391771, 0.00229586 )
-material_override = SubResource( 1 )
-use_collision = true
-
-[node name="CSGCylinder" type="CSGCylinder" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1.84945, 0.244885, 0, -14.9742 )
 
 [node name="Player Controller" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0301998, 1.93416, 8.91611 )
 
-[node name="TestViewColliderUI" type="CanvasLayer" parent="."]
-__meta__ = {
-"_editor_description_": "ui just to test the looking at system works fine
+[node name="Level-Design" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
-can be deleted after"
-}
+[node name="CSGBox" type="CSGBox" parent="Level-Design"]
+transform = Transform( 1.61251, 0, 0, 0, 0.581897, 0, 0, 0, 2.13198, 0.342471, -3.93553, 8.74129 )
+use_collision = true
+depth = 1.96933
+material = SubResource( 1 )
 
-[node name="Label" type="Label" parent="TestViewColliderUI"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -150.0
-margin_bottom = -136.0
-custom_fonts/font = ExtResource( 4 )
+[node name="CSGBox2" type="CSGBox" parent="Level-Design"]
+transform = Transform( 1.61251, 0, 0, 0, 0.581897, 0, 0, 0, 2.13198, 0.341909, -3.93689, 6.15887 )
+use_collision = true
+depth = 1.96933
+material = SubResource( 2 )
 
-[connection signal="started_looking_at" from="Player Controller" to="." method="_on_Player_Controller_started_looking_at"]
+[node name="flat_rock" parent="Level-Design" instance=ExtResource( 5 )]
+transform = Transform( 1.20017, 0.00209207, -0.963762, -0.156285, 6.10113, -0.0323381, 4.26319, 0.0298649, 1.20664, -1.25162, -3.39182, 8.95373 )
+
+[node name="flat_rock2" parent="Level-Design" instance=ExtResource( 5 )]
+transform = Transform( -0.790912, 0.000257696, 1.17458, -0.153814, 6.19945, -0.0264073, -4.68103, -0.028497, -0.75837, 1.90055, -3.57296, 8.62477 )
+
+[node name="damn-stump" parent="Level-Design" instance=ExtResource( 1 )]
+transform = Transform( 0.278485, -0.0593294, -0.305818, 0.108981, 0.988454, -0.119625, 0.746647, -1.45396e-05, 0.483632, 1.48971, -3.45711, 5.21526 )
+
+[node name="tiny_shrooms" parent="Level-Design/damn-stump" instance=ExtResource( 7 )]
+transform = Transform( 0.178759, -0.000217093, 0.855799, 2.0385e-05, 1.77438, 0.000505333, -1.21102, 0.000137706, 0.121105, 0.287047, 1.009, 0.34023 )
+
+[node name="tiny_shrooms2" parent="Level-Design/damn-stump" instance=ExtResource( 7 )]
+transform = Transform( -0.926976, 0.0691921, 0.340147, 0.120079, 1.76919, 0.0258847, -0.543135, 0.0635306, -0.938757, -0.171015, 0.794604, -0.077924 )
+
+[node name="tiny_shrooms3" parent="Level-Design/damn-stump" instance=ExtResource( 7 )]
+transform = Transform( -0.928396, 0.0844617, -0.419972, 0.119836, 1.76921, 0.0257546, 0.539747, -0.0262853, -0.892168, 0.0046339, 0.794621, -0.0285821 )
+
+[node name="chunky_branch" parent="Level-Design" instance=ExtResource( 6 )]
+transform = Transform( -0.0456669, -1.33601, -0.374765, 2.55094, -0.178437, -0.00201556, -0.0330619, -1.01405, 1.88728, 1.6604, -3.25098, 6.23795 )
+
+[node name="chunky_branch2" parent="Level-Design" instance=ExtResource( 6 )]
+transform = Transform( 0.0650935, -1.03271, -0.71579, 2.54714, 0.0873051, 0.182796, -0.0650543, -1.94636, 1.45631, 1.86109, -3.26626, 6.6487 )
+
+[node name="chunky_branch3" parent="Level-Design" instance=ExtResource( 6 )]
+transform = Transform( -0.41547, 1.08989, 0.518234, 1.86191, -0.186733, 1.80532, 1.06345, 1.81892, -1.0782, 1.39069, -3.29851, 6.13025 )
