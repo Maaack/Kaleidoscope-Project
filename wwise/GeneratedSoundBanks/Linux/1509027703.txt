@@ -1,47 +1,85 @@
 Event	ID	Name			Wwise Object Path	Notes
-	268881520	Glitter_Move			\Default Work Unit\Glitter_Move	
-	386312555	Glitter_Stop			\Default Work Unit\Glitter_Stop	
+	910559594	Outro_Loaded			\Default Work Unit\Outro_Loaded	
 	1001937282	Level1_Loaded			\Default Work Unit\Level1_Loaded	
-	3431993724	LevelGlitter_Loaded			\Default Work Unit\LevelGlitter_Loaded	
-	3954095848	Glitter_BigGlare			\Default Work Unit\Glitter_BigGlare	
+	1785415464	Menu_Loaded			\Default Work Unit\Menu_Loaded	
+	2103799123	MushroomEat			\Default Work Unit\MushroomEat	
+	2364413463	WorldChange			\Default Work Unit\WorldChange	
+	3766922154	Easteregg			\Default Work Unit\Easteregg	
+	4276063004	Player_FS			\Default Work Unit\Player_FS	
 
 Switch Group	ID	Name			Wwise Object Path	Notes
 	397118060	Music_CalmIntenseMax			\Default Work Unit\Music_CalmIntenseMax	
+	3087933048	FS_GrassDirt			\Default Work Unit\FS_GrassDirt	
 
 Switch	ID	Name	Switch Group			Notes
 	1048449613	Max	Music_CalmIntenseMax			
 	3753286132	Calm	Music_CalmIntenseMax			
 	4223512837	Intense	Music_CalmIntenseMax			
+	2195636714	Dirt	FS_GrassDirt			
+	4248645337	Grass	FS_GrassDirt			
+
+State Group	ID	Name			Wwise Object Path	Notes
+	3223913734	MenuGame			\Default Work Unit\MenuGame	
+
+State	ID	Name	State Group			Notes
+	702482391	Game	MenuGame			
+	748895195	None	MenuGame			
+	2201105581	Credits	MenuGame			
+	2607556080	Menu	MenuGame			
+	4184794294	Outro	MenuGame			
+
+Custom State	ID	Name	State Group	Owner		Notes
+	47192441	Menu	MenuGame	\Interactive Music Hierarchy\Default Work Unit\GameplayMusic		
+	64203882	Credits	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MussarMusic1\OutroMusic		
+	172500040	Credits	MenuGame	\Interactive Music Hierarchy\Default Work Unit\GameplayMusic		
+	216472289	Outro	MenuGame	\Interactive Music Hierarchy\Default Work Unit\GameplayMusic		
+	545070707	Menu	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MussarMusic1\OutroMusic		
+	651779166	Game	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MussarMusic1\MenuMusic		
+	736580968	Credits	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MussarMusic1\MenuMusic		
+	796285973	Game	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MussarMusic1\OutroMusic		
+	1019486484	Outro	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MussarMusic1\MenuMusic		
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
-	3521723906	Glitter_Intensity			\Default Work Unit\Glitter_Intensity	
-	3982513867	TumblerSpeed			\Default Work Unit\TumblerSpeed	
+	749828935	PlayerHighness			\Default Work Unit\PlayerHighness	
+
+Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
+	917365750	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat\Silence\Wwise Silence	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	69498981	SFX_GlareNote_4f	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\SFX_GlareNote_4f_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_4f		72433
-	164433797	SFX_GlareNote_7bb	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\SFX_GlareNote_7bb_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_7bb		72013
-	168423275	SFX_GlareNote_6ab	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\SFX_GlareNote_6ab_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_6ab		72545
-	247291830	K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Max\K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post\K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post		340696
-	253247321	Act_WaterIn2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Act_WaterIn2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Glitter_TumblerRotate\Glitter_WaterIn\Act_WaterIn2		19465
-	312837431	Act_WaterOut1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Act_WaterOut1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Glitter_TumblerRotate\Glitter_WaterOut\Act_WaterOut1		18179
-	355390271	Act_WaterOut2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Act_WaterOut2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Glitter_TumblerRotate\Glitter_WaterOut\Act_WaterOut2		27628
-	369630858	SFX_GlitterAmb_Chimes1_loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\SFX_GlitterAmb_Chimes1_loop_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter\SFX_GlitterAmb_Chimes1_loop		462932
-	380659325	SFX_GlitterAmb_Swirling_loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\SFX_GlitterAmb_Swirling_loop_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter\SFX_GlitterAmb_Swirling_loop		210612
-	443895945	K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Max\K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post\K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post		340134
-	450903553	Act_WaterMovement_loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Act_WaterMovement_loop_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Glitter_TumblerRotate\Act_WaterMovement_loop		145934
-	531524491	SFX_GlareNote_8c2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\SFX_GlareNote_8c2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_8c2		71186
-	613100099	SFX_GlareNote_5g	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\SFX_GlareNote_5g_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_5g		73916
-	712546054	SFX_GlareNote_1c	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\SFX_GlareNote_1c_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_1c		74031
-	740726191	K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Intense\K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post\K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post		344445
-	749771345	K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Calm\K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post\K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post		308227
-	754486317	K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Calm\K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post\K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post		324589
-	759050321	SFX_GlitterAmb_Chimes2_loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\SFX_GlitterAmb_Chimes2_loop_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter\SFX_GlitterAmb_Chimes2_loop		95390
-	828893307	K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Max\K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post\K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post		64498
-	838231795	K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Intense\K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post\K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post		345119
-	882270406	K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Max\K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post\K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post		340711
-	894601074	SFX_GlareNote_3e	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\SFX_GlareNote_3e_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_3e		72595
-	946680638	Act_WaterIn1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Act_WaterIn1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Glitter_TumblerRotate\Glitter_WaterIn\Act_WaterIn1		14426
-	954914616	K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Calm\K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post\K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post		295127
-	1010119657	SFX_GlareNote_2d	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\SFX_GlareNote_2d_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Amb_Glitter_Notes\SFX_GlareNote\SFX_GlareNote_2d		71396
-	1073626052	K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\Level1_CalmIntense\Level1_Calm\K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post\K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post		360255
+	20312177	FSteps_Dirt1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\FSteps_Dirt1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Dirt\FSteps_Dirt1		7902
+	97449526	FSteps_Grass2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\FSteps_Grass2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Grass\FSteps_Grass2		9960
+	125969416	FSteps_Dirt2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\FSteps_Dirt2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Dirt\FSteps_Dirt2		9683
+	138943488	MushroomEat	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Mushroom_BiteChewSwallow_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Mushroom\MushroomEat		127196
+	161717379	FSteps_Dirt_Start	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\FSteps_Dirt_Start_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Dirt_Start\FSteps_Dirt_Start		11408
+	165410176	SFX_GlitterAmb_Chimes1_loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\SFX_GlitterAmb_Chimes1_loop_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\SFX_GlitterAmb_Chimes1_loop		462932
+	193747827	FSteps_Grass_Start	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\FSteps_Grass_Start_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Grass_Start\FSteps_Grass_Start		12313
+	246426695	FSteps_Dirt4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\FSteps_Dirt4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Dirt\FSteps_Dirt4		8669
+	247232381	Ambience - ThrobbingHeadache	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - ThrobbingHeadache_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Ambience - ThrobbingHeadache		12495
+	269996936	KScope_Outro_MUX_NoLoop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\KScope_Outro_MUX_NoLoop_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\MussarMusic1\OutroMusic\KScope_Outro_MUX_NoLoop		1953679
+	340761794	Amb_Dark	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - DarkScary_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Amb_Dark		113942
+	346177194	Ambience - Random - Animal B 5	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal B 5_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 5		20785
+	368641357	FSteps_Grass1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\FSteps_Grass1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Grass\FSteps_Grass1		9605
+	394920707	KScope_Forest_Calm_NoBirds_MUX_NoLoop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\KScope_Forest_Calm_NoBirds_MUX_NoLoop_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicCalm\KScope_Forest_Calm_NoBirds_MUX_NoLoop\KScope_Forest_Calm_NoBirds_MUX_NoLoop		1562655
+	400888509	Ambience - Random - Animal 3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal 3_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Dark\Ambience - Random - Animal 3		17903
+	479181028	KScope_Menu_MUX_NoLoop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\KScope_Menu_MUX_NoLoop_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\MussarMusic1\MenuMusic\KScope_Menu_MUX_NoLoop		3132443
+	484956033	Ambience - Random - Animal B 3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal B 3_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 3		9183
+	513649078	FSteps_Grass4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\FSteps_Grass4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Grass\FSteps_Grass4		8658
+	526657529	Ambience - Random - Animal B 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal B 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 1		18176
+	528835070	Ambience - Random - Animal B 4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal B 4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 4		14011
+	581337223	WorldChange	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Mushroom_WorldChanges_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\WorldChange		91478
+	608088107	KScope_Forest_Trippy_NoBirds_MUX_NoLoop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\KScope_Forest_Trippy_NoBirds_MUX_NoLoop_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicTrippy\KScope_Forest_Trippy_NoBirds_MUX_NoLoop\KScope_Forest_Trippy_NoBirds_MUX_NoLoop		1438918
+	690940518	Ambience - Random - Animal B 7	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal B 7_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 7		8487
+	716666757	Ambience - Random - Animal 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Dark\Ambience - Random - Animal 1		29837
+	740570988	HeartbeatA	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\HeartbeatA_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat\HeartbeatA		5816
+	803345895	Ambience - Random - Animal 4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal 4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Dark\Ambience - Random - Animal 4		23401
+	805631408	Amb_Park	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Park General_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Amb_Park		345848
+	822044708	Ambience - Random - Animal B 6	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal B 6_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 6		10815
+	849303243	FSteps_Dirt3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\FSteps_Dirt3_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Dirt\FSteps_Dirt3		8578
+	856453091	KScope_Forest_Spooky_NoBirds_MUX_NoLoop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\KScope_Forest_Spooky_NoBirds_MUX_NoLoop_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicSpooky\KScope_Forest_Spooky_NoBirds_MUX_NoLoop\KScope_Forest_Spooky_NoBirds_MUX_NoLoop		1634705
+	875899337	FSteps_Grass3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\FSteps_Grass3_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Grass\FSteps_Grass3		10403
+	893622980	Ambience - Random - Animal B 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal B 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 2		8939
+	912074038	HorrorStrings	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\HorrorStrings_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\HorrorStrings		244311
+	912545632	easteregg_song	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\easteregg_song_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\EasterEggSong\easteregg_song		1624595
+	936907132	Ambience - Random - Animal 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Dark\Ambience - Random - Animal 2		14370
+	1068827005	HeartbeatB	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\HeartbeatB_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat\HeartbeatB		18821
 
