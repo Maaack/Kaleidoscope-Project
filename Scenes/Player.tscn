@@ -11,6 +11,8 @@ extents = Vector3( 0.4, 0.1, 0.4 )
 [node name="Player Controller" type="Spatial"]
 
 [node name="Player" type="KinematicBody" parent="."]
+axis_lock_motion_y = true
+move_lock_y = true
 script = ExtResource( 1 )
 
 [node name="Body" type="CollisionShape" parent="Player"]

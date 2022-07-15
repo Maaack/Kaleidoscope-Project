@@ -2,6 +2,8 @@ shader_type canvas_item;
 
 uniform bool enabled = true;
 
+uniform bool triangles = false;
+
 uniform vec2 viewOffset = vec2(0);
 uniform vec2 texOffset = vec2(0);
 uniform float texRotationOffset = 0.5;
@@ -17,6 +19,8 @@ uniform bool use_polygon_radius = false;
 uniform bool reflect_outside = true;
 uniform bool select_outside_slice = false;
 uniform bool show_slice_only = false;
+
+uniform float rotation_speed = 0.;
 
 uniform bool show_debug = false;
 
@@ -237,6 +241,25 @@ float radiusUV(float radius, bool isInside){
 	} else {
 		return  (center_radius * 2.0) - (radius ) ;
 	}
+
+}
+
+vec2 triangleUV (vec2 uv) {
+
+	float l = sqrt(4.0/3.0);
+
+	float size = sqrt(0.75);
+	
+    uv.y = abs(fract((uv.y-1.0)*0.5)*2.0-1.0);
+    uv.x = fract(uv.x/l/3.0)*l*3.0;
+    if(uv.y < 2.0*uv.x/l) uv = refl(uv, vec2(0), vec2(0.5, size));
+    if(uv.y > 1.0) uv = refl(uv, vec2(0.0, 1.0), vec2(1.0, 0.0));
+    if(uv.y < -2.0*uv.x/l) uv = refl(uv, vec2(0), vec2(-0.5, size));
+    if(uv.y < 2.0*uv.x/l) uv = refl(uv, vec2(0), vec2(0.5,size));
+    if(uv.y > 1.0) uv = refl(uv, vec2(0.0, 1.0), vec2(1.0, 0.0));
+    if(uv.y < -2.0*uv.x/l) uv = refl(uv, vec2(0), vec2(-0.5, size));
+    //uv.x = -uv.x*iChannelResolution[0].y/iChannelResolution[0].x + 0.5;
+	return uv;
 }
 
 vec2 sliceUV(vec2 uv){
@@ -325,22 +348,64 @@ vec3 rainbow(float level)
 	return vec3(r, g, b);
 }
 
-
+vec4 debugUV(vec2 uv){
+	vec4 color;
+	vec2 pRadiusAngle = polyCartToPolarUV(uv);
+	color = vec4(pRadiusAngle.x / PI_TWO, 0.0,  0.0, 1.0);
+	/*COLOR = vec4(
+		//rainbow(angleIsInSegment(pRadiusAngle.y), 1.0), 
+		0.0, pRadiusAngle.y, 0.0, 1.0
+	);*/
+	if (inside(CENTER, uv)){
+		//COLOR = COLOR + 0.1;
+	}
+		
+	float radThresh = distance(CENTER, uv) - center_radius;
+	if (radThresh < 0.001 && radThresh > -0.001){
+		color = vec4(0, 1.0, 1.0, 1.0);
+	}
+		
+	if (distance(getCenterUV(uv), uv) < 0.01){
+		color = vec4(0, 1.0, 1.0, 1.0);
+	}
+		
+	if (isSegBorderLine(uv)){
+		color = vec4(0, 1.0, 1.0, 1.0);
+	}
+	return color;
+}
 
 void fragment(){
 	vec2 samp;
 	vec2 uv;
 	uv = UV;
 	if (!enabled){
-		COLOR = texture(TEXTURE, UV);
-		samp = UV;
+		if (triangles) {
+			uv = uv*texMultiplier;
+		}
+		COLOR = texture(TEXTURE, uv);
+		samp = uv;
 
 	} else {
 		uv = rot(uv, vec2(0.5), texRotationOffset);
-	    uv = uv*texMultiplier;
+
 		uv = uv + texOffset;
-		samp = sliceUV(uv);
+		if (triangles) {
+			uv = (uv - CENTER) * texMultiplier + CENTER;
+			samp = triangleUV(uv);
+		} else {
+			samp = sliceUV(uv);
+			
+			if (show_slice_only){
+			if (!inOriginalSlice(UV)){
+				discard;
+			}
+	}
+		}
 	    samp = rot(samp, vec2(0.5), viewRotationOffset);
+		if (rotation_speed > 0.){
+		samp = rot (samp, vec2(0.5), TIME * rotation_speed);
+		}
 		samp += viewOffset;
 		samp = (samp - CENTER) * zoom + CENTER;
 	
@@ -349,40 +414,12 @@ void fragment(){
 	COLOR = texture(TEXTURE, samp);// vec4(UV,0, 1.0);
 	
 	if (show_debug){
-		vec2 pRadiusAngle = polyCartToPolarUV(UV);
-		COLOR = vec4(pRadiusAngle.x / PI_TWO, 0.0,  0.0, 1.0);
-
-		/*COLOR = vec4(
-			//rainbow(angleIsInSegment(pRadiusAngle.y), 1.0), 
-			0.0, pRadiusAngle.y, 0.0, 1.0
-		);*/
-		if (inside(CENTER, UV)){
-			//COLOR = COLOR + 0.1;
-		}
-
-		
-		float radThresh = distance(CENTER, UV) - center_radius;
-		if (radThresh < 0.001 && radThresh > -0.001){
-			COLOR = vec4(0, 1.0, 1.0, 1.0);
-		}
-		
-		if (distance(getCenterUV(UV), UV) < 0.01){
-			COLOR = vec4(0, 1.0, 1.0, 1.0);
-		}
-		
-		if (isSegBorderLine(UV)){
-			COLOR = vec4(0, 1.0, 1.0, 1.0);
-		}
-	}
-	if (show_slice_only){
-		if (!inOriginalSlice(UV)){
-			discard;
-		}
+		COLOR = debugUV(UV);
 	}
 	
 	float dist = distance(CENTER,UV);
     if (dist > border_radius){
-		COLOR = vec4(0.0,0.0,0.0,1.0);
+		//COLOR = vec4(0.0,0.0,0.0,1.0);
 		//discard;
 	}
 	
