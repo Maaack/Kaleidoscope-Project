@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Scenes/Kaleidoscope/3D/CircularTumbler3D.gd" type="Script" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 1, 1, 5 )
+
+[node name="CircularTumbler3D" type="KinematicBody"]
+script = ExtResource( 1 )
+radius = 5.0
+segments = 16
+edge_shape = SubResource( 1 )
