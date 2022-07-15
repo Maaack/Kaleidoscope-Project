@@ -32,3 +32,5 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.183741, 0.461391 )
 enabled = true
 cast_to = Vector3( 0, 0, -100 )
 collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false

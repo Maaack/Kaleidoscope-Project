@@ -4,7 +4,7 @@
 
 [sub_resource type="SphereShape" id=1]
 
-[node name="ViewCollider" type="KinematicBody"]
+[node name="ViewCollider" type="Area"]
 collision_layer = 2
 collision_mask = 2
 script = ExtResource( 1 )
