@@ -36,6 +36,7 @@ export var _tri_multiplier_min = 1.0
 export var _tri_multiplier_max = 8.0
 export var _tri_multiplier_curve = 3.0
 
+var time = 0.0
 
 var kaleidoscope_enabled: bool = false
 export var enabled_thresh = 0.01
@@ -44,6 +45,7 @@ export var enabled_thresh = 0.01
 
 
 func set_intensity(t):
+	print ("Set Intensity ", t)
 	intensity = lerp(0, 100, t);
 	segments_val = lerp (_min_segments, _max_segments, t);
 	center_radius_val = lerp (_center_radius_min, _center_radius_max, 1.0 - t)
@@ -62,17 +64,27 @@ func _set_shader():
 	material.set_shader_param(segments_name, segments_val)
 	material.set_shader_param(center_radius_name, center_radius_val)
 	material.set_shader_param(reflect_outside_name, reflect_outside_val)
-	material.set_shader_param ("enabled", kaleidoscope_enabled)
+	#material.set_shader_param ("enabled", kaleidoscope_enabled)
 	material.set_shader_param(_tri_multiplier_name, _tri_multiplier_val)
 	material.set_shader_param(_rotation_speed_name, _rotation_speed_val)
 
 func _ready():
-	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	time = 0
+	pass # Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _process(delta):
+	time += delta
+	var enabled = material.get_shader_param("enabled")
 	if Input.is_action_just_pressed("toggle_show_kaleidoscope",true):
-		var enabled = material.get_shader_param("enabled")
+
 		material.set_shader_param("enabled", !enabled)
+		time = 0
+		return
+	if (enabled):
+
+		
+		print (time, " ", sin(time))
+		set_intensity(sin(time / 100.0) )
 
 
 func _on_change_intensity(value):

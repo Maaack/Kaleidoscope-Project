@@ -9,20 +9,20 @@
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 2 )
-shader_param/enabled = true
+shader_param/enabled = false
 shader_param/triangles = false
 shader_param/polarOutOffset = Vector2( 0, 0 )
 shader_param/polarInOffset = Vector2( 0, 0 )
-shader_param/polarInRotationOffset = 0.0
+shader_param/polarInRotationOffset = -1.561
 shader_param/triOutOffset = Vector2( 0, 0 )
 shader_param/triInOffset = Vector2( 0, 0 )
 shader_param/triInRotationOffset = 0.0
-shader_param/viewRotationOffset = 0.0
+shader_param/viewRotationOffset = 1.633
 shader_param/texMultiplier = 1.0
 shader_param/zoom = 1.0
 shader_param/border_radius = 0.25
 shader_param/center_radius = 0.25
-shader_param/segments = 6.0
+shader_param/segments = 3.0
 shader_param/use_polygon_radius = false
 shader_param/reflect_outside = false
 shader_param/select_outside_slice = false
@@ -46,6 +46,7 @@ margin_right = 540.0
 margin_bottom = 540.0
 script = ExtResource( 3 )
 rot_speed_max = 0.1
+enabled_thresh = 0.0
 
 [node name="Viewport" type="Viewport" parent="Kaleidoscope"]
 size = Vector2( 1080, 1080 )
