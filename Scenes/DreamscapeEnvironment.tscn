@@ -3,8 +3,7 @@
 [ext_resource path="res://Assets/AllSky/AllSkyFree_Skyboxes/AllSky_Night_MoonBurst Equirect.png" type="Texture" id=1]
 [ext_resource path="res://Assets/AllSky/AllSkyFree_DemoLandsacpe.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Dreamscape.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Experimental/AmyGameProto/TestModels/structure.tres" type="Material" id=4]
-[ext_resource path="res://Scenes/Experimental/AmyGameProto/TestModels/Structure.obj" type="ArrayMesh" id=5]
+[ext_resource path="res://Scenes/ViewCollider.tscn" type="PackedScene" id=4]
 
 [sub_resource type="PanoramaSky" id=1]
 panorama = ExtResource( 1 )
@@ -12,7 +11,6 @@ panorama = ExtResource( 1 )
 [sub_resource type="Environment" id=2]
 background_mode = 2
 background_sky = SubResource( 1 )
-background_sky_orientation = Basis( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1 )
 fog_enabled = true
 fog_color = Color( 0.0745098, 0.0901961, 0.117647, 1 )
 fog_sun_color = Color( 0.564706, 0.729412, 0.92549, 1 )
@@ -35,6 +33,10 @@ glow_bloom = 0.63
 glow_blend_mode = 0
 glow_hdr_threshold = 0.44
 glow_bicubic_upscale = true
+
+[sub_resource type="CapsuleShape" id=6]
+radius = 0.5
+height = 5.0
 
 [sub_resource type="SpatialMaterial" id=4]
 render_priority = -1
@@ -65,128 +67,31 @@ shadow_enabled = true
 visible = false
 
 [node name="Dreamscape" parent="." instance=ExtResource( 3 )]
-transform = Transform( 5, 0, 0, 0, 5, 0, 0, 0, 5, 0, 15.3433, -42.7662 )
-
-[node name="Player Controller" parent="Dreamscape" index="0"]
-transform = Transform( 0.999999, 0, 0, 0, 0.999999, 0, 0, 0, 1, 0.183715, -2.13522, 9.11097 )
-
-[node name="Camera" parent="Dreamscape/Player Controller/Player/Pivot" index="0"]
-current = true
-
-[node name="Structure" type="MeshInstance" parent="Dreamscape"]
-transform = Transform( 1, 0, 0, 0, -1, 0, 0, 0, 1, 1.15132, 10.0237, 10.1205 )
-material_override = ExtResource( 4 )
-mesh = ExtResource( 5 )
-material/0 = ExtResource( 4 )
-material/1 = ExtResource( 4 )
-material/2 = ExtResource( 4 )
-material/3 = ExtResource( 4 )
-material/4 = ExtResource( 4 )
-material/5 = ExtResource( 4 )
-material/6 = ExtResource( 4 )
-material/7 = ExtResource( 4 )
-material/8 = null
-material/9 = null
-material/10 = null
-material/11 = null
-material/12 = null
-material/13 = null
-material/14 = null
-material/15 = null
-material/16 = null
-material/17 = null
-material/18 = null
-material/19 = null
-material/20 = null
-material/21 = null
-material/22 = null
-material/23 = null
-material/24 = null
-material/25 = null
-material/26 = null
-material/27 = null
-material/28 = null
-material/29 = null
-material/30 = null
-material/31 = null
-material/32 = null
-material/33 = null
-material/34 = null
-material/35 = null
-material/36 = null
-material/37 = null
-material/38 = null
-material/39 = null
-material/40 = null
-material/41 = null
-material/42 = null
-material/43 = null
-material/44 = null
-material/45 = null
-material/46 = null
-material/47 = null
-material/48 = null
-material/49 = null
-material/50 = null
-material/51 = null
-material/52 = null
-material/53 = null
-material/54 = null
-material/55 = null
-material/56 = null
-material/57 = null
-material/58 = null
-material/59 = null
-material/60 = null
-material/61 = null
-material/62 = null
-material/63 = null
-material/64 = null
-material/65 = null
-material/66 = null
-material/67 = null
-material/68 = null
-material/69 = null
-material/70 = null
-material/71 = null
-material/72 = null
-material/73 = null
-material/74 = null
-material/75 = null
-material/76 = null
-material/77 = null
-material/78 = null
-material/79 = null
-material/80 = null
-material/81 = null
-material/82 = null
-material/83 = null
-material/84 = null
-material/85 = null
-material/86 = null
-material/87 = null
-material/88 = null
-material/89 = null
-material/90 = null
-material/91 = null
-material/92 = null
-material/93 = null
-material/94 = null
-material/95 = null
-material/96 = null
-material/97 = null
-material/98 = null
-material/99 = null
-material/100 = null
-material/101 = null
-material/102 = null
-material/103 = null
-material/104 = null
-material/105 = null
-material/106 = null
-material/107 = null
 
 [node name="TestGlowyThings" type="Spatial" parent="."]
+
+[node name="ViewCollider" parent="TestGlowyThings" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5.348, 2.88957, -0.463445 )
+collider_type = 1
+
+[node name="CollisionShape" parent="TestGlowyThings/ViewCollider" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014472, 0.0481124, 0 )
+shape = SubResource( 6 )
+
+[node name="ViewCollider2" parent="TestGlowyThings" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.83369, 2.88957, -11.916 )
+
+[node name="CollisionShape" parent="TestGlowyThings/ViewCollider2" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0723314, 1.87253, 0 )
+shape = SubResource( 6 )
+
+[node name="ViewCollider3" parent="TestGlowyThings" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.619192, 2.88957, 4.53638 )
+collider_type = 2
+
+[node name="CollisionShape" parent="TestGlowyThings/ViewCollider3" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0723314, 1.87253, 0 )
+shape = SubResource( 6 )
 
 [node name="red" type="CSGCylinder" parent="TestGlowyThings"]
 transform = Transform( 0.101, 0, 0, 0, 6, 0, 0, 0, 0.101, -1.83369, 2.88957, -10.1977 )
@@ -203,7 +108,7 @@ omni_range = 10.0
 omni_attenuation = 1.7411
 
 [node name="green" type="CSGCylinder" parent="TestGlowyThings"]
-transform = Transform( 0.101, 0, 0, 0, 6, 0, 0, 0, 0.101, 4.6784, 2.88957, -6.56099 )
+transform = Transform( 0.101, 0, 0, 0, 6, 0, 0, 0, 0.101, -5.35085, 2.88957, -0.42363 )
 material = SubResource( 5 )
 
 [node name="greenlight" type="OmniLight" parent="TestGlowyThings/green"]
@@ -217,7 +122,7 @@ omni_range = 10.0
 omni_attenuation = 1.74
 
 [node name="blue" type="CSGCylinder" parent="TestGlowyThings"]
-transform = Transform( 0.101, 0, 0, 0, 6, 0, 0, 0, 0.101, -0.42116, 3.81413, -6.79511 )
+transform = Transform( 0.101, 0, 0, 0, 6, 0, 0, 0, 0.101, -0.543342, 3.81413, 6.63493 )
 height = 1.24222
 material = SubResource( 3 )
 
@@ -231,5 +136,6 @@ shadow_enabled = true
 omni_range = 10.0
 omni_attenuation = 1.74
 
-[editable path="Dreamscape"]
-[editable path="Dreamscape/Player Controller"]
+[editable path="TestGlowyThings/ViewCollider"]
+[editable path="TestGlowyThings/ViewCollider2"]
+[editable path="TestGlowyThings/ViewCollider3"]
