@@ -1,9 +1,6 @@
 extends KinematicBody
 
-
 onready var camera = $Pivot/Camera
-
-export(float, 0.0, 5.0) var footstep_vector_min : float = 2.0
 
 var gravity = -30
 var max_speed = 8
@@ -11,8 +8,8 @@ var jump_force = 10
 
 #camera vars
 var mouse_sensitivity : float = 0.02  #radians/pixel
-var minLookAngle : float = -90
-var maxLookAngle : float = 90
+var minLookAngle : float = -50
+var maxLookAngle : float = 50
 
 var velocity = Vector3()
 var mouseDelta = Vector2()
@@ -53,8 +50,5 @@ func _physics_process(delta):
 	velocity.x = desired_velocity.x
 	velocity.z = desired_velocity.z
 	velocity = move_and_slide(velocity, Vector3.UP, true)
-	var walk_detection : Vector3 = velocity * Vector3(1, 0, 1)
-	if walk_detection.length_squared() > footstep_vector_min:
-		$AnimationPlayer.play("Walking")
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = jump_force

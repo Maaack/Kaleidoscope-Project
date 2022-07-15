@@ -1,13 +1,11 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Themes/MainTheme.tres" type="Theme" id=1]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Original/Music/intro_idea.mp3" type="AudioStream" id=2]
 [ext_resource path="res://Themes/SubtitleFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Themes/TitleFont.tres" type="DynamicFont" id=4]
 [ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Credits/Credits.tscn" type="PackedScene" id=6]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=7]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/OptionsMenu/OptionsMenu.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=60]
@@ -219,13 +217,25 @@ tracks/2/keys = {
 "update": 0,
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
-tracks/3/type = "method"
-tracks/3/path = NodePath(".")
+tracks/3/type = "value"
+tracks/3/path = NodePath("AudioStreamPlayer:playing")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/imported = false
 tracks/3/enabled = true
 tracks/3/keys = {
+"times": PoolRealArray( -0.1, 0.5 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ false, true ]
+}
+tracks/4/type = "method"
+tracks/4/path = NodePath(".")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
 "times": PoolRealArray( 0.5, 4.5 ),
 "transitions": PoolRealArray( 1, 1 ),
 "values": [ {
@@ -440,6 +450,30 @@ tracks/2/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("AudioStreamPlayer:volume_db")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 0.8 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -60.0 ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath("AudioStreamPlayer:playing")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0.8 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
 }
 
 [sub_resource type="Animation" id=56]
@@ -727,25 +761,9 @@ margin_bottom = -64.0
 rect_min_size = Vector2( 0, 40 )
 text = "Back"
 
-[node name="AkBank" type="Node" parent="."]
-script = ExtResource( 8 )
-bank = {
-"Id": 1509027703,
-"Name": "KSCOPEMAIN"
-}
-load_on = 1
-
-[node name="AkListener2D" type="Node2D" parent="."]
-script = ExtResource( 7 )
-
-[node name="MenuMusicAkEvent2D" type="Node2D" parent="."]
-script = ExtResource( 2 )
-event = {
-"Id": 1785415464,
-"Name": "MENU LOADED"
-}
-trigger_on = 3
-stop_on = 2
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 2 )
+autoplay = true
 
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/AmysKScopeButton" to="." method="_on_AmysKScopeButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/GemTestButton" to="." method="_on_GemTestButton_pressed"]

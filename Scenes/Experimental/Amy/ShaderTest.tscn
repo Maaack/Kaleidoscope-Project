@@ -6,11 +6,17 @@
 [ext_resource path="res://Scenes/Experimental/AmyGameProto/GameProtoViewport.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Experimental/Amy/ShaderTest.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Experimental/Amy/TestSprite.gd" type="Script" id=6]
-[ext_resource path="res://Shaders/Kaleidoscope.gdshader" type="Shader" id=7]
+[ext_resource path="res://Shaders/KaleidoscopeBasic.gdshader" type="Shader" id=7]
 
 [sub_resource type="ShaderMaterial" id=8]
 shader = ExtResource( 7 )
 shader_param/enabled = true
+shader_param/viewOffset = Vector2( 0, 0 )
+shader_param/texOffset = Vector2( 0, 0 )
+shader_param/texRotationOffset = 0.5
+shader_param/viewRotationOffset = -0.5
+shader_param/texMultiplier = 1.0
+shader_param/zoom = 1.0
 shader_param/border_radius = 0.5
 shader_param/center_radius = 0.142
 shader_param/segments = 6.0
