@@ -1,5 +1,6 @@
 extends KinematicBody
 
+
 onready var camera = $Pivot/Camera
 
 var gravity = -30
@@ -50,6 +51,7 @@ func _physics_process(delta):
 	velocity.x = desired_velocity.x
 	velocity.z = desired_velocity.z
 	velocity = move_and_slide(velocity, Vector3.UP, true)
+	if velocity.length_squared() > 0.0:
+		$AnimationPlayer.play("Walking")
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
-

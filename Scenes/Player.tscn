@@ -1,13 +1,34 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/PlayerController.gd" type="Script" id=2]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=3]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=4]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.4, 0.1, 0.4 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "Walking"
+length = 0.6
+tracks/0/type = "method"
+tracks/0/path = NodePath("FootStepAkEvent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "post_event"
+} ]
+}
 
 [node name="Player Controller" type="Spatial"]
 script = ExtResource( 2 )
@@ -34,3 +55,25 @@ cast_to = Vector3( 0, 0, -100 )
 collision_mask = 2
 collide_with_areas = true
 collide_with_bodies = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+root_node = NodePath("../..")
+anims/Walking = SubResource( 3 )
+
+[node name="AkBank" type="Node" parent="."]
+script = ExtResource( 4 )
+bank = {
+"Id": 1509027703,
+"Name": "KSCOPEMAIN"
+}
+load_on = 1
+
+[node name="AkListener" type="Spatial" parent="."]
+script = ExtResource( 5 )
+
+[node name="FootStepAkEvent" type="Spatial" parent="."]
+script = ExtResource( 3 )
+event = {
+"Id": 4276063004,
+"Name": "PLAYER FS"
+}
