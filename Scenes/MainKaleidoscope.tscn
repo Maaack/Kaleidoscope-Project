@@ -1,11 +1,10 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/DreamscapeEnvironment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Shaders/Kaleidoscope.gdshader" type="Shader" id=2]
 [ext_resource path="res://Scenes/Kaleidoscope.gd" type="Script" id=3]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=4]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=5]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_state.gd" type="Script" id=7]
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 2 )
@@ -47,17 +46,5 @@ script = ExtResource( 5 )
 event = {
 "Id": 1001937282,
 "Name": "LEVEL1 LOADED"
-}
-trigger_on = 3
-
-[node name="AkState" type="Node" parent="."]
-script = ExtResource( 7 )
-state_group = {
-"Id": 3223913734,
-"Name": "MENUGAME"
-}
-state_value = {
-"Id": 702482391,
-"Name": "GAME"
 }
 trigger_on = 3

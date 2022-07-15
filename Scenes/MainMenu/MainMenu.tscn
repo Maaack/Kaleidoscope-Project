@@ -746,7 +746,6 @@ event = {
 "Name": "MENU LOADED"
 }
 trigger_on = 3
-stop_on = 2
 
 [node name="AkStateMenu" type="Node" parent="."]
 script = ExtResource( 9 )
