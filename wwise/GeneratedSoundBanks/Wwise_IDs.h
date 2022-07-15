@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID CREDITS_LOADED = 2687372615U;
         static const AkUniqueID DEPOSIT1 = 3709765322U;
         static const AkUniqueID DEPOSIT2 = 3709765321U;
         static const AkUniqueID DEPOSIT3 = 3709765320U;
@@ -23,7 +24,10 @@ namespace AK
         static const AkUniqueID MUSHROOMEAT = 2103799123U;
         static const AkUniqueID OBSTACLEIMPACT = 3047133404U;
         static const AkUniqueID OUTRO_LOADED = 910559594U;
+        static const AkUniqueID PIECECOLLISION = 2940813907U;
         static const AkUniqueID PLAYER_FS = 4276063004U;
+        static const AkUniqueID TUMBLERROTATION = 3324514684U;
+        static const AkUniqueID TUMBLERSTOP = 1207294690U;
         static const AkUniqueID UIMOUSECLICK = 3013838884U;
         static const AkUniqueID UIMOUSEOVER = 1271092770U;
         static const AkUniqueID WORLDCHANGE = 2364413463U;
@@ -71,6 +75,17 @@ namespace AK
                 static const AkUniqueID MAX = 1048449613U;
             } // namespace SWITCH
         } // namespace MUSIC_CALMINTENSEMAX
+
+        namespace TUMBLERDIRECTION
+        {
+            static const AkUniqueID GROUP = 2753380033U;
+
+            namespace SWITCH
+            {
+                static const AkUniqueID CCWISE = 3322674831U;
+                static const AkUniqueID CWISE = 1571037980U;
+            } // namespace SWITCH
+        } // namespace TUMBLERDIRECTION
 
     } // namespace SWITCHES
 
