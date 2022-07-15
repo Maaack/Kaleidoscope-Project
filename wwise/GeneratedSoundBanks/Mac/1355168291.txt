@@ -35,15 +35,14 @@ Game Parameter	ID	Name			Wwise Object Path	Notes
 
 Audio Bus	ID	Name			Wwise Object Path	Notes
 	1162281553	BUS_Music			\Default Work Unit\Master Audio Bus\BUS_Music	
-	2165879900	BUS_WorldChange			\Default Work Unit\Master Audio Bus\BUS_WorldChange	
-	2724561296	BUS_Heartbeat			\Default Work Unit\Master Audio Bus\BUS_Heartbeat	
 	3803692087	Master Audio Bus			\Default Work Unit\Master Audio Bus	
+	3895923845	BUS_SFX			\Default Work Unit\Master Audio Bus\BUS_SFX	
+	4277214558	BUS_Voice			\Default Work Unit\Master Audio Bus\BUS_Voice	
 
 Auxiliary Bus	ID	Name			Wwise Object Path	Notes
 	2847424927	Aux_Rev			\Default Work Unit\Master Audio Bus\Aux_Rev	
 
 Effect plug-ins	ID	Name	Type				Notes
-	2543247750	Wwise_Meter	Wwise Meter			
 	2781261543	Brick_Wall_Minus_6dB_Peak_Slow_Release	Wwise Peak Limiter			
 	3673681183	Large_Bright_Chamber1	Wwise Matrix Reverb			
 

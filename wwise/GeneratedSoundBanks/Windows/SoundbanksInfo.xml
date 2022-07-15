@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2910668661">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3509295824">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>1355168291.bnk</Path>
@@ -22,11 +22,55 @@
 				<GameParameter Id="2827693126" Name="WorldChangeLoudness" ObjectPath="\Game Parameters\Default Work Unit\WorldChangeLoudness"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1509027703" Language="SFX" Hash="810968492">
+		<SoundBank Id="1509027703" Language="SFX" Hash="1878067423">
 			<ObjectPath>\SoundBanks\Default Work Unit\KScopeMain</ObjectPath>
 			<ShortName>KScopeMain</ShortName>
 			<Path>1509027703.bnk</Path>
 			<IncludedEvents>
+				<Event Id="3709765322" Name="Deposit1" ObjectPath="\Events\Default Work Unit\Deposit1">
+					<IncludedMemoryFiles>
+						<File Id="266672359" Language="SFX">
+							<ShortName>GemDeposit 1.wav</ShortName>
+							<Path>SFX/GemDeposit 1_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3709765321" Name="Deposit2" ObjectPath="\Events\Default Work Unit\Deposit2">
+					<IncludedMemoryFiles>
+						<File Id="622929681" Language="SFX">
+							<ShortName>GemDeposit 2.wav</ShortName>
+							<Path>SFX/GemDeposit 2_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3709765320" Name="Deposit3" ObjectPath="\Events\Default Work Unit\Deposit3">
+					<IncludedMemoryFiles>
+						<File Id="598576478" Language="SFX">
+							<ShortName>GemDeposit 3.wav</ShortName>
+							<Path>SFX/GemDeposit 3_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2881812561" Name="DepositPoint" ObjectPath="\Events\Default Work Unit\DepositPoint">
+					<IncludedMemoryFiles>
+						<File Id="89073535" Language="SFX">
+							<ShortName>GemEmanation 2.wav</ShortName>
+							<Path>SFX/GemEmanation 2_E84716CF.wem</Path>
+						</File>
+						<File Id="459367388" Language="SFX">
+							<ShortName>GemEmanation 4.wav</ShortName>
+							<Path>SFX/GemEmanation 4_E84716CF.wem</Path>
+						</File>
+						<File Id="647230748" Language="SFX">
+							<ShortName>GemEmanation 1.wav</ShortName>
+							<Path>SFX/GemEmanation 1_E84716CF.wem</Path>
+						</File>
+						<File Id="894867728" Language="SFX">
+							<ShortName>GemEmanation 3.wav</ShortName>
+							<Path>SFX/GemEmanation 3_E84716CF.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3766922154" Name="Easteregg" ObjectPath="\Events\Default Work Unit\Easteregg">
 					<IncludedMemoryFiles>
 						<File Id="912545632" Language="SFX">
@@ -162,9 +206,29 @@
 				</Event>
 				<Event Id="2103799123" Name="MushroomEat" ObjectPath="\Events\Default Work Unit\MushroomEat">
 					<IncludedMemoryFiles>
-						<File Id="138943488" Language="SFX">
-							<ShortName>Mushroom_BiteChewSwallow.wav</ShortName>
-							<Path>SFX/Mushroom_BiteChewSwallow_569C59C1.wem</Path>
+						<File Id="262163400" Language="SFX">
+							<ShortName>Mushroom_Eat_v2.wav</ShortName>
+							<Path>SFX/Mushroom_Eat_v2_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3047133404" Name="ObstacleImpact" ObjectPath="\Events\Default Work Unit\ObstacleImpact">
+					<IncludedMemoryFiles>
+						<File Id="311014044" Language="SFX">
+							<ShortName>Obstacle Impact 1.wav</ShortName>
+							<Path>SFX/Obstacle Impact 1_569C59C1.wem</Path>
+						</File>
+						<File Id="486078552" Language="SFX">
+							<ShortName>Obstacle Impact 4.wav</ShortName>
+							<Path>SFX/Obstacle Impact 4_569C59C1.wem</Path>
+						</File>
+						<File Id="616143977" Language="SFX">
+							<ShortName>Obstacle Impact 2.wav</ShortName>
+							<Path>SFX/Obstacle Impact 2_569C59C1.wem</Path>
+						</File>
+						<File Id="902218819" Language="SFX">
+							<ShortName>Obstacle Impact 3.wav</ShortName>
+							<Path>SFX/Obstacle Impact 3_569C59C1.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -251,6 +315,22 @@
 							</Media>
 						</SwitchContainer>
 					</SwitchContainers>
+				</Event>
+				<Event Id="3013838884" Name="UIMouseClick" ObjectPath="\Events\Default Work Unit\UIMouseClick">
+					<IncludedMemoryFiles>
+						<File Id="619237890" Language="SFX">
+							<ShortName>UI - Mouse Press.wav</ShortName>
+							<Path>SFX/UI - Mouse Press_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1271092770" Name="UIMouseOver" ObjectPath="\Events\Default Work Unit\UIMouseOver">
+					<IncludedMemoryFiles>
+						<File Id="14523537" Language="SFX">
+							<ShortName>UI - Mouse Over.wav</ShortName>
+							<Path>SFX/UI - Mouse Over_665E7C46.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="2364413463" Name="WorldChange" ObjectPath="\Events\Default Work Unit\WorldChange">
 					<IncludedMemoryFiles>
