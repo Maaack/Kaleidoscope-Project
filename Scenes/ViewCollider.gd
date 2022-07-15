@@ -5,7 +5,7 @@ extends Area
 signal looked_at
 signal stop_looked_at
 
-enum Type {RED , GREEN, BLUE}
+enum Type {RED, GREEN, BLUE, MUSHROOM}
 
 
 export(Type) var collider_type
