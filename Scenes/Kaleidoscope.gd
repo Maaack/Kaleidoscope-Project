@@ -2,7 +2,7 @@ extends ViewportContainer
 
 
 func _ready():
-	pass # Replace with function body.
+	material.set_shader_param("enabled", false)
 
 
 
