@@ -19,21 +19,27 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/wwise/runtime/helpers/ak_utils.gd"
 }, {
-"base": "Reference",
+"base": "Button",
 "class": "SoundButton",
 "language": "GDScript",
 "path": "res://Scenes/UI/CustomComponents/SoundButton.gd"
+}, {
+"base": "Node2D",
+"class": "TumblerSceneBase",
+"language": "GDScript",
+"path": "res://Scenes/Kaleidoscope/TumblerScenes/TumblerSceneBase.gd"
 } ]
 _global_script_class_icons={
 "AK": "",
 "AkUtils": "",
-"SoundButton": ""
+"SoundButton": "",
+"TumblerSceneBase": ""
 }
 
 [application]
 
 config/name="Kaleidoscope Project"
-run/main_scene="res://Scenes/Experimental/Wwise/WwiseShaderTest.tscn"
+run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -41,6 +47,7 @@ config/icon="res://icon.png"
 WwiseSettings="*res://addons/wwise/editor/wwise_settings.gd"
 Wwise="*res://addons/wwise/bin/wwise-gdnative.gdns"
 Waapi="*res://addons/wwise/bin/waapi-gdnative.gdns"
+PauseMenuController="*res://Scripts/PauseMenuController.gd"
 
 [display]
 
@@ -50,6 +57,10 @@ window/size/height=1080
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/wwise/plugin.cfg" )
+
+[global]
+
+theme=false
 
 [gui]
 
