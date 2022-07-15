@@ -63,6 +63,9 @@ visible = false
 
 [node name="Dreamscape" parent="." instance=ExtResource( 3 )]
 
+[node name="Camera" parent="Dreamscape/Player Controller/Player/Pivot" index="0"]
+current = true
+
 [node name="TestGlowyThings" type="Spatial" parent="."]
 
 [node name="red" type="CSGCylinder" parent="TestGlowyThings"]
@@ -94,7 +97,7 @@ omni_range = 10.0
 omni_attenuation = 1.74
 
 [node name="blue" type="CSGCylinder" parent="TestGlowyThings"]
-transform = Transform( 0.101, 0, 0, 0, 6, 0, 0, 0, 0.101, -0.543342, 3.81413, 6.63493 )
+transform = Transform( 0.101, 0, 0, 0, 6, 0, 0, 0, 0.101, 3.76321, 3.81413, 6.63493 )
 height = 1.24222
 material = SubResource( 3 )
 
@@ -107,3 +110,6 @@ light_specular = 0.585
 shadow_enabled = true
 omni_range = 10.0
 omni_attenuation = 1.74
+
+[editable path="Dreamscape"]
+[editable path="Dreamscape/Player Controller"]
