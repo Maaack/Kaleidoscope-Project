@@ -1,101 +1,51 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Themes/TitleFont.tres" type="DynamicFont" id=1]
-[ext_resource path="res://Scenes/ViewCollider.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/interactive/LightPillar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/interactive/mushroom.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Dreamscape.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/InteractionController.gd" type="Script" id=5]
-
-[sub_resource type="CapsuleShape" id=1]
-radius = 0.5
-height = 5.0
-
-[sub_resource type="SpatialMaterial" id=2]
-render_priority = -1
-flags_unshaded = true
-albedo_color = Color( 1, 0.588235, 0.588235, 1 )
-
-[sub_resource type="SpatialMaterial" id=3]
-flags_unshaded = true
-albedo_color = Color( 0.588235, 1, 0.588235, 1 )
-
-[sub_resource type="SpatialMaterial" id=4]
-flags_unshaded = true
-albedo_color = Color( 0.588235, 0.588235, 1, 1 )
 
 [node name="DreamscapeInteractive" type="Spatial"]
 script = ExtResource( 5 )
 
 [node name="TestGlowyThings" type="Spatial" parent="."]
 
-[node name="ViewCollider" parent="TestGlowyThings" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5.348, 2.88957, -0.463445 )
-collider_type = 1
-
-[node name="CollisionShape" parent="TestGlowyThings/ViewCollider" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014472, 0.0481124, 0 )
-shape = SubResource( 1 )
-
-[node name="ViewCollider2" parent="TestGlowyThings" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.83369, 2.88957, -11.916 )
-
-[node name="CollisionShape" parent="TestGlowyThings/ViewCollider2" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0723314, 1.87253, 0 )
-shape = SubResource( 1 )
-
-[node name="ViewCollider3" parent="TestGlowyThings" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.619192, 2.88957, 4.53638 )
-collider_type = 2
-
-[node name="CollisionShape" parent="TestGlowyThings/ViewCollider3" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0723314, 1.87253, 0 )
-shape = SubResource( 1 )
-
-[node name="red" type="CSGCylinder" parent="TestGlowyThings"]
-transform = Transform( 0.101, 0, 0, 0, 6, 0, 0, 0, 0.101, -1.83369, 2.88957, -10.1977 )
-material = SubResource( 2 )
-
-[node name="redlight" type="OmniLight" parent="TestGlowyThings/red"]
-transform = Transform( 9.90099, 0, 0, 0, 0.166667, 0, 0, 0, 9.90099, 0, 0, 0 )
-light_color = Color( 1, 0.235294, 0.235294, 1 )
-light_energy = 2.73
-light_indirect_energy = 2.0
-light_specular = 0.585
-shadow_enabled = true
-omni_range = 10.0
-omni_attenuation = 1.7411
-
-[node name="green" type="CSGCylinder" parent="TestGlowyThings"]
-transform = Transform( 0.101, 0, 0, 0, 6, 0, 0, 0, 0.101, -5.35085, 2.88957, -0.42363 )
-material = SubResource( 3 )
-
-[node name="greenlight" type="OmniLight" parent="TestGlowyThings/green"]
-transform = Transform( 9.90099, 0, 0, 0, 0.166667, 0, 0, 0, 9.90099, 0.00094223, 0, 0.369025 )
-light_color = Color( 0.235294, 1, 0.235294, 1 )
-light_energy = 2.73
-light_indirect_energy = 2.0
-light_specular = 0.585
-shadow_enabled = true
-omni_range = 10.0
-omni_attenuation = 1.74
-
-[node name="blue" type="CSGCylinder" parent="TestGlowyThings"]
-transform = Transform( 0.101, 0, 0, 0, 6, 0, 0, 0, 0.101, -0.543342, 3.81413, 6.63493 )
-height = 1.24222
-material = SubResource( 4 )
-
-[node name="bluelight" type="OmniLight" parent="TestGlowyThings/blue"]
-transform = Transform( 9.90099, 0, 0, 0, 0.166667, 0, 0, 0, 9.90099, 0, 0, 0 )
-light_color = Color( 0.235294, 0.235294, 1, 1 )
-light_energy = 2.73
-light_indirect_energy = 2.0
-light_specular = 0.585
-shadow_enabled = true
-omni_range = 10.0
-omni_attenuation = 1.74
-
 [node name="Mushroom" parent="TestGlowyThings" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.64577, 2.1247, 1.75958 )
+
+[node name="LightPillarRed" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67538, 0.0579605, -8.34749 )
+
+[node name="LightPillarGreen" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.43892, 0.05796, 2.83892 )
+hue = 0.28
+collider_type = 1
+
+[node name="LightPillarBlue" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94696, 0.0579605, 6.28143 )
+hue = 0.6
+collider_type = 2
+
+[node name="LightPillarYellow" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.85008, 1.586, -3.4766 )
+hue = 0.155
+collider_type = 4
+
+[node name="LightPillarCyan" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.35366, 0.0579605, 9.31124 )
+hue = 0.5
+collider_type = 3
+
+[node name="LightPillarPurple" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25054, 1.586, 4.03206 )
+hue = 0.7
+collider_type = 5
+
+[node name="LightPillarPink" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95299, 1.586, -4.38942 )
+hue = 0.85
+collider_type = 6
 
 [node name="TestViewColliderUI" type="CanvasLayer" parent="."]
 __meta__ = {
@@ -117,7 +67,4 @@ custom_fonts/font = ExtResource( 1 )
 [connection signal="interacted_with" from="TestViewColliderUI/Dreamscape/Player Controller" to="." method="_on_Player_Controller_interacted_with"]
 [connection signal="started_looking_at" from="TestViewColliderUI/Dreamscape/Player Controller" to="." method="_on_Player_Controller_started_looking_at"]
 
-[editable path="TestGlowyThings/ViewCollider"]
-[editable path="TestGlowyThings/ViewCollider2"]
-[editable path="TestGlowyThings/ViewCollider3"]
 [editable path="TestViewColliderUI/Dreamscape"]
