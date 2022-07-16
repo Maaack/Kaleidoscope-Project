@@ -45,9 +45,11 @@ func open_credits():
 	close_menu()
 	menu_state = States.CREDITS
 	$MenuAnimationPlayer.play("OpenCredits")
+	$AkStateCredits.set_state()
 
 func close_credits():
 	$MenuAnimationPlayer.play("CloseCredits")
+	$AkStateMenu.set_state()
 
 func open_options():
 	close_menu()

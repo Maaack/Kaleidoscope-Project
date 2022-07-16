@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Themes/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Scenes/Credits/Credits.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=7]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=8]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_state.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/OptionsMenu/OptionsMenu.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=60]
@@ -745,7 +746,29 @@ event = {
 "Name": "MENU LOADED"
 }
 trigger_on = 3
-stop_on = 2
+
+[node name="AkStateMenu" type="Node" parent="."]
+script = ExtResource( 9 )
+state_group = {
+"Id": 3223913734,
+"Name": "MENUGAME"
+}
+state_value = {
+"Id": 2607556080,
+"Name": "MENU"
+}
+trigger_on = 3
+
+[node name="AkStateCredits" type="Node" parent="."]
+script = ExtResource( 9 )
+state_group = {
+"Id": 3223913734,
+"Name": "MENUGAME"
+}
+state_value = {
+"Id": 2201105581,
+"Name": "CREDITS"
+}
 
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/AmysKScopeButton" to="." method="_on_AmysKScopeButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/GemTestButton" to="." method="_on_GemTestButton_pressed"]
