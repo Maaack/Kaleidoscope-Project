@@ -747,6 +747,13 @@ event = {
 }
 trigger_on = 3
 
+[node name="CreditMusicAkEvent2D" type="Node2D" parent="."]
+script = ExtResource( 2 )
+event = {
+"Id": 2687372615,
+"Name": "CREDITS LOADED"
+}
+
 [node name="AkStateMenu" type="Node" parent="."]
 script = ExtResource( 9 )
 state_group = {
