@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/DreamscapeEnvironment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Shaders/KaleidoscopeBasic.gdshader" type="Shader" id=2]
@@ -10,7 +10,6 @@
 [ext_resource path="res://Scenes/Kaleidoscope/KaleidoscopeControl.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Kaleidoscope/TumblerScene.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/UI/TextDisplay.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scenes/MainKaleidoscope.gd" type="Script" id=11]
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 2 )
@@ -39,7 +38,6 @@ shader_param/color_enabled = Vector3( 1, 1, 1 )
 shader_param/show_debug = false
 
 [node name="MainKaleidoscope" type="Node"]
-script = ExtResource( 11 )
 
 [node name="Kaleidoscope" type="ViewportContainer" parent="."]
 material = SubResource( 3 )
@@ -90,6 +88,7 @@ trigger_on = 3
 [connection signal="mushroom_eated" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="Kaleidoscope" method="_on_DreamscapeInteractive_mushroom_eated"]
 [connection signal="player_started_looking_at" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="." method="_on_DreamscapeInteractive_player_started_looking_at"]
 [connection signal="player_stopped_looking_at" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="." method="_on_DreamscapeInteractive_player_stopped_looking_at"]
+[connection signal="started_looking_at" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/Dreamscape/Player Controller" to="TextDisplay" method="started_looking_at"]
 
 [editable path="Kaleidoscope/KaleidoscopeViewport/TumblerScene"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment"]

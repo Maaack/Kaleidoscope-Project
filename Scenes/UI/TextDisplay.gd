@@ -12,3 +12,6 @@ func display_text(text : String) -> void:
 
 func _on_Timer_timeout():
 	$AnimationPlayer.play_backwards("FadeIn")
+
+func started_looking_at(object : ViewCollider) -> void:
+	display_text("Looking at %s" % ViewCollider.Type.keys()[object.collider_type])
