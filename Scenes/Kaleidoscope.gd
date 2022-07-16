@@ -1,5 +1,6 @@
 extends ViewportContainer
 
+
 export var  triangles : bool = 0;
 
 
@@ -24,6 +25,17 @@ var inverse_slice = "select_outside_slice"
 
 var border_radius = "border_radius"
 
+var _normality_name = "normality_radius"
+var _normality_val = 0.5
+export var _normality_min = 1.0
+export var _normality_max = 0.0
+
+var _vignette_name = "_vignette_radius"
+var _vignette_val = 0
+export var _vingette_min = 0.0
+export var _vignette_max = 0.5
+
+
 var _rotation_speed_name = "rotation_speed"
 export var rotation_thresh = 0.5
 export var rot_speed_min = 0;
@@ -31,7 +43,7 @@ export var rot_speed_max = 0.25;
 var _rotation_speed_val = 0;
 
 var _tri_multiplier_name = "texMultiplier"
-var _tri_multiplier_val = 4.0
+export var _tri_multiplier_val = 4.0
 export var _tri_multiplier_min = 1.0
 export var _tri_multiplier_max = 8.0
 export var _tri_multiplier_curve = 3.0
@@ -41,8 +53,21 @@ var time = 0.0
 var kaleidoscope_enabled: bool = false
 export var enabled_thresh = 0.01
 
+func start_kaleidoscope():
+	kaleidoscope_enabled = true;
+	material.set_shader_param("enabled", true)
 
+	
+func reset_kaleidoscope():
+	time = 0.0
+	intensity = 0.0
+	set_intensity(0.0)
+	
+func stop_kaleidoscope():
+	kaleidoscope_enabled = false;
+	material.set_shader_param("enabled", false)
 
+	
 
 func set_intensity(t):
 	print ("Set Intensity ", t)
@@ -51,6 +76,10 @@ func set_intensity(t):
 	center_radius_val = lerp (_center_radius_min, _center_radius_max, 1.0 - t)
 	reflect_outside_val = t > reflect_outside_thresh;
 	_tri_multiplier_val = lerp(_tri_multiplier_min, _tri_multiplier_max, ease(t, _tri_multiplier_curve))
+	
+	_normality_val = lerp(_normality_min, _normality_max, t * 2.0);
+	_vignette_val = lerp(_vingette_min, _vignette_max, t * 2.0 );
+	
 	if (intensity > rotation_thresh):
 		_rotation_speed_val = lerp (rot_speed_min, rot_speed_max, (t - rotation_thresh) / rotation_thresh );
 	
@@ -64,27 +93,26 @@ func _set_shader():
 	material.set_shader_param(segments_name, segments_val)
 	material.set_shader_param(center_radius_name, center_radius_val)
 	material.set_shader_param(reflect_outside_name, reflect_outside_val)
-	#material.set_shader_param ("enabled", kaleidoscope_enabled)
+
 	material.set_shader_param(_tri_multiplier_name, _tri_multiplier_val)
 	material.set_shader_param(_rotation_speed_name, _rotation_speed_val)
+	material.set_shader_param(_normality_name, _normality_val)
+	material.set_shader_param(_vignette_name, _vignette_val)
 
 func _ready():
 	time = 0
-	pass # Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	stop_kaleidoscope() # Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _process(delta):
 	time += delta
-	var enabled = material.get_shader_param("enabled")
+	#var enabled = material.get_shader_param("enabled")
 	if Input.is_action_just_pressed("toggle_show_kaleidoscope",true):
-
-		material.set_shader_param("enabled", !enabled)
-		time = 0
+		reset_kaleidoscope()
+		start_kaleidoscope()
 		return
-	if (enabled):
-
-		
-		print (time, " ", sin(time))
-		set_intensity(sin(time / 100.0) )
+	if (kaleidoscope_enabled):
+		# (time, " ", sin(time))
+		set_intensity(sin(time / 10.0 ) )
 
 
 func _on_change_intensity(value):
@@ -92,6 +120,6 @@ func _on_change_intensity(value):
 
 
 func _on_shader_selected(index):
-
-	triangles = index == 1;
-	_set_shader()
+	pass
+	#triangles = index == 1;
+	#_set_shader()

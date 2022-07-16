@@ -22,6 +22,7 @@ uniform float zoom = 1.0;
 uniform float border_radius = 0.25;
 uniform float center_radius = 0.25;
 uniform float vignette_radius = 0;
+uniform float normality_radius = 0;
 
 uniform float segments = 6;
 uniform bool use_polygon_radius = false;
@@ -317,6 +318,7 @@ vec2 sliceUV(vec2 uv){
 	vec2 pRadAngle = cartToPolarUV(uv, center);
 	float uvRadius = pRadAngle.x;
 	float uvAngle = pRadAngle.y;
+	
 	float seg = angleIsInSegment(uvAngle);
 
 
@@ -351,7 +353,10 @@ vec2 sliceUV(vec2 uv){
 	if (slice_selection > segments / 2.0){
 		sliceUV.y = 1.0 - sliceUV.y;
 	}
-
+	
+	
+	
+	
 	return sliceUV;
 }
 
@@ -393,10 +398,25 @@ void fragment(){
 		}
 		samp += viewOffset;
 		samp = (samp - CENTER) * zoom + CENTER;
+	COLOR = texture(TEXTURE, samp);// vec4(UV,0, 1.0);	
+		//if (uvRadius < normality_radius){
+	if (normality_radius > 0.){
+		vec2 c = triangles? uv - CENTER : uv - CENTER;
+		float dist = sqrt(dot(c,c));
+		float fade = smoothstep (normality_radius - .1, normality_radius,  dist);
+		
+		samp =  mix(uv, samp, fade);
+		COLOR = texture(TEXTURE, samp);// vec4(UV,0, 1.0);	
+		if (triangles) {
+			vec4 normalCol = texture (TEXTURE, UV);
+			COLOR = mix (COLOR, normalCol, 1. - fade);
+		}
+	}
+	//}
 	
 		
 	}
-	COLOR = texture(TEXTURE, samp);// vec4(UV,0, 1.0);
+
 	
 	if (show_debug){
 		COLOR = debugUV(UV);

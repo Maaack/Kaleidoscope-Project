@@ -9,23 +9,24 @@
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 2 )
-shader_param/enabled = false
+shader_param/enabled = true
 shader_param/triangles = false
 shader_param/polarOutOffset = Vector2( 0, 0 )
 shader_param/polarInOffset = Vector2( 0, 0 )
-shader_param/polarInRotationOffset = -1.561
+shader_param/polarInRotationOffset = 0.0
 shader_param/triOutOffset = Vector2( 0, 0 )
 shader_param/triInOffset = Vector2( 0, 0 )
 shader_param/triInRotationOffset = 0.0
-shader_param/viewRotationOffset = 1.633
+shader_param/viewRotationOffset = 0.0
 shader_param/texMultiplier = 1.0
 shader_param/zoom = 1.0
 shader_param/border_radius = 2.0
 shader_param/center_radius = 0.25
-shader_param/vignette_radius = 0.026
-shader_param/segments = 3.0
+shader_param/vignette_radius = 0.0
+shader_param/normality_radius = 0.581
+shader_param/segments = 6.0
 shader_param/use_polygon_radius = false
-shader_param/reflect_outside = false
+shader_param/reflect_outside = true
 shader_param/select_outside_slice = false
 shader_param/show_slice_only = false
 shader_param/rotation_speed = 0.0
