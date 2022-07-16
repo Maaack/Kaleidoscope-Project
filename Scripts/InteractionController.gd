@@ -2,6 +2,8 @@ extends Spatial
 
 signal mushroom_eated
 signal pillar_interaction(pillar)
+signal player_started_looking_at(object)
+signal player_stopped_looking_at(object)
 
 var can_pause = true # to prevent from instantly repausing after unpaused from the pause menu by pressing ui_cancel
 var collision_viewer_types = {0: "RED" , 1: "GREEN", 2: "BLUE", 3: "MUSHROOM"} # list of types defined in ViewColiider
@@ -16,11 +18,11 @@ func _process(_delta):
 
 
 func _on_Player_Controller_started_looking_at(object):
-	if object:
-		#$TestViewColliderUI/Label.text = "Looking At : %s" % collision_viewer_types[object.collider_type]
-		$TestViewColliderUI/Label.text = "Looking At : %s" % ViewCollider.Type.keys()[object.collider_type]
-	else:
-		$TestViewColliderUI/Label.text = ""
+	emit_signal("player_started_looking_at", object)
+
+
+func _on_Player_Controller_stopped_looking_at(object):
+	emit_signal("player_stopped_looking_at", object)
 
 
 func _on_Player_Controller_interacted_with(object : ViewCollider):
