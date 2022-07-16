@@ -16,7 +16,8 @@ func _process(_delta):
 
 func _on_Player_Controller_started_looking_at(object):
 	if object:
-		$TestViewColliderUI/Label.text = "Looking At : %s" % collision_viewer_types[object.collider_type]
+		#$TestViewColliderUI/Label.text = "Looking At : %s" % collision_viewer_types[object.collider_type]
+		$TestViewColliderUI/Label.text = "Looking At : %s" % ViewCollider.Type.keys()[object.collider_type]
 	else:
 		$TestViewColliderUI/Label.text = ""
 

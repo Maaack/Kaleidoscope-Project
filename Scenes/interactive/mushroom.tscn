@@ -18,7 +18,7 @@ mesh = SubResource( 1 )
 material = SubResource( 2 )
 
 [node name="ViewCollider" parent="." instance=ExtResource( 1 )]
-collider_type = 3
+collider_type = 7
 
 [node name="AkEvent" type="Spatial" parent="."]
 script = ExtResource( 3 )

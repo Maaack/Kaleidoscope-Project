@@ -6,7 +6,7 @@ signal looked_at
 signal stop_looked_at
 signal interacted
 
-enum Type {RED, GREEN, BLUE, MUSHROOM}
+enum Type {RED, GREEN, BLUE, CYAN, YELLOW, PURPLE, PINK, MUSHROOM}
 
 
 export(Type) var collider_type
