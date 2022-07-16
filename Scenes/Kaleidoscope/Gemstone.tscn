@@ -3,6 +3,8 @@
 [ext_resource path="res://Scenes/Kaleidoscope/Gemstone.gd" type="Script" id=1]
 
 [node name="Gemstone" type="RigidBody2D"]
+modulate = Color( 1, 1, 1, 0.45098 )
+position = Vector2( 41, -5 )
 gravity_scale = 10.0
 script = ExtResource( 1 )
 
