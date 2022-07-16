@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2631393035">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1833196999">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>1355168291.bnk</Path>
@@ -22,7 +22,7 @@
 				<GameParameter Id="2827693126" Name="WorldChangeLoudness" ObjectPath="\Game Parameters\Default Work Unit\WorldChangeLoudness"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1509027703" Language="SFX" Hash="2005898654">
+		<SoundBank Id="1509027703" Language="SFX" Hash="1642033485">
 			<ObjectPath>\SoundBanks\Default Work Unit\KScopeMain</ObjectPath>
 			<ShortName>KScopeMain</ShortName>
 			<Path>1509027703.bnk</Path>
@@ -92,6 +92,10 @@
 				</Event>
 				<Event Id="1001937282" Name="Level1_Loaded" ObjectPath="\Events\Default Work Unit\Level1_Loaded">
 					<IncludedMemoryFiles>
+						<File Id="98866934" Language="SFX">
+							<ShortName>MussarFixed - Spooky.wav</ShortName>
+							<Path>SFX/MussarFixed - Spooky_E84716CF.wem</Path>
+						</File>
 						<File Id="165410176" Language="SFX">
 							<ShortName>SFX_GlitterAmb_Chimes1_loop.wav</ShortName>
 							<Path>SFX/SFX_GlitterAmb_Chimes1_loop_E84716CF.wem</Path>
@@ -108,9 +112,9 @@
 							<ShortName>Ambience - Random - Animal B 5.wav</ShortName>
 							<Path>SFX/Ambience - Random - Animal B 5_569C59C1.wem</Path>
 						</File>
-						<File Id="394920707" Language="SFX">
-							<ShortName>KScope_Forest_Calm_NoBirds_MUX_NoLoop.wav</ShortName>
-							<Path>SFX/KScope_Forest_Calm_NoBirds_MUX_NoLoop_E84716CF.wem</Path>
+						<File Id="389307754" Language="SFX">
+							<ShortName>MussarFixed - Trippy.wav</ShortName>
+							<Path>SFX/MussarFixed - Trippy_E84716CF.wem</Path>
 						</File>
 						<File Id="400888509" Language="SFX">
 							<ShortName>Ambience - Random - Animal 3.wav</ShortName>
@@ -128,9 +132,9 @@
 							<ShortName>Ambience - Random - Animal B 4.wav</ShortName>
 							<Path>SFX/Ambience - Random - Animal B 4_569C59C1.wem</Path>
 						</File>
-						<File Id="608088107" Language="SFX">
-							<ShortName>KScope_Forest_Trippy_NoBirds_MUX_NoLoop.wav</ShortName>
-							<Path>SFX/KScope_Forest_Trippy_NoBirds_MUX_NoLoop_E84716CF.wem</Path>
+						<File Id="576107041" Language="SFX">
+							<ShortName>K_Scope - Ethereal loop.wav</ShortName>
+							<Path>SFX/K_Scope - Ethereal loop_E84716CF.wem</Path>
 						</File>
 						<File Id="690940518" Language="SFX">
 							<ShortName>Ambience - Random - Animal B 7.wav</ShortName>
@@ -139,6 +143,10 @@
 						<File Id="716666757" Language="SFX">
 							<ShortName>Ambience - Random - Animal 1.wav</ShortName>
 							<Path>SFX/Ambience - Random - Animal 1_569C59C1.wem</Path>
+						</File>
+						<File Id="737132242" Language="SFX">
+							<ShortName>MussarFixed - Calm.wav</ShortName>
+							<Path>SFX/MussarFixed - Calm_E84716CF.wem</Path>
 						</File>
 						<File Id="740570988" Language="SFX">
 							<ShortName>HeartbeatA.wav</ShortName>
@@ -155,10 +163,6 @@
 						<File Id="822044708" Language="SFX">
 							<ShortName>Ambience - Random - Animal B 6.wav</ShortName>
 							<Path>SFX/Ambience - Random - Animal B 6_569C59C1.wem</Path>
-						</File>
-						<File Id="856453091" Language="SFX">
-							<ShortName>KScope_Forest_Spooky_NoBirds_MUX_NoLoop.wav</ShortName>
-							<Path>SFX/KScope_Forest_Spooky_NoBirds_MUX_NoLoop_E84716CF.wem</Path>
 						</File>
 						<File Id="893622980" Language="SFX">
 							<ShortName>Ambience - Random - Animal B 2.wav</ShortName>
@@ -180,17 +184,22 @@
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{A999F13E-94F8-448A-9671-6138870A604B}">
 							<Media>
-								<File Id="394920707"/>
+								<File Id="737132242"/>
 							</Media>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{07C83298-3580-47AC-B946-8FDC1E4D0683}">
 							<Media>
-								<File Id="608088107"/>
+								<File Id="389307754"/>
 							</Media>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{A99B6341-675B-44B6-BC71-7916EF658254}">
 							<Media>
-								<File Id="856453091"/>
+								<File Id="98866934"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{CD215408-033D-4216-BF15-D186DC08BC8B}">
+							<Media>
+								<File Id="576107041"/>
 							</Media>
 						</SwitchContainer>
 					</SwitchContainers>
@@ -422,7 +431,7 @@
 					<IncludedMemoryFiles>
 						<File Id="14523537" Language="SFX">
 							<ShortName>UI - Mouse Over.wav</ShortName>
-							<Path>SFX/UI - Mouse Over_665E7C46.wem</Path>
+							<Path>SFX/UI - Mouse Over_A58B7EFE.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -459,6 +468,7 @@
 						<Switch Id="3753286132" Name="Calm" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Calm" GUID="{A999F13E-94F8-448A-9671-6138870A604B}"/>
 						<Switch Id="4223512837" Name="Intense" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Intense" GUID="{07C83298-3580-47AC-B946-8FDC1E4D0683}"/>
 						<Switch Id="1048449613" Name="Max" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Max" GUID="{A99B6341-675B-44B6-BC71-7916EF658254}"/>
+						<Switch Id="2852503135" Name="Ethereal" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Ethereal" GUID="{CD215408-033D-4216-BF15-D186DC08BC8B}"/>
 					</Switches>
 				</SwitchGroup>
 				<SwitchGroup Id="2753380033" Name="TumblerDirection" ObjectPath="\Switches\Default Work Unit\TumblerDirection" GUID="{3485FD8F-BC17-4BE4-AC65-33012F8D07D8}">

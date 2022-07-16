@@ -1,5 +1,7 @@
 extends ViewportContainer
 
+signal intensity_changed(intensity)
+
 onready var tumbler = $KaleidoscopeViewport/TumblerScene
 onready var kaleidoscopeViewport = $KaleidoscopeViewport
 
@@ -74,7 +76,6 @@ func stop_kaleidoscope():
 	material.set_shader_param("enabled", false)
 
 
-
 func set_intensity(t):
 	intensity = lerp(0, 100, t);
 	segments_val = lerp (_min_segments, _max_segments, ease(t, 3));
@@ -90,6 +91,7 @@ func set_intensity(t):
 	
 	_set_shader()
 	_set_tumbler()
+	emit_signal("intensity_changed", intensity)
 	
 	
 func _set_shader():

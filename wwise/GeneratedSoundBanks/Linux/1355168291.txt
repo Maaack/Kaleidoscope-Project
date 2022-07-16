@@ -3,6 +3,7 @@ Switch Group	ID	Name			Wwise Object Path	Notes
 
 Switch	ID	Name	Switch Group			Notes
 	1048449613	Max	Music_CalmIntenseMax			
+	2852503135	Ethereal	Music_CalmIntenseMax			
 	3753286132	Calm	Music_CalmIntenseMax			
 	4223512837	Intense	Music_CalmIntenseMax			
 

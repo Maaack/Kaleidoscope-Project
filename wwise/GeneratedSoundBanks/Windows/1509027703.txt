@@ -25,6 +25,7 @@ Switch Group	ID	Name			Wwise Object Path	Notes
 
 Switch	ID	Name	Switch Group			Notes
 	1048449613	Max	Music_CalmIntenseMax			
+	2852503135	Ethereal	Music_CalmIntenseMax			
 	3753286132	Calm	Music_CalmIntenseMax			
 	4223512837	Intense	Music_CalmIntenseMax			
 	1571037980	CWise	TumblerDirection			
@@ -111,11 +112,12 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 	917365750	Wwise Silence	Wwise Silence		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat\Silence\Wwise Silence	
 
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
-	14523537	UIMouseOver	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\UI - Mouse Over_665E7C46.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UIMouseOver		1203
+	14523537	UIMouseOver	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\UI - Mouse Over_A58B7EFE.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UIMouseOver		1203
 	20312177	FSteps_Dirt1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\FSteps_Dirt1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Dirt\FSteps_Dirt1		7902
 	89073535	Emanation2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\GemEmanation 2_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation\EmanationBlend\Emanation2		40041
-	92183238	Kaleidoscope - Rotation StartStop 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Kaleidoscope - Rotation StartStop 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerStop\Kaleidoscope - Rotation StartStop 1		3046
+	92183238	Kaleidoscope - Rotation StartStop 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Kaleidoscope - Rotation StartStop 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerRotation\TumblerCWise\Kaleidoscope - Rotation StartStop 1		3046
 	97449526	FSteps_Grass2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\FSteps_Grass2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Grass\FSteps_Grass2		9960
+	98866934	MussarFixed - Spooky	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\MussarFixed - Spooky_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicSpooky\MussarFixed - Spooky\MussarFixed - Spooky		1715614
 	125969416	FSteps_Dirt2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\FSteps_Dirt2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Dirt\FSteps_Dirt2		9683
 	161717379	FSteps_Dirt_Start	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\FSteps_Dirt_Start_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Dirt_Start\FSteps_Dirt_Start		11408
 	165410176	SFX_GlitterAmb_Chimes1_loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\SFX_GlitterAmb_Chimes1_loop_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\SFX_GlitterAmb_Chimes1_loop		462932
@@ -131,7 +133,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	340761794	Amb_Dark	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Ambience - DarkScary_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Amb_Dark		113942
 	346177194	Ambience - Random - Animal B 5	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Ambience - Random - Animal B 5_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 5		20785
 	368641357	FSteps_Grass1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\FSteps_Grass1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Grass\FSteps_Grass1		9605
-	394920707	KScope_Forest_Calm_NoBirds_MUX_NoLoop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\KScope_Forest_Calm_NoBirds_MUX_NoLoop_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicCalm\KScope_Forest_Calm_NoBirds_MUX_NoLoop\KScope_Forest_Calm_NoBirds_MUX_NoLoop		1562655
+	389307754	MussarFixed - Trippy	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\MussarFixed - Trippy_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicTrippy\MussarFixed - Trippy\MussarFixed - Trippy		1472964
 	400888509	Ambience - Random - Animal 3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Ambience - Random - Animal 3_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Dark\Ambience - Random - Animal 3		17903
 	450197938	Kaleidoscope - Rotation 2 Loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Kaleidoscope - Rotation 2 Loop_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerRotation\TumblerCCWise\Kaleidoscope - Rotation 2 Loop		31133
 	459367388	Emanation4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\GemEmanation 4_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation\EmanationBlend\Emanation4		114484
@@ -143,18 +145,19 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	528835070	Ambience - Random - Animal B 4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Ambience - Random - Animal B 4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 4		14011
 	532517796	PieceCollisionA 4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\PieceCollisionA 4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA\PieceCollisionA 4		5732
 	575296685	PieceCollisionB 4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\PieceCollisionB 4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionB\PieceCollisionB 4		7526
+	576107041	K_Scope - Ethereal loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\K_Scope - Ethereal loop_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicEthereal\K_Scope - Ethereal loop\K_Scope - Ethereal loop		2520644
 	579737665	PieceCollisionA 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\PieceCollisionA 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA\PieceCollisionA 1		5801
 	581337223	WorldChange	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Mushroom_WorldChanges_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\WorldChange		91478
 	593943935	PieceCollisionB 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\PieceCollisionB 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionB\PieceCollisionB 1		6120
 	598576478	Deposit3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\GemDeposit 3_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit3		99880
-	608088107	KScope_Forest_Trippy_NoBirds_MUX_NoLoop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\KScope_Forest_Trippy_NoBirds_MUX_NoLoop_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicTrippy\KScope_Forest_Trippy_NoBirds_MUX_NoLoop\KScope_Forest_Trippy_NoBirds_MUX_NoLoop		1438918
 	616143977	Obstacle Impact 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Obstacle Impact 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\ObstacleImpact\Obstacle Impact 2		12845
 	619237890	UIMouseClick	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\UI - Mouse Press_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UIMouseClick		6899
 	622929681	Deposit2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\GemDeposit 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit2		100486
 	647230748	Emanation1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\GemEmanation 1_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation\EmanationBlend\Emanation1		123218
-	677484880	Kaleidoscope - Rotation StartStop 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Kaleidoscope - Rotation StartStop 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerStop\Kaleidoscope - Rotation StartStop 2		3251
+	677484880	Kaleidoscope - Rotation StartStop 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Kaleidoscope - Rotation StartStop 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerRotation\TumblerCCWise\Kaleidoscope - Rotation StartStop 2		3251
 	690940518	Ambience - Random - Animal B 7	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Ambience - Random - Animal B 7_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 7		8487
 	716666757	Ambience - Random - Animal 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Ambience - Random - Animal 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Dark\Ambience - Random - Animal 1		29837
+	737132242	MussarFixed - Calm	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\MussarFixed - Calm_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicCalm\MussarFixed - Calm\MussarFixed - Calm		1599754
 	740570988	HeartbeatA	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\HeartbeatA_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat\HeartbeatA		5816
 	779190182	PieceCollisionA 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\PieceCollisionA 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA\PieceCollisionA 2		4683
 	803345895	Ambience - Random - Animal 4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Ambience - Random - Animal 4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Dark\Ambience - Random - Animal 4		23401
@@ -163,7 +166,6 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	822044708	Ambience - Random - Animal B 6	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Ambience - Random - Animal B 6_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 6		10815
 	831104990	PieceCollisionA 3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\PieceCollisionA 3_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA\PieceCollisionA 3		3131
 	849303243	FSteps_Dirt3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\FSteps_Dirt3_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Dirt\FSteps_Dirt3		8578
-	856453091	KScope_Forest_Spooky_NoBirds_MUX_NoLoop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\KScope_Forest_Spooky_NoBirds_MUX_NoLoop_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicSpooky\KScope_Forest_Spooky_NoBirds_MUX_NoLoop\KScope_Forest_Spooky_NoBirds_MUX_NoLoop		1634705
 	875899337	FSteps_Grass3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\FSteps_Grass3_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Grass\FSteps_Grass3		10403
 	893622980	Ambience - Random - Animal B 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\Ambience - Random - Animal B 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 2		8939
 	894867728	Emanation3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Windows\SFX\GemEmanation 3_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation\EmanationBlend\Emanation3		108931
