@@ -71,6 +71,7 @@ namespace AK
             namespace SWITCH
             {
                 static const AkUniqueID CALM = 3753286132U;
+                static const AkUniqueID ETHEREAL = 2852503135U;
                 static const AkUniqueID INTENSE = 4223512837U;
                 static const AkUniqueID MAX = 1048449613U;
             } // namespace SWITCH
