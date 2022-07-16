@@ -10,7 +10,6 @@ flags_unshaded = true
 albedo_color = Color( 1, 0.59, 0.59, 1 )
 
 [sub_resource type="CylinderShape" id=2]
-radius = 0.1
 height = 6.0
 
 [node name="LightPillar" type="Spatial"]
