@@ -82,3 +82,8 @@ func _on_DreamscapeInteractive_pillar_interaction(pillar):
 
 func _on_DreamscapeInteractive_mushroom_eated():
 	start_trip()
+
+
+func _on_Kaleidoscope_intensity_changed(intensity):
+	Wwise.set_rtpc_id(AK.GAME_PARAMETERS.PLAYERHIGHNESS, intensity, $LevelMusicAkEvent2D)
+

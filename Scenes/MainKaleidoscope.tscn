@@ -81,48 +81,6 @@ script = ExtResource( 6 )
 [node name="TumblerScene" parent="Kaleidoscope/KaleidoscopeViewport" instance=ExtResource( 9 )]
 scale = Vector2( 5, 5 )
 
-[node name="BlueGemstone" parent="Kaleidoscope/KaleidoscopeViewport/TumblerScene" index="1"]
-modulate = Color( 1, 1, 1, 0.45098 )
-collision_layer = 1
-collision_mask = 1
-gravity_scale = 10.0
-continuous_cd = 0
-
-[node name="BlueGemstone2" parent="Kaleidoscope/KaleidoscopeViewport/TumblerScene" index="2"]
-modulate = Color( 1, 1, 1, 0.45098 )
-collision_layer = 1
-collision_mask = 1
-gravity_scale = 10.0
-continuous_cd = 0
-
-[node name="RedGemstone" parent="Kaleidoscope/KaleidoscopeViewport/TumblerScene" index="3"]
-modulate = Color( 1, 1, 1, 0.45098 )
-collision_layer = 1
-collision_mask = 1
-gravity_scale = 10.0
-continuous_cd = 0
-
-[node name="RedGemstone2" parent="Kaleidoscope/KaleidoscopeViewport/TumblerScene" index="4"]
-modulate = Color( 1, 1, 1, 0.45098 )
-collision_layer = 1
-collision_mask = 1
-gravity_scale = 10.0
-continuous_cd = 0
-
-[node name="GreenGemstone" parent="Kaleidoscope/KaleidoscopeViewport/TumblerScene" index="5"]
-modulate = Color( 1, 1, 1, 0.45098 )
-collision_layer = 1
-collision_mask = 1
-gravity_scale = 10.0
-continuous_cd = 0
-
-[node name="GreenGemstone2" parent="Kaleidoscope/KaleidoscopeViewport/TumblerScene" index="6"]
-modulate = Color( 1, 1, 1, 0.45098 )
-collision_layer = 1
-collision_mask = 1
-gravity_scale = 10.0
-continuous_cd = 0
-
 [node name="Camera2D" type="Camera2D" parent="Kaleidoscope/KaleidoscopeViewport"]
 current = true
 zoom = Vector2( 0.2, 0.2 )
@@ -140,11 +98,11 @@ event = {
 }
 trigger_on = 3
 
+[connection signal="intensity_changed" from="Kaleidoscope" to="." method="_on_Kaleidoscope_intensity_changed"]
 [connection signal="tumbler_changed" from="Kaleidoscope/KaleidoscopeViewport" to="Kaleidoscope" method="_on_KaleidoscopeViewport_tumbler_changed"]
 [connection signal="tumbler_changed" from="Kaleidoscope/KaleidoscopeViewport" to="Kaleidoscope/GemControl" method="_on_KaleidoscopeViewport_tumbler_changed"]
 [connection signal="mushroom_eated" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="." method="_on_DreamscapeInteractive_mushroom_eated"]
 [connection signal="mushroom_eated" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="Kaleidoscope" method="_on_DreamscapeInteractive_mushroom_eated"]
-[connection signal="pillar_interaction" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="." method="_on_DreamscapeInteractive_pillar_interaction"]
 
 [editable path="Kaleidoscope/KaleidoscopeViewport/TumblerScene"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment"]
