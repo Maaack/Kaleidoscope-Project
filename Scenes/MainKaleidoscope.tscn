@@ -1,20 +1,35 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/DreamscapeEnvironment.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Shaders/Kaleidoscope.gdshader" type="Shader" id=2]
+[ext_resource path="res://Shaders/KaleidoscopeBasic.gdshader" type="Shader" id=2]
 [ext_resource path="res://Scenes/Kaleidoscope.gd" type="Script" id=3]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=4]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=5]
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 2 )
-shader_param/enabled = true
+shader_param/enabled = false
+shader_param/triangles = true
+shader_param/polarOutOffset = Vector2( 0, 0 )
+shader_param/polarInOffset = Vector2( 0, 0 )
+shader_param/polarInRotationOffset = 0.0
+shader_param/triOutOffset = Vector2( 0, 0 )
+shader_param/triInOffset = Vector2( 0, 0 )
+shader_param/triInRotationOffset = 0.5
+shader_param/viewRotationOffset = 0.0
+shader_param/texMultiplier = 1.0
+shader_param/zoom = 1.0
 shader_param/border_radius = 0.48
 shader_param/center_radius = 0.25
+shader_param/vignette_radius = 0.0
+shader_param/normality_radius = 1.0
 shader_param/segments = 4.0
 shader_param/use_polygon_radius = false
+shader_param/reflect_outside = true
 shader_param/select_outside_slice = false
 shader_param/show_slice_only = false
+shader_param/rotation_speed = 0.0
+shader_param/color_enabled = Vector3( 1, 1, 1 )
 shader_param/show_debug = false
 
 [node name="MainKaleidoscope" type="Node"]

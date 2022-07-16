@@ -53,20 +53,24 @@ var kaleidoscope_enabled: bool = false
 export var enabled_thresh = 0.01
 
 func start_kaleidoscope():
+	print ("START")
 	kaleidoscope_enabled = true;
 	material.set_shader_param("enabled", true)
 
 	
 func reset_kaleidoscope():
+	print ("RESET")
 	time = 0.0
 	intensity = 0.0
 	set_intensity(0.0)
 	
 func stop_kaleidoscope():
+	print ("STOP")
+	reset_kaleidoscope();
 	kaleidoscope_enabled = false;
 	material.set_shader_param("enabled", false)
 
-	
+
 
 func set_intensity(t):
 	print ("Set Intensity ", t)
@@ -82,12 +86,11 @@ func set_intensity(t):
 	if (intensity > rotation_thresh):
 		_rotation_speed_val = lerp (rot_speed_min, rot_speed_max, (t - rotation_thresh) / rotation_thresh );
 	
-	kaleidoscope_enabled = t > enabled_thresh
-	
 	_set_shader()
 	
 	
 func _set_shader():
+	print ("SET")
 	material.set_shader_param("triangles", triangles)
 	material.set_shader_param(segments_name, segments_val)
 	material.set_shader_param(center_radius_name, center_radius_val)
@@ -99,18 +102,22 @@ func _set_shader():
 	material.set_shader_param(_vignette_name, _vignette_val)
 
 func _ready():
-	time = 0
 	stop_kaleidoscope() # Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+
 func _process(delta):
-	time += delta
+	
 	#var enabled = material.get_shader_param("enabled")
-	if Input.is_action_just_pressed("toggle_show_kaleidoscope",true):
-		reset_kaleidoscope()
-		start_kaleidoscope()
-		return
+	
+	#if Input.is_action_just_pressed("toggle_show_kaleidoscope",true):
+	#	reset_kaleidoscope()
+	#	start_kaleidoscope()
+	#	return
+	
 	if (kaleidoscope_enabled):
+		print ("RUN")
 		# (time, " ", sin(time))
+		time += delta
 		set_intensity(sin(time / 10.0 ) )
 
 func _on_change_intensity(value):
@@ -123,4 +130,5 @@ func _on_shader_selected(index):
 	#_set_shader()
 	
 func _on_Dreamscape_mushroom_eated():
-	material.set_shader_param("enabled", true)
+	reset_kaleidoscope();
+	start_kaleidoscope();
