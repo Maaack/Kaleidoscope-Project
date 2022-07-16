@@ -22,4 +22,6 @@ func set_enabled(value : bool) -> void:
 		collisionShape = get_node_or_null("CollisionPolygon2D")
 	if collisionShape != null:
 		collisionShape.disabled = !enabled
-	
+
+func _on_Gemstone_body_entered(body):
+	$CollisionAkEvent2D.post_event()
