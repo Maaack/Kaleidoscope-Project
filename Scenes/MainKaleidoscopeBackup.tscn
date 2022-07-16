@@ -1,29 +1,30 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
-[ext_resource path="res://Scenes/DreamscapeEnvironment.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Shaders/KaleidoscopeBasic.gdshader" type="Shader" id=2]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=1]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Kaleidoscope.gd" type="Script" id=3]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=4]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/DreamscapeEnvironment.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Shaders/KaleidoscopeBasic.gdshader" type="Shader" id=5]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=6]
 
 [sub_resource type="ShaderMaterial" id=3]
-shader = ExtResource( 2 )
-shader_param/enabled = false
-shader_param/triangles = true
+shader = ExtResource( 5 )
+shader_param/enabled = true
+shader_param/triangles = false
 shader_param/polarOutOffset = Vector2( 0, 0 )
 shader_param/polarInOffset = Vector2( 0, 0 )
-shader_param/polarInRotationOffset = 0.0
+shader_param/polarInRotationOffset = 0.5
 shader_param/triOutOffset = Vector2( 0, 0 )
 shader_param/triInOffset = Vector2( 0, 0 )
 shader_param/triInRotationOffset = 0.5
-shader_param/viewRotationOffset = 0.0
+shader_param/viewRotationOffset = -0.5
 shader_param/texMultiplier = 1.0
 shader_param/zoom = 1.0
-shader_param/border_radius = 0.48
+shader_param/border_radius = 0.25
 shader_param/center_radius = 0.25
 shader_param/vignette_radius = 0.0
-shader_param/normality_radius = 1.0
-shader_param/segments = 4.0
+shader_param/normality_radius = 0.0
+shader_param/segments = 6.0
 shader_param/use_polygon_radius = false
 shader_param/reflect_outside = true
 shader_param/select_outside_slice = false
@@ -32,7 +33,9 @@ shader_param/rotation_speed = 0.0
 shader_param/color_enabled = Vector3( 1, 1, 1 )
 shader_param/show_debug = false
 
-[node name="MainKaleidoscope" type="Node"]
+[node name="MainKaleidoscope" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
 
 [node name="Kaleidoscope" type="ViewportContainer" parent="."]
 material = SubResource( 3 )
@@ -45,28 +48,39 @@ margin_top = -540.0
 margin_right = 540.0
 margin_bottom = 540.0
 script = ExtResource( 3 )
+rot_speed_max = 0.1
+enabled_thresh = 0.0
 
 [node name="Viewport" type="Viewport" parent="Kaleidoscope"]
 size = Vector2( 1080, 1080 )
 handle_input_locally = false
 render_target_update_mode = 3
 
-[node name="DreamEnvironment" parent="Kaleidoscope/Viewport" instance=ExtResource( 1 )]
+[node name="DreamEnvironment" parent="Kaleidoscope/Viewport" instance=ExtResource( 4 )]
+
+[node name="AkBank" type="Node" parent="."]
+script = ExtResource( 6 )
+bank = {
+"Id": 1509027703,
+"Name": "KSCOPEMAIN"
+}
+load_on = 1
 
 [node name="AkListener2D" type="Node2D" parent="."]
-script = ExtResource( 4 )
+script = ExtResource( 2 )
+
+[node name="AteMushroomAkEvent2D" type="Node2D" parent="."]
+script = ExtResource( 1 )
+event = {
+"Id": 2103799123,
+"Name": "MUSHROOMEAT"
+}
+trigger_on = 3
 
 [node name="LevelMusicAkEvent2D" type="Node2D" parent="."]
-script = ExtResource( 5 )
+script = ExtResource( 1 )
 event = {
 "Id": 1001937282,
 "Name": "LEVEL1 LOADED"
 }
 trigger_on = 3
-
-[connection signal="mushroom_eated" from="Kaleidoscope/Viewport/DreamEnvironment/Dreamscape" to="Kaleidoscope" method="_on_Dreamscape_mushroom_eated"]
-
-[editable path="Kaleidoscope/Viewport/DreamEnvironment"]
-[editable path="Kaleidoscope/Viewport/DreamEnvironment/TestGlowyThings/ViewCollider"]
-[editable path="Kaleidoscope/Viewport/DreamEnvironment/TestGlowyThings/ViewCollider2"]
-[editable path="Kaleidoscope/Viewport/DreamEnvironment/TestGlowyThings/ViewCollider3"]

@@ -19,7 +19,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/wwise/runtime/helpers/ak_utils.gd"
 }, {
-"base": "Button",
+"base": "Reference",
 "class": "SoundButton",
 "language": "GDScript",
 "path": "res://Scenes/UI/CustomComponents/SoundButton.gd"
