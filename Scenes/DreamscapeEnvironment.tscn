@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Assets/AllSky/AllSkyFree_Skyboxes/AllSky_Night_MoonBurst Equirect.png" type="Texture" id=1]
 [ext_resource path="res://Assets/AllSky/AllSkyFree_DemoLandsacpe.tscn" type="PackedScene" id=2]
@@ -33,6 +33,46 @@ glow_blend_mode = 0
 glow_hdr_threshold = 0.44
 glow_bicubic_upscale = true
 
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0.122768, 0.294643, 0.729911, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 0.754464, 0.754464, 0.754464, 1, 0.864217, 0.864217, 0.864217, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+lifetime_randomness = 0.19
+emission_shape = 5
+emission_ring_radius = 100.0
+emission_ring_inner_radius = 30.0
+emission_ring_height = 100.0
+emission_ring_axis = Vector3( 0, 0, 1 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.31
+angular_velocity = 1.0
+angular_velocity_random = 1.0
+color_ramp = SubResource( 7 )
+hue_variation = -1.0
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = true
+albedo_color = Color( 1, 0.964706, 0.482353, 1 )
+distance_fade_mode = 1
+distance_fade_min_distance = 0.0
+distance_fade_max_distance = 0.0
+
+[sub_resource type="SphereMesh" id=4]
+material = SubResource( 5 )
+radius = 0.2
+height = 0.4
+
 [node name="DreamEnvironment" type="Node"]
 
 [node name="WorldEnvironment_MoonBurst" type="WorldEnvironment" parent="."]
@@ -49,3 +89,26 @@ shadow_enabled = true
 visible = false
 
 [node name="DreamscapeInteractive" parent="." instance=ExtResource( 5 )]
+
+[node name="TestGlowyThings" parent="DreamscapeInteractive" index="0"]
+visible = false
+
+[node name="FootStepAkEvent" parent="DreamscapeInteractive/TestViewColliderUI/Dreamscape/Player Controller" index="2"]
+event = {
+"Id": 4276063004,
+"Name": "PLAYER FS"
+}
+
+[node name="Stars" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0 )
+cast_shadow = 0
+amount = 500
+lifetime = 8.67
+preprocess = 100.0
+visibility_aabb = AABB( -100, -100, -100, 200, 200, 200 )
+process_material = SubResource( 3 )
+draw_pass_1 = SubResource( 4 )
+
+[editable path="DreamscapeInteractive"]
+[editable path="DreamscapeInteractive/TestViewColliderUI/Dreamscape"]
+[editable path="DreamscapeInteractive/TestViewColliderUI/Dreamscape/Player Controller"]
