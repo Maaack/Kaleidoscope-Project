@@ -32,6 +32,9 @@ uniform bool show_slice_only = false;
 
 uniform float rotation_speed = 0.;
 
+
+uniform vec3 color_enabled = vec3 (1.0, 1.0, 1.0);
+
 uniform bool show_debug = false;
 
 const float slice_selection = 0.0;
@@ -254,6 +257,19 @@ vec4 desat(vec3 color, float factor)
 	return vec4(mix(color, gray, factor), 1.0);
 }
 
+vec3 color_channel(vec3 color){
+	if (color_enabled.r >= 1.0 && color_enabled.g >= 1.0 && color_enabled.b >= 1.0){
+		return color;
+	}
+	vec3 ds = desat (color,1.0).xyz;
+	//vec3 dds = (ds + color * color_enabled) - ds;
+	vec3 dds = mix(ds, max(color, ds), color_enabled);
+	dds = clamp(dds + color * color_enabled);
+
+
+	return dds;
+}
+
 vec2 rot(vec2 p, vec2 o, float a)
 {
     float s = sin(a);
@@ -421,6 +437,8 @@ void fragment(){
 	if (show_debug){
 		COLOR = debugUV(UV);
 	}
+	
+	COLOR = vec4(color_channel(COLOR.xyz), 1.0);
 	
 	if (vignette_radius > 0.){
 		COLOR = vignette(samp, COLOR)
