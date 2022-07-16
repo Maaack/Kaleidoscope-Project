@@ -103,6 +103,7 @@ trigger_on = 3
 [connection signal="tumbler_changed" from="Kaleidoscope/KaleidoscopeViewport" to="Kaleidoscope/GemControl" method="_on_KaleidoscopeViewport_tumbler_changed"]
 [connection signal="mushroom_eated" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="." method="_on_DreamscapeInteractive_mushroom_eated"]
 [connection signal="mushroom_eated" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="Kaleidoscope" method="_on_DreamscapeInteractive_mushroom_eated"]
+[connection signal="pillar_interaction" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="." method="_on_DreamscapeInteractive_pillar_interaction"]
 
 [editable path="Kaleidoscope/KaleidoscopeViewport/TumblerScene"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment"]
