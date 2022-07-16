@@ -4,6 +4,8 @@ signal intensity_changed(intensity)
 
 onready var tumbler = $KaleidoscopeViewport/TumblerScene
 onready var kaleidoscopeViewport = $KaleidoscopeViewport
+
+export var intensity_change_rate = 50.0;
 export var  triangles : bool = 0;
 export var intensity: float = 0
 
@@ -109,6 +111,7 @@ func _set_tumbler():
 	if (intensity > tumbler_thresh):
 		tumbler.show();
 	else:
+		pass
 		tumbler.hide();
 	kaleidoscopeViewport.next_rotation = tumbler_speed;	
 	
@@ -121,7 +124,7 @@ func _ready():
 func _process(delta):
 	if (kaleidoscope_enabled):
 		time += delta
-		set_intensity(sin(time / 10.0 ) )
+		set_intensity(sin(time / intensity_change_rate) )
 
 func _on_change_intensity(value):
 	set_intensity(value)
@@ -130,6 +133,11 @@ func _on_shader_selected(index):
 	pass
 
 func _on_DreamscapeInteractive_mushroom_eated():
-	reset_kaleidoscope();
-	start_kaleidoscope();
+	pass
+	#reset_kaleidoscope();
+	#start_kaleidoscope();
 
+
+
+func _on_KaleidoscopeViewport_tumbler_changed():
+	tumbler = $KaleidoscopeViewport/TumblerScene

@@ -1,6 +1,7 @@
 extends Spatial
 
 signal mushroom_eated
+signal pillar_interaction(pillar)
 
 var can_pause = true # to prevent from instantly repausing after unpaused from the pause menu by pressing ui_cancel
 var collision_viewer_types = {0: "RED" , 1: "GREEN", 2: "BLUE", 3: "MUSHROOM"} # list of types defined in ViewColiider
@@ -25,3 +26,5 @@ func _on_Player_Controller_started_looking_at(object):
 func _on_Player_Controller_interacted_with(object : ViewCollider):
 	if object.collider_type == ViewCollider.Type.MUSHROOM:
 		emit_signal("mushroom_eated")
+	else:
+		emit_signal("pillar_interaction", object.collider_type)

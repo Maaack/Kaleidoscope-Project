@@ -13,12 +13,13 @@ func _ready() -> void:
 
 
 # add a gemstone into the tumbler at specified position
-func add_gemstone(gemstone : PackedScene, position : Vector2 = Vector2.ZERO) -> void:
+func add_gemstone(gemstone : PackedScene, position : Vector2 = Vector2.ZERO):
 	var instance = gemstone.instance() as RigidBody2D
 	instance.position = position
 	if static_tumbler:
 		instance.mode = RigidBody2D.MODE_STATIC
 	add_child(instance)
+	return instance
 
 
 # remove a gemstone fomr the tumbler

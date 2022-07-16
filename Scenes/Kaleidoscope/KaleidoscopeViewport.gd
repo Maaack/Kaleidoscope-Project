@@ -1,8 +1,9 @@
 extends Viewport
 
 
-const ROTATION_3D_MOD = 4
 
+const ROTATION_3D_MOD = 4
+signal tumbler_changed
 var next_rotation = 0 # the next rotation to apply to the tumbler
 
 
@@ -27,3 +28,4 @@ func change_tumbler(new_tumbler : PackedScene) -> void:
 		remove_child(old_tumbler)
 	
 	add_child(instance)
+	emit_signal("tumbler_changed")
