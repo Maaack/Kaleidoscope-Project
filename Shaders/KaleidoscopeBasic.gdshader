@@ -261,10 +261,14 @@ vec3 color_channel(vec3 color){
 	if (color_enabled.r >= 1.0 && color_enabled.g >= 1.0 && color_enabled.b >= 1.0){
 		return color;
 	}
-	vec3 ds = desat (color,1.0).xyz;
+	
+	float norm = 3.0 + (color_enabled.r + color_enabled.g + color_enabled.b);
+	vec3 ds =  vec3(color.r + color.g + color.b) / norm;
+
+//desat (color,1.0).xyz;
 	//vec3 dds = (ds + color * color_enabled) - ds;
 	vec3 dds = mix(ds, max(color, ds), color_enabled);
-	dds = clamp(dds + color * color_enabled);
+	 
 
 
 	return dds;
