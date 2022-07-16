@@ -123,12 +123,13 @@ func _process(delta):
 func _on_change_intensity(value):
 	set_intensity(value)
 
-
 func _on_shader_selected(index):
 	pass
 	#triangles = index == 1;
 	#_set_shader()
-	
-func _on_Dreamscape_mushroom_eated():
+
+func _on_DreamscapeInteractive_mushroom_eated():
+	print ("EAT MUSHROOM")
 	reset_kaleidoscope();
 	start_kaleidoscope();
+
