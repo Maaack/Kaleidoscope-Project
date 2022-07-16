@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Scenes/DreamscapeEnvironment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Shaders/KaleidoscopeBasic.gdshader" type="Shader" id=2]
@@ -9,6 +9,11 @@
 [ext_resource path="res://Scenes/Kaleidoscope/BaseKaleidoscopeViewer.gd" type="Script" id=7]
 [ext_resource path="res://Scenes/Kaleidoscope/KaleidoscopeControl.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/Kaleidoscope/TumblerScene.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scripts/GameFlowController.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Kaleidoscope/Gemstones/RedGemstone.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/Kaleidoscope/Gemstones/BlueGemstone.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Kaleidoscope/Gemstones/GreenGemstone.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/Kaleidoscope/TumblerScenes/TumblerSceneBase.tscn" type="PackedScene" id=14]
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 2 )
@@ -37,6 +42,14 @@ shader_param/color_enabled = Vector3( 1, 1, 1 )
 shader_param/show_debug = false
 
 [node name="MainKaleidoscope" type="Node"]
+script = ExtResource( 10 )
+tumbler = ExtResource( 14 )
+red_gemstone = ExtResource( 11 )
+green_gemstone = ExtResource( 13 )
+blue_gemstone = ExtResource( 12 )
+red_pillar_path = NodePath("Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarRed")
+green_pillar_path = NodePath("Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarGreen")
+blue_pillar_path = NodePath("Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarBlue")
 
 [node name="Kaleidoscope" type="ViewportContainer" parent="."]
 material = SubResource( 3 )
@@ -52,6 +65,7 @@ script = ExtResource( 3 )
 
 [node name="GemControl" type="Node" parent="Kaleidoscope"]
 script = ExtResource( 7 )
+tumbler_path = NodePath("../KaleidoscopeViewport/TumblerScene")
 
 [node name="KaleidoscopeControl" type="Control" parent="Kaleidoscope"]
 anchor_right = 1.0
@@ -65,9 +79,53 @@ render_target_update_mode = 3
 script = ExtResource( 6 )
 
 [node name="TumblerScene" parent="Kaleidoscope/KaleidoscopeViewport" instance=ExtResource( 9 )]
+scale = Vector2( 5, 5 )
+
+[node name="BlueGemstone" parent="Kaleidoscope/KaleidoscopeViewport/TumblerScene" index="1"]
+modulate = Color( 1, 1, 1, 0.45098 )
+collision_layer = 1
+collision_mask = 1
+gravity_scale = 10.0
+continuous_cd = 0
+
+[node name="BlueGemstone2" parent="Kaleidoscope/KaleidoscopeViewport/TumblerScene" index="2"]
+modulate = Color( 1, 1, 1, 0.45098 )
+collision_layer = 1
+collision_mask = 1
+gravity_scale = 10.0
+continuous_cd = 0
+
+[node name="RedGemstone" parent="Kaleidoscope/KaleidoscopeViewport/TumblerScene" index="3"]
+modulate = Color( 1, 1, 1, 0.45098 )
+collision_layer = 1
+collision_mask = 1
+gravity_scale = 10.0
+continuous_cd = 0
+
+[node name="RedGemstone2" parent="Kaleidoscope/KaleidoscopeViewport/TumblerScene" index="4"]
+modulate = Color( 1, 1, 1, 0.45098 )
+collision_layer = 1
+collision_mask = 1
+gravity_scale = 10.0
+continuous_cd = 0
+
+[node name="GreenGemstone" parent="Kaleidoscope/KaleidoscopeViewport/TumblerScene" index="5"]
+modulate = Color( 1, 1, 1, 0.45098 )
+collision_layer = 1
+collision_mask = 1
+gravity_scale = 10.0
+continuous_cd = 0
+
+[node name="GreenGemstone2" parent="Kaleidoscope/KaleidoscopeViewport/TumblerScene" index="6"]
+modulate = Color( 1, 1, 1, 0.45098 )
+collision_layer = 1
+collision_mask = 1
+gravity_scale = 10.0
+continuous_cd = 0
 
 [node name="Camera2D" type="Camera2D" parent="Kaleidoscope/KaleidoscopeViewport"]
 current = true
+zoom = Vector2( 0.2, 0.2 )
 
 [node name="DreamEnvironment" parent="Kaleidoscope/KaleidoscopeViewport" instance=ExtResource( 1 )]
 
@@ -82,7 +140,13 @@ event = {
 }
 trigger_on = 3
 
+[connection signal="tumbler_changed" from="Kaleidoscope/KaleidoscopeViewport" to="Kaleidoscope" method="_on_KaleidoscopeViewport_tumbler_changed"]
+[connection signal="tumbler_changed" from="Kaleidoscope/KaleidoscopeViewport" to="Kaleidoscope/GemControl" method="_on_KaleidoscopeViewport_tumbler_changed"]
+[connection signal="mushroom_eated" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="." method="_on_DreamscapeInteractive_mushroom_eated"]
 [connection signal="mushroom_eated" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="Kaleidoscope" method="_on_DreamscapeInteractive_mushroom_eated"]
+[connection signal="pillar_interaction" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="." method="_on_DreamscapeInteractive_pillar_interaction"]
 
 [editable path="Kaleidoscope/KaleidoscopeViewport/TumblerScene"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment"]
+[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive"]
+[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/Dreamscape"]
