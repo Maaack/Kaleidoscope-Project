@@ -54,6 +54,7 @@ WwiseSettings="*res://addons/wwise/editor/wwise_settings.gd"
 Wwise="*res://addons/wwise/bin/wwise-gdnative.gdns"
 Waapi="*res://addons/wwise/bin/waapi-gdnative.gdns"
 PauseMenuController="*res://Scripts/PauseMenuController.gd"
+SceneLoader="*res://Scenes/LoadingScreen/SceneLoader.gd"
 
 [display]
 
