@@ -48,3 +48,10 @@ event = {
 "Name": "LEVEL1 LOADED"
 }
 trigger_on = 3
+
+[connection signal="mushroom_eated" from="Kaleidoscope/Viewport/DreamEnvironment/Dreamscape" to="Kaleidoscope" method="_on_Dreamscape_mushroom_eated"]
+
+[editable path="Kaleidoscope/Viewport/DreamEnvironment"]
+[editable path="Kaleidoscope/Viewport/DreamEnvironment/TestGlowyThings/ViewCollider"]
+[editable path="Kaleidoscope/Viewport/DreamEnvironment/TestGlowyThings/ViewCollider2"]
+[editable path="Kaleidoscope/Viewport/DreamEnvironment/TestGlowyThings/ViewCollider3"]
