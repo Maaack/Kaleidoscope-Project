@@ -10,6 +10,8 @@ const CAPTURED_MOUSE_SENSITIVITY = 0.5# sensitivity of the mouse in captured mod
 
 var next_rotation : float
 
+#TODO Performance issues with this code!
+""""
 func _input(event : InputEvent) -> void:
 	if event is InputEventMouseMotion:
 		var x_speed : float
@@ -28,3 +30,5 @@ func _input(event : InputEvent) -> void:
 			next_rotation = -ROTATION_STEP
 
 	emit_signal("player_rotated", next_rotation)
+	
+"""
