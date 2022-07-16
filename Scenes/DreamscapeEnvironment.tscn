@@ -1,9 +1,8 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Assets/AllSky/AllSkyFree_Skyboxes/AllSky_Night_MoonBurst Equirect.png" type="Texture" id=1]
 [ext_resource path="res://Assets/AllSky/AllSkyFree_DemoLandsacpe.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Dreamscape.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/ViewCollider.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/DreamscapeInteractive.tscn" type="PackedScene" id=5]
 
 [sub_resource type="PanoramaSky" id=1]
 panorama = ExtResource( 1 )
@@ -34,23 +33,6 @@ glow_blend_mode = 0
 glow_hdr_threshold = 0.44
 glow_bicubic_upscale = true
 
-[sub_resource type="CapsuleShape" id=6]
-radius = 0.5
-height = 5.0
-
-[sub_resource type="SpatialMaterial" id=4]
-render_priority = -1
-flags_unshaded = true
-albedo_color = Color( 1, 0.588235, 0.588235, 1 )
-
-[sub_resource type="SpatialMaterial" id=5]
-flags_unshaded = true
-albedo_color = Color( 0.588235, 1, 0.588235, 1 )
-
-[sub_resource type="SpatialMaterial" id=3]
-flags_unshaded = true
-albedo_color = Color( 0.588235, 0.588235, 1, 1 )
-
 [node name="DreamEnvironment" type="Node"]
 
 [node name="WorldEnvironment_MoonBurst" type="WorldEnvironment" parent="."]
@@ -66,76 +48,4 @@ shadow_enabled = true
 [node name="AllSkyFree_DemoLandscape" parent="." instance=ExtResource( 2 )]
 visible = false
 
-[node name="Dreamscape" parent="." instance=ExtResource( 3 )]
-
-[node name="TestGlowyThings" type="Spatial" parent="."]
-
-[node name="ViewCollider" parent="TestGlowyThings" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -5.348, 2.88957, -0.463445 )
-collider_type = 1
-
-[node name="CollisionShape" parent="TestGlowyThings/ViewCollider" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.014472, 0.0481124, 0 )
-shape = SubResource( 6 )
-
-[node name="ViewCollider2" parent="TestGlowyThings" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.83369, 2.88957, -11.916 )
-
-[node name="CollisionShape" parent="TestGlowyThings/ViewCollider2" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0723314, 1.87253, 0 )
-shape = SubResource( 6 )
-
-[node name="ViewCollider3" parent="TestGlowyThings" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -0.619192, 2.88957, 4.53638 )
-collider_type = 2
-
-[node name="CollisionShape" parent="TestGlowyThings/ViewCollider3" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0723314, 1.87253, 0 )
-shape = SubResource( 6 )
-
-[node name="red" type="CSGCylinder" parent="TestGlowyThings"]
-transform = Transform( 0.101, 0, 0, 0, 6, 0, 0, 0, 0.101, -1.83369, 2.88957, -10.1977 )
-material = SubResource( 4 )
-
-[node name="redlight" type="OmniLight" parent="TestGlowyThings/red"]
-transform = Transform( 9.90099, 0, 0, 0, 0.166667, 0, 0, 0, 9.90099, 0, 0, 0 )
-light_color = Color( 1, 0.235294, 0.235294, 1 )
-light_energy = 2.73
-light_indirect_energy = 2.0
-light_specular = 0.585
-shadow_enabled = true
-omni_range = 10.0
-omni_attenuation = 1.7411
-
-[node name="green" type="CSGCylinder" parent="TestGlowyThings"]
-transform = Transform( 0.101, 0, 0, 0, 6, 0, 0, 0, 0.101, -5.35085, 2.88957, -0.42363 )
-material = SubResource( 5 )
-
-[node name="greenlight" type="OmniLight" parent="TestGlowyThings/green"]
-transform = Transform( 9.90099, 0, 0, 0, 0.166667, 0, 0, 0, 9.90099, 0.00094223, 0, 0.369025 )
-light_color = Color( 0.235294, 1, 0.235294, 1 )
-light_energy = 2.73
-light_indirect_energy = 2.0
-light_specular = 0.585
-shadow_enabled = true
-omni_range = 10.0
-omni_attenuation = 1.74
-
-[node name="blue" type="CSGCylinder" parent="TestGlowyThings"]
-transform = Transform( 0.101, 0, 0, 0, 6, 0, 0, 0, 0.101, -0.543342, 3.81413, 6.63493 )
-height = 1.24222
-material = SubResource( 3 )
-
-[node name="bluelight" type="OmniLight" parent="TestGlowyThings/blue"]
-transform = Transform( 9.90099, 0, 0, 0, 0.166667, 0, 0, 0, 9.90099, 0, 0, 0 )
-light_color = Color( 0.235294, 0.235294, 1, 1 )
-light_energy = 2.73
-light_indirect_energy = 2.0
-light_specular = 0.585
-shadow_enabled = true
-omni_range = 10.0
-omni_attenuation = 1.74
-
-[editable path="TestGlowyThings/ViewCollider"]
-[editable path="TestGlowyThings/ViewCollider2"]
-[editable path="TestGlowyThings/ViewCollider3"]
+[node name="DreamscapeInteractive" parent="." instance=ExtResource( 5 )]
