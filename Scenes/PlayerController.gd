@@ -1,14 +1,17 @@
 extends Spatial
 
 signal started_looking_at(object)
+signal stopped_looking_at(object)
 signal interacted_with(object)
 
 var looking_at : ViewCollider
 
 func _physics_process(_delta):
 	if looking_at != $Player/Pivot/Camera/LookingAtRayCast.get_collider():
+		emit_signal("stopped_looking_at", looking_at)
 		if looking_at:
 			looking_at.emit_signal("stop_looked_at")
+		
 		looking_at = $Player/Pivot/Camera/LookingAtRayCast.get_collider()
 		emit_signal("started_looking_at", looking_at)
 		if looking_at:

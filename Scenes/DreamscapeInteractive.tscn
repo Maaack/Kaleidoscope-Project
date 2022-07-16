@@ -1,6 +1,5 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Themes/TitleFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/interactive/LightPillar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/interactive/mushroom.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Dreamscape.tscn" type="PackedScene" id=4]
@@ -8,6 +7,8 @@
 
 [node name="DreamscapeInteractive" type="Spatial"]
 script = ExtResource( 5 )
+
+[node name="Dreamscape" parent="." instance=ExtResource( 4 )]
 
 [node name="TestGlowyThings" type="Spatial" parent="."]
 
@@ -47,24 +48,8 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95299, 1.586, -4.38942 )
 hue = 0.85
 collider_type = 6
 
-[node name="TestViewColliderUI" type="CanvasLayer" parent="."]
-__meta__ = {
-"_editor_description_": "ui just to test the looking at system works fine
+[connection signal="interacted_with" from="Dreamscape/Player Controller" to="." method="_on_Player_Controller_interacted_with"]
+[connection signal="started_looking_at" from="Dreamscape/Player Controller" to="." method="_on_Player_Controller_started_looking_at"]
+[connection signal="stopped_looking_at" from="Dreamscape/Player Controller" to="." method="_on_Player_Controller_stopped_looking_at"]
 
-can be deleted after"
-}
-
-[node name="Label" type="Label" parent="TestViewColliderUI"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_top = -150.0
-margin_bottom = -136.0
-custom_fonts/font = ExtResource( 1 )
-
-[node name="Dreamscape" parent="TestViewColliderUI" instance=ExtResource( 4 )]
-
-[connection signal="interacted_with" from="TestViewColliderUI/Dreamscape/Player Controller" to="." method="_on_Player_Controller_interacted_with"]
-[connection signal="started_looking_at" from="TestViewColliderUI/Dreamscape/Player Controller" to="." method="_on_Player_Controller_started_looking_at"]
-
-[editable path="TestViewColliderUI/Dreamscape"]
+[editable path="Dreamscape"]
