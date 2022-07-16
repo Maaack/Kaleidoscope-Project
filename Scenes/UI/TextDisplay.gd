@@ -14,4 +14,6 @@ func _on_Timer_timeout():
 	$AnimationPlayer.play_backwards("FadeIn")
 
 func started_looking_at(object : ViewCollider) -> void:
+	if object == null:
+		return
 	display_text("Looking at %s" % ViewCollider.Type.keys()[object.collider_type])
