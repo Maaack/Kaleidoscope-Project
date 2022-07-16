@@ -1,6 +1,5 @@
 extends ViewportContainer
 
-
 export var  triangles : bool = 0;
 
 
@@ -114,7 +113,6 @@ func _process(delta):
 		# (time, " ", sin(time))
 		set_intensity(sin(time / 10.0 ) )
 
-
 func _on_change_intensity(value):
 	set_intensity(value)
 
@@ -123,3 +121,6 @@ func _on_shader_selected(index):
 	pass
 	#triangles = index == 1;
 	#_set_shader()
+	
+func _on_Dreamscape_mushroom_eated():
+	material.set_shader_param("enabled", true)

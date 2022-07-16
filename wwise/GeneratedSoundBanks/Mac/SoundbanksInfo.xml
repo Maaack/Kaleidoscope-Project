@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="1902230275">
+		<SoundBank Id="1355168291" Language="SFX" Hash="594887226">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>1355168291.bnk</Path>
@@ -22,11 +22,66 @@
 				<GameParameter Id="2827693126" Name="WorldChangeLoudness" ObjectPath="\Game Parameters\Default Work Unit\WorldChangeLoudness"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1509027703" Language="SFX" Hash="810968492">
+		<SoundBank Id="1509027703" Language="SFX" Hash="2005898654">
 			<ObjectPath>\SoundBanks\Default Work Unit\KScopeMain</ObjectPath>
 			<ShortName>KScopeMain</ShortName>
 			<Path>1509027703.bnk</Path>
 			<IncludedEvents>
+				<Event Id="2687372615" Name="Credits_Loaded" ObjectPath="\Events\Default Work Unit\Credits_Loaded">
+					<IncludedMemoryFiles>
+						<File Id="815667857" Language="SFX">
+							<ShortName>K_Scope - Credits - wav.wav</ShortName>
+							<Path>SFX/K_Scope - Credits - wav_E84716CF.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<ActionSetState>
+						<ActionSetStateEntry Id="2201105581" Name="Credits" ObjectPath="\States\Default Work Unit\MenuGame\Credits"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="3709765322" Name="Deposit1" ObjectPath="\Events\Default Work Unit\Deposit1">
+					<IncludedMemoryFiles>
+						<File Id="266672359" Language="SFX">
+							<ShortName>GemDeposit 1.wav</ShortName>
+							<Path>SFX/GemDeposit 1_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3709765321" Name="Deposit2" ObjectPath="\Events\Default Work Unit\Deposit2">
+					<IncludedMemoryFiles>
+						<File Id="622929681" Language="SFX">
+							<ShortName>GemDeposit 2.wav</ShortName>
+							<Path>SFX/GemDeposit 2_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3709765320" Name="Deposit3" ObjectPath="\Events\Default Work Unit\Deposit3">
+					<IncludedMemoryFiles>
+						<File Id="598576478" Language="SFX">
+							<ShortName>GemDeposit 3.wav</ShortName>
+							<Path>SFX/GemDeposit 3_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2881812561" Name="DepositPoint" ObjectPath="\Events\Default Work Unit\DepositPoint">
+					<IncludedMemoryFiles>
+						<File Id="89073535" Language="SFX">
+							<ShortName>GemEmanation 2.wav</ShortName>
+							<Path>SFX/GemEmanation 2_E84716CF.wem</Path>
+						</File>
+						<File Id="459367388" Language="SFX">
+							<ShortName>GemEmanation 4.wav</ShortName>
+							<Path>SFX/GemEmanation 4_E84716CF.wem</Path>
+						</File>
+						<File Id="647230748" Language="SFX">
+							<ShortName>GemEmanation 1.wav</ShortName>
+							<Path>SFX/GemEmanation 1_E84716CF.wem</Path>
+						</File>
+						<File Id="894867728" Language="SFX">
+							<ShortName>GemEmanation 3.wav</ShortName>
+							<Path>SFX/GemEmanation 3_E84716CF.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="3766922154" Name="Easteregg" ObjectPath="\Events\Default Work Unit\Easteregg">
 					<IncludedMemoryFiles>
 						<File Id="912545632" Language="SFX">
@@ -162,9 +217,29 @@
 				</Event>
 				<Event Id="2103799123" Name="MushroomEat" ObjectPath="\Events\Default Work Unit\MushroomEat">
 					<IncludedMemoryFiles>
-						<File Id="138943488" Language="SFX">
-							<ShortName>Mushroom_BiteChewSwallow.wav</ShortName>
-							<Path>SFX/Mushroom_BiteChewSwallow_569C59C1.wem</Path>
+						<File Id="262163400" Language="SFX">
+							<ShortName>Mushroom_Eat_v2.wav</ShortName>
+							<Path>SFX/Mushroom_Eat_v2_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3047133404" Name="ObstacleImpact" ObjectPath="\Events\Default Work Unit\ObstacleImpact">
+					<IncludedMemoryFiles>
+						<File Id="311014044" Language="SFX">
+							<ShortName>Obstacle Impact 1.wav</ShortName>
+							<Path>SFX/Obstacle Impact 1_569C59C1.wem</Path>
+						</File>
+						<File Id="486078552" Language="SFX">
+							<ShortName>Obstacle Impact 4.wav</ShortName>
+							<Path>SFX/Obstacle Impact 4_569C59C1.wem</Path>
+						</File>
+						<File Id="616143977" Language="SFX">
+							<ShortName>Obstacle Impact 2.wav</ShortName>
+							<Path>SFX/Obstacle Impact 2_569C59C1.wem</Path>
+						</File>
+						<File Id="902218819" Language="SFX">
+							<ShortName>Obstacle Impact 3.wav</ShortName>
+							<Path>SFX/Obstacle Impact 3_569C59C1.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -178,6 +253,42 @@
 					<ActionSetState>
 						<ActionSetStateEntry Id="4184794294" Name="Outro" ObjectPath="\States\Default Work Unit\MenuGame\Outro"/>
 					</ActionSetState>
+				</Event>
+				<Event Id="2940813907" Name="PieceCollision" ObjectPath="\Events\Default Work Unit\PieceCollision">
+					<IncludedMemoryFiles>
+						<File Id="175427168" Language="SFX">
+							<ShortName>PieceCollisionB 3.wav</ShortName>
+							<Path>SFX/PieceCollisionB 3_569C59C1.wem</Path>
+						</File>
+						<File Id="532517796" Language="SFX">
+							<ShortName>PieceCollisionA 4.wav</ShortName>
+							<Path>SFX/PieceCollisionA 4_569C59C1.wem</Path>
+						</File>
+						<File Id="575296685" Language="SFX">
+							<ShortName>PieceCollisionB 4.wav</ShortName>
+							<Path>SFX/PieceCollisionB 4_569C59C1.wem</Path>
+						</File>
+						<File Id="579737665" Language="SFX">
+							<ShortName>PieceCollisionA 1.wav</ShortName>
+							<Path>SFX/PieceCollisionA 1_569C59C1.wem</Path>
+						</File>
+						<File Id="593943935" Language="SFX">
+							<ShortName>PieceCollisionB 1.wav</ShortName>
+							<Path>SFX/PieceCollisionB 1_569C59C1.wem</Path>
+						</File>
+						<File Id="779190182" Language="SFX">
+							<ShortName>PieceCollisionA 2.wav</ShortName>
+							<Path>SFX/PieceCollisionA 2_569C59C1.wem</Path>
+						</File>
+						<File Id="831104990" Language="SFX">
+							<ShortName>PieceCollisionA 3.wav</ShortName>
+							<Path>SFX/PieceCollisionA 3_569C59C1.wem</Path>
+						</File>
+						<File Id="1044882533" Language="SFX">
+							<ShortName>PieceCollisionB 2.wav</ShortName>
+							<Path>SFX/PieceCollisionB 2_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="4276063004" Name="Player_FS" ObjectPath="\Events\Default Work Unit\Player_FS">
 					<IncludedMemoryFiles>
@@ -252,6 +363,69 @@
 						</SwitchContainer>
 					</SwitchContainers>
 				</Event>
+				<Event Id="3324514684" Name="TumblerRotation" ObjectPath="\Events\Default Work Unit\TumblerRotation">
+					<IncludedMemoryFiles>
+						<File Id="92183238" Language="SFX">
+							<ShortName>Kaleidoscope - Rotation StartStop 1.wav</ShortName>
+							<Path>SFX/Kaleidoscope - Rotation StartStop 1_569C59C1.wem</Path>
+						</File>
+						<File Id="222947932" Language="SFX">
+							<ShortName>Kaleidoscope - Rotation 1 Loop.wav</ShortName>
+							<Path>SFX/Kaleidoscope - Rotation 1 Loop_E84716CF.wem</Path>
+						</File>
+						<File Id="450197938" Language="SFX">
+							<ShortName>Kaleidoscope - Rotation 2 Loop.wav</ShortName>
+							<Path>SFX/Kaleidoscope - Rotation 2 Loop_E84716CF.wem</Path>
+						</File>
+						<File Id="677484880" Language="SFX">
+							<ShortName>Kaleidoscope - Rotation StartStop 2.wav</ShortName>
+							<Path>SFX/Kaleidoscope - Rotation StartStop 2_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{7B35EC2E-3E7C-49E0-A941-E226EA7CDA48}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{7B35EC2E-3E7C-49E0-A941-E226EA7CDA48}">
+							<Media>
+								<File Id="92183238"/>
+								<File Id="222947932"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C1B881C5-2D60-40DC-B902-FCABC499128B}">
+							<Media>
+								<File Id="450197938"/>
+								<File Id="677484880"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="1207294690" Name="TumblerStop" ObjectPath="\Events\Default Work Unit\TumblerStop">
+					<IncludedMemoryFiles>
+						<File Id="92183238" Language="SFX">
+							<ShortName>Kaleidoscope - Rotation StartStop 1.wav</ShortName>
+							<Path>SFX/Kaleidoscope - Rotation StartStop 1_569C59C1.wem</Path>
+						</File>
+						<File Id="677484880" Language="SFX">
+							<ShortName>Kaleidoscope - Rotation StartStop 2.wav</ShortName>
+							<Path>SFX/Kaleidoscope - Rotation StartStop 2_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3013838884" Name="UIMouseClick" ObjectPath="\Events\Default Work Unit\UIMouseClick">
+					<IncludedMemoryFiles>
+						<File Id="619237890" Language="SFX">
+							<ShortName>UI - Mouse Press.wav</ShortName>
+							<Path>SFX/UI - Mouse Press_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1271092770" Name="UIMouseOver" ObjectPath="\Events\Default Work Unit\UIMouseOver">
+					<IncludedMemoryFiles>
+						<File Id="14523537" Language="SFX">
+							<ShortName>UI - Mouse Over.wav</ShortName>
+							<Path>SFX/UI - Mouse Over_665E7C46.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2364413463" Name="WorldChange" ObjectPath="\Events\Default Work Unit\WorldChange">
 					<IncludedMemoryFiles>
 						<File Id="581337223" Language="SFX">
@@ -263,9 +437,13 @@
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="749828935" Name="PlayerHighness" ObjectPath="\Game Parameters\Default Work Unit\PlayerHighness"/>
+				<GameParameter Id="3982513867" Name="TumblerSpeed" ObjectPath="\Game Parameters\Default Work Unit\TumblerSpeed"/>
 			</GameParameters>
 			<StateGroups>
 				<StateGroup Id="702482391" Name="Game" ObjectPath="\States\Default Work Unit\MenuGame\Game" GUID="{6A7EB908-E1EA-49B6-81AA-0FDAB7E8181C}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="2201105581" Name="Credits" ObjectPath="\States\Default Work Unit\MenuGame\Credits" GUID="{380489F2-BA43-4A3D-9438-90861C7C0CE9}">
 					<States/>
 				</StateGroup>
 				<StateGroup Id="2607556080" Name="Menu" ObjectPath="\States\Default Work Unit\MenuGame\Menu" GUID="{3E8F1127-0DD2-4397-AC7A-9CC3237A6B8F}">
@@ -281,6 +459,12 @@
 						<Switch Id="3753286132" Name="Calm" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Calm" GUID="{A999F13E-94F8-448A-9671-6138870A604B}"/>
 						<Switch Id="4223512837" Name="Intense" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Intense" GUID="{07C83298-3580-47AC-B946-8FDC1E4D0683}"/>
 						<Switch Id="1048449613" Name="Max" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Max" GUID="{A99B6341-675B-44B6-BC71-7916EF658254}"/>
+					</Switches>
+				</SwitchGroup>
+				<SwitchGroup Id="2753380033" Name="TumblerDirection" ObjectPath="\Switches\Default Work Unit\TumblerDirection" GUID="{3485FD8F-BC17-4BE4-AC65-33012F8D07D8}">
+					<Switches>
+						<Switch Id="1571037980" Name="CWise" ObjectPath="\Switches\Default Work Unit\TumblerDirection\CWise" GUID="{7B35EC2E-3E7C-49E0-A941-E226EA7CDA48}"/>
+						<Switch Id="3322674831" Name="CCWise" ObjectPath="\Switches\Default Work Unit\TumblerDirection\CCWise" GUID="{C1B881C5-2D60-40DC-B902-FCABC499128B}"/>
 					</Switches>
 				</SwitchGroup>
 				<SwitchGroup Id="3087933048" Name="FS_GrassDirt" ObjectPath="\Switches\Default Work Unit\FS_GrassDirt" GUID="{FB34E7A9-D5E2-4E30-8D98-E480E4887FD8}">
