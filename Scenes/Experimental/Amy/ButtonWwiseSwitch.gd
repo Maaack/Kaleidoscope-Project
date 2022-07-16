@@ -1,9 +1,13 @@
 extends Button
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
+# Mike's gdscript experimenting file
+# The # characters make a line a "comment" from that point forward
+
+# What you probably want to do instead of Switch() is
+# $AkSwitch.set_switch()
+# You'll need to add the AkSwitch to your button scene,
+# and set what it is meant to switch.
 
 
 # Called when the node enters the scene tree for the first time.

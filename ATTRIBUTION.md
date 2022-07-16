@@ -4,8 +4,8 @@
 Tomy  
 Amy  
 Mike  
+Kati  
 Mussar  
-Katie  
 
 ## Sourced / Unaffiliated
 ### Fonts
@@ -20,13 +20,20 @@ Author: [Juan Linietsky, Ariel Manzur, and contributors](https://godotengine.org
 Source: [godotengine.org](https://godotengine.org/)  
 License: [MIT License](https://github.com/godotengine/godot/blob/master/LICENSE.txt) 
 
+#### Wwise Godot Integration
+Author: [Alessandro Famà, Jorge Garcia, and Will](https://github.com/alessandrofama/wwise-godot-integration/graphs/contributors)  
+Source: [github.org](https://github.com/alessandrofama/wwise-godot-integration)  
+License: [MIT License](https://github.com/alessandrofama/wwise-godot-integration/blob/main/LICENSE) 
+
 #### Git
 Author: [Linus Torvalds](https://github.com/torvalds)  
 Source: [git-scm.com](https://git-scm.com/downloads)  
 License: [GNU General Public License version 2](https://opensource.org/licenses/GPL-2.0)
 
 #### Wwise
-
+Author: [Audiokinetic](https://www.audiokinetic.com/about/)  
+Source: [audiokinetic.com](https://www.audiokinetic.com/)  
+License: [Free Non-Commercial](https://www.audiokinetic.com/terms-of-use/) 
 
 #### PyCharm
 Author: [Jet Brains](https://www.jetbrains.com/)  
