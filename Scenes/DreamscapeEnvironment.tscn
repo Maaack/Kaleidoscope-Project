@@ -25,6 +25,9 @@ albedo_color = Color( 1, 0.453125, 0.817708, 1 )
 [node name="AnimationPlayer" parent="AnimatedWorldEnvironment" index="1"]
 autoplay = ""
 
+[node name="Stars" parent="AnimatedWorldEnvironment" index="2"]
+preprocess = 0.0
+
 [node name="AllSkyFree_DemoLandscape" parent="." instance=ExtResource( 2 )]
 visible = false
 
@@ -77,7 +80,6 @@ event = {
 
 [node name="LightPillarPurple" parent="DreamscapeInteractive/TestGlowyThings" index="4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.0476, 0.139503, 13.6319 )
-hue = 0.6
 
 [node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple" index="0"]
 radius = 1.22041
@@ -88,7 +90,7 @@ material = SubResource( 7 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.06269, 0 )
 light_color = Color( 1, 0.24, 0.746667, 1 )
 
-[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple" index="3"]
+[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple" index="2"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
@@ -116,7 +118,5 @@ light_energy = 0.182
 [editable path="DreamscapeInteractive/TestGlowyThings/LightPillarGreen/ViewCollider"]
 [editable path="DreamscapeInteractive/TestGlowyThings/LightPillarBlue"]
 [editable path="DreamscapeInteractive/TestGlowyThings/LightPillarBlue/ViewCollider"]
-[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarPurple"]
-[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarPurple/ViewCollider"]
 [editable path="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain"]
 [editable path="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller"]

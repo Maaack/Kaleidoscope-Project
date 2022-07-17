@@ -68,7 +68,7 @@ func start_trip():
 	var transition_rate = kaleidoscope.intensity_change_rate
 	kaleidoscope.intensity_change_rate = transition_rate * 2.0
 	kaleidoscope.set_range(40, 45)
-	add_gems()
+	#add_gems()
 	emit_signal("trip_started")
 	yield(get_tree().create_timer(15), "timeout")
 	kaleidoscope.start_kaleidoscope()
@@ -79,18 +79,18 @@ func start_trip():
 	
 func on_interact_red_pillar():
 	red_pillar.hide()
-	gem_control.remove_gemstone(red_gem)
+	#gem_control.remove_gemstone(red_gem)
 	kaleidoscope.set_range(60, 70)
 	green_pillar.show()
 	
 func on_interact_green_pillar():
 	blue_pillar.show()
-	gem_control.remove_gemstone(green_gem)
+	#gem_control.remove_gemstone(green_gem)
 	kaleidoscope.set_range(60, 78)
 	green_pillar.hide()
 
 func on_interact_blue_pillar():
-	gem_control.remove_gemstone(blue_gem)
+	#gem_control.remove_gemstone(blue_gem)
 	blue_pillar.hide()
 	on_enlightenment()
 
