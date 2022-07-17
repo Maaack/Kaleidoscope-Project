@@ -87,15 +87,3 @@ func _on_AmysKScopeButton_pressed():
 	$MenuAnimationPlayer.play("Outro")
 	yield($MenuAnimationPlayer, "animation_finished")
 	SceneLoader.load_scene("res://Scenes/MainKaleidoscope.tscn")
-
-func _on_WwiseSceneButton_pressed():
-	menu_state = States.EXIT
-	$MenuAnimationPlayer.play("Outro")
-	yield($MenuAnimationPlayer, "animation_finished")
-	get_tree().change_scene("res://Scenes/Experimental/Wwise/WwiseShaderTest.tscn")
-
-func _on_GemTestButton_pressed():
-	menu_state = States.EXIT
-	$MenuAnimationPlayer.play("Outro")
-	yield($MenuAnimationPlayer, "animation_finished")
-	get_tree().change_scene("res://Scenes/Experimental/Tomy/gemstone_manipulation_test.tscn")
