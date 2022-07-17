@@ -1,0 +1,431 @@
+[gd_scene load_steps=20 format=2]
+
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
+[ext_resource path="res://Data/WorldTerrain/data.hterrain" type="Resource" id=2]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=3]
+[ext_resource path="res://addons/zylann.scatter/scatter3d.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/LowPolyObjects/Trees/SpruceTree2.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/LowPolyObjects/Trees/SpruceTree1.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/LowPolyObjects/Stones/Stone3.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/LowPolyObjects/Stones/Stone1.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/LowPolyObjects/Stones/Stone2.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/LowPolyObjects/Trees/DeadSpruce1.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Scenes/LowPolyObjects/Trees/SpruceTree3.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Scenes/LowPolyObjects/Trees/DeadSpruce2.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/LowPolyObjects/Mushrooms/Mushroom3.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scenes/LowPolyObjects/Mushrooms/Mushroom4.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Scenes/LowPolyObjects/Mushrooms/Mushroom1.tscn" type="PackedScene" id=15]
+[ext_resource path="res://Scenes/LowPolyObjects/Grass/Grass2.tscn" type="PackedScene" id=16]
+[ext_resource path="res://Scenes/LowPolyObjects/Grass/Grass1.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Scenes/LowPolyObjects/Mushrooms/Mushroom2.tscn" type="PackedScene" id=18]
+
+[sub_resource type="Resource" id=1]
+script = ExtResource( 3 )
+mode = 0
+textures = [ [  ], [  ] ]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="Scatter3D" type="Spatial" parent="."]
+script = ExtResource( 4 )
+_scenes = [ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 14 ), ExtResource( 6 ), ExtResource( 5 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 12 ), ExtResource( 15 ), ExtResource( 18 ), ExtResource( 17 ), ExtResource( 16 ) ]
+
+[node name="Stone2" type="Spatial" parent="Scatter3D" instance=ExtResource( 9 )]
+transform = Transform( 0.395606, 0, 0.91842, 0, 1, 0, -0.91842, 0, 0.395606, 1.11555, 0, 1.78882 )
+
+[node name="Stone3" type="Spatial" parent="Scatter3D" instance=ExtResource( 9 )]
+transform = Transform( 0.999768, 0, -0.0215244, 0, 1, 0, 0.0215244, 0, 0.999768, 6.92926, 0, 10.086 )
+
+[node name="Stone4" type="Spatial" parent="Scatter3D" instance=ExtResource( 9 )]
+transform = Transform( -0.864457, 0, -0.502706, 0, 1, 0, 0.502706, 0, -0.864457, -11.8743, 0, 7.51879 )
+
+[node name="Stone5" type="Spatial" parent="Scatter3D" instance=ExtResource( 9 )]
+transform = Transform( -0.975468, 0, -0.220141, 0, 1, 0, 0.220141, 0, -0.975468, -10.969, 0, -9.42532 )
+
+[node name="Stone6" type="Spatial" parent="Scatter3D" instance=ExtResource( 9 )]
+transform = Transform( -0.520083, 0, 0.854116, 0, 1, 0, -0.854116, 0, -0.520083, -12.0874, 0, -20.8804 )
+
+[node name="Stone1" type="Spatial" parent="Scatter3D" instance=ExtResource( 8 )]
+transform = Transform( 0.967161, 0, 0.254164, 0, 1, 0, -0.254164, 0, 0.967161, -11.1278, 0, -20.8955 )
+
+[node name="Stone7" type="Spatial" parent="Scatter3D" instance=ExtResource( 8 )]
+transform = Transform( 0.919475, 0, 0.393148, 0, 1, 0, -0.393148, 0, 0.919475, -3.84826, 0, -18.5781 )
+
+[node name="Stone8" type="Spatial" parent="Scatter3D" instance=ExtResource( 8 )]
+transform = Transform( -0.564629, 0, 0.825345, 0, 1, 0, -0.825345, 0, -0.564629, 4.10347, 3.8147e-06, -14.5256 )
+
+[node name="Stone9" type="Spatial" parent="Scatter3D" instance=ExtResource( 8 )]
+transform = Transform( 0.159396, 0, -0.987215, 0, 1, 0, 0.987215, 0, 0.159396, 19.0666, 3.8147e-06, -5.71508 )
+
+[node name="Stone10" type="Spatial" parent="Scatter3D" instance=ExtResource( 8 )]
+transform = Transform( -0.878032, 0, 0.478601, 0, 1, 0, -0.478601, 0, -0.878032, 3.03969, 0, 25.9414 )
+
+[node name="Stone11" type="Spatial" parent="Scatter3D" instance=ExtResource( 8 )]
+transform = Transform( 0.955906, 0, -0.293674, 0, 1, 0, 0.293674, 0, 0.955906, -10.5858, 3.8147e-06, 14.8709 )
+
+[node name="Stone12" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( 0.891703, 0, 0.452621, 0, 1, 0, -0.452621, 0, 0.891703, -12.1802, 4.76837e-07, -14.6753 )
+
+[node name="Stone13" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( 0.975092, 0, 0.221801, 0, 1, 0, -0.221801, 0, 0.975092, -9.55134, 4.76837e-07, -16.5536 )
+
+[node name="Stone14" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( -0.206722, 0, -0.9784, 0, 1, 0, 0.9784, 0, -0.206722, -9.53174, -4.76837e-07, -22.3573 )
+
+[node name="Stone15" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( 0.786039, 0, 0.618177, 0, 1, 0, -0.618177, 0, 0.786039, -9.02665, -4.76837e-07, -8.18524 )
+
+[node name="Stone16" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( 0.262121, 0, 0.965035, 0, 1, 0, -0.965035, 0, 0.262121, -7.07055, 0, -6.5769 )
+
+[node name="Stone17" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( 0.997895, 0, -0.0648488, 0, 1, 0, 0.0648488, 0, 0.997895, -4.85779, 4.76837e-07, -4.70598 )
+
+[node name="Stone18" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( 0.617996, 0, 0.786182, 0, 1, 0, -0.786182, 0, 0.617996, -2.7538, 0, -2.37386 )
+
+[node name="Stone19" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( -0.999343, 0, -0.0362552, 0, 1, 0, 0.0362552, 0, -0.999343, -2.06583, 0, 0.498818 )
+
+[node name="Stone20" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( 0.820294, 0, 0.571942, 0, 1, 0, -0.571942, 0, 0.820294, -0.701202, 0, -14.6083 )
+
+[node name="Stone21" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( -0.595532, 0, -0.803331, 0, 1, 0, 0.803331, 0, -0.595532, 3.18485, 0, -7.33646 )
+
+[node name="Stone22" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( 0.224682, 0, 0.974432, 0, 1, 0, -0.974432, 0, 0.224682, 4.86755, 9.53674e-07, -3.91908 )
+
+[node name="Stone23" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( -0.314478, 0, -0.949265, 0, 1, 0, 0.949265, 0, -0.314478, 6.41368, 0, 0.209649 )
+
+[node name="Stone24" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( 0.927054, 0, -0.374927, 0, 1, 0, 0.374927, 0, 0.927054, 6.82114, 0, 3.26526 )
+
+[node name="Stone25" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( 0.889421, 0, -0.45709, 0, 1, 0, 0.45709, 0, 0.889421, 6.64109, 1.90735e-06, 12.0895 )
+
+[node name="Stone26" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( -0.520026, 0, 0.85415, 0, 1, 0, -0.85415, 0, -0.520026, 3.09595, 0, 13.1403 )
+
+[node name="Stone27" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( 0.999964, 0, 0.00850215, 0, 1, 0, -0.00850215, 0, 0.999964, -0.116991, 0, 12.1101 )
+
+[node name="Stone28" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( 0.271507, 0, 0.962436, 0, 1, 0, -0.962436, 0, 0.271507, -0.483661, 0, 9.5826 )
+
+[node name="Stone29" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( 0.90471, 0, 0.426028, 0, 1, 0, -0.426028, 0, 0.90471, 0.419137, 0, 5.02884 )
+
+[node name="Stone30" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( -0.937513, 0, -0.347951, 0, 1, 0, 0.347951, 0, -0.937513, 3.22546, 0, 4.93344 )
+
+[node name="Stone31" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( 0.804099, 0, 0.594496, 0, 1, 0, -0.594496, 0, 0.804099, 6.94251, 0, 6.47489 )
+
+[node name="Stone32" type="Spatial" parent="Scatter3D" instance=ExtResource( 7 )]
+transform = Transform( 0.174157, 0, 0.984718, 0, 1, 0, -0.984718, 0, 0.174157, 5.44964, 0, 9.38432 )
+
+[node name="Stone33" type="Spatial" parent="Scatter3D" instance=ExtResource( 9 )]
+transform = Transform( -0.532476, 0, -0.846445, 0, 1, 0, 0.846445, 0, -0.532476, 1.64389, 0, 11.7129 )
+
+[node name="Stone34" type="Spatial" parent="Scatter3D" instance=ExtResource( 9 )]
+transform = Transform( 0.946812, 0, 0.321787, 0, 1, 0, -0.321787, 0, 0.946812, 4.51963, -1.90735e-06, 12.1298 )
+
+[node name="Stone35" type="Spatial" parent="Scatter3D" instance=ExtResource( 8 )]
+transform = Transform( -0.541148, 0, 0.840928, 0, 1, 0, -0.840928, 0, -0.541148, 1.95062, 1.90735e-06, 7.1608 )
+
+[node name="Stone36" type="Spatial" parent="Scatter3D" instance=ExtResource( 8 )]
+transform = Transform( 0.484277, 0, 0.874915, 0, 1, 0, -0.874915, 0, 0.484277, 1.27751, 1.90735e-06, 9.15284 )
+
+[node name="Stone37" type="Spatial" parent="Scatter3D" instance=ExtResource( 8 )]
+transform = Transform( -0.569746, 0, 0.821821, 0, 1, 0, -0.821821, 0, -0.569746, 3.24846, 1.90735e-06, 11.2662 )
+
+[node name="Stone38" type="Spatial" parent="Scatter3D" instance=ExtResource( 8 )]
+transform = Transform( -0.721718, 0, -0.692187, 0, 1, 0, 0.692187, 0, -0.721718, 5.46895, 0, 10.5326 )
+
+[node name="Stone39" type="Spatial" parent="Scatter3D" instance=ExtResource( 8 )]
+transform = Transform( -0.366857, 0, -0.930277, 0, 1, 0, 0.930277, 0, -0.366857, 5.39464, 0, 6.77271 )
+
+[node name="Stone40" type="Spatial" parent="Scatter3D" instance=ExtResource( 8 )]
+transform = Transform( -0.621065, 0, 0.783759, 0, 1, 0, -0.783759, 0, -0.621065, 3.33404, 0, 7.10492 )
+
+[node name="Mushroom3" type="Spatial" parent="Scatter3D" instance=ExtResource( 13 )]
+transform = Transform( -0.415652, 0, 0.909524, 0, 1, 0, -0.909524, 0, -0.415652, 3.17348, 0, 8.49351 )
+
+[node name="Mushroom4" type="Spatial" parent="Scatter3D" instance=ExtResource( 13 )]
+transform = Transform( -0.889737, 0, -0.456473, 0, 1, 0, 0.456473, 0, -0.889737, 4.06293, 9.53674e-07, 9.66588 )
+
+[node name="Mushroom5" type="Spatial" parent="Scatter3D" instance=ExtResource( 13 )]
+transform = Transform( -0.490242, 0, -0.871586, 0, 1, 0, 0.871586, 0, -0.490242, 2.97715, 0, 9.69478 )
+
+[node name="Mushroom6" type="Spatial" parent="Scatter3D" instance=ExtResource( 14 )]
+transform = Transform( 0.515618, 0, -0.856819, 0, 1, 0, 0.856819, 0, 0.515618, 5.07062, 0, 8.57362 )
+
+[node name="SpruceTree1" type="Spatial" parent="Scatter3D" instance=ExtResource( 6 )]
+transform = Transform( 0.990241, 0, 0.139363, 0, 1, 0, -0.139363, 0, 0.990241, -29.9307, 0, -32.1716 )
+
+[node name="SpruceTree2" type="Spatial" parent="Scatter3D" instance=ExtResource( 6 )]
+transform = Transform( -0.884685, 0, -0.466189, 0, 1, 0, 0.466189, 0, -0.884685, 5.14726, -9.53674e-07, -32.5687 )
+
+[node name="SpruceTree3" type="Spatial" parent="Scatter3D" instance=ExtResource( 6 )]
+transform = Transform( -0.935668, 0, -0.35288, 0, 1, 0, 0.35288, 0, -0.935668, 14.0004, 0, -5.07205 )
+
+[node name="SpruceTree4" type="Spatial" parent="Scatter3D" instance=ExtResource( 6 )]
+transform = Transform( 0.999971, 0, -0.00762174, 0, 1, 0, 0.00762174, 0, 0.999971, 18.9493, 3.8147e-06, 36.0382 )
+
+[node name="SpruceTree5" type="Spatial" parent="Scatter3D" instance=ExtResource( 6 )]
+transform = Transform( 0.832761, 0, -0.553633, 0, 1, 0, 0.553633, 0, 0.832761, -1.99227, 3.8147e-06, 46.4033 )
+
+[node name="SpruceTree6" type="Spatial" parent="Scatter3D" instance=ExtResource( 6 )]
+transform = Transform( -0.654603, 0, 0.755972, 0, 1, 0, -0.755972, 0, -0.654603, -1.9141, -3.8147e-06, 46.3792 )
+
+[node name="SpruceTree7" type="Spatial" parent="Scatter3D" instance=ExtResource( 6 )]
+transform = Transform( 0.389353, 0, 0.921089, 0, 1, 0, -0.921089, 0, 0.389353, -42.8587, 0, -7.31914 )
+
+[node name="SpruceTree8" type="Spatial" parent="Scatter3D" instance=ExtResource( 6 )]
+transform = Transform( 0.433864, 0, -0.900978, 0, 1, 0, 0.900978, 0, 0.433864, -21.406, 0, 26.3104 )
+
+[node name="SpruceTree9" type="Spatial" parent="Scatter3D" instance=ExtResource( 6 )]
+transform = Transform( -0.536909, 0, 0.84364, 0, 1, 0, -0.84364, 0, -0.536909, -41.6375, 0, 8.81598 )
+
+[node name="SpruceTree11" type="Spatial" parent="Scatter3D" instance=ExtResource( 6 )]
+transform = Transform( -0.0860971, 0, -0.996287, 0, 1, 0, 0.996287, 0, -0.0860971, 39.6187, -3.8147e-06, 2.00851 )
+
+[node name="Mushroom1" type="Spatial" parent="Scatter3D" instance=ExtResource( 15 )]
+transform = Transform( -0.681763, 0, 0.731573, 0, 1, 0, -0.731573, 0, -0.681763, 2.7564, 9.53674e-07, 7.18231 )
+
+[node name="Grass1" type="Spatial" parent="Scatter3D" instance=ExtResource( 17 )]
+transform = Transform( -0.342117, 0, 0.939657, 0, 1, 0, -0.939657, 0, -0.342117, -11.7657, 0, -13.783 )
+
+[node name="Grass2" type="Spatial" parent="Scatter3D" instance=ExtResource( 17 )]
+transform = Transform( -0.831947, 0, 0.554856, 0, 1, 0, -0.554856, 0, -0.831947, -12.8634, 0, -6.48169 )
+
+[node name="Grass3" type="Spatial" parent="Scatter3D" instance=ExtResource( 17 )]
+transform = Transform( 0.925392, 0, 0.379012, 0, 1, 0, -0.379012, 0, 0.925392, -3.63282, -9.53674e-07, 2.5553 )
+
+[node name="Grass4" type="Spatial" parent="Scatter3D" instance=ExtResource( 17 )]
+transform = Transform( -0.320225, 0, 0.947342, 0, 1, 0, -0.947342, 0, -0.320225, -0.953564, 0, 7.10496 )
+
+[node name="Grass5" type="Spatial" parent="Scatter3D" instance=ExtResource( 17 )]
+transform = Transform( -0.0479942, 0, -0.998848, 0, 1, 0, 0.998848, 0, -0.0479942, -8.61438, 9.53674e-07, -2.3085 )
+
+[node name="Grass6" type="Spatial" parent="Scatter3D" instance=ExtResource( 17 )]
+transform = Transform( -0.765975, 0, -0.64287, 0, 1, 0, 0.64287, 0, -0.765975, 4.77402, 0, -10.6694 )
+
+[node name="Grass7" type="Spatial" parent="Scatter3D" instance=ExtResource( 17 )]
+transform = Transform( 0.287399, 0, -0.957811, 0, 1, 0, 0.957811, 0, 0.287399, 6.65367, 0, -3.90336 )
+
+[node name="Grass8" type="Spatial" parent="Scatter3D" instance=ExtResource( 17 )]
+transform = Transform( 0.264529, 0, -0.964378, 0, 1, 0, 0.964378, 0, 0.264529, 8.82774, 0, 3.98389 )
+
+[node name="Grass9" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( -0.598063, 0, -0.801449, 0, 1, 0, 0.801449, 0, -0.598063, 7.60457, 0, -12.3038 )
+
+[node name="Grass10" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.533774, 0, 0.845627, 0, 1, 0, -0.845627, 0, 0.533774, 8.68497, 0, -0.859955 )
+
+[node name="Grass11" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.296874, 0, -0.954917, 0, 1, 0, 0.954917, 0, 0.296874, -0.446447, -9.53674e-07, -27.9313 )
+
+[node name="Grass12" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( -0.945986, 0, 0.324208, 0, 1, 0, -0.324208, 0, -0.945986, -20.9059, 0, -21.3928 )
+
+[node name="Grass13" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( -0.930694, 0, 0.3658, 0, 1, 0, -0.3658, 0, -0.930694, -9.46785, 0, -6.46207 )
+
+[node name="Grass14" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.928255, 0, 0.371944, 0, 1, 0, -0.371944, 0, 0.928255, -9.19955, 9.53674e-07, -5.9897 )
+
+[node name="Grass15" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( -0.410042, 0, 0.912067, 0, 1, 0, -0.912067, 0, -0.410042, -5.90462, 0, 7.91326 )
+
+[node name="Grass16" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.999757, 0, -0.0220251, 0, 1, 0, 0.0220251, 0, 0.999757, -3.3983, 0, 9.03056 )
+
+[node name="Grass17" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.421984, 0, -0.906603, 0, 1, 0, 0.906603, 0, 0.421984, -3.1049, 0, 4.98269 )
+
+[node name="Grass18" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.715295, 0, 0.698823, 0, 1, 0, -0.698823, 0, 0.715295, -16.5938, 0, -4.93484 )
+
+[node name="Grass19" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.199208, 0, 0.979957, 0, 1, 0, -0.979957, 0, 0.199208, -31.4313, 0, -49.9124 )
+
+[node name="Grass20" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.3878, 0, 0.921744, 0, 1, 0, -0.921744, 0, 0.3878, -31.4548, 0, -51.6825 )
+
+[node name="Grass21" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.489701, 0, 0.87189, 0, 1, 0, -0.87189, 0, 0.489701, -30.9347, 0, -52.4523 )
+
+[node name="Grass22" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.806521, 0, -0.591205, 0, 1, 0, 0.591205, 0, 0.806521, -30.8061, -9.53674e-07, -53.1099 )
+
+[node name="Grass23" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( -0.598305, 0, -0.801268, 0, 1, 0, 0.801268, 0, -0.598305, -13.2834, 0, -50.0847 )
+
+[node name="Grass24" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.258949, 0, 0.965891, 0, 1, 0, -0.965891, 0, 0.258949, 7.64037, 0, -14.0521 )
+
+[node name="Grass25" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.385204, 0, 0.922832, 0, 1, 0, -0.922832, 0, 0.385204, 9.82474, 9.53674e-07, -7.30353 )
+
+[node name="Grass26" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( -0.511501, 0, 0.859283, 0, 1, 0, -0.859283, 0, -0.511501, 20.0584, -3.8147e-06, 10.0903 )
+
+[node name="Grass27" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.54903, 0, 0.835803, 0, 1, 0, -0.835803, 0, 0.54903, 14.5397, -3.8147e-06, 26.5014 )
+
+[node name="Grass28" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( -0.941271, 0, -0.337651, 0, 1, 0, 0.337651, 0, -0.941271, 0.352593, -3.8147e-06, 37.2345 )
+
+[node name="Grass29" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.239681, 0, 0.970852, 0, 1, 0, -0.970852, 0, 0.239681, -7.56764, 0, 28.1042 )
+
+[node name="Grass30" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.285673, 0, 0.958327, 0, 1, 0, -0.958327, 0, 0.285673, -22.7557, 0, 7.18942 )
+
+[node name="Grass31" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( -0.612387, 0, 0.790558, 0, 1, 0, -0.790558, 0, -0.612387, -36.7108, 0, -3.30573 )
+
+[node name="Grass32" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( -0.999999, 0, -0.00143305, 0, 1, 0, 0.00143305, 0, -0.999999, -41.047, 1.90735e-06, -23.1316 )
+
+[node name="Grass33" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.286056, 0, 0.958213, 0, 1, 0, -0.958213, 0, 0.286056, -56.0206, 0, -39.9363 )
+
+[node name="Grass34" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.0569551, 0, -0.998377, 0, 1, 0, 0.998377, 0, 0.0569551, 21.8203, 0, -43.5671 )
+
+[node name="Grass35" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.999468, 0, -0.0326176, 0, 1, 0, 0.0326176, 0, 0.999468, 27.9298, 0, -4.91666 )
+
+[node name="Grass36" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( -0.907546, 0, -0.419953, 0, 1, 0, 0.419953, 0, -0.907546, 27.9797, -3.8147e-06, -4.17028 )
+
+[node name="Grass37" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0.000415339, 0, 1, 0, -0.000415339, 0, 1, 28.0287, 0, -3.43797 )
+
+[node name="Grass38" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( -0.976677, 0, 0.214712, 0, 1, 0, -0.214712, 0, -0.976677, 27.8009, -3.8147e-06, 21.5254 )
+
+[node name="Grass39" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.972396, 0, 0.233338, 0, 1, 0, -0.233338, 0, 0.972396, 25.8715, -3.8147e-06, 25.3692 )
+
+[node name="Grass40" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( 0.663726, 0, -0.747976, 0, 1, 0, 0.747976, 0, 0.663726, 15.441, 0, 33.5917 )
+
+[node name="Grass41" type="Spatial" parent="Scatter3D" instance=ExtResource( 16 )]
+transform = Transform( -0.929417, 0, 0.369032, 0, 1, 0, -0.369032, 0, -0.929417, 11.3693, -3.8147e-06, 19.5565 )
+
+[node name="SpruceTree10" type="Spatial" parent="Scatter3D" instance=ExtResource( 5 )]
+transform = Transform( 0.362907, 0, 0.931825, 0, 1, 0, -0.931825, 0, 0.362907, -15.2749, 0, 48.1608 )
+
+[node name="SpruceTree12" type="Spatial" parent="Scatter3D" instance=ExtResource( 5 )]
+transform = Transform( -0.97943, 0, 0.201786, 0, 1, 0, -0.201786, 0, -0.97943, -15.2608, 0, 48.0515 )
+
+[node name="SpruceTree13" type="Spatial" parent="Scatter3D" instance=ExtResource( 5 )]
+transform = Transform( 0.206984, 0, -0.978344, 0, 1, 0, 0.978344, 0, 0.206984, -43.5283, 0, 23.7336 )
+
+[node name="SpruceTree14" type="Spatial" parent="Scatter3D" instance=ExtResource( 5 )]
+transform = Transform( -0.573117, 0, 0.819473, 0, 1, 0, -0.819473, 0, -0.573117, -43.8153, 0, 23.7589 )
+
+[node name="SpruceTree15" type="Spatial" parent="Scatter3D" instance=ExtResource( 5 )]
+transform = Transform( -0.315781, 0, 0.948832, 0, 1, 0, -0.948832, 0, -0.315781, -10.0214, -4.74706, 20.5524 )
+
+[node name="SpruceTree16" type="Spatial" parent="Scatter3D" instance=ExtResource( 5 )]
+transform = Transform( -0.722919, 0, 0.690932, 0, 1, 0, -0.690932, 0, -0.722919, 29.1544, -2.82142, 14.4746 )
+
+[node name="SpruceTree17" type="Spatial" parent="Scatter3D" instance=ExtResource( 5 )]
+transform = Transform( 0.634249, 0, 0.773129, 0, 1, 0, -0.773129, 0, 0.634249, 1.40304, -14.0931, 18.6433 )
+
+[node name="SpruceTree18" type="Spatial" parent="Scatter3D" instance=ExtResource( 5 )]
+transform = Transform( -0.0426434, 0, 0.99909, 0, 1, 0, -0.99909, 0, -0.0426434, 1.34649, -14.1983, 18.5541 )
+
+[node name="SpruceTree19" type="Spatial" parent="Scatter3D" instance=ExtResource( 5 )]
+transform = Transform( 0.799815, 0, -0.600247, 0, 1, 0, 0.600247, 0, 0.799815, -29.8602, 0, 6.11541 )
+
+[node name="SpruceTree20" type="Spatial" parent="Scatter3D" instance=ExtResource( 5 )]
+transform = Transform( -0.998391, 0, 0.0567059, 0, 1, 0, -0.0567059, 0, -0.998391, -29.6252, 3.8147e-06, 6.12645 )
+
+[node name="SpruceTree21" type="Spatial" parent="Scatter3D" instance=ExtResource( 5 )]
+transform = Transform( -0.648708, 0, 0.761037, 0, 1, 0, -0.761037, 0, -0.648708, -28.1835, -0.457317, -14.2612 )
+
+[node name="SpruceTree22" type="Spatial" parent="Scatter3D" instance=ExtResource( 5 )]
+transform = Transform( -0.0913467, 0, -0.995819, 0, 1, 0, 0.995819, 0, -0.0913467, -28.1834, -0.468552, -14.3983 )
+
+[node name="SpruceTree23" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( 0.866138, 0, -0.499804, 0, 1, 0, 0.499804, 0, 0.866138, 20.5369, -2.22346, -28.9717 )
+
+[node name="SpruceTree24" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( -0.358061, 0, 0.933698, 0, 1, 0, -0.933698, 0, -0.358061, 20.5174, -2.24289, -28.9012 )
+
+[node name="SpruceTree25" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( -0.943213, 0, 0.332187, 0, 1, 0, -0.332187, 0, -0.943213, 20.6938, -2.21484, -28.6996 )
+
+[node name="SpruceTree26" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( 0.38404, 0, 0.923316, 0, 1, 0, -0.923316, 0, 0.38404, 21.0041, -2.20046, -28.1616 )
+
+[node name="SpruceTree27" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( 0.616431, 0, 0.787409, 0, 1, 0, -0.787409, 0, 0.616431, 21.5729, -2.12266, -27.28 )
+
+[node name="SpruceTree28" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( 0.324249, 0, 0.945972, 0, 1, 0, -0.945972, 0, 0.324249, 19.1643, -3.52013, -25.2243 )
+
+[node name="SpruceTree29" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( -0.37445, 0, -0.927247, 0, 1, 0, 0.927247, 0, -0.37445, 19.142, -3.54419, -25.1524 )
+
+[node name="SpruceTree30" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( 0.686458, 0, -0.727169, 0, 1, 0, 0.727169, 0, 0.686458, 19.2972, -3.52944, -24.7943 )
+
+[node name="SpruceTree31" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( -0.0200379, 0, 0.999799, 0, 1, 0, -0.999799, 0, -0.0200379, 19.5135, -3.62904, -23.9016 )
+
+[node name="SpruceTree32" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( -0.991787, 0, -0.127897, 0, 1, 0, 0.127897, 0, -0.991787, 20.1523, -3.88013, -21.782 )
+
+[node name="SpruceTree33" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( -0.510293, 0, -0.86, 0, 1, 0, 0.86, 0, -0.510293, 0.613647, -15.0396, -23.0629 )
+
+[node name="SpruceTree34" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( 0.62695, 0, 0.77906, 0, 1, 0, -0.77906, 0, 0.62695, -22.0103, -4.27723, -33.6313 )
+
+[node name="SpruceTree35" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( 0.860848, 0, -0.508863, 0, 1, 0, 0.508863, 0, 0.860848, 2.46946, -0.196362, 36.6787 )
+
+[node name="SpruceTree36" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( 0.411701, 0, -0.911319, 0, 1, 0, 0.911319, 0, 0.411701, -10.8853, -3.69834, 21.6133 )
+
+[node name="SpruceTree37" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( 0.646565, 0, 0.762859, 0, 1, 0, -0.762859, 0, 0.646565, 14.6328, -5.31594, 24.9188 )
+
+[node name="SpruceTree38" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( -0.846291, 0, -0.532721, 0, 1, 0, 0.532721, 0, -0.846291, 21.0282, -13.326, 0.356225 )
+
+[node name="SpruceTree39" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( 0.547279, 0, 0.83695, 0, 1, 0, -0.83695, 0, 0.547279, 24.3478, -4.48992, -12.2574 )
+
+[node name="SpruceTree40" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( -0.136366, 0, -0.990659, 0, 1, 0, 0.990659, 0, -0.136366, 24.3727, -4.44845, -12.3234 )
+
+[node name="SpruceTree41" type="Spatial" parent="Scatter3D" instance=ExtResource( 11 )]
+transform = Transform( 0.197688, 0, -0.980265, 0, 1, 0, 0.980265, 0, 0.197688, 17.2789, -13.6832, 14.4274 )
+
+[node name="HTerrain" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, -64 )
+script = ExtResource( 1 )
+map_scale = Vector3( 0.25, 1, 0.25 )
+_terrain_data = ExtResource( 2 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 1 )
+render_layers = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
