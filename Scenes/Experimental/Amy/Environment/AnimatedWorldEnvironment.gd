@@ -25,6 +25,6 @@ func _on_MainKaleidoscope_trip_started():
 
 func _on_MainKaleidoscope_trip_ended():
 	$AnimationPlayer.play_backwards ("GettingPumped")
-	yield(get_tree().create_timer(30), "timeout")
-	$AnimationPlayer.play_backwards ("FadeOut")
+	yield(get_tree().create_timer(15), "timeout")
+	$AnimationPlayer.play("FadeOut")
 	#END

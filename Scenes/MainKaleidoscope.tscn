@@ -116,6 +116,9 @@ zoom = Vector2( 0.2, 0.2 )
 
 [node name="DreamEnvironment" parent="Kaleidoscope/KaleidoscopeViewport" instance=ExtResource( 1 )]
 
+[node name="AnimationPlayer" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment" index="1"]
+autoplay = "GettingPumped (copy)"
+
 [node name="AkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/Mushroom" index="2"]
 event = {
 "Id": 2103799123,
