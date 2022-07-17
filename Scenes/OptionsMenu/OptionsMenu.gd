@@ -5,10 +5,15 @@ func _ready():
 	$MasterControl/MasterHSlider.value = Wwise.get_rtpc_id(AK.GAME_PARAMETERS.BUSVOLUME_MASTER, null)
 	$SFXControl/SFXHSlider.value = Wwise.get_rtpc_id(AK.GAME_PARAMETERS.BUSVOLUME_SFX, null)
 	$MusicControl/MusicHSlider.value = Wwise.get_rtpc_id(AK.GAME_PARAMETERS.BUSVOLUME_MUSIC, null)
+	
+	if $MasterControl/MasterHSlider.value == 0:
+		$MuteControl/MuteButton.pressed = true
 
 
 func _on_MasterHSlider_value_changed(value):
 	Wwise.set_rtpc_id(AK.GAME_PARAMETERS.BUSVOLUME_MASTER, value, null)
+	if value > 0:
+		$MuteControl/MuteButton.pressed = false
 
 
 func _on_SFXHSlider_value_changed(value):
