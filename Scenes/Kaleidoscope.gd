@@ -6,6 +6,9 @@ onready var tumbler = $KaleidoscopeViewport/TumblerScene
 onready var kaleidoscopeViewport = $KaleidoscopeViewport
 
 export var intensity_change_rate = 50.0;
+export var intensity_min = 0.0;
+export var intensity_max = 100.0;
+export var intensity_lerp = 0.0
 export var  triangles : bool = 0;
 export var intensity: float = 0
 
@@ -60,6 +63,8 @@ var time = 0.0
 var kaleidoscope_enabled: bool = false
 export var enabled_thresh = 0.01
 
+var _changing_intensity_range = false;
+
 func start_kaleidoscope():
 	kaleidoscope_enabled = true;
 	material.set_shader_param("enabled", true)
@@ -68,7 +73,7 @@ func start_kaleidoscope():
 func reset_kaleidoscope():
 	time = 0.0
 	intensity = 0.0
-	set_intensity(0.0)
+	lerp_intensity(0.0)
 	
 func stop_kaleidoscope():
 	reset_kaleidoscope();
@@ -76,8 +81,31 @@ func stop_kaleidoscope():
 	material.set_shader_param("enabled", false)
 
 
-func set_intensity(t):
-	intensity = lerp(0, 100, t);
+func set_range(i_min, i_max):
+	#intensity_lerp = intensity
+	intensity_min = i_min
+	intensity_max = i_max
+	#_changing_intensity_range = true
+	if (intensity < intensity_min):
+		set_intensity(intensity_min)
+	elif (intensity > intensity_max):
+		set_intensity(intensity_max)
+	
+func inv_lerp(a, b, v):
+	print ("inv lerp ", a, " ", b, " ", v)
+	return (v - a ) / (b - a)
+	
+func set_intensity (i):
+	var t = inv_lerp(0.0, 100.0, i)
+	lerp_intensity(t)
+	
+func lerp_intensity_in_range(tr):
+	var target_intensity = lerp(intensity_min, intensity_max, tr)
+	var t = inv_lerp(0.0, 100.0, target_intensity)
+	lerp_intensity(t)
+
+func lerp_intensity(t):
+	intensity = lerp(0.0, 100.0, t);
 	segments_val = lerp (_min_segments, _max_segments, ease(t, 3));
 	center_radius_val = lerp (_center_radius_min, _center_radius_max, 1.0 - t)
 	reflect_outside_val = t > reflect_outside_thresh;
@@ -120,11 +148,27 @@ func _set_tumbler():
 func _ready():
 	stop_kaleidoscope() # Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
+func _pulse():
+	#const float pi = 3.14;
+	#const float frequency = 10; // Frequency in Hz
+	return 0.5 * (1 + sin(2 * PI * time / intensity_change_rate))
+		#return 0.5*(1+sin(2 * PI * intensity_change_rate * time))
 
 func _process(delta):
 	if (kaleidoscope_enabled):
 		time += delta
-		set_intensity(sin(time / intensity_change_rate) )
+		"""var t
+		if (_changing_intensity_range):
+			var t_rate = time / intensity_change_rate;
+			#going up
+			var d_range = intensity_min - intensity_lerp
+			
+			if (intensity > intensity_max):
+				t = intensity / 100.0 - delta * intensity_change_rate
+		else:"""
+		var t = _pulse()
+		print ("LERP ", t)
+		lerp_intensity_in_range(t)#sin(time / intensity_change_rate) )
 
 func _on_change_intensity(value):
 	set_intensity(value)
