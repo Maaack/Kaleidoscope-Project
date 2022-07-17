@@ -5,6 +5,8 @@
 [sub_resource type="RectangleShape2D" id=1]
 
 [node name="CircularTumbler" type="KinematicBody2D"]
+collision_layer = 4
+collision_mask = 3
 script = ExtResource( 1 )
 radius = 100.0
 edge_shape = SubResource( 1 )

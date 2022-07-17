@@ -1,0 +1,61 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/interactive/LightPillar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/interactive/mushroom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Dreamscape.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/InteractionController.gd" type="Script" id=5]
+
+[node name="DreamscapeInteractive" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="TestGlowyThings" type="Spatial" parent="."]
+
+[node name="Mushroom" parent="TestGlowyThings" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.64577, 2.1247, 1.75958 )
+
+[node name="LightPillarRed" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.67538, 0.0579605, -8.34749 )
+
+[node name="LightPillarGreen" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.43892, 0.05796, 2.83892 )
+hue = 0.28
+collider_type = 1
+
+[node name="LightPillarBlue" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.94696, 0.0579605, 6.28143 )
+hue = 0.6
+collider_type = 2
+
+[node name="LightPillarYellow" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.85008, 1.586, -3.4766 )
+hue = 0.155
+collider_type = 4
+
+[node name="LightPillarCyan" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.35366, 0.0579605, 9.31124 )
+hue = 0.5
+collider_type = 3
+
+[node name="LightPillarPurple" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.25054, 1.586, 4.03206 )
+hue = 0.7
+collider_type = 5
+
+[node name="LightPillarPink" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.95299, 1.586, -4.38942 )
+hue = 0.85
+collider_type = 6
+
+[node name="TestViewColliderUI" type="CanvasLayer" parent="."]
+__meta__ = {
+"_editor_description_": "ui just to test the looking at system works fine
+
+can be deleted after"
+}
+
+[node name="Dreamscape" parent="TestViewColliderUI" instance=ExtResource( 4 )]
+
+[connection signal="interacted_with" from="TestViewColliderUI/Dreamscape/Player Controller" to="." method="_on_Player_Controller_interacted_with"]
+[connection signal="started_looking_at" from="TestViewColliderUI/Dreamscape/Player Controller" to="." method="_on_Player_Controller_started_looking_at"]
+
+[editable path="TestViewColliderUI/Dreamscape"]

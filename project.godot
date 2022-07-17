@@ -23,17 +23,29 @@ _global_script_classes=[ {
 "class": "SoundButton",
 "language": "GDScript",
 "path": "res://Scenes/UI/CustomComponents/SoundButton.gd"
+}, {
+"base": "Node2D",
+"class": "TumblerSceneBase",
+"language": "GDScript",
+"path": "res://Scenes/Kaleidoscope/TumblerScenes/TumblerSceneBase.gd"
+}, {
+"base": "Area",
+"class": "ViewCollider",
+"language": "GDScript",
+"path": "res://Scenes/ViewCollider.gd"
 } ]
 _global_script_class_icons={
 "AK": "",
 "AkUtils": "",
-"SoundButton": ""
+"SoundButton": "",
+"TumblerSceneBase": "",
+"ViewCollider": ""
 }
 
 [application]
 
 config/name="Kaleidoscope Project"
-run/main_scene="res://Scenes/Experimental/Wwise/WwiseShaderTest.tscn"
+run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
@@ -41,6 +53,8 @@ config/icon="res://icon.png"
 WwiseSettings="*res://addons/wwise/editor/wwise_settings.gd"
 Wwise="*res://addons/wwise/bin/wwise-gdnative.gdns"
 Waapi="*res://addons/wwise/bin/waapi-gdnative.gdns"
+PauseMenuController="*res://Scripts/PauseMenuController.gd"
+SceneLoader="*res://Scenes/LoadingScreen/SceneLoader.gd"
 
 [display]
 
@@ -50,6 +64,10 @@ window/size/height=1080
 [editor_plugins]
 
 enabled=PoolStringArray( "res://addons/wwise/plugin.cfg" )
+
+[global]
+
+theme=false
 
 [gui]
 
@@ -67,11 +85,6 @@ turn_tumbler_right={
 "deadzone": 0.5,
 "events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":4,"pressed":false,"doubleclick":false,"script":null)
 , Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":68,"unicode":0,"echo":false,"script":null)
- ]
-}
-toggle_show_pattern={
-"deadzone": 0.5,
-"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":69,"unicode":0,"echo":false,"script":null)
  ]
 }
 move_left={
@@ -94,9 +107,24 @@ move_back={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":83,"unicode":0,"echo":false,"script":null)
  ]
 }
+toggle_show_pattern={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":69,"unicode":0,"echo":false,"script":null)
+ ]
+}
 jump={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":32,"unicode":0,"echo":false,"script":null)
+ ]
+}
+toggle_show_kaleidoscope={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":75,"physical_scancode":0,"unicode":0,"echo":false,"script":null)
+ ]
+}
+interact={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":0,"physical_scancode":69,"unicode":0,"echo":false,"script":null)
  ]
 }
 

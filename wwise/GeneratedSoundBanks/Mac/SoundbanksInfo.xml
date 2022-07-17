@@ -11,187 +11,476 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="3970006260">
+		<SoundBank Id="1355168291" Language="SFX" Hash="695793878">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>1355168291.bnk</Path>
 			<IncludedAuxBusses>
 				<AuxBus Id="2847424927" Name="Aux_Rev" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Aux_Rev"/>
 			</IncludedAuxBusses>
+			<GameParameters>
+				<GameParameter Id="2827693126" Name="WorldChangeLoudness" ObjectPath="\Game Parameters\Default Work Unit\WorldChangeLoudness"/>
+			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1509027703" Language="SFX" Hash="623784966">
+		<SoundBank Id="1509027703" Language="SFX" Hash="1642033485">
 			<ObjectPath>\SoundBanks\Default Work Unit\KScopeMain</ObjectPath>
 			<ShortName>KScopeMain</ShortName>
 			<Path>1509027703.bnk</Path>
 			<IncludedEvents>
-				<Event Id="3954095848" Name="Glitter_BigGlare" ObjectPath="\Events\Default Work Unit\Glitter_BigGlare">
+				<Event Id="2687372615" Name="Credits_Loaded" ObjectPath="\Events\Default Work Unit\Credits_Loaded">
 					<IncludedMemoryFiles>
-						<File Id="69498981" Language="SFX">
-							<ShortName>SFX_GlareNote_4f.wav</ShortName>
-							<Path>SFX/SFX_GlareNote_4f_569C59C1.wem</Path>
-						</File>
-						<File Id="164433797" Language="SFX">
-							<ShortName>SFX_GlareNote_7bb.wav</ShortName>
-							<Path>SFX/SFX_GlareNote_7bb_569C59C1.wem</Path>
-						</File>
-						<File Id="168423275" Language="SFX">
-							<ShortName>SFX_GlareNote_6ab.wav</ShortName>
-							<Path>SFX/SFX_GlareNote_6ab_569C59C1.wem</Path>
-						</File>
-						<File Id="531524491" Language="SFX">
-							<ShortName>SFX_GlareNote_8c2.wav</ShortName>
-							<Path>SFX/SFX_GlareNote_8c2_569C59C1.wem</Path>
-						</File>
-						<File Id="613100099" Language="SFX">
-							<ShortName>SFX_GlareNote_5g.wav</ShortName>
-							<Path>SFX/SFX_GlareNote_5g_569C59C1.wem</Path>
-						</File>
-						<File Id="712546054" Language="SFX">
-							<ShortName>SFX_GlareNote_1c.wav</ShortName>
-							<Path>SFX/SFX_GlareNote_1c_569C59C1.wem</Path>
-						</File>
-						<File Id="894601074" Language="SFX">
-							<ShortName>SFX_GlareNote_3e.wav</ShortName>
-							<Path>SFX/SFX_GlareNote_3e_569C59C1.wem</Path>
-						</File>
-						<File Id="1010119657" Language="SFX">
-							<ShortName>SFX_GlareNote_2d.wav</ShortName>
-							<Path>SFX/SFX_GlareNote_2d_569C59C1.wem</Path>
+						<File Id="815667857" Language="SFX">
+							<ShortName>K_Scope - Credits - wav.wav</ShortName>
+							<Path>SFX/K_Scope - Credits - wav_E84716CF.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
-					<AuxBusSends>
-						<AuxBus Id="2847424927" Name="Aux_Rev" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Aux_Rev"/>
-					</AuxBusSends>
+					<ActionSetState>
+						<ActionSetStateEntry Id="2201105581" Name="Credits" ObjectPath="\States\Default Work Unit\MenuGame\Credits"/>
+					</ActionSetState>
 				</Event>
-				<Event Id="268881520" Name="Glitter_Move" ObjectPath="\Events\Default Work Unit\Glitter_Move">
+				<Event Id="3709765322" Name="Deposit1" ObjectPath="\Events\Default Work Unit\Deposit1">
 					<IncludedMemoryFiles>
-						<File Id="253247321" Language="SFX">
-							<ShortName>Act_WaterIn2.wav</ShortName>
-							<Path>SFX/Act_WaterIn2_569C59C1.wem</Path>
-						</File>
-						<File Id="450903553" Language="SFX">
-							<ShortName>Act_WaterMovement_loop.wav</ShortName>
-							<Path>SFX/Act_WaterMovement_loop_E84716CF.wem</Path>
-						</File>
-						<File Id="946680638" Language="SFX">
-							<ShortName>Act_WaterIn1.wav</ShortName>
-							<Path>SFX/Act_WaterIn1_569C59C1.wem</Path>
+						<File Id="266672359" Language="SFX">
+							<ShortName>GemDeposit 1.wav</ShortName>
+							<Path>SFX/GemDeposit 1_569C59C1.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
-				<Event Id="386312555" Name="Glitter_Stop" ObjectPath="\Events\Default Work Unit\Glitter_Stop">
+				<Event Id="3709765321" Name="Deposit2" ObjectPath="\Events\Default Work Unit\Deposit2">
 					<IncludedMemoryFiles>
-						<File Id="312837431" Language="SFX">
-							<ShortName>Act_WaterOut1.wav</ShortName>
-							<Path>SFX/Act_WaterOut1_569C59C1.wem</Path>
+						<File Id="622929681" Language="SFX">
+							<ShortName>GemDeposit 2.wav</ShortName>
+							<Path>SFX/GemDeposit 2_569C59C1.wem</Path>
 						</File>
-						<File Id="355390271" Language="SFX">
-							<ShortName>Act_WaterOut2.wav</ShortName>
-							<Path>SFX/Act_WaterOut2_569C59C1.wem</Path>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3709765320" Name="Deposit3" ObjectPath="\Events\Default Work Unit\Deposit3">
+					<IncludedMemoryFiles>
+						<File Id="598576478" Language="SFX">
+							<ShortName>GemDeposit 3.wav</ShortName>
+							<Path>SFX/GemDeposit 3_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2881812561" Name="DepositPoint" ObjectPath="\Events\Default Work Unit\DepositPoint">
+					<IncludedMemoryFiles>
+						<File Id="89073535" Language="SFX">
+							<ShortName>GemEmanation 2.wav</ShortName>
+							<Path>SFX/GemEmanation 2_E84716CF.wem</Path>
+						</File>
+						<File Id="459367388" Language="SFX">
+							<ShortName>GemEmanation 4.wav</ShortName>
+							<Path>SFX/GemEmanation 4_E84716CF.wem</Path>
+						</File>
+						<File Id="647230748" Language="SFX">
+							<ShortName>GemEmanation 1.wav</ShortName>
+							<Path>SFX/GemEmanation 1_E84716CF.wem</Path>
+						</File>
+						<File Id="894867728" Language="SFX">
+							<ShortName>GemEmanation 3.wav</ShortName>
+							<Path>SFX/GemEmanation 3_E84716CF.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3766922154" Name="Easteregg" ObjectPath="\Events\Default Work Unit\Easteregg">
+					<IncludedMemoryFiles>
+						<File Id="912545632" Language="SFX">
+							<ShortName>easteregg_song.wav</ShortName>
+							<Path>SFX/easteregg_song_569C59C1.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
 				<Event Id="1001937282" Name="Level1_Loaded" ObjectPath="\Events\Default Work Unit\Level1_Loaded">
 					<IncludedMemoryFiles>
-						<File Id="247291830" Language="SFX">
-							<ShortName>K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post.wav</ShortName>
-							<Path>SFX/K_Scope - MusicTest1c - v2 - 100bpm - 1pre - 1post_E84716CF.wem</Path>
+						<File Id="98866934" Language="SFX">
+							<ShortName>MussarFixed - Spooky.wav</ShortName>
+							<Path>SFX/MussarFixed - Spooky_E84716CF.wem</Path>
 						</File>
-						<File Id="443895945" Language="SFX">
-							<ShortName>K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post.wav</ShortName>
-							<Path>SFX/K_Scope - MusicTest1c - v1 - 100bpm - 1pre - 1post_E84716CF.wem</Path>
+						<File Id="165410176" Language="SFX">
+							<ShortName>SFX_GlitterAmb_Chimes1_loop.wav</ShortName>
+							<Path>SFX/SFX_GlitterAmb_Chimes1_loop_E84716CF.wem</Path>
 						</File>
-						<File Id="740726191" Language="SFX">
-							<ShortName>K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post.wav</ShortName>
-							<Path>SFX/K_Scope - MusicTest1b - v2 - 100bpm - 1pre - 1post_E84716CF.wem</Path>
+						<File Id="247232381" Language="SFX">
+							<ShortName>Ambience - ThrobbingHeadache.wav</ShortName>
+							<Path>SFX/Ambience - ThrobbingHeadache_E84716CF.wem</Path>
 						</File>
-						<File Id="749771345" Language="SFX">
-							<ShortName>K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post.wav</ShortName>
-							<Path>SFX/K_Scope - MusicTest1 - v2 - 100bpm - 1pre - 2post_E84716CF.wem</Path>
+						<File Id="340761794" Language="SFX">
+							<ShortName>Ambience - DarkScary.wav</ShortName>
+							<Path>SFX/Ambience - DarkScary_E84716CF.wem</Path>
 						</File>
-						<File Id="754486317" Language="SFX">
-							<ShortName>K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post.wav</ShortName>
-							<Path>SFX/K_Scope - MusicTest1 - v4 - 100bpm - 1pre - 2post_E84716CF.wem</Path>
+						<File Id="346177194" Language="SFX">
+							<ShortName>Ambience - Random - Animal B 5.wav</ShortName>
+							<Path>SFX/Ambience - Random - Animal B 5_569C59C1.wem</Path>
 						</File>
-						<File Id="828893307" Language="SFX">
-							<ShortName>K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post.wav</ShortName>
-							<Path>SFX/K_Scope - MusicTest1c - v0fill - 100bpm - 1pre - 1post_E84716CF.wem</Path>
+						<File Id="389307754" Language="SFX">
+							<ShortName>MussarFixed - Trippy.wav</ShortName>
+							<Path>SFX/MussarFixed - Trippy_E84716CF.wem</Path>
 						</File>
-						<File Id="838231795" Language="SFX">
-							<ShortName>K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post.wav</ShortName>
-							<Path>SFX/K_Scope - MusicTest1b - v1 - 100bpm - 1pre - 1post_E84716CF.wem</Path>
+						<File Id="400888509" Language="SFX">
+							<ShortName>Ambience - Random - Animal 3.wav</ShortName>
+							<Path>SFX/Ambience - Random - Animal 3_569C59C1.wem</Path>
 						</File>
-						<File Id="882270406" Language="SFX">
-							<ShortName>K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post.wav</ShortName>
-							<Path>SFX/K_Scope - MusicTest1c - v3 - 100bpm - 1pre - 1post_E84716CF.wem</Path>
+						<File Id="484956033" Language="SFX">
+							<ShortName>Ambience - Random - Animal B 3.wav</ShortName>
+							<Path>SFX/Ambience - Random - Animal B 3_569C59C1.wem</Path>
 						</File>
-						<File Id="954914616" Language="SFX">
-							<ShortName>K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post.wav</ShortName>
-							<Path>SFX/K_Scope - MusicTest1 - v3hi - 100bpm - 1pre - 1post_E84716CF.wem</Path>
+						<File Id="526657529" Language="SFX">
+							<ShortName>Ambience - Random - Animal B 1.wav</ShortName>
+							<Path>SFX/Ambience - Random - Animal B 1_569C59C1.wem</Path>
 						</File>
-						<File Id="1073626052" Language="SFX">
-							<ShortName>K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post.wav</ShortName>
-							<Path>SFX/K_Scope - MusicTest1 - v1 - 100bpm - 1pre - 3post_E84716CF.wem</Path>
+						<File Id="528835070" Language="SFX">
+							<ShortName>Ambience - Random - Animal B 4.wav</ShortName>
+							<Path>SFX/Ambience - Random - Animal B 4_569C59C1.wem</Path>
+						</File>
+						<File Id="576107041" Language="SFX">
+							<ShortName>K_Scope - Ethereal loop.wav</ShortName>
+							<Path>SFX/K_Scope - Ethereal loop_E84716CF.wem</Path>
+						</File>
+						<File Id="690940518" Language="SFX">
+							<ShortName>Ambience - Random - Animal B 7.wav</ShortName>
+							<Path>SFX/Ambience - Random - Animal B 7_569C59C1.wem</Path>
+						</File>
+						<File Id="716666757" Language="SFX">
+							<ShortName>Ambience - Random - Animal 1.wav</ShortName>
+							<Path>SFX/Ambience - Random - Animal 1_569C59C1.wem</Path>
+						</File>
+						<File Id="737132242" Language="SFX">
+							<ShortName>MussarFixed - Calm.wav</ShortName>
+							<Path>SFX/MussarFixed - Calm_E84716CF.wem</Path>
+						</File>
+						<File Id="740570988" Language="SFX">
+							<ShortName>HeartbeatA.wav</ShortName>
+							<Path>SFX/HeartbeatA_569C59C1.wem</Path>
+						</File>
+						<File Id="803345895" Language="SFX">
+							<ShortName>Ambience - Random - Animal 4.wav</ShortName>
+							<Path>SFX/Ambience - Random - Animal 4_569C59C1.wem</Path>
+						</File>
+						<File Id="805631408" Language="SFX">
+							<ShortName>Ambience - Park General.wav</ShortName>
+							<Path>SFX/Ambience - Park General_E84716CF.wem</Path>
+						</File>
+						<File Id="822044708" Language="SFX">
+							<ShortName>Ambience - Random - Animal B 6.wav</ShortName>
+							<Path>SFX/Ambience - Random - Animal B 6_569C59C1.wem</Path>
+						</File>
+						<File Id="893622980" Language="SFX">
+							<ShortName>Ambience - Random - Animal B 2.wav</ShortName>
+							<Path>SFX/Ambience - Random - Animal B 2_569C59C1.wem</Path>
+						</File>
+						<File Id="912074038" Language="SFX">
+							<ShortName>HorrorStrings.wav</ShortName>
+							<Path>SFX/HorrorStrings_E84716CF.wem</Path>
+						</File>
+						<File Id="936907132" Language="SFX">
+							<ShortName>Ambience - Random - Animal 2.wav</ShortName>
+							<Path>SFX/Ambience - Random - Animal 2_569C59C1.wem</Path>
+						</File>
+						<File Id="1068827005" Language="SFX">
+							<ShortName>HeartbeatB.wav</ShortName>
+							<Path>SFX/HeartbeatB_569C59C1.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{A999F13E-94F8-448A-9671-6138870A604B}">
 							<Media>
-								<File Id="749771345"/>
-								<File Id="754486317"/>
-								<File Id="954914616"/>
-								<File Id="1073626052"/>
+								<File Id="737132242"/>
 							</Media>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{07C83298-3580-47AC-B946-8FDC1E4D0683}">
 							<Media>
-								<File Id="740726191"/>
-								<File Id="838231795"/>
+								<File Id="389307754"/>
 							</Media>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{A99B6341-675B-44B6-BC71-7916EF658254}">
 							<Media>
-								<File Id="247291830"/>
-								<File Id="443895945"/>
-								<File Id="828893307"/>
-								<File Id="882270406"/>
+								<File Id="98866934"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{CD215408-033D-4216-BF15-D186DC08BC8B}">
+							<Media>
+								<File Id="576107041"/>
 							</Media>
 						</SwitchContainer>
 					</SwitchContainers>
+					<ActionSetState>
+						<ActionSetStateEntry Id="702482391" Name="Game" ObjectPath="\States\Default Work Unit\MenuGame\Game"/>
+					</ActionSetState>
 					<ActionSetSwitch>
 						<ActionSetSwitchEntry Id="3753286132" Name="Calm" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Calm"/>
 					</ActionSetSwitch>
-				</Event>
-				<Event Id="3431993724" Name="LevelGlitter_Loaded" ObjectPath="\Events\Default Work Unit\LevelGlitter_Loaded">
-					<IncludedMemoryFiles>
-						<File Id="369630858" Language="SFX">
-							<ShortName>SFX_GlitterAmb_Chimes1_loop.wav</ShortName>
-							<Path>SFX/SFX_GlitterAmb_Chimes1_loop_E84716CF.wem</Path>
-						</File>
-						<File Id="380659325" Language="SFX">
-							<ShortName>SFX_GlitterAmb_Swirling_loop.wav</ShortName>
-							<Path>SFX/SFX_GlitterAmb_Swirling_loop_E84716CF.wem</Path>
-						</File>
-						<File Id="759050321" Language="SFX">
-							<ShortName>SFX_GlitterAmb_Chimes2_loop.wav</ShortName>
-							<Path>SFX/SFX_GlitterAmb_Chimes2_loop_E84716CF.wem</Path>
-						</File>
-					</IncludedMemoryFiles>
 					<AuxBusSends>
 						<AuxBus Id="2847424927" Name="Aux_Rev" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Aux_Rev"/>
 					</AuxBusSends>
 				</Event>
+				<Event Id="1785415464" Name="Menu_Loaded" ObjectPath="\Events\Default Work Unit\Menu_Loaded">
+					<IncludedMemoryFiles>
+						<File Id="479181028" Language="SFX">
+							<ShortName>KScope_Menu_MUX_NoLoop.wav</ShortName>
+							<Path>SFX/KScope_Menu_MUX_NoLoop_E84716CF.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<ActionSetState>
+						<ActionSetStateEntry Id="2607556080" Name="Menu" ObjectPath="\States\Default Work Unit\MenuGame\Menu"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="2103799123" Name="MushroomEat" ObjectPath="\Events\Default Work Unit\MushroomEat">
+					<IncludedMemoryFiles>
+						<File Id="262163400" Language="SFX">
+							<ShortName>Mushroom_Eat_v2.wav</ShortName>
+							<Path>SFX/Mushroom_Eat_v2_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3047133404" Name="ObstacleImpact" ObjectPath="\Events\Default Work Unit\ObstacleImpact">
+					<IncludedMemoryFiles>
+						<File Id="311014044" Language="SFX">
+							<ShortName>Obstacle Impact 1.wav</ShortName>
+							<Path>SFX/Obstacle Impact 1_569C59C1.wem</Path>
+						</File>
+						<File Id="486078552" Language="SFX">
+							<ShortName>Obstacle Impact 4.wav</ShortName>
+							<Path>SFX/Obstacle Impact 4_569C59C1.wem</Path>
+						</File>
+						<File Id="616143977" Language="SFX">
+							<ShortName>Obstacle Impact 2.wav</ShortName>
+							<Path>SFX/Obstacle Impact 2_569C59C1.wem</Path>
+						</File>
+						<File Id="902218819" Language="SFX">
+							<ShortName>Obstacle Impact 3.wav</ShortName>
+							<Path>SFX/Obstacle Impact 3_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="910559594" Name="Outro_Loaded" ObjectPath="\Events\Default Work Unit\Outro_Loaded">
+					<IncludedMemoryFiles>
+						<File Id="269996936" Language="SFX">
+							<ShortName>KScope_Outro_MUX_NoLoop.wav</ShortName>
+							<Path>SFX/KScope_Outro_MUX_NoLoop_E84716CF.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<ActionSetState>
+						<ActionSetStateEntry Id="4184794294" Name="Outro" ObjectPath="\States\Default Work Unit\MenuGame\Outro"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="2940813907" Name="PieceCollision" ObjectPath="\Events\Default Work Unit\PieceCollision">
+					<IncludedMemoryFiles>
+						<File Id="175427168" Language="SFX">
+							<ShortName>PieceCollisionB 3.wav</ShortName>
+							<Path>SFX/PieceCollisionB 3_569C59C1.wem</Path>
+						</File>
+						<File Id="532517796" Language="SFX">
+							<ShortName>PieceCollisionA 4.wav</ShortName>
+							<Path>SFX/PieceCollisionA 4_569C59C1.wem</Path>
+						</File>
+						<File Id="575296685" Language="SFX">
+							<ShortName>PieceCollisionB 4.wav</ShortName>
+							<Path>SFX/PieceCollisionB 4_569C59C1.wem</Path>
+						</File>
+						<File Id="579737665" Language="SFX">
+							<ShortName>PieceCollisionA 1.wav</ShortName>
+							<Path>SFX/PieceCollisionA 1_569C59C1.wem</Path>
+						</File>
+						<File Id="593943935" Language="SFX">
+							<ShortName>PieceCollisionB 1.wav</ShortName>
+							<Path>SFX/PieceCollisionB 1_569C59C1.wem</Path>
+						</File>
+						<File Id="779190182" Language="SFX">
+							<ShortName>PieceCollisionA 2.wav</ShortName>
+							<Path>SFX/PieceCollisionA 2_569C59C1.wem</Path>
+						</File>
+						<File Id="831104990" Language="SFX">
+							<ShortName>PieceCollisionA 3.wav</ShortName>
+							<Path>SFX/PieceCollisionA 3_569C59C1.wem</Path>
+						</File>
+						<File Id="1044882533" Language="SFX">
+							<ShortName>PieceCollisionB 2.wav</ShortName>
+							<Path>SFX/PieceCollisionB 2_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="4276063004" Name="Player_FS" ObjectPath="\Events\Default Work Unit\Player_FS">
+					<IncludedMemoryFiles>
+						<File Id="20312177" Language="SFX">
+							<ShortName>FSteps_Dirt1.wav</ShortName>
+							<Path>SFX/FSteps_Dirt1_569C59C1.wem</Path>
+						</File>
+						<File Id="97449526" Language="SFX">
+							<ShortName>FSteps_Grass2.wav</ShortName>
+							<Path>SFX/FSteps_Grass2_569C59C1.wem</Path>
+						</File>
+						<File Id="125969416" Language="SFX">
+							<ShortName>FSteps_Dirt2.wav</ShortName>
+							<Path>SFX/FSteps_Dirt2_569C59C1.wem</Path>
+						</File>
+						<File Id="161717379" Language="SFX">
+							<ShortName>FSteps_Dirt_Start.wav</ShortName>
+							<Path>SFX/FSteps_Dirt_Start_569C59C1.wem</Path>
+						</File>
+						<File Id="193747827" Language="SFX">
+							<ShortName>FSteps_Grass_Start.wav</ShortName>
+							<Path>SFX/FSteps_Grass_Start_569C59C1.wem</Path>
+						</File>
+						<File Id="246426695" Language="SFX">
+							<ShortName>FSteps_Dirt4.wav</ShortName>
+							<Path>SFX/FSteps_Dirt4_569C59C1.wem</Path>
+						</File>
+						<File Id="368641357" Language="SFX">
+							<ShortName>FSteps_Grass1.wav</ShortName>
+							<Path>SFX/FSteps_Grass1_569C59C1.wem</Path>
+						</File>
+						<File Id="513649078" Language="SFX">
+							<ShortName>FSteps_Grass4.wav</ShortName>
+							<Path>SFX/FSteps_Grass4_569C59C1.wem</Path>
+						</File>
+						<File Id="849303243" Language="SFX">
+							<ShortName>FSteps_Dirt3.wav</ShortName>
+							<Path>SFX/FSteps_Dirt3_569C59C1.wem</Path>
+						</File>
+						<File Id="875899337" Language="SFX">
+							<ShortName>FSteps_Grass3.wav</ShortName>
+							<Path>SFX/FSteps_Grass3_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{C52965E5-2182-434D-87FC-F0534BAEE49F}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{C52965E5-2182-434D-87FC-F0534BAEE49F}">
+							<Media>
+								<File Id="20312177"/>
+								<File Id="125969416"/>
+								<File Id="246426695"/>
+								<File Id="849303243"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{797C50D1-8B52-454F-929B-1B70B64F999C}">
+							<Media>
+								<File Id="97449526"/>
+								<File Id="368641357"/>
+								<File Id="513649078"/>
+								<File Id="875899337"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C52965E5-2182-434D-87FC-F0534BAEE49F}">
+							<Media>
+								<File Id="161717379"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{797C50D1-8B52-454F-929B-1B70B64F999C}">
+							<Media>
+								<File Id="193747827"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="3324514684" Name="TumblerRotation" ObjectPath="\Events\Default Work Unit\TumblerRotation">
+					<IncludedMemoryFiles>
+						<File Id="92183238" Language="SFX">
+							<ShortName>Kaleidoscope - Rotation StartStop 1.wav</ShortName>
+							<Path>SFX/Kaleidoscope - Rotation StartStop 1_569C59C1.wem</Path>
+						</File>
+						<File Id="222947932" Language="SFX">
+							<ShortName>Kaleidoscope - Rotation 1 Loop.wav</ShortName>
+							<Path>SFX/Kaleidoscope - Rotation 1 Loop_E84716CF.wem</Path>
+						</File>
+						<File Id="450197938" Language="SFX">
+							<ShortName>Kaleidoscope - Rotation 2 Loop.wav</ShortName>
+							<Path>SFX/Kaleidoscope - Rotation 2 Loop_E84716CF.wem</Path>
+						</File>
+						<File Id="677484880" Language="SFX">
+							<ShortName>Kaleidoscope - Rotation StartStop 2.wav</ShortName>
+							<Path>SFX/Kaleidoscope - Rotation StartStop 2_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<DefaultSwitchValue>{7B35EC2E-3E7C-49E0-A941-E226EA7CDA48}</DefaultSwitchValue>
+					<SwitchContainers>
+						<SwitchContainer SwitchValue="{7B35EC2E-3E7C-49E0-A941-E226EA7CDA48}">
+							<Media>
+								<File Id="92183238"/>
+								<File Id="222947932"/>
+							</Media>
+						</SwitchContainer>
+						<SwitchContainer SwitchValue="{C1B881C5-2D60-40DC-B902-FCABC499128B}">
+							<Media>
+								<File Id="450197938"/>
+								<File Id="677484880"/>
+							</Media>
+						</SwitchContainer>
+					</SwitchContainers>
+				</Event>
+				<Event Id="1207294690" Name="TumblerStop" ObjectPath="\Events\Default Work Unit\TumblerStop">
+					<IncludedMemoryFiles>
+						<File Id="92183238" Language="SFX">
+							<ShortName>Kaleidoscope - Rotation StartStop 1.wav</ShortName>
+							<Path>SFX/Kaleidoscope - Rotation StartStop 1_569C59C1.wem</Path>
+						</File>
+						<File Id="677484880" Language="SFX">
+							<ShortName>Kaleidoscope - Rotation StartStop 2.wav</ShortName>
+							<Path>SFX/Kaleidoscope - Rotation StartStop 2_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="3013838884" Name="UIMouseClick" ObjectPath="\Events\Default Work Unit\UIMouseClick">
+					<IncludedMemoryFiles>
+						<File Id="619237890" Language="SFX">
+							<ShortName>UI - Mouse Press.wav</ShortName>
+							<Path>SFX/UI - Mouse Press_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="1271092770" Name="UIMouseOver" ObjectPath="\Events\Default Work Unit\UIMouseOver">
+					<IncludedMemoryFiles>
+						<File Id="14523537" Language="SFX">
+							<ShortName>UI - Mouse Over.wav</ShortName>
+							<Path>SFX/UI - Mouse Over_A58B7EFE.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2364413463" Name="WorldChange" ObjectPath="\Events\Default Work Unit\WorldChange">
+					<IncludedMemoryFiles>
+						<File Id="581337223" Language="SFX">
+							<ShortName>Mushroom_WorldChanges.wav</ShortName>
+							<Path>SFX/Mushroom_WorldChanges_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 			</IncludedEvents>
 			<GameParameters>
-				<GameParameter Id="3521723906" Name="Glitter_Intensity" ObjectPath="\Game Parameters\Default Work Unit\Glitter_Intensity"/>
+				<GameParameter Id="749828935" Name="PlayerHighness" ObjectPath="\Game Parameters\Default Work Unit\PlayerHighness"/>
 				<GameParameter Id="3982513867" Name="TumblerSpeed" ObjectPath="\Game Parameters\Default Work Unit\TumblerSpeed"/>
 			</GameParameters>
+			<StateGroups>
+				<StateGroup Id="702482391" Name="Game" ObjectPath="\States\Default Work Unit\MenuGame\Game" GUID="{6A7EB908-E1EA-49B6-81AA-0FDAB7E8181C}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="2201105581" Name="Credits" ObjectPath="\States\Default Work Unit\MenuGame\Credits" GUID="{380489F2-BA43-4A3D-9438-90861C7C0CE9}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="2607556080" Name="Menu" ObjectPath="\States\Default Work Unit\MenuGame\Menu" GUID="{3E8F1127-0DD2-4397-AC7A-9CC3237A6B8F}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="4184794294" Name="Outro" ObjectPath="\States\Default Work Unit\MenuGame\Outro" GUID="{421ACB63-F075-42C8-B4E8-024129178338}">
+					<States/>
+				</StateGroup>
+			</StateGroups>
 			<SwitchGroups>
 				<SwitchGroup Id="397118060" Name="Music_CalmIntenseMax" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax" GUID="{BE410F95-87FE-4C5E-9B23-4A329C23A6EC}">
 					<Switches>
 						<Switch Id="3753286132" Name="Calm" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Calm" GUID="{A999F13E-94F8-448A-9671-6138870A604B}"/>
 						<Switch Id="4223512837" Name="Intense" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Intense" GUID="{07C83298-3580-47AC-B946-8FDC1E4D0683}"/>
 						<Switch Id="1048449613" Name="Max" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Max" GUID="{A99B6341-675B-44B6-BC71-7916EF658254}"/>
+						<Switch Id="2852503135" Name="Ethereal" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Ethereal" GUID="{CD215408-033D-4216-BF15-D186DC08BC8B}"/>
+					</Switches>
+				</SwitchGroup>
+				<SwitchGroup Id="2753380033" Name="TumblerDirection" ObjectPath="\Switches\Default Work Unit\TumblerDirection" GUID="{3485FD8F-BC17-4BE4-AC65-33012F8D07D8}">
+					<Switches>
+						<Switch Id="1571037980" Name="CWise" ObjectPath="\Switches\Default Work Unit\TumblerDirection\CWise" GUID="{7B35EC2E-3E7C-49E0-A941-E226EA7CDA48}"/>
+						<Switch Id="3322674831" Name="CCWise" ObjectPath="\Switches\Default Work Unit\TumblerDirection\CCWise" GUID="{C1B881C5-2D60-40DC-B902-FCABC499128B}"/>
+					</Switches>
+				</SwitchGroup>
+				<SwitchGroup Id="3087933048" Name="FS_GrassDirt" ObjectPath="\Switches\Default Work Unit\FS_GrassDirt" GUID="{FB34E7A9-D5E2-4E30-8D98-E480E4887FD8}">
+					<Switches>
+						<Switch Id="4248645337" Name="Grass" ObjectPath="\Switches\Default Work Unit\FS_GrassDirt\Grass" GUID="{797C50D1-8B52-454F-929B-1B70B64F999C}"/>
+						<Switch Id="2195636714" Name="Dirt" ObjectPath="\Switches\Default Work Unit\FS_GrassDirt\Dirt" GUID="{C52965E5-2182-434D-87FC-F0534BAEE49F}"/>
 					</Switches>
 				</SwitchGroup>
 				<SwitchGroup Id="3753286132" Name="Calm" ObjectPath="\Switches\Default Work Unit\Music_CalmIntenseMax\Calm" GUID="{A999F13E-94F8-448A-9671-6138870A604B}">

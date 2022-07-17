@@ -1,6 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
+[ext_resource path="res://Scenes/PlayerController.gd" type="Script" id=2]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=3]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -8,20 +11,61 @@ radius = 0.5
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.4, 0.1, 0.4 )
 
+[sub_resource type="Animation" id=3]
+resource_name = "Walking"
+length = 0.6
+tracks/0/type = "method"
+tracks/0/path = NodePath("Player/FootStepAkEvent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "post_event"
+} ]
+}
+
 [node name="Player Controller" type="Spatial"]
+script = ExtResource( 2 )
 
 [node name="Player" type="KinematicBody" parent="."]
 script = ExtResource( 1 )
 
 [node name="Body" type="CollisionShape" parent="Player"]
-transform = Transform( 0.570637, 0, 0, 0, -0.0193902, 0.631897, 0, -0.473985, -0.0124083, 0, -0.508582, 0.0643652 )
+transform = Transform( 0.570637, 0, 0, 0, -0.0193902, 0.631897, 0, -0.632563, -0.0165597, 0, -0.508582, 0 )
 shape = SubResource( 1 )
 
 [node name="Feet" type="CollisionShape" parent="Player"]
-transform = Transform( 0.433847, 0, 0, 0, 0.123179, 0, 0, 0, 0.541849, 0, -1.15556, 0.0848761 )
+transform = Transform( 0.433847, 0, 0, 0, 0.123179, 0, 0, 0, 0.744858, 0, -1.15556, 0 )
 shape = SubResource( 2 )
 
 [node name="Pivot" type="Spatial" parent="Player"]
 
 [node name="Camera" type="Camera" parent="Player/Pivot"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.110838, -0.0331659 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.183741, 0.461391 )
+
+[node name="LookingAtRayCast" type="RayCast" parent="Player/Pivot/Camera"]
+enabled = true
+cast_to = Vector3( 0, 0, -100 )
+collision_mask = 2
+collide_with_areas = true
+collide_with_bodies = false
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
+root_node = NodePath("../..")
+anims/Walking = SubResource( 3 )
+
+[node name="AkListener" type="Spatial" parent="Player"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+script = ExtResource( 5 )
+
+[node name="FootStepAkEvent" type="Spatial" parent="Player"]
+script = ExtResource( 3 )
+event = {
+"Id": 4276063004,
+"Name": "PLAYER FS"
+}
