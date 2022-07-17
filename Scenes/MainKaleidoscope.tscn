@@ -87,7 +87,13 @@ zoom = Vector2( 0.2, 0.2 )
 
 [node name="DreamEnvironment" parent="Kaleidoscope/KaleidoscopeViewport" instance=ExtResource( 1 )]
 
-[node name="FootStepAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/Spatial/Dreamscape/Player Controller/Player" index="5"]
+[node name="AkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/Mushroom" index="2"]
+event = {
+"Id": 2103799123,
+"Name": "MUSHROOMEAT"
+}
+
+[node name="FootStepAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller/Player" index="5"]
 event = {
 "Id": 4276063004,
 "Name": "PLAYER FS"
@@ -114,6 +120,6 @@ trigger_on = 3
 [editable path="Kaleidoscope/KaleidoscopeViewport/TumblerScene"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/Spatial"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/Spatial/Dreamscape/Player Controller"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/Dreamscape"]
+[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/Mushroom"]
+[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain"]
+[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller"]

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Scenes/ViewCollider.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/interactive/mushroom.gd" type="Script" id=2]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/LowPolyObjects/Mushrooms/Mushroom3.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CubeMesh" id=1]
 size = Vector3( 1, 1, 1 )
@@ -14,10 +15,12 @@ albedo_color = Color( 0.976471, 0.619608, 0, 1 )
 script = ExtResource( 2 )
 
 [node name="PlaceHolder" type="CSGMesh" parent="."]
+visible = false
 mesh = SubResource( 1 )
 material = SubResource( 2 )
 
 [node name="ViewCollider" parent="." instance=ExtResource( 1 )]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 1, 0 )
 collider_type = 7
 
 [node name="AkEvent" type="Spatial" parent="."]
@@ -26,6 +29,9 @@ event = {
 "Id": 2103799123,
 "Name": "MUSHROOMEAT"
 }
+
+[node name="MushroomModel" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [connection signal="interacted" from="ViewCollider" to="." method="_on_ViewCollider_interacted"]
 [connection signal="looked_at" from="ViewCollider" to="." method="_on_ViewCollider_looked_at"]

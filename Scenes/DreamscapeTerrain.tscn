@@ -152,9 +152,6 @@ transform = Transform( -0.415652, 0, 0.909524, 0, 1, 0, -0.909524, 0, -0.415652,
 [node name="Mushroom4" parent="Scatter3D" instance=ExtResource( 11 )]
 transform = Transform( -0.889737, 0, -0.456473, 0, 1, 0, 0.456473, 0, -0.889737, 0.608951, 0, 17.9934 )
 
-[node name="Mushroom5" parent="Scatter3D" instance=ExtResource( 11 )]
-transform = Transform( -0.490242, 0, -0.871586, 0, 1, 0, 0.871586, 0, -0.490242, -0.47683, 0, 18.0223 )
-
 [node name="Grass1" parent="Scatter3D" instance=ExtResource( 10 )]
 transform = Transform( -0.342117, 0, 0.939657, 0, 1, 0, -0.939657, 0, -0.342117, -15.2197, 0, -5.45549 )
 

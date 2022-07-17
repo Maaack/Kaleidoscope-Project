@@ -49,3 +49,21 @@ shadow_enabled = true
 visible = false
 
 [node name="DreamscapeInteractive" parent="." instance=ExtResource( 5 )]
+
+[node name="Mushroom" parent="DreamscapeInteractive/TestGlowyThings" index="0"]
+transform = Transform( -0.277298, 0, -0.960784, 0, 1, 0, 0.960784, 0, -0.277298, -0.585772, 0.0336815, 18.1063 )
+
+[node name="FootStepAkEvent" parent="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller/Player" index="5"]
+event = {
+"Id": 4276063004,
+"Name": "PLAYER FS"
+}
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 17.852 )
+light_color = Color( 0.964706, 0.878431, 0.301961, 1 )
+light_energy = 0.182
+
+[editable path="DreamscapeInteractive"]
+[editable path="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain"]
+[editable path="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller"]

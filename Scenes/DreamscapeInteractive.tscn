@@ -1,9 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Scenes/Experimental/Amy/blockout.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/interactive/LightPillar.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/interactive/mushroom.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Scenes/Dreamscape.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/InteractionController.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/DreamscapeTerrain.tscn" type="PackedScene" id=6]
 
@@ -11,26 +9,31 @@
 script = ExtResource( 5 )
 
 [node name="TestGlowyThings" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.59273, 0 )
 
 [node name="Mushroom" parent="TestGlowyThings" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.94286, -7.52942, 36.1793 )
+transform = Transform( -0.590493, 0, -0.807043, 0, 1, 0, 0.807043, 0, -0.590493, -0.774406, 0.0311791, 18.0106 )
+
+[node name="AkEvent" parent="TestGlowyThings/Mushroom" index="2"]
+event = {
+"Id": 2103799123,
+"Name": "MUSHROOMEAT"
+}
 
 [node name="LightPillarRed" parent="TestGlowyThings" instance=ExtResource( 2 )]
-transform = Transform( 0.889528, 0, -0.456881, 0, 1, 0, 0.456881, 0, 0.889528, 13.3736, -7.83753, -15.086 )
+transform = Transform( 0.889528, 0, -0.456881, 0, 1, 0, 0.456881, 0, 0.889528, 13.3736, 2.24744, -15.086 )
 
 [node name="LightPillarGreen" parent="TestGlowyThings" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.5298, -8.08035, 16.1842 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.5298, 2.00462, 16.1842 )
 hue = 0.28
 collider_type = 1
 
 [node name="LightPillarBlue" parent="TestGlowyThings" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.233, -7.40664, 46.9849 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 53.233, 2.67833, 46.9849 )
 hue = 0.6
 collider_type = 2
 
 [node name="LightPillarYellow" parent="TestGlowyThings" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.85008, 1.586, -3.4766 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.85008, 11.671, -3.4766 )
 visible = false
 hue = 0.155
 collider_type = 4
@@ -60,33 +63,17 @@ __meta__ = {
 can be deleted after"
 }
 
-[node name="Spatial" parent="TestViewColliderUI" instance=ExtResource( 1 )]
-visible = false
-
-[node name="FootStepAkEvent" parent="TestViewColliderUI/Spatial/Dreamscape/Player Controller/Player" index="5"]
-event = {
-"Id": 4276063004,
-"Name": "PLAYER FS"
-}
-
-[node name="Dreamscape" parent="TestViewColliderUI" instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -159.669 )
-visible = false
-
-[node name="FootStepAkEvent" parent="TestViewColliderUI/Dreamscape/Player Controller/Player" index="5"]
-event = {
-"Id": 4276063004,
-"Name": "PLAYER FS"
-}
-
 [node name="DreamscapeTerrain" parent="TestViewColliderUI" instance=ExtResource( 6 )]
 
-[connection signal="interacted_with" from="TestViewColliderUI/Spatial/Dreamscape/Player Controller" to="." method="_on_Player_Controller_interacted_with"]
-[connection signal="started_looking_at" from="TestViewColliderUI/Spatial/Dreamscape/Player Controller" to="." method="_on_Player_Controller_started_looking_at"]
-[connection signal="interacted_with" from="TestViewColliderUI/Dreamscape/Player Controller" to="." method="_on_Player_Controller_interacted_with"]
-[connection signal="started_looking_at" from="TestViewColliderUI/Dreamscape/Player Controller" to="." method="_on_Player_Controller_started_looking_at"]
+[node name="FootStepAkEvent" parent="TestViewColliderUI/DreamscapeTerrain/Player Controller/Player" index="5"]
+event = {
+"Id": 4276063004,
+"Name": "PLAYER FS"
+}
 
-[editable path="TestViewColliderUI/Spatial"]
-[editable path="TestViewColliderUI/Spatial/Dreamscape/Player Controller"]
-[editable path="TestViewColliderUI/Dreamscape"]
-[editable path="TestViewColliderUI/Dreamscape/Player Controller"]
+[connection signal="interacted_with" from="TestViewColliderUI/DreamscapeTerrain/Player Controller" to="." method="_on_Player_Controller_interacted_with"]
+[connection signal="started_looking_at" from="TestViewColliderUI/DreamscapeTerrain/Player Controller" to="." method="_on_Player_Controller_started_looking_at"]
+
+[editable path="TestGlowyThings/Mushroom"]
+[editable path="TestViewColliderUI/DreamscapeTerrain"]
+[editable path="TestViewColliderUI/DreamscapeTerrain/Player Controller"]

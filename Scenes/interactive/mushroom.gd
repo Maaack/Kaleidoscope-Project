@@ -13,5 +13,5 @@ func _on_ViewCollider_stop_looked_at():
 
 func _on_ViewCollider_interacted():
 	$AkEvent.post_event()
-	$PlaceHolder.visible = false
+	$MushroomModel.visible = false
 	$ViewCollider/CollisionShape.disabled = true
