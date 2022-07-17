@@ -56,7 +56,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Kaleidoscope Project"
+config/name="Camping Trip"
+config/description="You were meant to find yourself. Then racoons found your food and ran off with it instead."
 run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 

@@ -37,7 +37,7 @@ scroll_horizontal_enabled = false
 
 [node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
 margin_right = 1920.0
-margin_bottom = 2686.0
+margin_bottom = 3091.0
 rect_min_size = Vector2( 1920, 0 )
 
 [node name="HeaderSpace" type="Control" parent="ScrollContainer/VBoxContainer"]
@@ -48,7 +48,7 @@ rect_min_size = Vector2( 0, 1024 )
 [node name="RichTextLabel" type="RichTextLabel" parent="ScrollContainer/VBoxContainer"]
 margin_top = 1028.0
 margin_right = 1920.0
-margin_bottom = 1658.0
+margin_bottom = 2063.0
 rect_min_size = Vector2( 1920, 0 )
 focus_mode = 2
 size_flags_horizontal = 3
@@ -56,12 +56,21 @@ size_flags_vertical = 5
 bbcode_enabled = true
 bbcode_text = "[center]
 ## Collaborators
-[url=https://github.com/Maaack]Marek[/url]  
+### Team Lead
+[url=https://maaack.itch.io/]Marek[/url] 
+
+### Programming
 Tomy  
 Amy  
+
+### SFX and Composition
 Mike  
-Kati  
+
+### Composition
 Mussar  
+
+### Player controller
+Kati  
 
 ## Sourced / Unaffiliated
 ### Fonts
@@ -69,6 +78,24 @@ Mussar
 Author: [url=https://www.1001fonts.com/users/sorkintype/]Sorken Type Co[/url]  
 Source: [url=https://www.1001fonts.com/merriweather-font.html]1001Fonts : spring-font.html[/url]  
 License: [url=https://scripts.sil.org/OFL]SIL Open Font License (OFL)[/url]
+
+### Assets
+#### Kenney Assets (Survival, Nature, and Graveyard kits)
+Author: [url=https://kenney.nl/]Kenney[/url]  
+Source: [url=https://kenney.nl/assets/graveyard-kit]itch.io[/url]  
+License: [url=https://creativecommons.org/publicdomain/zero/1.0/]CC0 1.0 Universal (CC0 1.0)
+Public Domain Dedication [/url]
+
+#### Low Poly Forest Pack
+Author: [url=https://jaks.itch.io/]Jaks[/url]  
+Source: [url=https://jaks.itch.io/lowpolyforestpack]itch.io[/url]  
+License: [url=https://jaks.itch.io/lowpolyforestpack]Custom Free License[/url]  
+
+#### Shrubs Flowers and Mushrooms 3D Low Poly Pack
+Author: [url=https://craftpix.net/]Craftpix[/url]  
+Source: [url=https://free-game-assets.itch.io/free-shrubs-flowers-and-mushrooms-3d-low-poly-pack]itch.io[/url]  
+License: [url=https://craftpix.net/file-licenses/]Custom License[/url]
+
 
 ## Tools
 #### Godot
@@ -98,12 +125,21 @@ License: [url=https://www.jetbrains.com/]Copyright © 2000-2020 JetBrains s.r.o[
 [/center]"
 text = "
 ## Collaborators
-Marek  
+### Team Lead
+Marek 
+
+### Programming
 Tomy  
 Amy  
+
+### SFX and Composition
 Mike  
-Kati  
+
+### Composition
 Mussar  
+
+### Player controller
+Kati  
 
 ## Sourced / Unaffiliated
 ### Fonts
@@ -111,6 +147,24 @@ Mussar
 Author: Sorken Type Co  
 Source: 1001Fonts : spring-font.html  
 License: SIL Open Font License (OFL)
+
+### Assets
+#### Kenney Assets (Survival, Nature, and Graveyard kits)
+Author: Kenney  
+Source: itch.io  
+License: CC0 1.0 Universal (CC0 1.0)
+Public Domain Dedication 
+
+#### Low Poly Forest Pack
+Author: Jaks  
+Source: itch.io  
+License: Custom Free License  
+
+#### Shrubs Flowers and Mushrooms 3D Low Poly Pack
+Author: Craftpix  
+Source: itch.io  
+License: Custom License
+
 
 ## Tools
 #### Godot
@@ -143,9 +197,9 @@ scroll_active = false
 selection_enabled = true
 
 [node name="FooterSpace" type="Control" parent="ScrollContainer/VBoxContainer"]
-margin_top = 1662.0
+margin_top = 2067.0
 margin_right = 1920.0
-margin_bottom = 2686.0
+margin_bottom = 3091.0
 rect_min_size = Vector2( 0, 1024 )
 
 [node name="ScrollResetTimer" type="Timer" parent="."]
