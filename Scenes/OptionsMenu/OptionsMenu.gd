@@ -8,6 +8,8 @@ func _ready():
 	
 	if $MasterControl/MasterHSlider.value == 0:
 		$MuteControl/MuteButton.pressed = true
+	
+	$FullscreenControl/FullscreenButton.pressed = OS.window_fullscreen
 
 
 func _on_MasterHSlider_value_changed(value):
@@ -27,3 +29,7 @@ func _on_MusicHSlider_value_changed(value):
 func _on_MuteButton_toggled(button_pressed):
 	Wwise.set_rtpc_id(AK.GAME_PARAMETERS.BUSVOLUME_MASTER, 0.0 if button_pressed else $MasterControl/MasterHSlider.value, null)
 
+
+
+func _on_FullscreenButton_toggled(button_pressed):
+	OS.window_fullscreen = button_pressed

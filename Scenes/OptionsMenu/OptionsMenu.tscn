@@ -127,7 +127,30 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="FullscreenControl" type="HBoxContainer" parent="."]
+margin_top = 168.0
+margin_right = 305.0
+margin_bottom = 208.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="FullscreenLabel" type="Label" parent="FullscreenControl"]
+margin_top = 13.0
+margin_right = 225.0
+margin_bottom = 27.0
+size_flags_horizontal = 3
+text = "Fullscreen :"
+
+[node name="FullscreenButton" type="CheckButton" parent="FullscreenControl"]
+margin_left = 229.0
+margin_right = 305.0
+margin_bottom = 40.0
+custom_fonts/font = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [connection signal="value_changed" from="MasterControl/MasterHSlider" to="." method="_on_MasterHSlider_value_changed"]
 [connection signal="value_changed" from="SFXControl/SFXHSlider" to="." method="_on_SFXHSlider_value_changed"]
 [connection signal="value_changed" from="MusicControl/MusicHSlider" to="." method="_on_MusicHSlider_value_changed"]
 [connection signal="toggled" from="MuteControl/MuteButton" to="." method="_on_MuteButton_toggled"]
+[connection signal="toggled" from="FullscreenControl/FullscreenButton" to="." method="_on_FullscreenButton_toggled"]
