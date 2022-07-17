@@ -95,8 +95,9 @@ func on_interact_blue_pillar():
 	on_enlightenment()
 
 func on_enlightenment():
+	kaleidoscope.intensity_change_rate = kaleidoscope.intensity_change_rate  * 4.0
 	purple_pillar.show()
-	kaleidoscope.set_range(90,100)
+	kaleidoscope.set_range(95,100)
 	_etheral_music()
 	_enlightened = true
 	yield(get_tree().create_timer(30), "timeout")
@@ -105,7 +106,7 @@ func on_enlightenment():
 func on_clarity():
 	_enlightened = false
 	purple_pillar.hide()
-	kaleidoscope.intensity_change_rate = kaleidoscope.intensity_change_rate  * 2.0
+
 	kaleidoscope.set_range(0, 1)
 	emit_signal("trip_ended")
 	#the end
