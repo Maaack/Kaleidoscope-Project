@@ -12,11 +12,17 @@ func set_hue(value : float) -> void:
 	$Bar.material.albedo_color.h = hue
 	$Light.light_color.h = hue
 
-
 func set_collider_type(value : int) -> void:
 	collider_type = value
 	$ViewCollider.collider_type = collider_type
 
-
 func _on_ViewCollider_interacted():
 	emit_signal("interacted")
+
+func show() -> void:
+	.show()
+	$AkEvent.post_event()
+
+func hide() -> void:
+	.hide()
+	$AkEvent.stop_event()

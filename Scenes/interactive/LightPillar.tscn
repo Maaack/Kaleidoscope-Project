@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/ViewCollider.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/interactive/LightPillar.gd" type="Script" id=2]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=3]
 
 [sub_resource type="SpatialMaterial" id=3]
 resource_local_to_scene = true
@@ -36,6 +37,13 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 
 [node name="CollisionShape" parent="ViewCollider" index="0"]
 shape = SubResource( 2 )
+
+[node name="AkEvent" type="Spatial" parent="."]
+script = ExtResource( 3 )
+event = {
+"Id": 2881812561,
+"Name": "DEPOSITPOINT"
+}
 
 [connection signal="interacted" from="ViewCollider" to="." method="_on_ViewCollider_interacted"]
 

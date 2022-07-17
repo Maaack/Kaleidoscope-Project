@@ -15,7 +15,7 @@ extents = Vector3( 0.4, 0.1, 0.4 )
 resource_name = "Walking"
 length = 0.6
 tracks/0/type = "method"
-tracks/0/path = NodePath("FootStepAkEvent")
+tracks/0/path = NodePath("Player/FootStepAkEvent")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -59,10 +59,11 @@ collide_with_bodies = false
 root_node = NodePath("../..")
 anims/Walking = SubResource( 3 )
 
-[node name="AkListener" type="Spatial" parent="."]
+[node name="AkListener" type="Spatial" parent="Player"]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
 script = ExtResource( 5 )
 
-[node name="FootStepAkEvent" type="Spatial" parent="."]
+[node name="FootStepAkEvent" type="Spatial" parent="Player"]
 script = ExtResource( 3 )
 event = {
 "Id": 4276063004,
