@@ -82,7 +82,7 @@ func _input(event):
 	event is InputEventKey):
 		$MenuAnimationPlayer.seek(4.4)
 
-func _on_AmysKScopeButton_pressed():
+func _on_PlayButton_pressed():
 	menu_state = States.EXIT
 	$MenuAnimationPlayer.play("Outro")
 	yield($MenuAnimationPlayer, "animation_finished")

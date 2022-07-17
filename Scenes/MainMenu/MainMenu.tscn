@@ -647,12 +647,12 @@ margin_bottom = 466.0
 rect_min_size = Vector2( 196, 0 )
 custom_constants/separation = 24
 
-[node name="AmysKScopeButton" type="Button" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer"]
 margin_right = 196.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 disabled = true
-text = "Kaleidoscope"
+text = "Play"
 
 [node name="OptionsButton" type="Button" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer"]
 margin_top = 64.0
@@ -737,7 +737,7 @@ event = {
 "Name": "CREDITS LOADED"
 }
 
-[connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/AmysKScopeButton" to="." method="_on_AmysKScopeButton_pressed"]
+[connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
