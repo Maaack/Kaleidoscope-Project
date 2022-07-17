@@ -29,7 +29,7 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/zylann.hterrain/hterrain_resource_saver.gd"
 }, {
-"base": "Reference",
+"base": "Button",
 "class": "SoundButton",
 "language": "GDScript",
 "path": "res://Scenes/UI/CustomComponents/SoundButton.gd"
