@@ -1,0 +1,18 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Assets/Sourced/FBXs/LowpolyForestPack/TreesTexture/SpruceTreeLeaf.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Sourced/FBXs/LowpolyForestPack/Trees/SpruceTree3.fbx" type="PackedScene" id=2]
+[ext_resource path="res://Assets/Sourced/FBXs/LowpolyForestPack/TreesTexture/SpruceTreeTrunk.png" type="Texture" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+albedo_texture = ExtResource( 3 )
+
+[node name="SpruceTree3" instance=ExtResource( 2 )]
+
+[node name="SpruceTree3" parent="RootNode" index="0"]
+transform = Transform( 149.202, 0, 0, 0, -5.33587e-05, 132.827, 0, -149.202, -4.75027e-05, 0, 0, 0 )
+material/0 = SubResource( 1 )
+material/1 = SubResource( 2 )
