@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 const min_display_time = 2 # in seconds
-const display_time_ratio = 0.1 # how many time should the text be displayed by number of characters
+const display_time_ratio = 0.2 # how many time should the text be displayed by number of characters
 
 func display_text(text : String) -> void:
 	$Timer.stop()
@@ -15,5 +15,7 @@ func _on_Timer_timeout():
 
 func started_looking_at(object : ViewCollider) -> void:
 	if object == null:
+		$Timer.stop()
+		$AnimationPlayer.play_backwards("FadeIn")
 		return
 	display_text(object.look_text)#("Looking at %s" % ViewCollider.Type.keys()[object.collider_type])
