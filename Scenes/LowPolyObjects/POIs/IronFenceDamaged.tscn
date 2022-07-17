@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Assets/Sourced/FBXs/KenneyGraveyardKit3.2/ironFenceDamaged.fbx" type="PackedScene" id=1]
+[ext_resource path="res://Assets/Sourced/FBXs/KenneyGraveyardKit3.2/metal.material" type="Material" id=2]
+
+[node name="IronFenceDamaged" instance=ExtResource( 1 )]
+
+[node name="ironFenceDamaged" parent="RootNode" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0.444 )
+material/0 = ExtResource( 2 )
