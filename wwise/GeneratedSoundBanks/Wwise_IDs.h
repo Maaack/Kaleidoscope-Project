@@ -13,6 +13,7 @@ namespace AK
 {
     namespace EVENTS
     {
+        static const AkUniqueID CAMPFIRE = 1931646578U;
         static const AkUniqueID CREDITS_LOADED = 2687372615U;
         static const AkUniqueID DEPOSIT1 = 3709765322U;
         static const AkUniqueID DEPOSIT2 = 3709765321U;

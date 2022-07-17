@@ -4,6 +4,7 @@ Event	ID	Name			Wwise Object Path	Notes
 	1207294690	TumblerStop			\Default Work Unit\TumblerStop	
 	1271092770	UIMouseOver			\Default Work Unit\UIMouseOver	
 	1785415464	Menu_Loaded			\Default Work Unit\Menu_Loaded	
+	1931646578	Campfire			\Default Work Unit\Campfire	
 	2103799123	MushroomEat			\Default Work Unit\MushroomEat	
 	2364413463	WorldChange			\Default Work Unit\WorldChange	
 	2687372615	Credits_Loaded			\Default Work Unit\Credits_Loaded	
@@ -114,10 +115,13 @@ Source plug-ins	ID	Name	Type		Wwise Object Path	Notes
 In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	14523537	UIMouseOver	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\UI - Mouse Over_A58B7EFE.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UIMouseOver		1203
 	20312177	FSteps_Dirt1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\FSteps_Dirt1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Dirt\FSteps_Dirt1		7902
+	63888302	CampfireLoop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Campfire Loop_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\CampfireAM\Campfire\CampfireLoop		186361
 	89073535	Emanation2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\GemEmanation 2_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation\EmanationBlend\Emanation2		40041
 	92183238	Kaleidoscope - Rotation StartStop 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Kaleidoscope - Rotation StartStop 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerRotation\TumblerCWise\Kaleidoscope - Rotation StartStop 1		3046
 	97449526	FSteps_Grass2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\FSteps_Grass2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Grass\FSteps_Grass2		9960
+	98034395	Voices - Loop 3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Voices - Loop 3_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\VoicesJudging\Voices - Loop 3		121404
 	98866934	MussarFixed - Spooky	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\MussarFixed - Spooky_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicSpooky\MussarFixed - Spooky\MussarFixed - Spooky		1715614
+	113341532	Voices - Loop 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Voices - Loop 1_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\VoicesJudging\Voices - Loop 1		135018
 	125969416	FSteps_Dirt2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\FSteps_Dirt2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Dirt\FSteps_Dirt2		9683
 	161717379	FSteps_Dirt_Start	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\FSteps_Dirt_Start_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Dirt_Start\FSteps_Dirt_Start		11408
 	165410176	SFX_GlitterAmb_Chimes1_loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\SFX_GlitterAmb_Chimes1_loop_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\SFX_GlitterAmb_Chimes1_loop		462932
@@ -150,6 +154,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	581337223	WorldChange	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Mushroom_WorldChanges_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\WorldChange		91478
 	593943935	PieceCollisionB 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\PieceCollisionB 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionB\PieceCollisionB 1		6120
 	598576478	Deposit3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\GemDeposit 3_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit3		99880
+	601672460	Campfire Crack 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Campfire Crack 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\CampfireAM\Campfire\CampfireCracks\Campfire Crack 2		5060
 	616143977	Obstacle Impact 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Obstacle Impact 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\ObstacleImpact\Obstacle Impact 2		12845
 	619237890	UIMouseClick	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\UI - Mouse Press_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UIMouseClick		6899
 	622929681	Deposit2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\GemDeposit 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit2		100486
@@ -162,6 +167,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	779190182	PieceCollisionA 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\PieceCollisionA 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA\PieceCollisionA 2		4683
 	803345895	Ambience - Random - Animal 4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Ambience - Random - Animal 4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Dark\Ambience - Random - Animal 4		23401
 	805631408	Amb_Park	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Ambience - Park General_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Amb_Park		345848
+	814904498	Voices - Loop 4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Voices - Loop 4_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\VoicesJudging\Voices - Loop 4		129801
 	815667857	K_Scope - Credits - wav	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\K_Scope - Credits - wav_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\CreditsMusic\K_Scope - Credits - wav\K_Scope - Credits - wav		2921453
 	822044708	Ambience - Random - Animal B 6	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Ambience - Random - Animal B 6_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 6		10815
 	831104990	PieceCollisionA 3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\PieceCollisionA 3_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA\PieceCollisionA 3		3131
@@ -172,7 +178,9 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	902218819	Obstacle Impact 3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Obstacle Impact 3_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\ObstacleImpact\Obstacle Impact 3		11871
 	912074038	HorrorStrings	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\HorrorStrings_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\HorrorStrings		244311
 	912545632	easteregg_song	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\easteregg_song_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\EasterEggSong\easteregg_song		1624595
+	931420305	Voices - Loop 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Voices - Loop 2_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\VoicesJudging\Voices - Loop 2		89388
 	936907132	Ambience - Random - Animal 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Ambience - Random - Animal 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Dark\Ambience - Random - Animal 2		14370
+	1006155988	Campfire Crack 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Campfire Crack 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\CampfireAM\Campfire\CampfireCracks\Campfire Crack 1		7453
 	1044882533	PieceCollisionB 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\PieceCollisionB 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionB\PieceCollisionB 2		6403
 	1068827005	HeartbeatB	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\HeartbeatB_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat\HeartbeatB		18821
 

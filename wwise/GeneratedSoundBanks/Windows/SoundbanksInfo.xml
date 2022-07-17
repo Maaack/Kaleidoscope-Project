@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="129982260">
+		<SoundBank Id="1355168291" Language="SFX" Hash="3983198598">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>1355168291.bnk</Path>
@@ -22,11 +22,27 @@
 				<GameParameter Id="2827693126" Name="WorldChangeLoudness" ObjectPath="\Game Parameters\Default Work Unit\WorldChangeLoudness"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1509027703" Language="SFX" Hash="1642033485">
+		<SoundBank Id="1509027703" Language="SFX" Hash="1534953423">
 			<ObjectPath>\SoundBanks\Default Work Unit\KScopeMain</ObjectPath>
 			<ShortName>KScopeMain</ShortName>
 			<Path>1509027703.bnk</Path>
 			<IncludedEvents>
+				<Event Id="1931646578" Name="Campfire" ObjectPath="\Events\Default Work Unit\Campfire">
+					<IncludedMemoryFiles>
+						<File Id="63888302" Language="SFX">
+							<ShortName>Campfire Loop.wav</ShortName>
+							<Path>SFX/Campfire Loop_E84716CF.wem</Path>
+						</File>
+						<File Id="601672460" Language="SFX">
+							<ShortName>Campfire Crack 2.wav</ShortName>
+							<Path>SFX/Campfire Crack 2_569C59C1.wem</Path>
+						</File>
+						<File Id="1006155988" Language="SFX">
+							<ShortName>Campfire Crack 1.wav</ShortName>
+							<Path>SFX/Campfire Crack 1_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
 				<Event Id="2687372615" Name="Credits_Loaded" ObjectPath="\Events\Default Work Unit\Credits_Loaded">
 					<IncludedMemoryFiles>
 						<File Id="815667857" Language="SFX">
@@ -92,9 +108,17 @@
 				</Event>
 				<Event Id="1001937282" Name="Level1_Loaded" ObjectPath="\Events\Default Work Unit\Level1_Loaded">
 					<IncludedMemoryFiles>
+						<File Id="98034395" Language="SFX">
+							<ShortName>Voices - Loop 3.wav</ShortName>
+							<Path>SFX/Voices - Loop 3_E84716CF.wem</Path>
+						</File>
 						<File Id="98866934" Language="SFX">
 							<ShortName>MussarFixed - Spooky.wav</ShortName>
 							<Path>SFX/MussarFixed - Spooky_E84716CF.wem</Path>
+						</File>
+						<File Id="113341532" Language="SFX">
+							<ShortName>Voices - Loop 1.wav</ShortName>
+							<Path>SFX/Voices - Loop 1_E84716CF.wem</Path>
 						</File>
 						<File Id="165410176" Language="SFX">
 							<ShortName>SFX_GlitterAmb_Chimes1_loop.wav</ShortName>
@@ -160,6 +184,10 @@
 							<ShortName>Ambience - Park General.wav</ShortName>
 							<Path>SFX/Ambience - Park General_E84716CF.wem</Path>
 						</File>
+						<File Id="814904498" Language="SFX">
+							<ShortName>Voices - Loop 4.wav</ShortName>
+							<Path>SFX/Voices - Loop 4_E84716CF.wem</Path>
+						</File>
 						<File Id="822044708" Language="SFX">
 							<ShortName>Ambience - Random - Animal B 6.wav</ShortName>
 							<Path>SFX/Ambience - Random - Animal B 6_569C59C1.wem</Path>
@@ -171,6 +199,10 @@
 						<File Id="912074038" Language="SFX">
 							<ShortName>HorrorStrings.wav</ShortName>
 							<Path>SFX/HorrorStrings_E84716CF.wem</Path>
+						</File>
+						<File Id="931420305" Language="SFX">
+							<ShortName>Voices - Loop 2.wav</ShortName>
+							<Path>SFX/Voices - Loop 2_E84716CF.wem</Path>
 						</File>
 						<File Id="936907132" Language="SFX">
 							<ShortName>Ambience - Random - Animal 2.wav</ShortName>
