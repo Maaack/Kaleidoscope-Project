@@ -1,0 +1,447 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Environment/DreamscapeEnvironmentReality.tres" type="Environment" id=1]
+[ext_resource path="res://Scenes/Experimental/Amy/GettingPumpedAnimation.tres" type="Animation" id=2]
+[ext_resource path="res://Scenes/Experimental/Amy/BackToRealityAnimation.tres" type="Animation" id=3]
+[ext_resource path="res://Scenes/Experimental/Amy/Environment/AnimatedWorldEnvironment.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=11]
+resource_name = "FadeOut"
+length = 15.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("DirectionalLight_MoonBurst:light_energy")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.32, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:environment:ambient_light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.36, 0.36 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:environment:background_energy")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath("Stars:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0, 3.7 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+
+[sub_resource type="Animation" id=12]
+resource_name = "GettingPumped (copy)"
+length = 15.0
+step = 1.0
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:environment:ambient_light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:environment:ambient_light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:environment:ambient_light_sky_contribution")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:environment:fog_sun_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.564706, 0.729412, 0.92549, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:environment:glow_strength")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.87 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:environment:glow_bloom")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.24 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:environment:adjustment_brightness")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath(".:environment:adjustment_saturation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("DirectionalLight_MoonBurst:light_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.52549, 0.619608, 0.733333, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("DirectionalLight_MoonBurst:light_energy")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.32 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath(".:environment")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath(".:environment:glow_levels/4")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Stars:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ false ]
+}
+
+[sub_resource type="Animation" id=2]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:environment:ambient_light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:environment:ambient_light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:environment:ambient_light_sky_contribution")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/3/type = "value"
+tracks/3/path = NodePath(".:environment:fog_sun_color")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.564706, 0.729412, 0.92549, 1 ) ]
+}
+tracks/4/type = "value"
+tracks/4/path = NodePath(".:environment:glow_strength")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.87 ]
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath(".:environment:glow_bloom")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.24 ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath(".:environment:adjustment_brightness")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath(".:environment:adjustment_saturation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("DirectionalLight_MoonBurst:light_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 0.52549, 0.619608, 0.733333, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("DirectionalLight_MoonBurst:light_energy")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 0.32 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath(".:environment:glow_levels/4")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ false ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath(".:environment:background_energy")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
+tracks/12/type = "value"
+tracks/12/path = NodePath("Stars:emitting")
+tracks/12/interp = 1
+tracks/12/loop_wrap = true
+tracks/12/imported = false
+tracks/12/enabled = true
+tracks/12/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ true ]
+}
+
+[sub_resource type="Gradient" id=8]
+offsets = PoolRealArray( 0.122768, 0.294643, 0.729911, 1 )
+colors = PoolColorArray( 1, 1, 1, 0, 0.754464, 0.754464, 0.754464, 1, 0.864217, 0.864217, 0.864217, 1, 0, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+lifetime_randomness = 0.19
+emission_shape = 5
+emission_ring_radius = 100.0
+emission_ring_inner_radius = 30.0
+emission_ring_height = 100.0
+emission_ring_axis = Vector3( 0, 0, 1 )
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.31
+angular_velocity = 1.0
+angular_velocity_random = 1.0
+color_ramp = SubResource( 7 )
+hue_variation = -1.0
+
+[sub_resource type="SpatialMaterial" id=5]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = true
+albedo_color = Color( 1, 0.964706, 0.482353, 1 )
+distance_fade_mode = 1
+distance_fade_min_distance = 0.0
+distance_fade_max_distance = 0.0
+
+[sub_resource type="SphereMesh" id=10]
+material = SubResource( 5 )
+radius = 0.2
+height = 0.4
+
+[node name="AnimatedWorldEnvironment" type="WorldEnvironment"]
+environment = ExtResource( 1 )
+script = ExtResource( 4 )
+
+[node name="DirectionalLight_MoonBurst" type="DirectionalLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.849579, 0.527461, 0, -0.527461, 0.849579, 0, 26.5368, 0 )
+light_color = Color( 0.52549, 0.619608, 0.733333, 1 )
+light_energy = 0.32
+light_specular = 1.0
+shadow_enabled = true
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "GettingPumped (copy)"
+anims/BackToReality = ExtResource( 3 )
+anims/FadeOut = SubResource( 11 )
+anims/GettingPumped = ExtResource( 2 )
+"anims/GettingPumped (copy)" = SubResource( 12 )
+anims/RESET = SubResource( 2 )
+
+[node name="Stars" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 100, 0 )
+cast_shadow = 0
+amount = 500
+lifetime = 8.67
+preprocess = 100.0
+visibility_aabb = AABB( -100, -100, -100, 200, 200, 200 )
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 10 )

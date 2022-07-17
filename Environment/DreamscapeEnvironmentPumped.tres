@@ -1,0 +1,41 @@
+[gd_resource type="Environment" load_steps=3 format=2]
+
+[ext_resource path="res://Assets/AllSky/AllSkyFree_Skyboxes/AllSky_Night_MoonBurst Equirect.png" type="Texture" id=1]
+
+[sub_resource type="PanoramaSky" id=1]
+panorama = ExtResource( 1 )
+
+[resource]
+background_mode = 2
+background_sky = SubResource( 1 )
+ambient_light_color = Color( 0.776471, 0.592157, 0.956863, 1 )
+ambient_light_energy = 0.36
+ambient_light_sky_contribution = 0.38
+fog_enabled = true
+fog_color = Color( 0.0745098, 0.0901961, 0.117647, 1 )
+fog_sun_color = Color( 0.686275, 0.564706, 0.92549, 1 )
+fog_sun_amount = 0.13
+fog_depth_begin = 0.0
+fog_depth_end = 1024.7
+fog_depth_curve = 0.615572
+fog_height_min = 148.2
+fog_height_max = -171.5
+tonemap_mode = 2
+ssao_enabled = true
+ssao_radius = 8.1
+ssao_intensity = 4.3
+ssao_radius2 = 40.7
+ssao_intensity2 = 14.6
+ssao_bias = 0.059
+ssao_color = Color( 0.180392, 0.207843, 0.25098, 1 )
+glow_enabled = true
+glow_levels/4 = true
+glow_intensity = 1.86
+glow_strength = 0.92
+glow_bloom = 0.33
+glow_blend_mode = 0
+glow_hdr_threshold = 0.44
+glow_bicubic_upscale = true
+adjustment_enabled = true
+adjustment_brightness = 0.71
+adjustment_saturation = 2.0

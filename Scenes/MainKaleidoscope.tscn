@@ -89,6 +89,8 @@ margin_bottom = 540.0
 script = ExtResource( 3 )
 intensity_change_rate = 15.333
 _max_segments = 8.0
+rotation_thresh = 0.4
+rot_speed_max = 0.1
 
 [node name="GemControl" type="Node" parent="Kaleidoscope"]
 script = ExtResource( 7 )
@@ -113,6 +115,9 @@ current = true
 zoom = Vector2( 0.2, 0.2 )
 
 [node name="DreamEnvironment" parent="Kaleidoscope/KaleidoscopeViewport" instance=ExtResource( 1 )]
+
+[node name="AnimationPlayer" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment" index="1"]
+autoplay = "GettingPumped (copy)"
 
 [node name="AkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/Mushroom" index="2"]
 event = {
@@ -172,6 +177,9 @@ event = {
 }
 trigger_on = 3
 
+[connection signal="trip_ended" from="." to="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment" method="_on_MainKaleidoscope_trip_ended"]
+[connection signal="trip_started" from="." to="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment" method="_on_MainKaleidoscope_trip_started"]
+[connection signal="trip_started" from="." to="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller/Player" method="_on_MainKaleidoscope_trip_started"]
 [connection signal="intensity_changed" from="Kaleidoscope" to="." method="_on_Kaleidoscope_intensity_changed"]
 [connection signal="tumbler_changed" from="Kaleidoscope/KaleidoscopeViewport" to="Kaleidoscope" method="_on_KaleidoscopeViewport_tumbler_changed"]
 [connection signal="tumbler_changed" from="Kaleidoscope/KaleidoscopeViewport" to="Kaleidoscope/GemControl" method="_on_KaleidoscopeViewport_tumbler_changed"]
@@ -182,6 +190,7 @@ trigger_on = 3
 
 [editable path="Kaleidoscope/KaleidoscopeViewport/TumblerScene"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment"]
+[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/gravestoneCrossLarge3"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/gravestoneCrossLarge2"]

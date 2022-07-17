@@ -1,5 +1,8 @@
 extends Node
 
+signal trip_started()
+signal trip_ended()
+
 onready var kaleidoscope = $Kaleidoscope
 onready var tumbler_control = $Kaleidoscope/KaleidoscopeViewport
 onready var gem_control = $Kaleidoscope/GemControl
@@ -8,6 +11,7 @@ export (PackedScene) var tumbler
 export (PackedScene)  var red_gemstone
 export (PackedScene) var green_gemstone
 export (PackedScene) var blue_gemstone
+
 
 var ethereal_min = 90
 var ethereal_max = 100
@@ -61,15 +65,22 @@ func add_gems():
 	
 func start_trip():
 	kaleidoscope.reset_kaleidoscope()
-	kaleidoscope.set_range(43, 45)
-	kaleidoscope.start_kaleidoscope()
+	var transition_rate = kaleidoscope.intensity_change_rate
+	kaleidoscope.intensity_change_rate = transition_rate * 2.0
+	kaleidoscope.set_range(40, 45)
 	add_gems()
+	emit_signal("trip_started")
+	yield(get_tree().create_timer(15), "timeout")
+	kaleidoscope.start_kaleidoscope()
+	yield(get_tree().create_timer(15), "timeout")
+	kaleidoscope.intensity_change_rate = transition_rate
+	kaleidoscope.set_range(50, 55)
 	red_pillar.show()
 	
 func on_interact_red_pillar():
 	red_pillar.hide()
 	gem_control.remove_gemstone(red_gem)
-	kaleidoscope.set_range(50, 60)
+	kaleidoscope.set_range(60, 70)
 	green_pillar.show()
 	
 func on_interact_green_pillar():
@@ -85,7 +96,7 @@ func on_interact_blue_pillar():
 
 func on_enlightenment():
 	purple_pillar.show()
-	kaleidoscope.set_range(80,100)
+	kaleidoscope.set_range(90,100)
 	_etheral_music()
 	_enlightened = true
 	yield(get_tree().create_timer(30), "timeout")
@@ -94,7 +105,9 @@ func on_enlightenment():
 func on_clarity():
 	_enlightened = false
 	purple_pillar.hide()
+	kaleidoscope.intensity_change_rate = kaleidoscope.intensity_change_rate  * 2.0
 	kaleidoscope.set_range(0, 1)
+	emit_signal("trip_ended")
 	#the end
 
 
