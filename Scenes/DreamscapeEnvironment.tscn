@@ -36,6 +36,9 @@ albedo_color = Color( 0.59, 0.754, 1, 1 )
 
 [node name="AnimatedWorldEnvironment" parent="." instance=ExtResource( 1 )]
 
+[node name="AnimationPlayer" parent="AnimatedWorldEnvironment" index="1"]
+autoplay = ""
+
 [node name="AllSkyFree_DemoLandscape" parent="." instance=ExtResource( 2 )]
 visible = false
 
@@ -53,16 +56,40 @@ event = {
 [node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="0"]
 material = SubResource( 3 )
 
+[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="3"]
+event = {
+"Id": 2881812561,
+"Name": "DEPOSITPOINT"
+}
+
 [node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="0"]
 material = null
+
+[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="3"]
+event = {
+"Id": 2881812561,
+"Name": "DEPOSITPOINT"
+}
 
 [node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="0"]
 material = SubResource( 5 )
 
+[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="3"]
+event = {
+"Id": 2881812561,
+"Name": "DEPOSITPOINT"
+}
+
 [node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple" index="0"]
 material = null
 
-[node name="FootStepAkEvent" parent="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller" index="2"]
+[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple" index="3"]
+event = {
+"Id": 2881812561,
+"Name": "DEPOSITPOINT"
+}
+
+[node name="FootStepAkEvent" parent="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller/Player" index="5"]
 event = {
 "Id": 4276063004,
 "Name": "PLAYER FS"
