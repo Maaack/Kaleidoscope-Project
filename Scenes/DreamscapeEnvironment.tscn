@@ -53,6 +53,12 @@ visible = false
 [node name="Mushroom" parent="DreamscapeInteractive/TestGlowyThings" index="0"]
 transform = Transform( -0.277298, 0, -0.960784, 0, 1, 0, 0.960784, 0, -0.277298, -0.585772, 0.0336815, 18.1063 )
 
+[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/Mushroom" index="2"]
+event = {
+"Id": 2103799123,
+"Name": "MUSHROOMEAT"
+}
+
 [node name="FootStepAkEvent" parent="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller/Player" index="5"]
 event = {
 "Id": 4276063004,
@@ -65,5 +71,6 @@ light_color = Color( 0.964706, 0.878431, 0.301961, 1 )
 light_energy = 0.182
 
 [editable path="DreamscapeInteractive"]
+[editable path="DreamscapeInteractive/TestGlowyThings/Mushroom"]
 [editable path="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain"]
 [editable path="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller"]

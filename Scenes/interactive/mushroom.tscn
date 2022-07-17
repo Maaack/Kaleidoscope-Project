@@ -20,7 +20,6 @@ mesh = SubResource( 1 )
 material = SubResource( 2 )
 
 [node name="ViewCollider" parent="." instance=ExtResource( 1 )]
-transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 4, 0, 1, 0 )
 collider_type = 7
 
 [node name="AkEvent" type="Spatial" parent="."]
@@ -31,7 +30,6 @@ event = {
 }
 
 [node name="MushroomModel" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [connection signal="interacted" from="ViewCollider" to="." method="_on_ViewCollider_interacted"]
 [connection signal="looked_at" from="ViewCollider" to="." method="_on_ViewCollider_looked_at"]
