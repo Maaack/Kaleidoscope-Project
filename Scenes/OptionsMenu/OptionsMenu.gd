@@ -48,3 +48,5 @@ func _on_MuteButton_toggled(button_pressed):
 func _unhandled_key_input(event):
 	if event.is_action_released('ui_mute'):
 		mute_button.pressed = !(mute_button.pressed)
+	#Wwise.set_rtpc_id(AK.BUSSES.MASTER_AUDIO_BUS, 0.0, null)
+	Wwise.set_rtpc_id(AK.BUSSES.BUS_MUSIC, 0.0, null)
