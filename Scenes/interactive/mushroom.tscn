@@ -8,6 +8,7 @@
 size = Vector3( 1, 1, 1 )
 
 [sub_resource type="SpatialMaterial" id=2]
+flags_unshaded = true
 albedo_color = Color( 0.976471, 0.619608, 0, 1 )
 
 [node name="Mushroom" type="Spatial"]
