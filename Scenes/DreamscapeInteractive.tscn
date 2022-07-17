@@ -75,7 +75,7 @@ transform = Transform( 0.0633823, 0, -0.997989, 0, 0.640106, 0, 0.997989, 0, 0.0
 material = SubResource( 1 )
 
 [node name="ViewCollider" parent="TestGlowyThings/LightPillarRed" index="2"]
-look_text = "Fear. (I have found something here.)"
+look_text = "Safety. (I have found something here.)"
 
 [node name="CollisionShape" parent="TestGlowyThings/LightPillarRed/ViewCollider" index="0"]
 transform = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 7.45058e-09, 0, 3.27278, 0, 0, 0 )
@@ -98,7 +98,7 @@ material = SubResource( 2 )
 light_color = Color( 0.48, 1, 0.235294, 1 )
 
 [node name="ViewCollider" parent="TestGlowyThings/LightPillarGreen" index="2"]
-look_text = "Hate. (I have found something here.)"
+look_text = "Love. (I have found something here.)"
 collider_type = 1
 
 [node name="CollisionShape" parent="TestGlowyThings/LightPillarGreen/ViewCollider" index="0"]
@@ -122,7 +122,7 @@ material = SubResource( 3 )
 light_color = Color( 0.235294, 0.541176, 1, 1 )
 
 [node name="ViewCollider" parent="TestGlowyThings/LightPillarBlue" index="2"]
-look_text = "Silence. (I have found something here.)"
+look_text = "Truth. (I have found something here.)"
 collider_type = 2
 
 [node name="CollisionShape" parent="TestGlowyThings/LightPillarBlue/ViewCollider" index="0"]
