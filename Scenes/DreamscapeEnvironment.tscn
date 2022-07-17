@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Assets/AllSky/AllSkyFree_Skyboxes/AllSky_Night_MoonBurst Equirect.png" type="Texture" id=1]
 [ext_resource path="res://Assets/AllSky/AllSkyFree_DemoLandsacpe.tscn" type="PackedScene" id=2]
@@ -33,6 +33,30 @@ glow_blend_mode = 0
 glow_hdr_threshold = 0.44
 glow_bicubic_upscale = true
 
+[sub_resource type="SpatialMaterial" id=3]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 1, 0.59, 0.59, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 0.7212, 1, 0.59, 1 )
+
+[sub_resource type="SpatialMaterial" id=5]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 0.59, 0.754, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=6]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 0.672, 0.59, 1, 1 )
+
 [node name="DreamEnvironment" type="Node"]
 
 [node name="WorldEnvironment_MoonBurst" type="WorldEnvironment" parent="."]
@@ -53,10 +77,73 @@ visible = false
 [node name="Mushroom" parent="DreamscapeInteractive/TestGlowyThings" index="0"]
 transform = Transform( -0.277298, 0, -0.960784, 0, 1, 0, 0.960784, 0, -0.277298, -0.585772, 0.0336815, 18.1063 )
 
+[node name="ViewCollider" parent="DreamscapeInteractive/TestGlowyThings/Mushroom" index="1"]
+look_text = "I have found something here."
+
 [node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/Mushroom" index="2"]
 event = {
 "Id": 2103799123,
 "Name": "MUSHROOMEAT"
+}
+
+[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="0"]
+material = SubResource( 3 )
+
+[node name="Light" parent="DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="1"]
+light_color = Color( 1, 0.235294, 0.235294, 1 )
+
+[node name="ViewCollider" parent="DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="2"]
+look_text = "I have found something here."
+
+[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="3"]
+event = {
+"Id": 2881812561,
+"Name": "DEPOSITPOINT"
+}
+
+[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="0"]
+material = SubResource( 4 )
+
+[node name="Light" parent="DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="1"]
+light_color = Color( 0.48, 1, 0.235294, 1 )
+
+[node name="ViewCollider" parent="DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="2"]
+look_text = "I have found something here."
+
+[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="3"]
+event = {
+"Id": 2881812561,
+"Name": "DEPOSITPOINT"
+}
+
+[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="0"]
+material = SubResource( 5 )
+
+[node name="Light" parent="DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="1"]
+light_color = Color( 0.235294, 0.541176, 1, 1 )
+
+[node name="ViewCollider" parent="DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="2"]
+look_text = "I have found something here."
+
+[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="3"]
+event = {
+"Id": 2881812561,
+"Name": "DEPOSITPOINT"
+}
+
+[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple" index="0"]
+material = SubResource( 6 )
+
+[node name="Light" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple" index="1"]
+light_color = Color( 0.388235, 0.235294, 1, 1 )
+
+[node name="ViewCollider" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple" index="2"]
+look_text = "I have found something here."
+
+[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple" index="3"]
+event = {
+"Id": 2881812561,
+"Name": "DEPOSITPOINT"
 }
 
 [node name="FootStepAkEvent" parent="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller/Player" index="5"]
@@ -72,5 +159,13 @@ light_energy = 0.182
 
 [editable path="DreamscapeInteractive"]
 [editable path="DreamscapeInteractive/TestGlowyThings/Mushroom"]
+[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarRed"]
+[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarRed/ViewCollider"]
+[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarGreen"]
+[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarGreen/ViewCollider"]
+[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarBlue"]
+[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarBlue/ViewCollider"]
+[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarPurple"]
+[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarPurple/ViewCollider"]
 [editable path="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain"]
 [editable path="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller"]
