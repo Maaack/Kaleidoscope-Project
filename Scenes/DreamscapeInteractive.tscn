@@ -11,19 +11,19 @@
 resource_local_to_scene = true
 render_priority = -1
 flags_unshaded = true
-albedo_color = Color( 1, 0.59, 0.59, 1 )
+albedo_color = Color( 0.980392, 1, 0.588235, 1 )
 
 [sub_resource type="SpatialMaterial" id=2]
 resource_local_to_scene = true
 render_priority = -1
 flags_unshaded = true
-albedo_color = Color( 0.7212, 1, 0.59, 1 )
+albedo_color = Color( 0.588235, 0.721569, 1, 1 )
 
 [sub_resource type="SpatialMaterial" id=3]
 resource_local_to_scene = true
 render_priority = -1
 flags_unshaded = true
-albedo_color = Color( 0.59, 0.754, 1, 1 )
+albedo_color = Color( 1, 0.8, 0.588235, 1 )
 
 [sub_resource type="SpatialMaterial" id=4]
 resource_local_to_scene = true
@@ -135,7 +135,7 @@ event = {
 }
 
 [node name="LightPillarPurple" type="Spatial" parent="TestGlowyThings"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636417, 0.279071, 18.1806 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636417, 0.279071, 0.548363 )
 
 [node name="Bar" type="CSGCylinder" parent="TestGlowyThings/LightPillarPurple"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
@@ -153,16 +153,16 @@ shadow_enabled = true
 omni_range = 10.0
 omni_attenuation = 1.7411
 
-[node name="LightPillarPurple2" type="Spatial" parent="TestGlowyThings/LightPillarPurple/Light"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.972, -3, -28.148 )
+[node name="LightPillarPurple4" type="Spatial" parent="TestGlowyThings/LightPillarPurple"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9743, 8.9407e-08, 5.08201 )
 
-[node name="Bar" type="CSGCylinder" parent="TestGlowyThings/LightPillarPurple/Light/LightPillarPurple2"]
+[node name="Bar" type="CSGCylinder" parent="TestGlowyThings/LightPillarPurple/LightPillarPurple4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 radius = 0.1
 height = 6.0
 material = SubResource( 4 )
 
-[node name="Light" type="OmniLight" parent="TestGlowyThings/LightPillarPurple/Light/LightPillarPurple2"]
+[node name="Light" type="OmniLight" parent="TestGlowyThings/LightPillarPurple/LightPillarPurple4"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 light_color = Color( 0.388235, 0.235294, 1, 1 )
 light_energy = 2.73
@@ -172,18 +172,18 @@ shadow_enabled = true
 omni_range = 10.0
 omni_attenuation = 1.7411
 
-[node name="LightPillarPurple3" type="Spatial" parent="TestGlowyThings/LightPillarPurple/Light"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5445, -3, -20.3953 )
+[node name="LightPillarRed2" type="Spatial" parent="TestGlowyThings/LightPillarPurple"]
+transform = Transform( 0.0633823, 0, -0.997989, 0, 0.640106, 0, 0.997989, 0, 0.0633823, 14.4635, 0.681567, -13.073 )
 
-[node name="Bar" type="CSGCylinder" parent="TestGlowyThings/LightPillarPurple/Light/LightPillarPurple3"]
+[node name="Bar" type="CSGCylinder" parent="TestGlowyThings/LightPillarPurple/LightPillarRed2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 radius = 0.1
 height = 6.0
-material = SubResource( 4 )
+material = SubResource( 1 )
 
-[node name="Light" type="OmniLight" parent="TestGlowyThings/LightPillarPurple/Light/LightPillarPurple3"]
+[node name="Light" type="OmniLight" parent="TestGlowyThings/LightPillarPurple/LightPillarRed2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
-light_color = Color( 0.388235, 0.235294, 1, 1 )
+light_color = Color( 1, 0.235294, 0.235294, 1 )
 light_energy = 2.73
 light_indirect_energy = 2.0
 light_specular = 0.585
@@ -191,18 +191,94 @@ shadow_enabled = true
 omni_range = 10.0
 omni_attenuation = 1.7411
 
-[node name="LightPillarPurple4" type="Spatial" parent="TestGlowyThings/LightPillarPurple/Light"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9743, -3, -11.1328 )
+[node name="LightPillarGreen2" type="Spatial" parent="TestGlowyThings/LightPillarPurple"]
+transform = Transform( 0.983312, 0, 0.181927, 0, 0.630292, 0, -0.181927, 0, 0.983312, 28.406, 0.885064, -2.55311 )
 
-[node name="Bar" type="CSGCylinder" parent="TestGlowyThings/LightPillarPurple/Light/LightPillarPurple4"]
+[node name="Bar" type="CSGCylinder" parent="TestGlowyThings/LightPillarPurple/LightPillarGreen2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 radius = 0.1
 height = 6.0
-material = SubResource( 4 )
+material = SubResource( 2 )
 
-[node name="Light" type="OmniLight" parent="TestGlowyThings/LightPillarPurple/Light/LightPillarPurple4"]
+[node name="Light" type="OmniLight" parent="TestGlowyThings/LightPillarPurple/LightPillarGreen2"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
-light_color = Color( 0.388235, 0.235294, 1, 1 )
+light_color = Color( 0.48, 1, 0.235294, 1 )
+light_energy = 2.73
+light_indirect_energy = 2.0
+light_specular = 0.585
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 1.7411
+
+[node name="LightPillarBlue2" type="Spatial" parent="TestGlowyThings/LightPillarPurple"]
+transform = Transform( 0.900076, 0, 0.435734, 0, 0.544357, 0, -0.435734, 0, 0.900076, 18.3381, 0.937051, 6.7063 )
+
+[node name="Bar" type="CSGCylinder" parent="TestGlowyThings/LightPillarPurple/LightPillarBlue2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+radius = 0.1
+height = 6.0
+material = SubResource( 3 )
+
+[node name="Light" type="OmniLight" parent="TestGlowyThings/LightPillarPurple/LightPillarBlue2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+light_color = Color( 0.235294, 0.541176, 1, 1 )
+light_energy = 2.73
+light_indirect_energy = 2.0
+light_specular = 0.585
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 1.7411
+
+[node name="LightPillarRed3" type="Spatial" parent="TestGlowyThings/LightPillarPurple"]
+transform = Transform( 0.0633823, 0, -0.997989, 0, 0.640106, 0, 0.997989, 0, 0.0633823, 6.64796, 0.330981, -8.73363 )
+
+[node name="Bar" type="CSGCylinder" parent="TestGlowyThings/LightPillarPurple/LightPillarRed3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+radius = 0.1
+height = 6.0
+material = SubResource( 1 )
+
+[node name="Light" type="OmniLight" parent="TestGlowyThings/LightPillarPurple/LightPillarRed3"]
+transform = Transform( 1, 0, 0, 0, 1.56224, 0, 0, 0, 1, 0, 3, 0 )
+light_color = Color( 1, 0.772549, 0.235294, 1 )
+light_energy = 2.73
+light_indirect_energy = 2.0
+light_specular = 0.585
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 1.7411
+
+[node name="LightPillarGreen3" type="Spatial" parent="TestGlowyThings/LightPillarPurple"]
+transform = Transform( 0.983312, 0, 0.181927, 0, 0.630292, 0, -0.181927, 0, 0.983312, 25.5703, 0.888368, -8.79268 )
+
+[node name="Bar" type="CSGCylinder" parent="TestGlowyThings/LightPillarPurple/LightPillarGreen3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+radius = 0.1
+height = 6.0
+material = SubResource( 2 )
+
+[node name="Light" type="OmniLight" parent="TestGlowyThings/LightPillarPurple/LightPillarGreen3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+light_color = Color( 0.235294, 1, 0.945098, 1 )
+light_energy = 2.73
+light_indirect_energy = 2.0
+light_specular = 0.585
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 1.7411
+
+[node name="LightPillarBlue3" type="Spatial" parent="TestGlowyThings/LightPillarPurple"]
+transform = Transform( 0.900076, 0, 0.435734, 0, 0.544357, 0, -0.435734, 0, 0.900076, 8.39954, 0.940354, 5.82344 )
+
+[node name="Bar" type="CSGCylinder" parent="TestGlowyThings/LightPillarPurple/LightPillarBlue3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+radius = 0.1
+height = 6.0
+material = SubResource( 3 )
+
+[node name="Light" type="OmniLight" parent="TestGlowyThings/LightPillarPurple/LightPillarBlue3"]
+transform = Transform( 1, 0, 0, 0, 1.83703, 0, 0, 0, 1, 0, 3, 0 )
+light_color = Color( 1, 0.701961, 0.235294, 1 )
 light_energy = 2.73
 light_indirect_energy = 2.0
 light_specular = 0.585
