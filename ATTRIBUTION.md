@@ -6,15 +6,18 @@
 ### Programming
 Tomy  
 Amy  
+Marek 
 
-### SFX and Composition
+### SFX
 Mike  
 
 ### Composition
+Mike
 Mussar  
 
-### Player controller
+### Concept and Design
 Kati  
+Amy  
 
 ## Sourced / Unaffiliated
 ### Fonts
