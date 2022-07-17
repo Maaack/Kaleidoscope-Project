@@ -3,7 +3,7 @@
 [resource]
 resource_name = "GettingPumped"
 length = 15.0
-step = 5.0
+step = 1.0
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:environment:ambient_light_color")
 tracks/0/interp = 1
@@ -99,4 +99,52 @@ tracks/7/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ 1.0, 2.0 ]
+}
+tracks/8/type = "value"
+tracks/8/path = NodePath("DirectionalLight_MoonBurst:light_color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 0.52549, 0.619608, 0.733333, 1 ), Color( 0.482353, 0.596078, 0.992157, 1 ) ]
+}
+tracks/9/type = "value"
+tracks/9/path = NodePath("DirectionalLight_MoonBurst:light_energy")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/keys = {
+"times": PoolRealArray( 0, 15 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.32, 0.32 ]
+}
+tracks/10/type = "value"
+tracks/10/path = NodePath(".:environment")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/keys = {
+"times": PoolRealArray(  ),
+"transitions": PoolRealArray(  ),
+"update": 1,
+"values": [  ]
+}
+tracks/11/type = "value"
+tracks/11/path = NodePath(".:environment:glow_levels/4")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/keys = {
+"times": PoolRealArray( 0, 12.9896, 15 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, false ]
 }
