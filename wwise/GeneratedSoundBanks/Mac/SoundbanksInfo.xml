@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="2590620100">
+		<SoundBank Id="1355168291" Language="SFX" Hash="234789125">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>1355168291.bnk</Path>
@@ -19,10 +19,13 @@
 				<AuxBus Id="2847424927" Name="Aux_Rev" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Aux_Rev"/>
 			</IncludedAuxBusses>
 			<GameParameters>
+				<GameParameter Id="1707099127" Name="BusVolume_SFX" ObjectPath="\Game Parameters\Default Work Unit\BusVolume_SFX"/>
+				<GameParameter Id="1710124347" Name="BusVolume_Music" ObjectPath="\Game Parameters\Default Work Unit\BusVolume_Music"/>
 				<GameParameter Id="2827693126" Name="WorldChangeLoudness" ObjectPath="\Game Parameters\Default Work Unit\WorldChangeLoudness"/>
+				<GameParameter Id="2987841584" Name="BusVolume_Master" ObjectPath="\Game Parameters\Default Work Unit\BusVolume_Master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1509027703" Language="SFX" Hash="1534953423">
+		<SoundBank Id="1509027703" Language="SFX" Hash="3297994376">
 			<ObjectPath>\SoundBanks\Default Work Unit\KScopeMain</ObjectPath>
 			<ShortName>KScopeMain</ShortName>
 			<Path>1509027703.bnk</Path>
