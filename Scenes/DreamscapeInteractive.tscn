@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/LowPolyObjects/POIs/FullCrypt.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/interactive/LightPillar.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Scenes/LowPolyObjects/POIs/GravestoneCrossLarge.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/InteractionController.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/DreamscapeTerrain.tscn" type="PackedScene" id=6]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=8]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_local_to_scene = true
@@ -70,13 +69,16 @@ event = {
 }
 
 [node name="LightPillarRed" parent="TestGlowyThings" instance=ExtResource( 2 )]
-transform = Transform( 0.889528, 0, -0.456881, 0, 1, 0, 0.456881, 0, 0.889528, 14.2915, 0.426837, -10.8162 )
+transform = Transform( 0.0633823, 0, -0.997989, 0, 0.640106, 0, 0.997989, 0, 0.0633823, 13.8271, 0.960638, -12.5247 )
 
 [node name="Bar" parent="TestGlowyThings/LightPillarRed" index="0"]
 material = SubResource( 1 )
 
 [node name="ViewCollider" parent="TestGlowyThings/LightPillarRed" index="2"]
 look_text = "Fear. (I have found something here.)"
+
+[node name="CollisionShape" parent="TestGlowyThings/LightPillarRed/ViewCollider" index="0"]
+transform = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 7.45058e-09, 0, 3.27278, 0, 0, 0 )
 
 [node name="AkEvent" parent="TestGlowyThings/LightPillarRed" index="3"]
 event = {
@@ -85,7 +87,7 @@ event = {
 }
 
 [node name="LightPillarGreen" parent="TestGlowyThings" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2092, 0.48464, -1.05865 )
+transform = Transform( 0.983312, 0, 0.181927, 0, 0.630292, 0, -0.181927, 0, 0.983312, 27.7696, 1.16413, -2.00474 )
 hue = 0.28
 collider_type = 1
 
@@ -99,6 +101,9 @@ light_color = Color( 0.48, 1, 0.235294, 1 )
 look_text = "Hate. (I have found something here.)"
 collider_type = 1
 
+[node name="CollisionShape" parent="TestGlowyThings/LightPillarGreen/ViewCollider" index="0"]
+transform = Transform( 1, 0, -1.19209e-07, 0, 1, 0, 1.49012e-08, 0, 3.65825, 0, 0, 0 )
+
 [node name="AkEvent" parent="TestGlowyThings/LightPillarGreen" index="3"]
 event = {
 "Id": 2881812561,
@@ -106,7 +111,7 @@ event = {
 }
 
 [node name="LightPillarBlue" parent="TestGlowyThings" instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8725, 0.14742, 5.54184 )
+transform = Transform( 0.900076, 0, 0.435734, 0, 0.544357, 0, -0.435734, 0, 0.900076, 17.7017, 1.21612, 7.25467 )
 hue = 0.6
 collider_type = 2
 
@@ -119,6 +124,9 @@ light_color = Color( 0.235294, 0.541176, 1, 1 )
 [node name="ViewCollider" parent="TestGlowyThings/LightPillarBlue" index="2"]
 look_text = "Silence. (I have found something here.)"
 collider_type = 2
+
+[node name="CollisionShape" parent="TestGlowyThings/LightPillarBlue/ViewCollider" index="0"]
+transform = Transform( 3.99969, 0, -2.98023e-08, 0, 1, 0, 2.38419e-07, 0, 1, 0, 0, 0 )
 
 [node name="AkEvent" parent="TestGlowyThings/LightPillarBlue" index="3"]
 event = {
@@ -145,12 +153,62 @@ shadow_enabled = true
 omni_range = 10.0
 omni_attenuation = 1.7411
 
-[node name="AkEvent" type="Spatial" parent="TestGlowyThings/LightPillarPurple"]
-script = ExtResource( 8 )
-event = {
-"Id": 2881812561,
-"Name": "DEPOSITPOINT"
-}
+[node name="LightPillarPurple2" type="Spatial" parent="TestGlowyThings/LightPillarPurple/Light"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.972, -3, -28.148 )
+
+[node name="Bar" type="CSGCylinder" parent="TestGlowyThings/LightPillarPurple/Light/LightPillarPurple2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+radius = 0.1
+height = 6.0
+material = SubResource( 4 )
+
+[node name="Light" type="OmniLight" parent="TestGlowyThings/LightPillarPurple/Light/LightPillarPurple2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+light_color = Color( 0.388235, 0.235294, 1, 1 )
+light_energy = 2.73
+light_indirect_energy = 2.0
+light_specular = 0.585
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 1.7411
+
+[node name="LightPillarPurple3" type="Spatial" parent="TestGlowyThings/LightPillarPurple/Light"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 27.5445, -3, -20.3953 )
+
+[node name="Bar" type="CSGCylinder" parent="TestGlowyThings/LightPillarPurple/Light/LightPillarPurple3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+radius = 0.1
+height = 6.0
+material = SubResource( 4 )
+
+[node name="Light" type="OmniLight" parent="TestGlowyThings/LightPillarPurple/Light/LightPillarPurple3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+light_color = Color( 0.388235, 0.235294, 1, 1 )
+light_energy = 2.73
+light_indirect_energy = 2.0
+light_specular = 0.585
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 1.7411
+
+[node name="LightPillarPurple4" type="Spatial" parent="TestGlowyThings/LightPillarPurple/Light"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.9743, -3, -11.1328 )
+
+[node name="Bar" type="CSGCylinder" parent="TestGlowyThings/LightPillarPurple/Light/LightPillarPurple4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+radius = 0.1
+height = 6.0
+material = SubResource( 4 )
+
+[node name="Light" type="OmniLight" parent="TestGlowyThings/LightPillarPurple/Light/LightPillarPurple4"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+light_color = Color( 0.388235, 0.235294, 1, 1 )
+light_energy = 2.73
+light_indirect_energy = 2.0
+light_specular = 0.585
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 1.7411
 
 [node name="TestViewColliderUI" type="CanvasLayer" parent="."]
 __meta__ = {
