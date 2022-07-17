@@ -45,14 +45,10 @@ func open_credits():
 	close_menu()
 	menu_state = States.CREDITS
 	$MenuAnimationPlayer.play("OpenCredits")
-	$AkStateCredits.set_state()
 	$CreditMusicAkEvent2D.post_event()
-	$MenuMusicAkEvent2D.stop_event()
 
 func close_credits():
 	$MenuAnimationPlayer.play("CloseCredits")
-	$AkStateMenu.set_state()
-	$CreditMusicAkEvent2D.stop_event()
 	$MenuMusicAkEvent2D.post_event()
 
 func open_options():
@@ -86,20 +82,8 @@ func _input(event):
 	event is InputEventKey):
 		$MenuAnimationPlayer.seek(4.4)
 
-func _on_AmysKScopeButton_pressed():
+func _on_PlayButton_pressed():
 	menu_state = States.EXIT
 	$MenuAnimationPlayer.play("Outro")
 	yield($MenuAnimationPlayer, "animation_finished")
-	get_tree().change_scene("res://Scenes/MainKaleidoscope.tscn")
-
-func _on_WwiseSceneButton_pressed():
-	menu_state = States.EXIT
-	$MenuAnimationPlayer.play("Outro")
-	yield($MenuAnimationPlayer, "animation_finished")
-	get_tree().change_scene("res://Scenes/Experimental/Wwise/WwiseShaderTest.tscn")
-
-func _on_GemTestButton_pressed():
-	menu_state = States.EXIT
-	$MenuAnimationPlayer.play("Outro")
-	yield($MenuAnimationPlayer, "animation_finished")
-	get_tree().change_scene("res://Scenes/Experimental/Tomy/gemstone_manipulation_test.tscn")
+	SceneLoader.load_scene("res://Scenes/MainKaleidoscope.tscn")

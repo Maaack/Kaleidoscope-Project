@@ -1,0 +1,176 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Scenes/LowPolyObjects/POIs/FullCrypt.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/interactive/LightPillar.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Scenes/interactive/mushroom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/LowPolyObjects/POIs/GravestoneCrossLarge.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/InteractionController.gd" type="Script" id=5]
+[ext_resource path="res://Scenes/DreamscapeTerrain.tscn" type="PackedScene" id=6]
+
+[sub_resource type="SpatialMaterial" id=1]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 1, 0.59, 0.59, 1 )
+
+[sub_resource type="SpatialMaterial" id=2]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 0.7212, 1, 0.59, 1 )
+
+[sub_resource type="SpatialMaterial" id=3]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 0.59, 0.754, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 0.672, 0.59, 1, 1 )
+
+[node name="DreamscapeInteractive" type="Spatial"]
+script = ExtResource( 5 )
+
+[node name="gravestoneCrossLarge3" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.88928, 0, -1.04639, 0, 5, 0, 1.04639, 0, -4.88928, 13.9426, -0.0299454, -12.9828 )
+
+[node name="gravestoneCrossLarge" parent="gravestoneCrossLarge3/RootNode" index="0"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
+
+[node name="gravestoneCrossLarge" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.949846, 0, -4.90895, 0, 5, 0, 4.90895, 0, 0.949846, 28.9035, -0.0299454, -2.33398 )
+
+[node name="gravestoneCrossLarge2" parent="." instance=ExtResource( 4 )]
+transform = Transform( -4.47526, 0, -2.22982, 0, 5, 0, 2.22982, 0, -4.47526, 18.0248, -0.0299454, 7.59049 )
+
+[node name="gravestoneCrossLarge" parent="gravestoneCrossLarge2/RootNode" index="0"]
+transform = Transform( 1, 0, 2.98023e-08, 0, 1, 0, -2.98023e-08, 0, 1, 0, 0, 0 )
+
+[node name="FullCrypt" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1.41057, 0, -9.90001, 0, 10, 0, 9.90001, 0, -1.41057, 24.8385, 0, 47.047 )
+
+[node name="TestGlowyThings" type="Spatial" parent="."]
+
+[node name="Mushroom" parent="TestGlowyThings" instance=ExtResource( 3 )]
+transform = Transform( -0.590493, 0, -0.807043, 0, 1, 0, 0.807043, 0, -0.590493, -0.774406, 0.0311791, 18.0106 )
+
+[node name="ViewCollider" parent="TestGlowyThings/Mushroom" index="1"]
+look_text = "I have found something here. (Press E to Interact)"
+
+[node name="AkEvent" parent="TestGlowyThings/Mushroom" index="2"]
+event = {
+"Id": 2103799123,
+"Name": "MUSHROOMEAT"
+}
+
+[node name="LightPillarRed" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 0.889528, 0, -0.456881, 0, 1, 0, 0.456881, 0, 0.889528, 14.2915, 0.426837, -10.8162 )
+
+[node name="Bar" parent="TestGlowyThings/LightPillarRed" index="0"]
+material = SubResource( 1 )
+
+[node name="ViewCollider" parent="TestGlowyThings/LightPillarRed" index="2"]
+look_text = "Fear. (I have found something here.)"
+
+[node name="AkEvent" parent="TestGlowyThings/LightPillarRed" index="3"]
+event = {
+"Id": 2881812561,
+"Name": "DEPOSITPOINT"
+}
+
+[node name="LightPillarGreen" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 26.2092, 0.48464, -1.05865 )
+hue = 0.28
+collider_type = 1
+
+[node name="Bar" parent="TestGlowyThings/LightPillarGreen" index="0"]
+material = SubResource( 2 )
+
+[node name="Light" parent="TestGlowyThings/LightPillarGreen" index="1"]
+light_color = Color( 0.48, 1, 0.235294, 1 )
+
+[node name="ViewCollider" parent="TestGlowyThings/LightPillarGreen" index="2"]
+look_text = "Hate. (I have found something here.)"
+collider_type = 1
+
+[node name="AkEvent" parent="TestGlowyThings/LightPillarGreen" index="3"]
+event = {
+"Id": 2881812561,
+"Name": "DEPOSITPOINT"
+}
+
+[node name="LightPillarBlue" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 16.8725, 0.14742, 5.54184 )
+hue = 0.6
+collider_type = 2
+
+[node name="Bar" parent="TestGlowyThings/LightPillarBlue" index="0"]
+material = SubResource( 3 )
+
+[node name="Light" parent="TestGlowyThings/LightPillarBlue" index="1"]
+light_color = Color( 0.235294, 0.541176, 1, 1 )
+
+[node name="ViewCollider" parent="TestGlowyThings/LightPillarBlue" index="2"]
+look_text = "Silence. (I have found something here.)"
+collider_type = 2
+
+[node name="AkEvent" parent="TestGlowyThings/LightPillarBlue" index="3"]
+event = {
+"Id": 2881812561,
+"Name": "DEPOSITPOINT"
+}
+
+[node name="LightPillarPurple" parent="TestGlowyThings" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.636417, 0.279071, 18.1806 )
+hue = 0.7
+collider_type = 5
+
+[node name="Bar" parent="TestGlowyThings/LightPillarPurple" index="0"]
+material = SubResource( 4 )
+
+[node name="Light" parent="TestGlowyThings/LightPillarPurple" index="1"]
+light_color = Color( 0.388235, 0.235294, 1, 1 )
+
+[node name="ViewCollider" parent="TestGlowyThings/LightPillarPurple" index="2"]
+collider_type = 5
+
+[node name="AkEvent" parent="TestGlowyThings/LightPillarPurple" index="3"]
+event = {
+"Id": 2881812561,
+"Name": "DEPOSITPOINT"
+}
+
+[node name="TestViewColliderUI" type="CanvasLayer" parent="."]
+__meta__ = {
+"_editor_description_": "ui just to test the looking at system works fine
+
+can be deleted after"
+}
+
+[node name="DreamscapeTerrain" parent="TestViewColliderUI" instance=ExtResource( 6 )]
+
+[node name="FootStepAkEvent" parent="TestViewColliderUI/DreamscapeTerrain/Player Controller/Player" index="5"]
+event = {
+"Id": 4276063004,
+"Name": "PLAYER FS"
+}
+
+[connection signal="interacted_with" from="TestViewColliderUI/DreamscapeTerrain/Player Controller" to="." method="_on_Player_Controller_interacted_with"]
+[connection signal="started_looking_at" from="TestViewColliderUI/DreamscapeTerrain/Player Controller" to="." method="_on_Player_Controller_started_looking_at"]
+
+[editable path="gravestoneCrossLarge3"]
+[editable path="gravestoneCrossLarge2"]
+[editable path="TestGlowyThings/Mushroom"]
+[editable path="TestGlowyThings/LightPillarRed"]
+[editable path="TestGlowyThings/LightPillarRed/ViewCollider"]
+[editable path="TestGlowyThings/LightPillarGreen"]
+[editable path="TestGlowyThings/LightPillarGreen/ViewCollider"]
+[editable path="TestGlowyThings/LightPillarBlue"]
+[editable path="TestGlowyThings/LightPillarBlue/ViewCollider"]
+[editable path="TestGlowyThings/LightPillarPurple"]
+[editable path="TestGlowyThings/LightPillarPurple/ViewCollider"]
+[editable path="TestViewColliderUI/DreamscapeTerrain"]
+[editable path="TestViewColliderUI/DreamscapeTerrain/Player Controller"]

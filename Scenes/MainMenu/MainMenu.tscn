@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Themes/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=2]
@@ -8,7 +8,6 @@
 [ext_resource path="res://Scenes/Credits/Credits.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=7]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=8]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_state.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/OptionsMenu/OptionsMenu.tscn" type="PackedScene" id=11]
 
 [sub_resource type="Animation" id=60]
@@ -642,55 +641,39 @@ __meta__ = {
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterMarginContainer/CenterContainer"]
 margin_left = 862.0
-margin_top = 170.0
+margin_top = 234.0
 margin_right = 1058.0
-margin_bottom = 530.0
+margin_bottom = 466.0
 rect_min_size = Vector2( 196, 0 )
 custom_constants/separation = 24
 
-[node name="AmysKScopeButton" type="Button" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer"]
+[node name="PlayButton" type="Button" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer"]
 margin_right = 196.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 0, 40 )
 disabled = true
-text = "Kaleidoscope"
+text = "Play"
 
-[node name="GemTestButton" type="Button" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer"]
+[node name="OptionsButton" type="Button" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer"]
 margin_top = 64.0
 margin_right = 196.0
 margin_bottom = 104.0
 rect_min_size = Vector2( 0, 40 )
 disabled = true
-text = "Gem Test"
+text = "Options"
 
-[node name="WwiseTestButton" type="Button" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer"]
+[node name="CreditsButton" type="Button" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer"]
 margin_top = 128.0
 margin_right = 196.0
 margin_bottom = 168.0
 rect_min_size = Vector2( 0, 40 )
 disabled = true
-text = "Wwise Test"
-
-[node name="OptionsButton" type="Button" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 192.0
-margin_right = 196.0
-margin_bottom = 232.0
-rect_min_size = Vector2( 0, 40 )
-disabled = true
-text = "Options"
-
-[node name="CreditsButton" type="Button" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 256.0
-margin_right = 196.0
-margin_bottom = 296.0
-rect_min_size = Vector2( 0, 40 )
-disabled = true
 text = "Credits"
 
 [node name="QuitButton" type="Button" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer"]
-margin_top = 320.0
+margin_top = 192.0
 margin_right = 196.0
-margin_bottom = 360.0
+margin_bottom = 232.0
 rect_min_size = Vector2( 0, 40 )
 disabled = true
 text = "Leave"
@@ -754,32 +737,7 @@ event = {
 "Name": "CREDITS LOADED"
 }
 
-[node name="AkStateMenu" type="Node" parent="."]
-script = ExtResource( 9 )
-state_group = {
-"Id": 3223913734,
-"Name": "MENUGAME"
-}
-state_value = {
-"Id": 2607556080,
-"Name": "MENU"
-}
-trigger_on = 3
-
-[node name="AkStateCredits" type="Node" parent="."]
-script = ExtResource( 9 )
-state_group = {
-"Id": 3223913734,
-"Name": "MENUGAME"
-}
-state_value = {
-"Id": 2201105581,
-"Name": "CREDITS"
-}
-
-[connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/AmysKScopeButton" to="." method="_on_AmysKScopeButton_pressed"]
-[connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/GemTestButton" to="." method="_on_GemTestButton_pressed"]
-[connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/WwiseTestButton" to="." method="_on_WwiseSceneButton_pressed"]
+[connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
