@@ -12,7 +12,7 @@ Marek
 Mike  
 
 ### Composition
-Mike
+Mike  
 Mussar  
 
 ### Concept and Design
