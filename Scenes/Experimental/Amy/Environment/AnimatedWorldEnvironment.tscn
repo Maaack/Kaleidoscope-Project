@@ -1,9 +1,8 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Environment/DreamscapeEnvironmentReality.tres" type="Environment" id=1]
 [ext_resource path="res://Scenes/Experimental/Amy/GettingPumpedAnimation.tres" type="Animation" id=2]
 [ext_resource path="res://Scenes/Experimental/Amy/BackToRealityAnimation.tres" type="Animation" id=3]
-[ext_resource path="res://Scenes/DreamscapeInteractive.tscn" type="PackedScene" id=4]
 
 [sub_resource type="Animation" id=2]
 length = 0.001
@@ -155,15 +154,3 @@ autoplay = "GettingPumped"
 anims/BackToReality = ExtResource( 3 )
 anims/GettingPumped = ExtResource( 2 )
 anims/RESET = SubResource( 2 )
-
-[node name="DreamscapeInteractive" parent="AnimationPlayer" instance=ExtResource( 4 )]
-
-[node name="FootStepAkEvent" parent="AnimationPlayer/DreamscapeInteractive/TestViewColliderUI/Dreamscape/Player Controller" index="2"]
-event = {
-"Id": 4276063004,
-"Name": "PLAYER FS"
-}
-
-[editable path="AnimationPlayer/DreamscapeInteractive"]
-[editable path="AnimationPlayer/DreamscapeInteractive/TestViewColliderUI/Dreamscape"]
-[editable path="AnimationPlayer/DreamscapeInteractive/TestViewColliderUI/Dreamscape/Player Controller"]
