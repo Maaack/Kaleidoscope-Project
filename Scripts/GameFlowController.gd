@@ -9,6 +9,9 @@ export (PackedScene)  var red_gemstone
 export (PackedScene) var green_gemstone
 export (PackedScene) var blue_gemstone
 
+var ethereal_min = 50
+var ethereal_max = 59.9
+
 var red_gem;
 var green_gem;
 var blue_gem;
@@ -24,6 +27,11 @@ var green_pillar
 export(NodePath) var blue_pillar_path
 var blue_pillar
 
+export(NodePath) var purple_pillar_path
+var purple_pillar
+
+var _enlightened = false
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	randomize()
@@ -32,10 +40,12 @@ func _ready():
 	red_pillar = get_node_or_null(red_pillar_path) # Replace with function body.
 	green_pillar = get_node_or_null(green_pillar_path)
 	blue_pillar = get_node_or_null(blue_pillar_path)
+	purple_pillar = get_node_or_null(purple_pillar_path)
 	
 	red_pillar.hide()
 	green_pillar.hide()
 	blue_pillar.hide()
+	purple_pillar.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -51,6 +61,7 @@ func add_gems():
 	
 func start_trip():
 	kaleidoscope.reset_kaleidoscope()
+	kaleidoscope.set_range(43, 45)
 	kaleidoscope.start_kaleidoscope()
 	add_gems()
 	red_pillar.show()
@@ -58,16 +69,35 @@ func start_trip():
 func on_interact_red_pillar():
 	red_pillar.hide()
 	gem_control.remove_gemstone(red_gem)
+	kaleidoscope.set_range(50, 60)
 	green_pillar.show()
 	
 func on_interact_green_pillar():
 	blue_pillar.show()
 	gem_control.remove_gemstone(green_gem)
+	kaleidoscope.set_range(60, 78)
 	green_pillar.hide()
 
 func on_interact_blue_pillar():
 	gem_control.remove_gemstone(blue_gem)
 	blue_pillar.hide()
+	on_enlightenment()
+
+func on_enlightenment():
+	purple_pillar.show()
+	kaleidoscope.set_range(80,100)
+	_etheral_music()
+	_enlightened = true
+	yield(get_tree().create_timer(30), "timeout")
+	on_clarity()
+	
+func on_clarity():
+	_enlightened = false
+	purple_pillar.hide()
+	kaleidoscope.set_range(0, 1)
+	#the end
+
+
 	
 func _on_DreamscapeInteractive_pillar_interaction(pillar):
 	match(pillar):
@@ -85,5 +115,11 @@ func _on_DreamscapeInteractive_mushroom_eated():
 
 
 func _on_Kaleidoscope_intensity_changed(intensity):
+	if (_enlightened):
+		return
+	if (intensity > ethereal_min && intensity < ethereal_max):
+		intensity = ethereal_max + 1
 	Wwise.set_rtpc_id(AK.GAME_PARAMETERS.PLAYERHIGHNESS, intensity, $LevelMusicAkEvent2D)
 
+func _etheral_music():
+	Wwise.set_rtpc_id(AK.GAME_PARAMETERS.PLAYERHIGHNESS, (ethereal_max), $LevelMusicAkEvent2D)

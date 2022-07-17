@@ -9,5 +9,6 @@ signal interacted
 enum Type {RED, GREEN, BLUE, CYAN, YELLOW, PURPLE, PINK, MUSHROOM}
 
 
+export(String) var look_text = "I have found something here."
 export(Type) var collider_type
 

@@ -21,8 +21,10 @@ func _on_ViewCollider_interacted():
 
 func show() -> void:
 	.show()
+	$ViewCollider/CollisionShape.disabled = false
 	$AkEvent.post_event()
 
 func hide() -> void:
 	.hide()
+	$ViewCollider/CollisionShape.disabled = true
 	$AkEvent.stop_event()
