@@ -1,9 +1,54 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Assets/Sourced/FBXs/KenneyGraveyardKit3.2/metal.material" type="Material" id=1]
 [ext_resource path="res://Assets/Sourced/FBXs/KenneyGraveyardKit3.2/ironFenceCurve.fbx" type="PackedScene" id=2]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.0811477, 0.606636, 0.0300806 )
 
 [node name="IronFenceCurve" instance=ExtResource( 2 )]
 
 [node name="ironFenceCurve" parent="RootNode" index="0"]
 material/0 = ExtResource( 1 )
+
+[node name="StaticBody" type="StaticBody" parent="." index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.412734, 0.59449, -0.449009 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody" index="1"]
+transform = Transform( 0.961122, 0, 0.276124, 0, 1, 0, -0.276124, 0, 0.961122, 0.24904, 0.59449, -0.428022 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape3" type="CollisionShape" parent="StaticBody" index="2"]
+transform = Transform( 0.91424, 0, 0.405173, 0, 1, 0, -0.405173, 0, 0.91424, 0.0951388, 0.59449, -0.370659 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape4" type="CollisionShape" parent="StaticBody" index="3"]
+transform = Transform( 0.817084, 0, 0.576518, 0, 1, 0, -0.576518, 0, 0.817084, -0.0461702, 0.59449, -0.288113 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape5" type="CollisionShape" parent="StaticBody" index="4"]
+transform = Transform( 0.73976, 0, 0.67287, 0, 1, 0, -0.67287, 0, 0.73976, -0.169291, 0.59449, -0.191575 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape6" type="CollisionShape" parent="StaticBody" index="5"]
+transform = Transform( 0.511788, 0, 0.859112, 0, 1, 0, -0.859112, 0, 0.511788, -0.265829, 0.59449, -0.0712523 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape7" type="CollisionShape" parent="StaticBody" index="6"]
+transform = Transform( 0.511788, 0, 0.859112, 0, 1, 0, -0.859112, 0, 0.511788, -0.344178, 0.59449, 0.060263 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape8" type="CollisionShape" parent="StaticBody" index="7"]
+transform = Transform( 0.302719, 0, 0.95308, 0, 1, 0, -0.95308, 0, 0.302719, -0.404339, 0.59449, 0.201572 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape9" type="CollisionShape" parent="StaticBody" index="8"]
+transform = Transform( 0.166304, 0, 0.986074, 0, 1, 0, -0.986074, 0, 0.166304, -0.437918, 0.59449, 0.345679 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape10" type="CollisionShape" parent="StaticBody" index="9"]
+transform = Transform( 0.086808, 0, 0.996225, 0, 1, 0, -0.996225, 0, 0.086808, -0.446312, 0.59449, 0.42123 )
+shape = SubResource( 1 )

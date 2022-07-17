@@ -1,9 +1,15 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Assets/Sourced/FBXs/KenneyGraveyardKit3.2/lightpostSingle.fbx" type="PackedScene" id=1]
 [ext_resource path="res://Assets/Sourced/FBXs/KenneyGraveyardKit3.2/metal.material" type="Material" id=2]
 [ext_resource path="res://Assets/Sourced/FBXs/KenneyGraveyardKit3.2/light.material" type="Material" id=3]
 [ext_resource path="res://Assets/Sourced/FBXs/KenneyGraveyardKit3.2/stone.material" type="Material" id=4]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.0685558, 0.713395, 0.0678562 )
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.0728089, 0.168932, 0.143626 )
 
 [node name="LightpostSingle" instance=ExtResource( 1 )]
 
@@ -11,3 +17,13 @@
 material/0 = ExtResource( 4 )
 material/1 = ExtResource( 2 )
 material/2 = ExtResource( 3 )
+
+[node name="StaticBody" type="StaticBody" parent="." index="1"]
+
+[node name="CollisionShape" type="CollisionShape" parent="StaticBody" index="0"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.710601, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2" type="CollisionShape" parent="StaticBody" index="1"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.12442, 0.198311 )
+shape = SubResource( 2 )
