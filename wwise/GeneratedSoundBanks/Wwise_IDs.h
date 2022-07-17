@@ -93,6 +93,9 @@ namespace AK
 
     namespace GAME_PARAMETERS
     {
+        static const AkUniqueID BUSVOLUME_MASTER = 2987841584U;
+        static const AkUniqueID BUSVOLUME_MUSIC = 1710124347U;
+        static const AkUniqueID BUSVOLUME_SFX = 1707099127U;
         static const AkUniqueID PLAYERHIGHNESS = 749828935U;
         static const AkUniqueID TUMBLERSPEED = 3982513867U;
         static const AkUniqueID WORLDCHANGELOUDNESS = 2827693126U;
