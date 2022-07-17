@@ -9,8 +9,8 @@ export (PackedScene)  var red_gemstone
 export (PackedScene) var green_gemstone
 export (PackedScene) var blue_gemstone
 
-var ethereal_min = 50
-var ethereal_max = 59.9
+var ethereal_min = 90
+var ethereal_max = 100
 
 var red_gem;
 var green_gem;
