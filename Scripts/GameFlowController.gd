@@ -138,3 +138,7 @@ func _on_Kaleidoscope_intensity_changed(intensity):
 
 func _etheral_music():
 	Wwise.set_rtpc_id(AK.GAME_PARAMETERS.PLAYERHIGHNESS, (ethereal_max), $LevelMusicAkEvent2D)
+
+
+func _on_AnimatedWorldEnvironment_world_ended():
+	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
