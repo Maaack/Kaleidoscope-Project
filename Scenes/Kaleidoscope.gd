@@ -107,7 +107,6 @@ func set_range(i_min, i_max):
 		
 	
 func inv_lerp(a, b, v):
-	#print ("inv lerp ", a, " ", b, " ", v)
 	return (v - a ) / (b - a)
 	
 func set_intensity (i):
@@ -119,9 +118,7 @@ func lerp_intensity_in_range(tr):
 	var t = inv_lerp(0.0, 100.0, target_intensity)
 	lerp_intensity(t)
 	if (_changing_intensity_range):
-		print ("Intensity ", intensity)
 		if (intensity >= intensity_min && intensity <= intensity_max):
-			print("Done!")	
 			_changing_intensity_range = false
 			set_range(intensity_min, intensity_max)
 		

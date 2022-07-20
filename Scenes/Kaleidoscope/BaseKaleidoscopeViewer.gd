@@ -4,19 +4,13 @@ export(NodePath) var tumbler_path
 var tumbler
 
 func _ready():
-	print ("ON READY")
 	tumbler = get_node_or_null(tumbler_path)
-	print ("SET TUMBLER")
-	print (tumbler == null)
 
 # add a gemstone into the tumbler at specified position
 func add_gemstone(gemstone : PackedScene, position : Vector2 = Vector2.ZERO):
 	#var tumbler = get_node_or_null("KaleidoscopeViewport/TumblerScene")
 	if tumbler:
-		print ("ADD GEMSTONE")
 		return tumbler.add_gemstone(gemstone, position)
-	else:
-		print ("TUMBLER NULL")
 
 
 # remove a gemstone fomr the tumbler
