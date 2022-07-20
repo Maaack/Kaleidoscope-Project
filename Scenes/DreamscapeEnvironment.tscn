@@ -1,6 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=12 format=2]
 
-[ext_resource path="res://Scenes/Experimental/Amy/Environment/AnimatedWorldEnvironment.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Environment/AnimatedWorldEnvironment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Assets/AllSky/AllSkyFree_DemoLandsacpe.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/DreamscapeInteractive.tscn" type="PackedScene" id=5]
 

@@ -1,7 +1,6 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Kaleidoscope/Kaleidoscope.tres" type="Material" id=1]
-[ext_resource path="res://Scenes/Experimental/Amy/128844-pink-blue-and-white-abstract-curve-background-vector-art.jpg" type="Texture" id=2]
 [ext_resource path="res://Scenes/Kaleidoscope/KaleidoscopeViewport.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Experimental/AmyGameProto/GameProtoViewport.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Experimental/Amy/ShaderTest.gd" type="Script" id=5]
@@ -199,13 +198,11 @@ rotation = 2.73144
 [node name="TestSprite" type="Sprite" parent="TestViewport/Node2D"]
 rotation = 0.0575959
 scale = Vector2( 2, 2 )
-texture = ExtResource( 2 )
 script = ExtResource( 6 )
 
 [node name="ShaderTest" type="Sprite" parent="."]
 visible = false
 material = ExtResource( 1 )
-texture = ExtResource( 2 )
 script = ExtResource( 5 )
 
 [node name="ColorRect2" type="ColorRect" parent="."]
