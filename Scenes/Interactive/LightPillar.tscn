@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://Scenes/interactive/ViewCollider.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/interactive/LightPillar.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Interactive/ViewCollider.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Interactive/LightPillar.gd" type="Script" id=2]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=3]
 
 [sub_resource type="SpatialMaterial" id=3]

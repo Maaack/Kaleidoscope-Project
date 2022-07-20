@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "Area",
 "class": "ViewCollider",
 "language": "GDScript",
-"path": "res://Scenes/interactive/ViewCollider.gd"
+"path": "res://Scenes/Interactive/ViewCollider.gd"
 } ]
 _global_script_class_icons={
 "AK": "",
