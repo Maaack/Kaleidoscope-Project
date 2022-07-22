@@ -26,7 +26,6 @@ ssao_intensity2 = 14.6
 ssao_bias = 0.059
 ssao_color = Color( 0.180392, 0.207843, 0.25098, 1 )
 glow_enabled = true
-glow_levels/4 = true
 glow_intensity = 1.86
 glow_strength = 0.87
 glow_bloom = 0.24

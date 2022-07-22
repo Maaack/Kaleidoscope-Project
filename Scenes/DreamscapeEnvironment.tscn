@@ -1,7 +1,6 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
-[ext_resource path="res://Scenes/Experimental/Amy/Environment/AnimatedWorldEnvironment.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Assets/AllSky/AllSkyFree_DemoLandsacpe.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Environment/AnimatedWorldEnvironment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/DreamscapeInteractive.tscn" type="PackedScene" id=5]
 
 [sub_resource type="SpatialMaterial" id=6]
@@ -28,6 +27,24 @@ render_priority = -1
 flags_unshaded = true
 albedo_color = Color( 0.672, 0.59, 1, 1 )
 
+[sub_resource type="SpatialMaterial" id=10]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 0.980392, 1, 0.588235, 1 )
+
+[sub_resource type="SpatialMaterial" id=11]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 0.588235, 0.721569, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=12]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 0.588235, 0.829529, 1, 1 )
+
 [node name="DreamEnvironment" type="Node"]
 
 [node name="AnimatedWorldEnvironment" parent="." instance=ExtResource( 1 )]
@@ -35,19 +52,10 @@ albedo_color = Color( 0.672, 0.59, 1, 1 )
 [node name="DirectionalLight_MoonBurst" parent="AnimatedWorldEnvironment" index="0"]
 transform = Transform( 0.984762, -0.0434093, 0.168403, -0.00544078, 0.960182, 0.279323, -0.173823, -0.275982, 0.945314, 0, 26.5368, 0 )
 
-[node name="AnimationPlayer" parent="AnimatedWorldEnvironment" index="1"]
-autoplay = ""
-
 [node name="Stars" parent="AnimatedWorldEnvironment" index="2"]
 preprocess = 0.0
 
-[node name="AllSkyFree_DemoLandscape" parent="." instance=ExtResource( 2 )]
-visible = false
-
 [node name="DreamscapeInteractive" parent="." instance=ExtResource( 5 )]
-
-[node name="RootNode" parent="DreamscapeInteractive/gravestoneCrossLarge2" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
 
 [node name="Mushroom" parent="DreamscapeInteractive/TestGlowyThings" index="0"]
 transform = Transform( -0.277298, 0, -0.960784, 0, 1, 0, 0.960784, 0, -0.277298, -0.585772, 0.0336815, 18.1063 )
@@ -62,7 +70,6 @@ event = {
 transform = Transform( 0.0633823, 0, -0.997989, 0, 0.640106, 0, 0.997989, 0, 0.0633823, 14.1325, 0.960638, -12.5247 )
 
 [node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 material = SubResource( 6 )
 
 [node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="3"]
@@ -115,11 +122,26 @@ material = SubResource( 7 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.06269, 0 )
 light_color = Color( 1, 0.24, 0.746667, 1 )
 
-[node name="LightPillarPurple4" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple/Light" index="0"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.0468, -4.44688, 6.90076 )
-
-[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple/Light/LightPillarPurple4" index="0"]
+[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarPurple4" index="0"]
 material = SubResource( 9 )
+
+[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarRed2" index="0"]
+material = SubResource( 10 )
+
+[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarGreen2" index="0"]
+material = SubResource( 11 )
+
+[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarBlue2" index="0"]
+material = SubResource( 12 )
+
+[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarRed3" index="0"]
+material = SubResource( 10 )
+
+[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarGreen3" index="0"]
+material = SubResource( 11 )
+
+[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarBlue3" index="0"]
+material = SubResource( 12 )
 
 [node name="FootStepAkEvent" parent="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller/Player" index="5"]
 event = {

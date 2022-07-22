@@ -23,7 +23,7 @@ Amy
 ### Fonts
 #### Currently Everything
 Author: [Sorken Type Co](https://www.1001fonts.com/users/sorkintype/)  
-Source: [1001Fonts : spring-font.html](https://www.1001fonts.com/merriweather-font.html)  
+Source: [1001Fonts : merriweather-font.html](https://www.1001fonts.com/merriweather-font.html)  
 License: [SIL Open Font License (OFL)](https://scripts.sil.org/OFL)
 
 ### Assets
