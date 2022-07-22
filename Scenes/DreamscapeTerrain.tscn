@@ -1,12 +1,10 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
-[ext_resource path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" type="Script" id=2]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=3]
-[ext_resource path="res://addons/zylann.hterrain/tools/icons/icon_detail_layer_node.svg" type="Texture" id=4]
 [ext_resource path="res://Assets/Sourced/FBXs/LowpolyForestPack/TreesTexture/SpruceTreeLeaf.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/vmilaalg_2K_Roughness.jpg" type="Texture" id=6]
-[ext_resource path="res://terrain_data/data.hterrain" type="Resource" id=7]
+[ext_resource path="res://Data/WorldTerrain/data.hterrain" type="Resource" id=7]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://addons/zylann.scatter/scatter3d.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/LowPolyObjects/Grass/Grass1.tscn" type="PackedScene" id=10]
@@ -856,16 +854,6 @@ shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
-
-[node name="HTerrainDetailLayer" type="Spatial" parent="HTerrain"]
-script = ExtResource( 2 )
-__meta__ = {
-"_editor_icon": ExtResource( 4 )
-}
-shader_params/u_globalmap_tint_bottom = null
-shader_params/u_globalmap_tint_top = null
-shader_params/u_bottom_ao = null
-shader_params/u_instance_scale = Vector3( 1, 1, 1 )
 
 [node name="Campfire" type="Spatial" parent="."]
 transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -7.97164, 0.0221095, 18.0145 )
