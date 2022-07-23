@@ -3,4 +3,9 @@ class_name SoundButton
 extends Button
 
 func _pressed():
-	$AkEvent2D.post_event()
+	$ClickAkEvent2D.post_event()
+
+func _on_SoundButton_mouse_entered():
+	if disabled:
+		return
+	$HoverAkEvent2D.post_event()

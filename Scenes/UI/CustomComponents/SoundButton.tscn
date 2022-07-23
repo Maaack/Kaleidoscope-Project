@@ -7,9 +7,18 @@
 rect_min_size = Vector2( 0, 40 )
 script = ExtResource( 1 )
 
-[node name="AkEvent2D" type="Node2D" parent="."]
+[node name="ClickAkEvent2D" type="Node2D" parent="."]
 script = ExtResource( 2 )
 event = {
 "Id": 3013838884,
 "Name": "UIMOUSECLICK"
 }
+
+[node name="HoverAkEvent2D" type="Node2D" parent="."]
+script = ExtResource( 2 )
+event = {
+"Id": 1271092770,
+"Name": "UIMOUSEOVER"
+}
+
+[connection signal="mouse_entered" from="." to="." method="_on_SoundButton_mouse_entered"]
