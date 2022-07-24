@@ -1,13 +1,11 @@
-# a button which can play a sound effect when clicked
+# a button which plays a sound effect when clicked
 class_name SoundButton
 extends Button
 
-export(AudioStream) var sound_effect
+func _pressed():
+	$ClickAkEvent2D.post_event()
 
-
-func _ready():
-	$AudioStreamPlayer.stream = sound_effect
-
-
-func _on_Button_pressed():
-	$AudioStreamPlayer.play()
+func _on_SoundButton_mouse_entered():
+	if disabled:
+		return
+	$HoverAkEvent2D.post_event()

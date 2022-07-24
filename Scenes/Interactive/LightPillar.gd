@@ -17,14 +17,15 @@ func set_collider_type(value : int) -> void:
 	$ViewCollider.collider_type = collider_type
 
 func _on_ViewCollider_interacted():
+	$DepositAkEvent.post_event()
 	emit_signal("interacted")
 
 func show() -> void:
 	.show()
 	$ViewCollider/CollisionShape.disabled = false
-	$AkEvent.post_event()
+	$HummingAkEvent.post_event()
 
 func hide() -> void:
 	.hide()
 	$ViewCollider/CollisionShape.disabled = true
-	$AkEvent.stop_event()
+	$HummingAkEvent.stop_event()

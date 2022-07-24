@@ -6,6 +6,7 @@ signal trip_ended()
 onready var kaleidoscope = $Kaleidoscope
 onready var tumbler_control = $Kaleidoscope/KaleidoscopeViewport
 onready var gem_control = $Kaleidoscope/GemControl
+onready var fire_particles : Particles = $Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Campfire/FireParticles
 
 export (PackedScene) var tumbler
 export (PackedScene)  var red_gemstone
@@ -72,9 +73,12 @@ func start_trip():
 	emit_signal("trip_started")
 	yield(get_tree().create_timer(15), "timeout")
 	kaleidoscope.start_kaleidoscope()
-	yield(get_tree().create_timer(15), "timeout")
+	yield(get_tree().create_timer(1), "timeout")
+	$WorldChangeAkEvent2D.post_event()
+	yield(get_tree().create_timer(14), "timeout")
 	kaleidoscope.intensity_change_rate = transition_rate
 	kaleidoscope.set_range(50, 55)
+	fire_particles.speed_scale = 0.6
 	red_pillar.show()
 	
 func on_interact_red_pillar():
@@ -101,6 +105,7 @@ func on_enlightenment():
 	kaleidoscope.set_range(95,100)
 	_etheral_music()
 	_enlightened = true
+	fire_particles.speed_scale = 0.2
 	yield(get_tree().create_timer(30), "timeout")
 	on_clarity()
 	
@@ -109,6 +114,9 @@ func on_clarity():
 	purple_pillar.hide()
 
 	kaleidoscope.set_range(0, 1)
+	fire_particles.speed_scale = 0.6
+	yield(get_tree().create_timer(3), "timeout")
+	fire_particles.speed_scale = 1.0
 	emit_signal("trip_ended")
 	#the end
 
