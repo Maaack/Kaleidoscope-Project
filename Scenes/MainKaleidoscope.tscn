@@ -17,7 +17,7 @@
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 2 )
-shader_param/enabled = false
+shader_param/enabled = true
 shader_param/triangles = false
 shader_param/polarOutOffset = Vector2( 0, 0 )
 shader_param/polarInOffset = Vector2( 0, 0 )
@@ -32,9 +32,9 @@ shader_param/border_radius = 0.48
 shader_param/center_radius = 0.25
 shader_param/vignette_radius = 0.0
 shader_param/normality_radius = 0.0
-shader_param/segments = 4.0
+shader_param/segments = 12.0
 shader_param/use_polygon_radius = false
-shader_param/reflect_outside = true
+shader_param/reflect_outside = false
 shader_param/select_outside_slice = false
 shader_param/show_slice_only = false
 shader_param/rotation_speed = 0.0
@@ -112,8 +112,8 @@ margin_right = 540.0
 margin_bottom = 540.0
 script = ExtResource( 3 )
 intensity_change_rate = 15.333
-_max_segments = 8.0
-rotation_thresh = 0.4
+segments = 0
+rotation_thresh = 0.9
 rot_speed_max = 0.1
 
 [node name="GemControl" type="Node" parent="Kaleidoscope"]

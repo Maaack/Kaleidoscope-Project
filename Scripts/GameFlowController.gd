@@ -65,32 +65,40 @@ func add_gems():
 	
 func start_trip():
 	kaleidoscope.reset_kaleidoscope()
+
 	var transition_rate = kaleidoscope.intensity_change_rate
 	kaleidoscope.intensity_change_rate = transition_rate * 2.0
 	kaleidoscope.set_range(40, 45)
+	kaleidoscope.set_segments(4.0);
 	#add_gems()
+	
 	emit_signal("trip_started")
 	yield(get_tree().create_timer(15), "timeout")
 	kaleidoscope.start_kaleidoscope()
 	yield(get_tree().create_timer(15), "timeout")
 	kaleidoscope.intensity_change_rate = transition_rate
 	kaleidoscope.set_range(50, 55)
+	kaleidoscope.set_segments(4.0);
 	red_pillar.show()
 	
 func on_interact_red_pillar():
 	red_pillar.hide()
 	#gem_control.remove_gemstone(red_gem)
+	kaleidoscope.set_segments(6.0);
 	kaleidoscope.set_range(60, 70)
 	green_pillar.show()
 	
 func on_interact_green_pillar():
 	blue_pillar.show()
+	kaleidoscope.set_segments(8.0);
 	#gem_control.remove_gemstone(green_gem)
 	kaleidoscope.set_range(60, 78)
 	green_pillar.hide()
 
 func on_interact_blue_pillar():
 	#gem_control.remove_gemstone(blue_gem)
+
+	
 	blue_pillar.hide()
 	on_enlightenment()
 
@@ -99,6 +107,7 @@ func on_enlightenment():
 	purple_pillar.show()
 	
 	kaleidoscope.set_range(95,100)
+	kaleidoscope.set_segments(16.0);
 	_etheral_music()
 	_enlightened = true
 	yield(get_tree().create_timer(30), "timeout")
@@ -106,6 +115,7 @@ func on_enlightenment():
 	
 func on_clarity():
 	_enlightened = false
+	kaleidoscope.set_segments(2.0);
 	purple_pillar.hide()
 
 	kaleidoscope.set_range(0, 1)

@@ -25,6 +25,7 @@ uniform float vignette_radius = 0;
 uniform float normality_radius = 0;
 
 uniform float segments = 6;
+const float segmentOrigin = 1.57079632679489661923;
 uniform bool use_polygon_radius = false;
 uniform bool reflect_outside = true;
 uniform bool select_outside_slice = false;
@@ -45,7 +46,7 @@ const vec2 CENTER = vec2 (0.5, 0.5);
 
 // can I define macros in godot shader language?
 const float SEG_BORDER_ANGLE () {
-	return ((PI_TWO) / segments) ;
+	return ((PI_TWO / segments) )  ;
 }
 
 // can I define macros in godot shader language?
@@ -53,12 +54,16 @@ const float HALF_SEG_BORDER_ANGLE () {
 	return (PI) / segments;
 }
 
-const float VISBLE_SLICE_BORDER_ANGLE() {
+/*const float VISBLE_SLICE_BORDER_ANGLE() {
 	return (SEG_BORDER_ANGLE() );//* slice_selection ;
 }
 
 const float VISBLE_SLICE_BORDER_RIGHT() {
 	return SEG_BORDER_ANGLE() * (slice_selection - 1.0);
+}*/
+
+const float ORIGIN(){
+	return segmentOrigin - HALF_SEG_BORDER_ANGLE();
 }
 
 //UTIL///////////////////
@@ -70,12 +75,23 @@ vec2 cartToPolarUV(vec2 coord, vec2 center){
 	float uvRadius = sqrt(dot(shiftCoord, shiftCoord));
 	// arc tan of coords gives angle
 	float uvAngle = atan(shiftCoord.y, shiftCoord.x);
+	uvAngle =  -(uvAngle + ORIGIN());
+	if (uvAngle < 0.0){
+		uvAngle = (PI - abs(uvAngle)) + PI;
+	}
+	//uvAngle = uvAngle + segmentOrigin;//((uvAngle + segmentOrigin) / (PI_TWO + segmentOrigin)) * PI_TWO ;//(uvAngle - segmentOrigin) / (PI_TWO - segmentOrigin);
 
 	return vec2(uvRadius, uvAngle);
 }
 
 vec2 polarToCartUV(float angle, float radius, vec2 center){
+	angle = -(ORIGIN() + angle);
 	//add 0.5 to shift center back
+	if (angle > PI_TWO) {
+		//angle = angle - PI;
+		//angle = 0.0 - angle - PI;//0.0 - (angle - PI);
+	}
+	//angle = angle - segmentOrigin;
 	return vec2(cos(angle), sin(angle) )* radius + center;
 }
 
@@ -138,7 +154,16 @@ float angleIsInSegment(float angle){
 	/*if (angle < 0.0){
 		angle = PI - abs(angle) + PI;
 	}*/
-	return floor((angle) / SEG_BORDER_ANGLE());
+	
+	//angle =
+	
+	float seg = floor((angle) / SEG_BORDER_ANGLE()  );
+	
+	if (angle > PI_TWO - HALF_SEG_BORDER_ANGLE()){
+		//sseg = 0.0;
+	}
+
+	return seg ;
 }
 
 float doMod(float mod1, float mod2){
@@ -156,7 +181,7 @@ vec2 getCenterUV(vec2 uv){
 	if (!inside(center, uv)){
 		float seg = angleIsInSegment(pRadAngle.y);
 		
-		float angleToCenter = seg * VISBLE_SLICE_BORDER_ANGLE();
+		float angleToCenter = seg * SEG_BORDER_ANGLE();//VISBLE_SLICE_BORDER_ANGLE();
 		
 		float radiusToCenter = 0.5 - center_radius; // * 2.0;
 		
@@ -171,15 +196,24 @@ vec2 getCenterUV(vec2 uv){
 
 // for Debugging
 bool isSegBorderLine(vec2 uv){
-	float pAngle = abs(cartToPolarUV(uv, CENTER).y);
+	float pAngle = (cartToPolarUV(uv, CENTER).y);
 	float opSeg = SEG_BORDER_ANGLE();
-	float pSeg = opSeg;
+	float pSeg = opSeg - HALF_SEG_BORDER_ANGLE();
+	
+	/*if  (pAngle > (opSeg - 0.01) && pAngle < (opSeg + 0.01)){
+		return true;
+	}
+	return false;*/
+	
 	/*float degUV = ((pAngle * ( 180.0 / PI )) / 360.0) + 0.5;
 	float degSeg = ((SEG_BORDER_ANGLE() / 2.0 * ( 180.0 / PI )) / 360.0) ;
 	return (degUV > degSeg - 0.001 && degUV < degSeg + 0.001);*/
-	while (pSeg <= PI_TWO){
+	while (pSeg == 0.0 || (pSeg <= PI_TWO)){
 		
 		if (pAngle > (pSeg - 0.01) && pAngle < (pSeg + 0.01)){
+			return true;
+		}
+		if (pAngle < 0.01){
 			return true;
 		}
 		pSeg = pSeg + opSeg;
@@ -199,7 +233,7 @@ bool inOriginalSlice(vec2 uv){
 	
 	return degUV < degSeg;*/
 	
-	return pAngle < VISBLE_SLICE_BORDER_ANGLE() && pAngle > (VISBLE_SLICE_BORDER_ANGLE() - SEG_BORDER_ANGLE());
+	return pAngle <SEG_BORDER_ANGLE() ;
 }
 
 vec3 rainbow(float level)
@@ -221,10 +255,13 @@ vec2 polyCartToPolarUV(vec2 st){
 	return vec2 (r, a);
 }
 
-vec4 debugUV(vec2 uv){
-	vec4 color;
-	vec2 pRadiusAngle = polyCartToPolarUV(uv);
-	color = vec4(pRadiusAngle.x / PI_TWO, 0.0,  0.0, 1.0);
+vec4 debugUV(vec2 uv, vec4 color){
+
+	//vec4 color;
+	vec2 pRadiusAngle = cartToPolarUV(uv, CENTER);
+	//color = vec4 (pRadiusAngle.y / PI_TWO, 0.0, 0.0, 0.0);
+	vec4 rainbowCol = vec4 (rainbow(angleIsInSegment(pRadiusAngle.y)), 1.0);
+	//color = vec4(pRadiusAngle.x / PI_TWO, 0.0,  0.0, 1.0);
 	/*COLOR = vec4(
 		//rainbow(angleIsInSegment(pRadiusAngle.y), 1.0), 
 		0.0, pRadiusAngle.y, 0.0, 1.0
@@ -235,16 +272,17 @@ vec4 debugUV(vec2 uv){
 		
 	float radThresh = distance(CENTER, uv) - center_radius;
 	if (radThresh < 0.001 && radThresh > -0.001){
-		color = vec4(0, 1.0, 1.0, 1.0);
+		color = rainbowCol; //vec4(0, 1.0, 1.0, 1.0);
 	}
 		
 	if (distance(getCenterUV(uv), uv) < 0.01){
-		color = vec4(0, 1.0, 1.0, 1.0);
+		color = rainbowCol;//vec4(0, 1.0, 1.0, 1.0);
 	}
 		
 	if (isSegBorderLine(uv)){
-		color = vec4(0, 1.0, 1.0, 1.0);
+		color = rainbowCol; //vec4(0, 1.0, 1.0, 1.0);
 	}
+	return mix(color, rainbowCol, 0.5);//rainbowCol;
 	return color;
 }
 
@@ -341,38 +379,50 @@ vec2 sliceUV(vec2 uv){
 	
 	float seg = angleIsInSegment(uvAngle);
 
-
+	float angleInSegment = uvAngle;
 	//where is the angle in segment space
 	//float angleInSegment = doMod(uvAngle, VISBLE_SLICE_BORDER_ANGLE());//uvAngle - SEG_BORDER_ANGLE() * angleIsInSegment(uvAngle);
-	float angleInSegment = uvAngle ;
-	if (angleInSegment < 0.0){
-		angleInSegment = PI_TWO - ( abs(angleInSegment));
-	}
-	if (angleInSegment > SEG_BORDER_ANGLE()){
-		angleInSegment = PI_TWO;
-		angleInSegment = doMod(uvAngle, VISBLE_SLICE_BORDER_ANGLE());
+	//float angleInSegment = uvAngle ;
+	//if (angleInSegment < 0.0){
+		//angleInSegment = PI_TWO - ( abs(angleInSegment));
+	//}
+	if (seg > 0.0 ){
+		//angleInSegment = PI_TWO;
+		angleInSegment = doMod(uvAngle , SEG_BORDER_ANGLE());
+		//angleInSegment = SEG_BORDER_ANGLE() - angleInSegment;
+		//angleInSegment = min(angleInSegment, SEG_BORDER_ANGLE()  - angleInSegment);
+		if ((int(seg + 1.0) % 2 == 0)  ) {
+			angleInSegment = SEG_BORDER_ANGLE() - angleInSegment;//min(angleInSegment, VISBLE_SLICE_BORDER_ANGLE() - angleInSegment);
+			//angleInSegment = max(angleInSegment, SEG_BORDER_ANGLE()  - angleInSegment);
+		} else {
+			//angleInSegment = min(angleInSegment, SEG_BORDER_ANGLE()  - angleInSegment);
+		}
+		
 	}
 	
 	bool centerRing = inside(CENTER, uv);
-	if ((int(seg) % 2 != 0)) {
+	/*if ((int(seg + 1.0) % 2 == 0)  ) {
 		//return vec2 (0.0, 0.0);
 		//angleInSegment = 0.0;
-		angleInSegment = VISBLE_SLICE_BORDER_ANGLE() - angleInSegment;//min(angleInSegment, VISBLE_SLICE_BORDER_ANGLE() - angleInSegment);
+		angleInSegment = SEG_BORDER_ANGLE() - angleInSegment;//min(angleInSegment, VISBLE_SLICE_BORDER_ANGLE() - angleInSegment);
 	}
+	if (seg > 0.0){
+		angleInSegment = min(angleInSegment, SEG_BORDER_ANGLE()  - angleInSegment);
+	}*/
 	//reflect across the segment.
-	//angleInSegment = min(angleInSegment, VISBLE_SLICE_BORDER_ANGLE()  - angleInSegment);
+	//angleInSegment = min(angleInSegment, SEG_BORDER_ANGLE()  - angleInSegment);
 	
 
-	float segRadius = uvRadius / 2.0;
+	//float segRadius = uvRadius / 2.0;
 	float radiusInSegment =radiusUV(uvRadius, centerRing); //doMod(uvRadius, center_radius);
 	
 	vec2 sliceUV = polarToCartUV(angleInSegment, radiusInSegment, CENTER);
 
-	sliceUV = max(min(sliceUV, 2.0 - sliceUV), -sliceUV);
+	//sliceUV = max(min(sliceUV, 2.0 - sliceUV), -sliceUV);
 	
-	if (slice_selection > segments / 2.0){
+	/*if (slice_selection > segments / 2.0){
 		sliceUV.y = 1.0 - sliceUV.y;
-	}
+	}*/
 	
 	
 	
@@ -439,7 +489,9 @@ void fragment(){
 
 	
 	if (show_debug){
-		COLOR = debugUV(UV);
+		//vec2 p = cartToPolarUV(uv, CENTER);
+		//COLOR = texture(TEXTURE, polarToCartUV(p.y, p.x, CENTER));
+		COLOR = debugUV(UV, COLOR);
 	}
 	
 	COLOR = vec4(color_channel(COLOR.xyz), 1.0);
