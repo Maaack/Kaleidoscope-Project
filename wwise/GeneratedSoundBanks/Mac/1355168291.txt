@@ -15,6 +15,7 @@ State	ID	Name	State Group			Notes
 	748895195	None	MenuGame			
 	2201105581	Credits	MenuGame			
 	2607556080	Menu	MenuGame			
+	3450645083	InGameMenu	MenuGame			
 	4184794294	Outro	MenuGame			
 
 Game Parameter	ID	Name			Wwise Object Path	Notes

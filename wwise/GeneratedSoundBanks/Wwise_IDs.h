@@ -14,12 +14,15 @@ namespace AK
     namespace EVENTS
     {
         static const AkUniqueID CAMPFIRE = 1931646578U;
+        static const AkUniqueID CAMPFIRE_SMALL = 2359560878U;
         static const AkUniqueID CREDITS_LOADED = 2687372615U;
         static const AkUniqueID DEPOSIT1 = 3709765322U;
         static const AkUniqueID DEPOSIT2 = 3709765321U;
         static const AkUniqueID DEPOSIT3 = 3709765320U;
         static const AkUniqueID DEPOSITPOINT = 2881812561U;
         static const AkUniqueID EASTEREGG = 3766922154U;
+        static const AkUniqueID INGAMEMENU_IN = 4213109959U;
+        static const AkUniqueID INGAMEMENU_OUT = 834664890U;
         static const AkUniqueID LEVEL1_LOADED = 1001937282U;
         static const AkUniqueID MENU_LOADED = 1785415464U;
         static const AkUniqueID MUSHROOMEAT = 2103799123U;
@@ -44,6 +47,7 @@ namespace AK
             {
                 static const AkUniqueID CREDITS = 2201105581U;
                 static const AkUniqueID GAME = 702482391U;
+                static const AkUniqueID INGAMEMENU = 3450645083U;
                 static const AkUniqueID MENU = 2607556080U;
                 static const AkUniqueID NONE = 748895195U;
                 static const AkUniqueID OUTRO = 4184794294U;
