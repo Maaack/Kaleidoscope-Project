@@ -80,10 +80,16 @@ look_text = "Safety. (I have found something here.)"
 [node name="CollisionShape" parent="TestGlowyThings/LightPillarRed/ViewCollider" index="0"]
 transform = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 7.45058e-09, 0, 3.27278, 0, 0, 0 )
 
-[node name="AkEvent" parent="TestGlowyThings/LightPillarRed" index="3"]
+[node name="HummingAkEvent" parent="TestGlowyThings/LightPillarRed" index="3"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
+}
+
+[node name="DepositAkEvent" parent="TestGlowyThings/LightPillarRed" index="4"]
+event = {
+"Id": 3709765322,
+"Name": "DEPOSIT1"
 }
 
 [node name="LightPillarGreen" parent="TestGlowyThings" instance=ExtResource( 2 )]
@@ -104,10 +110,16 @@ collider_type = 1
 [node name="CollisionShape" parent="TestGlowyThings/LightPillarGreen/ViewCollider" index="0"]
 transform = Transform( 1, 0, -1.19209e-07, 0, 1, 0, 1.49012e-08, 0, 3.65825, 0, 0, 0 )
 
-[node name="AkEvent" parent="TestGlowyThings/LightPillarGreen" index="3"]
+[node name="HummingAkEvent" parent="TestGlowyThings/LightPillarGreen" index="3"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
+}
+
+[node name="DepositAkEvent" parent="TestGlowyThings/LightPillarGreen" index="4"]
+event = {
+"Id": 3709765321,
+"Name": "DEPOSIT2"
 }
 
 [node name="LightPillarBlue" parent="TestGlowyThings" instance=ExtResource( 2 )]
@@ -128,10 +140,16 @@ collider_type = 2
 [node name="CollisionShape" parent="TestGlowyThings/LightPillarBlue/ViewCollider" index="0"]
 transform = Transform( 3.99969, 0, -2.98023e-08, 0, 1, 0, 2.38419e-07, 0, 1, 0, 0, 0 )
 
-[node name="AkEvent" parent="TestGlowyThings/LightPillarBlue" index="3"]
+[node name="HummingAkEvent" parent="TestGlowyThings/LightPillarBlue" index="3"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
+}
+
+[node name="DepositAkEvent" parent="TestGlowyThings/LightPillarBlue" index="4"]
+event = {
+"Id": 3709765320,
+"Name": "DEPOSIT3"
 }
 
 [node name="LightPillarPurple" type="Spatial" parent="TestGlowyThings"]

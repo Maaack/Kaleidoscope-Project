@@ -156,28 +156,46 @@ event = {
 [node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="0"]
 material = SubResource( 4 )
 
-[node name="AkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="3"]
+[node name="HummingAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="3"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
+}
+
+[node name="DepositAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="4"]
+event = {
+"Id": 3709765322,
+"Name": "DEPOSIT1"
 }
 
 [node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="0"]
 material = SubResource( 5 )
 
-[node name="AkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="3"]
+[node name="HummingAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="3"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
 }
 
+[node name="DepositAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="4"]
+event = {
+"Id": 3709765321,
+"Name": "DEPOSIT2"
+}
+
 [node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="0"]
 material = SubResource( 6 )
 
-[node name="AkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="3"]
+[node name="HummingAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="3"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
+}
+
+[node name="DepositAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="4"]
+event = {
+"Id": 3709765320,
+"Name": "DEPOSIT3"
 }
 
 [node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarPurple" index="0"]
@@ -219,6 +237,13 @@ event = {
 "Name": "LEVEL1 LOADED"
 }
 trigger_on = 3
+
+[node name="WorldChangeAkEvent2D" type="Node2D" parent="."]
+script = ExtResource( 5 )
+event = {
+"Id": 2364413463,
+"Name": "WORLDCHANGE"
+}
 
 [connection signal="trip_ended" from="." to="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment" method="_on_MainKaleidoscope_trip_ended"]
 [connection signal="trip_started" from="." to="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment" method="_on_MainKaleidoscope_trip_started"]

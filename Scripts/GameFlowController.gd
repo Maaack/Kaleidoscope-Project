@@ -73,7 +73,9 @@ func start_trip():
 	emit_signal("trip_started")
 	yield(get_tree().create_timer(15), "timeout")
 	kaleidoscope.start_kaleidoscope()
-	yield(get_tree().create_timer(15), "timeout")
+	yield(get_tree().create_timer(1), "timeout")
+	$WorldChangeAkEvent2D.post_event()
+	yield(get_tree().create_timer(14), "timeout")
 	kaleidoscope.intensity_change_rate = transition_rate
 	kaleidoscope.set_range(50, 55)
 	fire_particles.speed_scale = 0.6
