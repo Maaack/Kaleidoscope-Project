@@ -10,17 +10,25 @@ Made in Godot 3.4.4
 * Wwise Godot Integration - alessandrofama
 
 #### Instructions
-1. Open the Asset Lib window in Godot.  ![Asset Lib Button](Docs/AssetLibButton.png)
-2. Make sure you are searching godotengine.org.  ![Asset Lib Site](Docs/AssetLibSite.png)
-3. Search for "terrain" and select `Heightmap terrain`.  ![Heightmap Terrain Plugin](Docs/TerrainEditorPlugin.png)
-4. In the details window for the plugin, select download.  ![Download Button](Docs/DownloadButton.png)
-5. Let the plugin download and then start the install...  ![Download Success](Docs/DownloadSuccess.png)
-6. Let the plugin install in `/addons/zylann.hterrain/`.  ![/addons/ Install Location](Docs/InstallToZylannHterrain.png)
+1. Open the Asset Lib window in Godot.
+   * ![Asset Lib Button](Docs/AssetLibButton.png)
+2. Make sure you are searching godotengine.org.
+   * ![Asset Lib Site](Docs/AssetLibSite.png)
+3. Search for "terrain" and select `Heightmap terrain`.
+   * ![Heightmap Terrain Plugin](Docs/TerrainEditorPlugin.png)
+4. In the details window for the plugin, select download.
+   * ![Download Button](Docs/DownloadButton.png)
+5. Let the plugin download and then start the install...
+   * ![Download Success](Docs/DownloadSuccess.png)
+6. Let the plugin install in `/addons/zylann.hterrain/`.
+   * ![/addons/ Install Location](Docs/InstallToZylannHterrain.png)
 7. Return to the Asset Lib window.
-8. Search for "scatter" and select `Scene scattering tool`. ![Scene Scattering Tool Plugin](Docs/ScatterPlugin.png)
+8. Search for "scatter" and select `Scene scattering tool`.
+   * ![Scene Scattering Tool Plugin](Docs/ScatterPlugin.png)
 9. Follow steps 4-5.
 10. Let the plugin install in `/addons/zylann.scatter/`.
-11. Reload the project.  ![Reload Current Project](Docs/ReloadProject.png)
+11. Reload the project.
+    * ![Reload Current Project](Docs/ReloadProject.png)
 
 
 Currently, the wwise-godot-integration plugin is included in the repo for our convenience in development.
