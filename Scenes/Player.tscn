@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://Scenes/PlayerController.gd" type="Script" id=2]
@@ -10,6 +10,24 @@ radius = 0.5
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.4, 0.1, 0.4 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Jogging"
+length = 0.3
+tracks/0/type = "method"
+tracks/0/path = NodePath("Player/FootStepAkEvent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "post_event"
+} ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "Walking"
@@ -58,6 +76,7 @@ collide_with_bodies = false
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Player"]
 root_node = NodePath("../..")
+anims/Jogging = SubResource( 4 )
 anims/Walking = SubResource( 3 )
 
 [node name="AkListener" type="Spatial" parent="Player"]
