@@ -72,10 +72,16 @@ transform = Transform( 0.0633823, 0, -0.997989, 0, 0.640106, 0, 0.997989, 0, 0.0
 [node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="0"]
 material = SubResource( 6 )
 
-[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="3"]
+[node name="HummingAkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="3"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
+}
+
+[node name="DepositAkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="4"]
+event = {
+"Id": 3709765322,
+"Name": "DEPOSIT1"
 }
 
 [node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="0"]
@@ -85,10 +91,16 @@ material = SubResource( 8 )
 [node name="ViewCollider" parent="DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="2"]
 transform = Transform( 2.73485, 0, -0.744703, 0, 1, 0, 5.52619, 0, 1.58065, 0, 3, 9.53674e-07 )
 
-[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="3"]
+[node name="HummingAkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="3"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
+}
+
+[node name="DepositAkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="4"]
+event = {
+"Id": 3709765321,
+"Name": "DEPOSIT2"
 }
 
 [node name="LightPillarBlue" parent="DreamscapeInteractive/TestGlowyThings" index="3"]
@@ -104,10 +116,16 @@ light_color = Color( 0.235294, 0.683412, 1, 1 )
 [node name="ViewCollider" parent="DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="2"]
 transform = Transform( 0.532677, 0, 0.0613269, 0, 1, 0, 0.0613268, 0, 2.72102, 0, 3, 0 )
 
-[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="3"]
+[node name="HummingAkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="3"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
+}
+
+[node name="DepositAkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="4"]
+event = {
+"Id": 3709765320,
+"Name": "DEPOSIT3"
 }
 
 [node name="LightPillarPurple" parent="DreamscapeInteractive/TestGlowyThings" index="4"]
@@ -147,6 +165,12 @@ material = SubResource( 12 )
 event = {
 "Id": 4276063004,
 "Name": "PLAYER FS"
+}
+
+[node name="AkEvent" parent="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Campfire" index="2"]
+event = {
+"Id": 2359560878,
+"Name": "CAMPFIRE SMALL"
 }
 
 [node name="OmniLight" type="OmniLight" parent="."]

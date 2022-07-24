@@ -946,8 +946,8 @@ material/0 = ExtResource( 24 )
 [node name="AkEvent" type="Spatial" parent="Campfire"]
 script = ExtResource( 2 )
 event = {
-"Id": 1931646578,
-"Name": "CAMPFIRE"
+"Id": 2359560878,
+"Name": "CAMPFIRE SMALL"
 }
 trigger_on = 3
 stop_on = 2
