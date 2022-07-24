@@ -1,7 +1,9 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=2]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=3]
+[ext_resource path="res://Scenes/Particles/MeshForColorRamps.tres" type="SphereMesh" id=4]
 [ext_resource path="res://Assets/Sourced/FBXs/LowpolyForestPack/TreesTexture/SpruceTreeLeaf.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/vmilaalg_2K_Roughness.jpg" type="Texture" id=6]
 [ext_resource path="res://Data/WorldTerrain/data.hterrain" type="Resource" id=7]
@@ -61,6 +63,21 @@ surfaces/0 = {
 "skeleton_aabb": [  ],
 "vertex_count": 145
 }
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.0539906, 0.366197, 1 )
+colors = PoolColorArray( 1, 0.976471, 0.741176, 0.501961, 0.996078, 1, 0, 0.501961, 1, 0.356863, 0, 0.501961, 1, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 0.04
+gravity = Vector3( 0, 9.8, 0 )
+initial_velocity = 0.5
+initial_velocity_random = 1.0
+color_ramp = SubResource( 8 )
 
 [node name="DreamscapeTerrain" type="Spatial"]
 
@@ -856,7 +873,7 @@ shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="Campfire" type="Spatial" parent="."]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -7.97164, 0.0221095, 18.0145 )
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 11.6172, 0.0221095, 0.0734015 )
 
 [node name="rocks" type="MeshInstance" parent="Campfire"]
 transform = Transform( 0.74, 0, 0, 0, 0.7047, 0, 0, 0, 0.74, 0.000193059, 0, 0 )
@@ -869,5 +886,29 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00137812, 0, 0.0110719 )
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = ExtResource( 24 )
+
+[node name="AkEvent" type="Spatial" parent="Campfire"]
+script = ExtResource( 2 )
+event = {
+"Id": 1931646578,
+"Name": "CAMPFIRE"
+}
+trigger_on = 3
+stop_on = 2
+is_spatial = true
+
+[node name="FireParticles" type="Particles" parent="Campfire"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0455369, 0 )
+lifetime = 0.15
+process_material = SubResource( 5 )
+draw_pass_1 = ExtResource( 4 )
+
+[node name="OmniLight" type="OmniLight" parent="Campfire"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.06, 0 )
+light_color = Color( 1, 0.411765, 0.411765, 1 )
+
+[node name="OmniLight2" type="OmniLight" parent="Campfire"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.137018, 0 )
+light_color = Color( 0.694118, 0.666667, 0.207843, 1 )
 
 [editable path="Player Controller"]
