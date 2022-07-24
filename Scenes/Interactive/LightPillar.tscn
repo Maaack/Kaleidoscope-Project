@@ -38,11 +38,18 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
 [node name="CollisionShape" parent="ViewCollider" index="0"]
 shape = SubResource( 2 )
 
-[node name="AkEvent" type="Spatial" parent="."]
+[node name="HummingAkEvent" type="Spatial" parent="."]
 script = ExtResource( 3 )
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
+}
+
+[node name="DepositAkEvent" type="Spatial" parent="."]
+script = ExtResource( 3 )
+event = {
+"Id": 3709765322,
+"Name": "DEPOSIT1"
 }
 
 [connection signal="interacted" from="ViewCollider" to="." method="_on_ViewCollider_interacted"]
