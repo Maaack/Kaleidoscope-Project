@@ -25,7 +25,7 @@
 				<GameParameter Id="2987841584" Name="BusVolume_Master" ObjectPath="\Game Parameters\Default Work Unit\BusVolume_Master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1509027703" Language="SFX" Hash="1267929018">
+		<SoundBank Id="1509027703" Language="SFX" Hash="1132508657">
 			<ObjectPath>\SoundBanks\Default Work Unit\KScopeMain</ObjectPath>
 			<ShortName>KScopeMain</ShortName>
 			<Path>1509027703.bnk</Path>
@@ -491,6 +491,7 @@
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="749828935" Name="PlayerHighness" ObjectPath="\Game Parameters\Default Work Unit\PlayerHighness"/>
+				<GameParameter Id="2827693126" Name="WorldChangeLoudness" ObjectPath="\Game Parameters\Default Work Unit\WorldChangeLoudness"/>
 				<GameParameter Id="3982513867" Name="TumblerSpeed" ObjectPath="\Game Parameters\Default Work Unit\TumblerSpeed"/>
 			</GameParameters>
 			<StateGroups>

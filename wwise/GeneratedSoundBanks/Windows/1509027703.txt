@@ -113,6 +113,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	749828935	PlayerHighness			\Default Work Unit\PlayerHighness	
+	2827693126	WorldChangeLoudness			\Default Work Unit\WorldChangeLoudness	
 	3982513867	TumblerSpeed			\Default Work Unit\TumblerSpeed	
 
 Effect plug-ins	ID	Name	Type				Notes
