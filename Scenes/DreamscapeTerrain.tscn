@@ -929,7 +929,7 @@ shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="Campfire" type="Spatial" parent="."]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, 11.6172, 0.0221095, 0.0734015 )
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -8.26399, 0.0221095, 29.889 )
 
 [node name="rocks" type="MeshInstance" parent="Campfire"]
 transform = Transform( 0.74, 0, 0, 0, 0.7047, 0, 0, 0, 0.74, 0.000193059, 0, 0 )
