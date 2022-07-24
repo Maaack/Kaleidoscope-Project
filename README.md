@@ -12,7 +12,7 @@ Made in Godot 3.4.4
 #### Instructions
 1. Open the Asset Lib window in Godot.
    * ![Asset Lib Button](Docs/AssetLibButton.png)
-2. Make sure you are searching godotengine.org.
+2. Make sure you are searching `godotengine.org`.
    * ![Asset Lib Site](Docs/AssetLibSite.png)
 3. Search for "terrain" and select `Heightmap terrain`.
    * ![Heightmap Terrain Plugin](Docs/TerrainEditorPlugin.png)
@@ -27,7 +27,10 @@ Made in Godot 3.4.4
    * ![Scene Scattering Tool Plugin](Docs/ScatterPlugin.png)
 9. Follow steps 4-5.
 10. Let the plugin install in `/addons/zylann.scatter/`.
-11. Reload the project.
+11. Open the Project Settings window and select the Plugins tab.
+12. Under the column "Status", check the boxes to Enable the plugins.
+    * ![Enable All Plugins](Docs/ActivatePlugins.png)
+13. Reload the project.
     * ![Reload Current Project](Docs/ReloadProject.png)
 
 
