@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=2]
@@ -78,6 +78,62 @@ gravity = Vector3( 0, 9.8, 0 )
 initial_velocity = 0.5
 initial_velocity_random = 1.0
 color_ramp = SubResource( 8 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "FireFlicker"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("OmniLight:light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.411765, 0.411765, 1 ), Color( 0.662745, 0.270588, 0.270588, 1 ), Color( 1, 0.411765, 0.411765, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("OmniLight2:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.382, 0.923, 0.459, 1.0, 0.382, 0.536, 0.923, 0.536, 1.0, 0.614, 0.923, 0.15, 0.768, 0.304, 1.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("OmniLight:light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.411765, 0.411765, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("OmniLight2:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
+}
 
 [node name="DreamscapeTerrain" type="Spatial"]
 
@@ -910,5 +966,10 @@ light_color = Color( 1, 0.411765, 0.411765, 1 )
 [node name="OmniLight2" type="OmniLight" parent="Campfire"]
 transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.137018, 0 )
 light_color = Color( 0.694118, 0.666667, 0.207843, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Campfire"]
+autoplay = "FireFlicker"
+anims/FireFlicker = SubResource( 9 )
+anims/RESET = SubResource( 10 )
 
 [editable path="Player Controller"]
