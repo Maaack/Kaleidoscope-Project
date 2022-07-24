@@ -1,13 +1,18 @@
 extends Node
 
+signal trip_started()
+signal trip_ended()
+
 onready var kaleidoscope = $Kaleidoscope
 onready var tumbler_control = $Kaleidoscope/KaleidoscopeViewport
 onready var gem_control = $Kaleidoscope/GemControl
+onready var fire_particles : Particles = $Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Campfire/FireParticles
 
 export (PackedScene) var tumbler
 export (PackedScene)  var red_gemstone
 export (PackedScene) var green_gemstone
 export (PackedScene) var blue_gemstone
+
 
 var ethereal_min = 90
 var ethereal_max = 100
@@ -61,40 +66,58 @@ func add_gems():
 	
 func start_trip():
 	kaleidoscope.reset_kaleidoscope()
-	kaleidoscope.set_range(43, 45)
+	var transition_rate = kaleidoscope.intensity_change_rate
+	kaleidoscope.intensity_change_rate = transition_rate * 2.0
+	kaleidoscope.set_range(40, 45)
+	#add_gems()
+	emit_signal("trip_started")
+	yield(get_tree().create_timer(15), "timeout")
 	kaleidoscope.start_kaleidoscope()
-	add_gems()
+	yield(get_tree().create_timer(1), "timeout")
+	$WorldChangeAkEvent2D.post_event()
+	yield(get_tree().create_timer(14), "timeout")
+	kaleidoscope.intensity_change_rate = transition_rate
+	kaleidoscope.set_range(50, 55)
+	fire_particles.speed_scale = 0.6
 	red_pillar.show()
 	
 func on_interact_red_pillar():
 	red_pillar.hide()
-	gem_control.remove_gemstone(red_gem)
-	kaleidoscope.set_range(50, 60)
+	#gem_control.remove_gemstone(red_gem)
+	kaleidoscope.set_range(60, 70)
 	green_pillar.show()
 	
 func on_interact_green_pillar():
 	blue_pillar.show()
-	gem_control.remove_gemstone(green_gem)
+	#gem_control.remove_gemstone(green_gem)
 	kaleidoscope.set_range(60, 78)
 	green_pillar.hide()
 
 func on_interact_blue_pillar():
-	gem_control.remove_gemstone(blue_gem)
+	#gem_control.remove_gemstone(blue_gem)
 	blue_pillar.hide()
 	on_enlightenment()
 
 func on_enlightenment():
+	kaleidoscope.intensity_change_rate = kaleidoscope.intensity_change_rate  * 4.0
 	purple_pillar.show()
-	kaleidoscope.set_range(80,100)
+	
+	kaleidoscope.set_range(95,100)
 	_etheral_music()
 	_enlightened = true
+	fire_particles.speed_scale = 0.2
 	yield(get_tree().create_timer(30), "timeout")
 	on_clarity()
 	
 func on_clarity():
 	_enlightened = false
 	purple_pillar.hide()
+
 	kaleidoscope.set_range(0, 1)
+	fire_particles.speed_scale = 0.6
+	yield(get_tree().create_timer(3), "timeout")
+	fire_particles.speed_scale = 1.0
+	emit_signal("trip_ended")
 	#the end
 
 
@@ -123,3 +146,7 @@ func _on_Kaleidoscope_intensity_changed(intensity):
 
 func _etheral_music():
 	Wwise.set_rtpc_id(AK.GAME_PARAMETERS.PLAYERHIGHNESS, (ethereal_max), $LevelMusicAkEvent2D)
+
+
+func _on_AnimatedWorldEnvironment_world_ended():
+	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")

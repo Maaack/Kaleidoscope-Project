@@ -6,8 +6,8 @@ onready var camera = $Pivot/Camera
 export(float, 0.0, 5.0) var footstep_vector_min : float = 2.0
 
 var gravity = -30
-var max_speed = 8
-var jump_force = 10
+var max_speed = 6
+var jump_force = 0
 
 #camera vars
 var mouse_sensitivity : float = 0.02  #radians/pixel
@@ -58,3 +58,7 @@ func _physics_process(delta):
 		$AnimationPlayer.play("Walking")
 	if Input.is_action_pressed("jump") and is_on_floor():
 		velocity.y = jump_force
+
+
+func _on_MainKaleidoscope_trip_started():
+	max_speed = 2

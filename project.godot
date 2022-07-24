@@ -42,7 +42,7 @@ _global_script_classes=[ {
 "base": "Area",
 "class": "ViewCollider",
 "language": "GDScript",
-"path": "res://Scenes/ViewCollider.gd"
+"path": "res://Scenes/Interactive/ViewCollider.gd"
 } ]
 _global_script_class_icons={
 "AK": "",
@@ -56,7 +56,8 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Kaleidoscope Project"
+config/name="Camping Trip"
+config/description="You were meant to find yourself. Then the woods found you."
 run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
 config/icon="res://icon.png"
 
@@ -72,6 +73,7 @@ SceneLoader="*res://Scenes/LoadingScreen/SceneLoader.gd"
 
 window/size/width=1920
 window/size/height=1080
+window/size/fullscreen=true
 
 [editor_plugins]
 

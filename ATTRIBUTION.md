@@ -1,18 +1,48 @@
 # Attribution
 ## Collaborators
-[Marek](https://github.com/Maaack)  
+### Team Lead
+[Marek](https://maaack.itch.io/) 
+
+### Programming
 Tomy  
 Amy  
+Marek 
+
+### SFX
 Mike  
-Kati  
+
+### Composition
+Mike  
 Mussar  
+
+### Concept and Design
+Kati  
+Amy  
 
 ## Sourced / Unaffiliated
 ### Fonts
 #### Currently Everything
 Author: [Sorken Type Co](https://www.1001fonts.com/users/sorkintype/)  
-Source: [1001Fonts : spring-font.html](https://www.1001fonts.com/merriweather-font.html)  
+Source: [1001Fonts : merriweather-font.html](https://www.1001fonts.com/merriweather-font.html)  
 License: [SIL Open Font License (OFL)](https://scripts.sil.org/OFL)
+
+### Assets
+#### Kenney Assets (Survival, Nature, and Graveyard kits)
+Author: [Kenney](https://kenney.nl/)  
+Source: [itch.io](https://kenney.nl/assets/graveyard-kit)  
+License: [CC0 1.0 Universal (CC0 1.0)
+Public Domain Dedication ](https://creativecommons.org/publicdomain/zero/1.0/)
+
+#### Low Poly Forest Pack
+Author: [Jaks](https://jaks.itch.io/)  
+Source: [itch.io](https://jaks.itch.io/lowpolyforestpack)  
+License: [Custom Free License](https://jaks.itch.io/lowpolyforestpack)  
+
+#### Shrubs Flowers and Mushrooms 3D Low Poly Pack
+Author: [Craftpix](https://craftpix.net/)  
+Source: [itch.io](https://free-game-assets.itch.io/free-shrubs-flowers-and-mushrooms-3d-low-poly-pack)  
+License: [Custom License](https://craftpix.net/file-licenses/)
+
 
 ## Tools
 #### Godot

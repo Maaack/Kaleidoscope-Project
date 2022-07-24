@@ -1,12 +1,12 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
-[ext_resource path="res://addons/zylann.hterrain/hterrain_detail_layer.gd" type="Script" id=2]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=2]
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=3]
-[ext_resource path="res://addons/zylann.hterrain/tools/icons/icon_detail_layer_node.svg" type="Texture" id=4]
+[ext_resource path="res://Scenes/Particles/MeshForColorRamps.tres" type="SphereMesh" id=4]
 [ext_resource path="res://Assets/Sourced/FBXs/LowpolyForestPack/TreesTexture/SpruceTreeLeaf.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/vmilaalg_2K_Roughness.jpg" type="Texture" id=6]
-[ext_resource path="res://terrain_data/data.hterrain" type="Resource" id=7]
+[ext_resource path="res://Data/WorldTerrain/data.hterrain" type="Resource" id=7]
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://addons/zylann.scatter/scatter3d.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/LowPolyObjects/Grass/Grass1.tscn" type="PackedScene" id=10]
@@ -62,6 +62,77 @@ surfaces/0 = {
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 145
+}
+
+[sub_resource type="Gradient" id=7]
+offsets = PoolRealArray( 0, 0.0539906, 0.366197, 1 )
+colors = PoolColorArray( 1, 0.976471, 0.741176, 0.501961, 0.996078, 1, 0, 0.501961, 1, 0.356863, 0, 0.501961, 1, 0, 0, 0 )
+
+[sub_resource type="GradientTexture" id=8]
+gradient = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=5]
+emission_shape = 1
+emission_sphere_radius = 0.04
+gravity = Vector3( 0, 9.8, 0 )
+initial_velocity = 0.5
+initial_velocity_random = 1.0
+color_ramp = SubResource( 8 )
+
+[sub_resource type="Animation" id=9]
+resource_name = "FireFlicker"
+length = 3.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("OmniLight:light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1.5, 3 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 0.411765, 0.411765, 1 ), Color( 0.662745, 0.270588, 0.270588, 1 ), Color( 1, 0.411765, 0.411765, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("OmniLight2:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8, 2, 2.2, 2.4, 2.6, 2.8, 3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 1.0, 0.382, 0.923, 0.459, 1.0, 0.382, 0.536, 0.923, 0.536, 1.0, 0.614, 0.923, 0.15, 0.768, 0.304, 1.0 ]
+}
+
+[sub_resource type="Animation" id=10]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath("OmniLight:light_color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 0.411765, 0.411765, 1 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("OmniLight2:light_energy")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ 1.0 ]
 }
 
 [node name="DreamscapeTerrain" type="Spatial"]
@@ -857,18 +928,8 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
-[node name="HTerrainDetailLayer" type="Spatial" parent="HTerrain"]
-script = ExtResource( 2 )
-__meta__ = {
-"_editor_icon": ExtResource( 4 )
-}
-shader_params/u_globalmap_tint_bottom = null
-shader_params/u_globalmap_tint_top = null
-shader_params/u_bottom_ao = null
-shader_params/u_instance_scale = Vector3( 1, 1, 1 )
-
 [node name="Campfire" type="Spatial" parent="."]
-transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -7.97164, 0.0221095, 18.0145 )
+transform = Transform( 10, 0, 0, 0, 10, 0, 0, 0, 10, -8.26399, 0.0221095, 29.889 )
 
 [node name="rocks" type="MeshInstance" parent="Campfire"]
 transform = Transform( 0.74, 0, 0, 0, 0.7047, 0, 0, 0, 0.74, 0.000193059, 0, 0 )
@@ -881,5 +942,34 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.00137812, 0, 0.0110719 )
 mesh = SubResource( 4 )
 skeleton = NodePath("")
 material/0 = ExtResource( 24 )
+
+[node name="AkEvent" type="Spatial" parent="Campfire"]
+script = ExtResource( 2 )
+event = {
+"Id": 1931646578,
+"Name": "CAMPFIRE"
+}
+trigger_on = 3
+stop_on = 2
+is_spatial = true
+
+[node name="FireParticles" type="Particles" parent="Campfire"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0455369, 0 )
+lifetime = 0.15
+process_material = SubResource( 5 )
+draw_pass_1 = ExtResource( 4 )
+
+[node name="OmniLight" type="OmniLight" parent="Campfire"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.06, 0 )
+light_color = Color( 1, 0.411765, 0.411765, 1 )
+
+[node name="OmniLight2" type="OmniLight" parent="Campfire"]
+transform = Transform( 0.1, 0, 0, 0, 0.1, 0, 0, 0, 0.1, 0, 0.137018, 0 )
+light_color = Color( 0.694118, 0.666667, 0.207843, 1 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Campfire"]
+autoplay = "FireFlicker"
+anims/FireFlicker = SubResource( 9 )
+anims/RESET = SubResource( 10 )
 
 [editable path="Player Controller"]

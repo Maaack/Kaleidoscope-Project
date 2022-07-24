@@ -12,6 +12,9 @@ export var intensity_lerp = 0.0
 export var  triangles : bool = 0;
 export var intensity: float = 0
 
+var lerp_min = 0.0
+var lerp_max = 100.0
+
 #shader params
 var segments_name = "segments"
 var segments_val = 3.0
@@ -82,17 +85,28 @@ func stop_kaleidoscope():
 
 
 func set_range(i_min, i_max):
+
 	#intensity_lerp = intensity
 	intensity_min = i_min
 	intensity_max = i_max
 	#_changing_intensity_range = true
 	if (intensity < intensity_min):
-		set_intensity(intensity_min)
+		#set_intensity(intensity_min)
+		lerp_min = intensity
+		lerp_max = i_min+0.1
+		_changing_intensity_range = true
 	elif (intensity > intensity_max):
-		set_intensity(intensity_max)
+		#set_intensity(intensity_max)
+		lerp_min = intensity
+		lerp_max = i_max-1
+		_changing_intensity_range = true
+	else:
+		lerp_min = i_min
+		lerp_max = i_max
+	time = 0.0
+		
 	
 func inv_lerp(a, b, v):
-	print ("inv lerp ", a, " ", b, " ", v)
 	return (v - a ) / (b - a)
 	
 func set_intensity (i):
@@ -100,9 +114,14 @@ func set_intensity (i):
 	lerp_intensity(t)
 	
 func lerp_intensity_in_range(tr):
-	var target_intensity = lerp(intensity_min, intensity_max, tr)
+	var target_intensity = lerp(lerp_min, lerp_max, tr)
 	var t = inv_lerp(0.0, 100.0, target_intensity)
 	lerp_intensity(t)
+	if (_changing_intensity_range):
+		if (intensity >= intensity_min && intensity <= intensity_max):
+			_changing_intensity_range = false
+			set_range(intensity_min, intensity_max)
+		
 
 func lerp_intensity(t):
 	intensity = lerp(0.0, 100.0, t);
@@ -151,23 +170,13 @@ func _ready():
 func _pulse():
 	#const float pi = 3.14;
 	#const float frequency = 10; // Frequency in Hz
-	return 0.5 * (1 + sin(2 * PI * time / intensity_change_rate))
+	return abs( sin(2 * PI * time / intensity_change_rate))
 		#return 0.5*(1+sin(2 * PI * intensity_change_rate * time))
 
 func _process(delta):
 	if (kaleidoscope_enabled):
 		time += delta
-		"""var t
-		if (_changing_intensity_range):
-			var t_rate = time / intensity_change_rate;
-			#going up
-			var d_range = intensity_min - intensity_lerp
-			
-			if (intensity > intensity_max):
-				t = intensity / 100.0 - delta * intensity_change_rate
-		else:"""
 		var t = _pulse()
-		print ("LERP ", t)
 		lerp_intensity_in_range(t)#sin(time / intensity_change_rate) )
 
 func _on_change_intensity(value):
