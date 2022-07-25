@@ -119,20 +119,6 @@ func on_clarity():
 	fire_particles.speed_scale = 1.0
 	animated_world_env.end_trip()
 
-func _on_DreamscapeInteractive_pillar_interaction(pillar):
-	match(pillar):
-		ViewCollider.Type.RED:
-			on_interact_red_pillar()
-		ViewCollider.Type.GREEN:
-			on_interact_green_pillar()
-		ViewCollider.Type.BLUE:
-			on_interact_blue_pillar()
-
-
-
-func _on_DreamscapeInteractive_mushroom_eated():
-	start_trip()
-
 
 func _on_Kaleidoscope_intensity_changed(intensity):
 	if (_enlightened):
