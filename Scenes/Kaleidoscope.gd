@@ -185,12 +185,5 @@ func _on_change_intensity(value):
 func _on_shader_selected(index):
 	pass
 
-func _on_DreamscapeInteractive_mushroom_eated():
-	pass
-	#reset_kaleidoscope();
-	#start_kaleidoscope();
-
-
-
 func _on_KaleidoscopeViewport_tumbler_changed():
 	tumbler = $KaleidoscopeViewport/TumblerScene

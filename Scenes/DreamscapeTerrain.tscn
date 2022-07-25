@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Sourced/FBXs/LowpolyForestPack/TreesTexture/SpruceTreeLeaf.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/vmilaalg_2K_Roughness.jpg" type="Texture" id=6]
 [ext_resource path="res://Data/WorldTerrain/data.hterrain" type="Resource" id=7]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://addons/zylann.scatter/scatter3d.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/LowPolyObjects/Grass/Grass1.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/LowPolyObjects/Mushrooms/Mushroom3.tscn" type="PackedScene" id=11]
@@ -137,17 +137,8 @@ tracks/1/keys = {
 
 [node name="DreamscapeTerrain" type="Spatial"]
 
-[node name="Player Controller" parent="." instance=ExtResource( 8 )]
+[node name="Player" parent="." instance=ExtResource( 8 )]
 transform = Transform( 0.698485, 0.000547031, -0.715624, -0.00127874, 0.999999, -0.000483692, 0.715624, 0.00125296, 0.698486, -12.2369, 1.6744, 29.574 )
-
-[node name="Camera" parent="Player Controller/Player/Pivot" index="0"]
-transform = Transform( 1, -2.50293e-09, -8.04663e-07, 1.16415e-10, 1, -1.43773e-08, 0, -5.82077e-11, 1, 1.90735e-06, 0.183741, 0.461391 )
-
-[node name="FootStepAkEvent" parent="Player Controller/Player" index="5"]
-event = {
-"Id": 4276063004,
-"Name": "PLAYER FS"
-}
 
 [node name="Scatter3D" type="Spatial" parent="."]
 script = ExtResource( 9 )
@@ -971,5 +962,3 @@ light_color = Color( 0.694118, 0.666667, 0.207843, 1 )
 autoplay = "FireFlicker"
 anims/FireFlicker = SubResource( 9 )
 anims/RESET = SubResource( 10 )
-
-[editable path="Player Controller"]

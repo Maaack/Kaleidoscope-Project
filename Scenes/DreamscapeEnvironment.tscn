@@ -161,12 +161,6 @@ material = SubResource( 11 )
 [node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarBlue3" index="0"]
 material = SubResource( 12 )
 
-[node name="FootStepAkEvent" parent="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller/Player" index="5"]
-event = {
-"Id": 4276063004,
-"Name": "PLAYER FS"
-}
-
 [node name="AkEvent" parent="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Campfire" index="2"]
 event = {
 "Id": 2359560878,
@@ -190,4 +184,3 @@ light_energy = 0.182
 [editable path="DreamscapeInteractive/TestGlowyThings/LightPillarBlue"]
 [editable path="DreamscapeInteractive/TestGlowyThings/LightPillarBlue/ViewCollider"]
 [editable path="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain"]
-[editable path="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller"]
