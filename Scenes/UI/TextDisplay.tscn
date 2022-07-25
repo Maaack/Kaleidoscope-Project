@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Themes/SubtitleFont.tres" type="DynamicFont" id=1]
 [ext_resource path="res://Scenes/UI/TextDisplay.gd" type="Script" id=2]
@@ -19,6 +19,36 @@ tracks/0/keys = {
 "values": [ Color( 1, 1, 1, 0 ), Color( 1, 1, 1, 1 ) ]
 }
 
+[sub_resource type="Animation" id=3]
+resource_name = "FadeOut"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/path = NodePath("Label:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ), Color( 1, 1, 1, 0 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "clear_text"
+} ]
+}
+
 [sub_resource type="Animation" id=2]
 length = 0.001
 tracks/0/type = "value"
@@ -31,13 +61,45 @@ tracks/0/keys = {
 "times": PoolRealArray( 0 ),
 "transitions": PoolRealArray( 1 ),
 "update": 0,
-"values": [ Color( 1, 1, 1, 1 ) ]
+"values": [ Color( 1, 1, 1, 0 ) ]
 }
+
+[sub_resource type="AnimationNodeAnimation" id=4]
+animation = "FadeIn"
+
+[sub_resource type="AnimationNodeAnimation" id=5]
+animation = "FadeOut"
+
+[sub_resource type="AnimationNodeAnimation" id=9]
+animation = "RESET"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=6]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=10]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=11]
+switch_mode = 2
+auto_advance = true
+
+[sub_resource type="AnimationNodeStateMachine" id=7]
+states/FadeIn/node = SubResource( 4 )
+states/FadeIn/position = Vector2( 219, 127 )
+states/FadeOut/node = SubResource( 5 )
+states/FadeOut/position = Vector2( 504, 127 )
+states/RESET/node = SubResource( 9 )
+states/RESET/position = Vector2( 381, 2 )
+transitions = [ "FadeIn", "FadeOut", SubResource( 6 ), "RESET", "FadeIn", SubResource( 10 ), "FadeOut", "RESET", SubResource( 11 ) ]
+start_node = "RESET"
+graph_offset = Vector2( -22.2232, -144.551 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=8]
 
 [node name="TextDisplay" type="CanvasLayer"]
 script = ExtResource( 2 )
 
 [node name="Label" type="Label" parent="."]
+modulate = Color( 1, 1, 1, 0 )
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -50,7 +112,14 @@ autowrap = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/FadeIn = SubResource( 1 )
+anims/FadeOut = SubResource( 3 )
 anims/RESET = SubResource( 2 )
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 7 )
+anim_player = NodePath("../AnimationPlayer")
+active = true
+parameters/playback = SubResource( 8 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
