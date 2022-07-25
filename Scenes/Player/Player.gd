@@ -66,6 +66,8 @@ func _physics_process(delta):
 		if current_interactable is Interactable3D:
 			current_interactable.interact()
 			emit_signal("interacted", current_interactable.interactable_type)
+			emit_signal("interactable_exited", current_interactable.interactable_text)
+			current_interactable = null
 
 func slow_down():
 	max_speed = 2

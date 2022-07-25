@@ -1,8 +1,5 @@
 extends Node
 
-signal trip_started()
-signal trip_ended()
-
 onready var kaleidoscope = $Kaleidoscope
 onready var tumbler_control = $Kaleidoscope/KaleidoscopeViewport
 onready var gem_control = $Kaleidoscope/GemControl
