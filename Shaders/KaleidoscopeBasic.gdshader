@@ -26,6 +26,7 @@ uniform float normality_radius = 0;
 
 uniform float segments = 6;
 const float segmentOrigin = 1.57079632679489661923;
+uniform bool reflect_in_segment = false;
 uniform bool use_polygon_radius = false;
 uniform bool reflect_outside = true;
 uniform bool select_outside_slice = false;
@@ -49,23 +50,21 @@ const float SEG_BORDER_ANGLE () {
 	return ((PI_TWO / segments) )  ;
 }
 
+const float FLOOR_SEG_BORDER_ANGLE(){
+	return ((PI_TWO / floor(segments)));
+}
+
 // can I define macros in godot shader language?
 const float HALF_SEG_BORDER_ANGLE () {
 	return (PI) / segments;
 }
 
-/*const float VISBLE_SLICE_BORDER_ANGLE() {
-	return (SEG_BORDER_ANGLE() );//* slice_selection ;
-}
-
-const float VISBLE_SLICE_BORDER_RIGHT() {
-	return SEG_BORDER_ANGLE() * (slice_selection - 1.0);
-}*/
-
 const float ORIGIN(){
 	return segmentOrigin - HALF_SEG_BORDER_ANGLE();
 }
-
+const float SEAM(){
+	return PI + HALF_SEG_BORDER_ANGLE();
+}
 //UTIL///////////////////
 
 vec2 cartToPolarUV(vec2 coord, vec2 center){
@@ -79,19 +78,12 @@ vec2 cartToPolarUV(vec2 coord, vec2 center){
 	if (uvAngle < 0.0){
 		uvAngle = (PI - abs(uvAngle)) + PI;
 	}
-	//uvAngle = uvAngle + segmentOrigin;//((uvAngle + segmentOrigin) / (PI_TWO + segmentOrigin)) * PI_TWO ;//(uvAngle - segmentOrigin) / (PI_TWO - segmentOrigin);
 
 	return vec2(uvRadius, uvAngle);
 }
 
 vec2 polarToCartUV(float angle, float radius, vec2 center){
 	angle = -(ORIGIN() + angle);
-	//add 0.5 to shift center back
-	if (angle > PI_TWO) {
-		//angle = angle - PI;
-		//angle = 0.0 - angle - PI;//0.0 - (angle - PI);
-	}
-	//angle = angle - segmentOrigin;
 	return vec2(cos(angle), sin(angle) )* radius + center;
 }
 
@@ -141,28 +133,47 @@ bool insideCenterCircle (vec2 center, vec2 uv){
 
 bool inside(vec2 center, vec2 uv){
 	bool ins;
-	/*if (use_polygon_radius){
-		ins = insideCenterShape(center, uv);
-	} else {
-		ins = insideCenterCircle(center, uv);
-	}*/
 	ins = use_polygon_radius? insideCenterShape( uv) : insideCenterCircle(center, uv);
 	return select_outside_slice? !ins : ins;
 }
 
-float angleIsInSegment(float angle){
-	/*if (angle < 0.0){
-		angle = PI - abs(angle) + PI;
-	}*/
+float displaceAngle (float uvAngle){
 	
+	float angle = uvAngle;
 	//angle =
+	float f = (SEG_BORDER_ANGLE() * floor(segments));// + (SEG_BORDER_ANGLE() );
+	float extra =  (PI_TWO - f); //FLOOR_SEG_BORDER_ANGLE() - SEG_BORDER_ANGLE();//PI_TWO - (SEG_BORDER_ANGLE() * segments);
+
+	if (extra == 0.0){
+		return angle;
+	}
+	if (int(floor(segments)) %2 == 0){
+		float seam = SEAM();//0.0+HALF_SEG_BORDER_ANGLE();
+		
+		if (angle > seam){
+			angle = angle - extra;
+		}
+	} else {
+
+		float seam_min = SEAM() - extra / 2.0  ;// extra / 2.0 ;
+		float seam_max = SEAM() + extra / 2.0; //extra / 2.0;
+		if ((angle < seam_max) && (angle > seam_min)){
+			angle = SEG_BORDER_ANGLE() * segments + angle - seam_max;
+		}
+		else if (angle > seam_max){
+			angle = angle - extra;
+		}
 	
+	}
+	return angle;
+}
+
+float angleIsInSegment(float angle){
+	
+	angle = displaceAngle(angle);
+
 	float seg = floor((angle) / SEG_BORDER_ANGLE()  );
 	
-	if (angle > PI_TWO - HALF_SEG_BORDER_ANGLE()){
-		//sseg = 0.0;
-	}
-
 	return seg ;
 }
 
@@ -195,10 +206,29 @@ vec2 getCenterUV(vec2 uv){
 ////DEBUG FUNCS //////////////////
 
 // for Debugging
+
+bool isOriginBorderLine(vec2 uv){
+	float pAngle = (cartToPolarUV(uv, CENTER).y);
+	if (pAngle > (0.0 - 0.01) && pAngle < (0.0 + 0.01)){
+		return true;
+	}
+	
+	return false;
+}
+
+bool isSeamBorderLine(vec2 uv){
+	float pAngle = (cartToPolarUV(uv, CENTER).y);
+	if (pAngle > (HALF_SEG_BORDER_ANGLE() + PI - 0.01) && pAngle < (HALF_SEG_BORDER_ANGLE() + PI + 0.01)){
+		return true;
+	}
+	
+	return false;
+}
+
 bool isSegBorderLine(vec2 uv){
 	float pAngle = (cartToPolarUV(uv, CENTER).y);
 	float opSeg = SEG_BORDER_ANGLE();
-	float pSeg = opSeg - HALF_SEG_BORDER_ANGLE();
+	float pSeg = opSeg;// - HALF_SEG_BORDER_ANGLE();
 	
 	/*if  (pAngle > (opSeg - 0.01) && pAngle < (opSeg + 0.01)){
 		return true;
@@ -282,6 +312,14 @@ vec4 debugUV(vec2 uv, vec4 color){
 	if (isSegBorderLine(uv)){
 		color = rainbowCol; //vec4(0, 1.0, 1.0, 1.0);
 	}
+	if (isOriginBorderLine(uv)){
+		return vec4(0, 1.0, 1.0, 1.0);
+	}
+	
+	if (isSeamBorderLine(uv)){
+		return vec4(0, 1.0, 1.0, 1.0);
+	}
+	
 	return mix(color, rainbowCol, 0.5);//rainbowCol;
 	return color;
 }
@@ -371,6 +409,28 @@ float radiusUV(float radius, bool isInside){
 
 }
 
+float flipSegmentAngle(float angle){
+	return SEG_BORDER_ANGLE() - angle;
+}
+float flip(float angleInSegment, float seg){
+	//Flipping Logic
+	bool odd_segments = int(floor(segments)) % 2 != 0;
+	float mid = floor(segments) / 2.0;
+	bool extra_segment = seg == floor(segments);
+	bool mid_segment_is_even = int(floor(mid)) % 2 == 0;
+	bool segment_is_even = int(seg + 1.0) % 2 == 0;
+	bool rev_seg_is_even = int(segments - seg + 1.0) % 2 == 0;
+
+	if ( (seg <= mid && segment_is_even) ||
+		(seg > mid && !extra_segment && rev_seg_is_even) ||
+		(extra_segment && odd_segments && mid_segment_is_even)) {
+			
+		angleInSegment = flipSegmentAngle(angleInSegment);
+	}
+		
+	return angleInSegment;
+}
+
 vec2 sliceUV(vec2 uv){
 	vec2 center = getCenterUV(uv);
 	vec2 pRadAngle = cartToPolarUV(uv, center);
@@ -378,42 +438,25 @@ vec2 sliceUV(vec2 uv){
 	float uvAngle = pRadAngle.y;
 	
 	float seg = angleIsInSegment(uvAngle);
-
+	
 	float angleInSegment = uvAngle;
-	//where is the angle in segment space
-	//float angleInSegment = doMod(uvAngle, VISBLE_SLICE_BORDER_ANGLE());//uvAngle - SEG_BORDER_ANGLE() * angleIsInSegment(uvAngle);
-	//float angleInSegment = uvAngle ;
-	//if (angleInSegment < 0.0){
-		//angleInSegment = PI_TWO - ( abs(angleInSegment));
-	//}
 	if (seg > 0.0 ){
-		//angleInSegment = PI_TWO;
-		angleInSegment = doMod(uvAngle , SEG_BORDER_ANGLE());
-		//angleInSegment = SEG_BORDER_ANGLE() - angleInSegment;
-		//angleInSegment = min(angleInSegment, SEG_BORDER_ANGLE()  - angleInSegment);
-		if ((int(seg + 1.0) % 2 == 0)  ) {
-			angleInSegment = SEG_BORDER_ANGLE() - angleInSegment;//min(angleInSegment, VISBLE_SLICE_BORDER_ANGLE() - angleInSegment);
-			//angleInSegment = max(angleInSegment, SEG_BORDER_ANGLE()  - angleInSegment);
-		} else {
-			//angleInSegment = min(angleInSegment, SEG_BORDER_ANGLE()  - angleInSegment);
+		//Find Angle
+		angleInSegment = displaceAngle(angleInSegment);// doMod(uvAngle , SEG_BORDER_ANGLE());
+		if (seg < segments){
+			angleInSegment = doMod(angleInSegment, SEG_BORDER_ANGLE());
 		}
 		
+		angleInSegment = flip(angleInSegment, seg);
 	}
 	
-	bool centerRing = inside(CENTER, uv);
-	/*if ((int(seg + 1.0) % 2 == 0)  ) {
-		//return vec2 (0.0, 0.0);
-		//angleInSegment = 0.0;
-		angleInSegment = SEG_BORDER_ANGLE() - angleInSegment;//min(angleInSegment, VISBLE_SLICE_BORDER_ANGLE() - angleInSegment);
-	}
-	if (seg > 0.0){
-		angleInSegment = min(angleInSegment, SEG_BORDER_ANGLE()  - angleInSegment);
-	}*/
 	//reflect across the segment.
-	//angleInSegment = min(angleInSegment, SEG_BORDER_ANGLE()  - angleInSegment);
+	if (reflect_in_segment ){
+		angleInSegment = max(angleInSegment, SEG_BORDER_ANGLE()  - angleInSegment);
+	}
 	
 
-	//float segRadius = uvRadius / 2.0;
+	bool centerRing = inside(CENTER, uv);
 	float radiusInSegment =radiusUV(uvRadius, centerRing); //doMod(uvRadius, center_radius);
 	
 	vec2 sliceUV = polarToCartUV(angleInSegment, radiusInSegment, CENTER);
@@ -423,9 +466,6 @@ vec2 sliceUV(vec2 uv){
 	/*if (slice_selection > segments / 2.0){
 		sliceUV.y = 1.0 - sliceUV.y;
 	}*/
-	
-	
-	
 	
 	return sliceUV;
 }
