@@ -3,6 +3,7 @@ shader_type canvas_item;
 uniform bool enabled = true;
 
 uniform bool triangles = false;
+uniform float triangle_blend = 0.0;
 
 uniform vec2 polarOutOffset = vec2(0);
 uniform vec2 polarInOffset = vec2(0);
@@ -87,6 +88,7 @@ vec2 polarToCartUV(float angle, float radius, vec2 center){
 	return vec2(cos(angle), sin(angle) )* radius + center;
 }
 
+//Inside
 bool insideCenterShape(vec2 uv){
   float d = 0.0;
 
@@ -126,7 +128,6 @@ float centerShapeBorder (vec2 uv){
 	return d;
 }
 
-
 bool insideCenterCircle (vec2 center, vec2 uv){
 	return distance(center, uv) < center_radius;
 }
@@ -136,6 +137,40 @@ bool inside(vec2 center, vec2 uv){
 	ins = use_polygon_radius? insideCenterShape( uv) : insideCenterCircle(center, uv);
 	return select_outside_slice? !ins : ins;
 }
+//
+
+float radiusUV(float radius, bool isInside){
+
+	if (!reflect_outside || isInside){
+		return radius; // center_radius;
+	} else {
+		return  (center_radius * 2.0) - (radius ) ;
+	}
+}
+
+float flipSegmentAngle(float angle){
+	return SEG_BORDER_ANGLE() - angle;
+}
+
+float flip(float angleInSegment, float seg){
+	//Flipping Logic
+	bool odd_segments = int(floor(segments)) % 2 != 0;
+	float mid = floor(segments) / 2.0;
+	bool extra_segment = seg == floor(segments);
+	bool mid_segment_is_even = int(floor(mid)) % 2 == 0;
+	bool segment_is_even = int(seg + 1.0) % 2 == 0;
+	bool rev_seg_is_even = int(segments - seg + 1.0) % 2 == 0;
+
+	if ( (seg <= mid && segment_is_even) ||
+		(seg > mid && !extra_segment && rev_seg_is_even) ||
+		(extra_segment && odd_segments && mid_segment_is_even)) {
+			
+		angleInSegment = flipSegmentAngle(angleInSegment);
+	}		
+	return angleInSegment;
+}
+
+//Segment Positioning
 
 float displaceAngle (float uvAngle){
 	
@@ -154,7 +189,6 @@ float displaceAngle (float uvAngle){
 			angle = angle - extra;
 		}
 	} else {
-
 		float seam_min = SEAM() - extra / 2.0  ;// extra / 2.0 ;
 		float seam_max = SEAM() + extra / 2.0; //extra / 2.0;
 		if ((angle < seam_max) && (angle > seam_min)){
@@ -163,45 +197,18 @@ float displaceAngle (float uvAngle){
 		else if (angle > seam_max){
 			angle = angle - extra;
 		}
-	
 	}
 	return angle;
 }
 
 float angleIsInSegment(float angle){
-	
 	angle = displaceAngle(angle);
-
-	float seg = floor((angle) / SEG_BORDER_ANGLE()  );
-	
-	return seg ;
+	return floor((angle) / SEG_BORDER_ANGLE()  );
 }
 
 float doMod(float mod1, float mod2){
 	return mod1 - mod2 * floor(mod1 / mod2);
 }
-
-vec2 getCenterUV(vec2 uv){
-	vec2 center = CENTER;
-	
-	//get polar coordinates
-	vec2 pRadAngle = cartToPolarUV(uv, center);
-	//float uvRadius = pRadAngle.x;
-	//float uvAngle = pRadAngle.y;
-	
-	if (!inside(center, uv)){
-		float seg = angleIsInSegment(pRadAngle.y);
-		
-		float angleToCenter = seg * SEG_BORDER_ANGLE();//VISBLE_SLICE_BORDER_ANGLE();
-		
-		float radiusToCenter = 0.5 - center_radius; // * 2.0;
-		
-		//center = polarToCartUV(angleToCenter, radiusToCenter, center);
-	}
-	return center;
-}
-
-
 
 ////DEBUG FUNCS //////////////////
 
@@ -212,7 +219,6 @@ bool isOriginBorderLine(vec2 uv){
 	if (pAngle > (0.0 - 0.01) && pAngle < (0.0 + 0.01)){
 		return true;
 	}
-	
 	return false;
 }
 
@@ -221,7 +227,6 @@ bool isSeamBorderLine(vec2 uv){
 	if (pAngle > (HALF_SEG_BORDER_ANGLE() + PI - 0.01) && pAngle < (HALF_SEG_BORDER_ANGLE() + PI + 0.01)){
 		return true;
 	}
-	
 	return false;
 }
 
@@ -230,14 +235,6 @@ bool isSegBorderLine(vec2 uv){
 	float opSeg = SEG_BORDER_ANGLE();
 	float pSeg = opSeg;// - HALF_SEG_BORDER_ANGLE();
 	
-	/*if  (pAngle > (opSeg - 0.01) && pAngle < (opSeg + 0.01)){
-		return true;
-	}
-	return false;*/
-	
-	/*float degUV = ((pAngle * ( 180.0 / PI )) / 360.0) + 0.5;
-	float degSeg = ((SEG_BORDER_ANGLE() / 2.0 * ( 180.0 / PI )) / 360.0) ;
-	return (degUV > degSeg - 0.001 && degUV < degSeg + 0.001);*/
 	while (pSeg == 0.0 || (pSeg <= PI_TWO)){
 		
 		if (pAngle > (pSeg - 0.01) && pAngle < (pSeg + 0.01)){
@@ -250,19 +247,12 @@ bool isSegBorderLine(vec2 uv){
 	}
 	return false;
 }
+
 bool inOriginalSlice(vec2 uv){
-	
 	if (!inside(CENTER, uv)) {
 		return false;
 	}
-	//return true;
 	float pAngle = cartToPolarUV(uv, CENTER).y;
-	/*float degUV = ((pAngle * ( 180.0 / PI )) / 360.0) + 0.5;
-	float degSeg = ((VISBLE_SLICE_BORDER_ANGLE() / 2.0 * ( 180.0 / PI )) / 360.0) ;
-	//COLOR = vec4(0,  degUV, 0, 1.0);
-	
-	return degUV < degSeg;*/
-	
 	return pAngle <SEG_BORDER_ANGLE() ;
 }
 
@@ -275,18 +265,7 @@ vec3 rainbow(float level)
 	return vec3(r, g, b);
 }
 
-
-
-vec2 polyCartToPolarUV(vec2 st){
-	  st = st *2.-1.;
-	float a = atan(st.x,st.y)+PI;
-  float r = sqrt(st.x * st.x + st.y * st.y);//PI_TWO/float(segments);
-
-	return vec2 (r, a);
-}
-
 vec4 debugUV(vec2 uv, vec4 color){
-
 	//vec4 color;
 	vec2 pRadiusAngle = cartToPolarUV(uv, CENTER);
 	//color = vec4 (pRadiusAngle.y / PI_TWO, 0.0, 0.0, 0.0);
@@ -305,7 +284,7 @@ vec4 debugUV(vec2 uv, vec4 color){
 		color = rainbowCol; //vec4(0, 1.0, 1.0, 1.0);
 	}
 		
-	if (distance(getCenterUV(uv), uv) < 0.01){
+	if (distance(CENTER, uv) < 0.01){
 		color = rainbowCol;//vec4(0, 1.0, 1.0, 1.0);
 	}
 		
@@ -337,16 +316,10 @@ vec3 color_channel(vec3 color){
 	if (color_enabled.r >= 1.0 && color_enabled.g >= 1.0 && color_enabled.b >= 1.0){
 		return color;
 	}
-	
 	float norm = 3.0 + (color_enabled.r + color_enabled.g + color_enabled.b);
 	vec3 ds =  vec3(color.r + color.g + color.b) / norm;
 
-//desat (color,1.0).xyz;
-	//vec3 dds = (ds + color * color_enabled) - ds;
 	vec3 dds = mix(ds, max(color, ds), color_enabled);
-	 
-
-
 	return dds;
 }
 
@@ -357,8 +330,6 @@ vec2 rot(vec2 p, vec2 o, float a)
 	mat2 m  = mat2(vec2(c, -s), vec2(s, c));
 	return o +  m * (p - o);
 }
-
-
 
 vec4 vignette (vec2 uv, vec4 c){
 	float dist = distance (CENTER, uv);
@@ -392,47 +363,15 @@ vec2 triangleUV (vec2 uv, vec2 frag_coord) {
     if(uv.y > 1.0) uv = refl(uv, vec2(0.0, 1.0), vec2(1.0, 0.0));
     if(uv.y < -2.0*uv.x/l) uv = refl(uv, vec2(0), vec2(-0.5, size));
 	uv.x = -uv.x * frag_coord.y / frag_coord.x + 0.5;
-    //uv.x = -uv.x*iChannelResolution[0].y/iChannelResolution[0].x + 0.5;
+
 	return uv;
 }
 
 ///////////////////
 //POLAR////////////
 
-float radiusUV(float radius, bool isInside){
-
-	if (!reflect_outside || isInside){
-		return radius; // center_radius;
-	} else {
-		return  (center_radius * 2.0) - (radius ) ;
-	}
-
-}
-
-float flipSegmentAngle(float angle){
-	return SEG_BORDER_ANGLE() - angle;
-}
-float flip(float angleInSegment, float seg){
-	//Flipping Logic
-	bool odd_segments = int(floor(segments)) % 2 != 0;
-	float mid = floor(segments) / 2.0;
-	bool extra_segment = seg == floor(segments);
-	bool mid_segment_is_even = int(floor(mid)) % 2 == 0;
-	bool segment_is_even = int(seg + 1.0) % 2 == 0;
-	bool rev_seg_is_even = int(segments - seg + 1.0) % 2 == 0;
-
-	if ( (seg <= mid && segment_is_even) ||
-		(seg > mid && !extra_segment && rev_seg_is_even) ||
-		(extra_segment && odd_segments && mid_segment_is_even)) {
-			
-		angleInSegment = flipSegmentAngle(angleInSegment);
-	}
-		
-	return angleInSegment;
-}
-
 vec2 sliceUV(vec2 uv){
-	vec2 center = getCenterUV(uv);
+	vec2 center = CENTER;
 	vec2 pRadAngle = cartToPolarUV(uv, center);
 	float uvRadius = pRadAngle.x;
 	float uvAngle = pRadAngle.y;
@@ -478,7 +417,6 @@ void fragment(){
 	if (!enabled){
 		COLOR = texture(TEXTURE, uv);
 		samp = uv;
-
 	} else {
 		float texRotationOffset =  triangles? triInRotationOffset : polarInRotationOffset;
 		vec2 texOffset = triangles ? triInOffset : polarInOffset;
@@ -489,55 +427,62 @@ void fragment(){
 
 		if (triangles) {
 			vec2 res = vec2 (1080., 1080.);
-			uv = (uv * res - res.xy*0.5)/min(res.x,res.y);
+			vec2 tri_uv = (uv * res - res.xy*0.5)/min(res.x,res.y);
 			
-			uv = (uv - CENTER) * texMultiplier + CENTER;
-			samp = triangleUV(uv, res);
+			tri_uv = (tri_uv - CENTER) * texMultiplier + CENTER;
+			samp = triangleUV(tri_uv, res);
+			if (triangle_blend < 1.0){
+				vec2 samp2 = sliceUV(uv);
+				samp = mix (samp2, samp, triangle_blend );
+			}
+
 		} else {
 			samp = sliceUV(uv);
-			
 			if (show_slice_only){
-			if (!inOriginalSlice(UV)){
-				discard;
+				if (!inOriginalSlice(UV)){
+					discard;
+				}
 			}
-	}
 		}
-	    samp = rot(samp, vec2(0.5), viewRotationOffset);
+	    /*samp = rot(samp, vec2(0.5), viewRotationOffset);
 		if (rotation_speed > 0.){
 		samp = rot (samp, vec2(0.5), TIME * rotation_speed);
 		}
 		samp += viewOffset;
-		samp = (samp - CENTER) * zoom + CENTER;
-	COLOR = texture(TEXTURE, samp);// vec4(UV,0, 1.0);	
-		//if (uvRadius < normality_radius){
-	if (normality_radius > 0.){
-		vec2 c = triangles? uv - CENTER : uv - CENTER;
-		float dist = sqrt(dot(c,c));
-		float fade = smoothstep (normality_radius - .1, normality_radius,  dist);
+		samp = (samp - CENTER) * zoom + CENTER;*/
 		
-		samp =  mix(uv, samp, fade);
 		COLOR = texture(TEXTURE, samp);// vec4(UV,0, 1.0);	
-		if (triangles) {
-			vec4 normalCol = texture (TEXTURE, UV);
-			COLOR = mix (COLOR, normalCol, 1. - fade);
-		}
-	}
+		//if (uvRadius < normality_radius){
+		/*if (normality_radius > 0.){
+			vec2 c = triangles? uv - CENTER : uv - CENTER;
+			float dist = sqrt(dot(c,c));
+			float fade = smoothstep (normality_radius - .1, normality_radius,  dist);
+			
+			samp =  mix(uv, samp, fade);
+			COLOR = texture(TEXTURE, samp);// vec4(UV,0, 1.0);	
+			if (triangles) {
+				vec4 normalCol = texture (TEXTURE, UV);
+				COLOR = mix (COLOR, normalCol, 1. - fade);
+			}
+		}*/
 	//}
 	
 		
-	}
+	//}
 
 	
-	if (show_debug){
-		//vec2 p = cartToPolarUV(uv, CENTER);
-		//COLOR = texture(TEXTURE, polarToCartUV(p.y, p.x, CENTER));
-		COLOR = debugUV(UV, COLOR);
+		if (show_debug){
+			//vec2 p = cartToPolarUV(uv, CENTER);
+			//COLOR = texture(TEXTURE, polarToCartUV(p.y, p.x, CENTER));
+			COLOR = debugUV(UV, COLOR);
+		}
+		
+		//COLOR = vec4(color_channel(COLOR.xyz), 1.0);
+		
+		if (vignette_radius > 0.){
+			//COLOR = vignette(samp, COLOR);s
+		}
 	}
-	
-	COLOR = vec4(color_channel(COLOR.xyz), 1.0);
-	
-	if (vignette_radius > 0.){
-		COLOR = vignette(samp, COLOR)
-	}
+
 	
 }
