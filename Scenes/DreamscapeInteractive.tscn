@@ -1,11 +1,29 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Scenes/LowPolyObjects/POIs/FullCrypt.tscn" type="PackedScene" id=1]
-[ext_resource path="res://Scenes/Interactive/LightPillar.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Scenes/Interactive/Mushroom.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Interactive/LightPillar/InteractableLightPillar.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/LowPolyObjects/POIs/GravestoneCrossLarge.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/InteractionController.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/DreamscapeTerrain.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Interactive/Mushroom/InteractableMushroom.tscn" type="PackedScene" id=7]
+
+[sub_resource type="SpatialMaterial" id=6]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 0.7212, 1, 0.59, 1 )
+
+[sub_resource type="SpatialMaterial" id=7]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 0.59, 0.754, 1, 1 )
+
+[sub_resource type="SpatialMaterial" id=4]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 0.672, 0.59, 1, 1 )
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_local_to_scene = true
@@ -24,12 +42,6 @@ resource_local_to_scene = true
 render_priority = -1
 flags_unshaded = true
 albedo_color = Color( 1, 0.8, 0.588235, 1 )
-
-[sub_resource type="SpatialMaterial" id=4]
-resource_local_to_scene = true
-render_priority = -1
-flags_unshaded = true
-albedo_color = Color( 0.672, 0.59, 1, 1 )
 
 [sub_resource type="BoxShape" id=5]
 
@@ -56,82 +68,56 @@ transform = Transform( -1.41057, 0, -9.90001, 0, 10, 0, 9.90001, 0, -1.41057, 24
 
 [node name="TestGlowyThings" type="Spatial" parent="."]
 
-[node name="Mushroom" parent="TestGlowyThings" instance=ExtResource( 3 )]
-transform = Transform( -0.590493, 0, -0.807043, 0, 1, 0, 0.807043, 0, -0.590493, -0.774406, 0.0311791, 18.0106 )
+[node name="RedLightPillarInteractable" parent="TestGlowyThings" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.640106, 0, 0, 0, 1, 13.8271, 0.960638, -12.5247 )
+interactable_text = "Safety. (I have found something here.)"
 
-[node name="ViewCollider" parent="TestGlowyThings/Mushroom" index="1"]
-look_text = "I have found something here. (Press E to Interact)"
-
-[node name="AkEvent" parent="TestGlowyThings/Mushroom" index="2"]
-event = {
-"Id": 2103799123,
-"Name": "MUSHROOMEAT"
-}
-
-[node name="LightPillarRed" parent="TestGlowyThings" instance=ExtResource( 2 )]
-transform = Transform( 0.0633823, 0, -0.997989, 0, 0.640106, 0, 0.997989, 0, 0.0633823, 13.8271, 0.960638, -12.5247 )
-
-[node name="Bar" parent="TestGlowyThings/LightPillarRed" index="0"]
-material = SubResource( 1 )
-
-[node name="ViewCollider" parent="TestGlowyThings/LightPillarRed" index="2"]
-look_text = "Safety. (I have found something here.)"
-
-[node name="CollisionShape" parent="TestGlowyThings/LightPillarRed/ViewCollider" index="0"]
-transform = Transform( 1, 0, -1.49012e-08, 0, 1, 0, 7.45058e-09, 0, 3.27278, 0, 0, 0 )
-
-[node name="AkEvent" parent="TestGlowyThings/LightPillarRed" index="3"]
-event = {
-"Id": 2881812561,
-"Name": "DEPOSITPOINT"
-}
-
-[node name="LightPillarGreen" parent="TestGlowyThings" instance=ExtResource( 2 )]
-transform = Transform( 0.983312, 0, 0.181927, 0, 0.630292, 0, -0.181927, 0, 0.983312, 27.7696, 1.16413, -2.00474 )
+[node name="GreenLightPillarInteractable" parent="TestGlowyThings" instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 0.630292, 0, 0, 0, 1, 27.7696, 1.16413, -2.00474 )
+interactable_text = "Love. (I have found something here.)"
+interactable_type = 2
 hue = 0.28
-collider_type = 1
 
-[node name="Bar" parent="TestGlowyThings/LightPillarGreen" index="0"]
-material = SubResource( 2 )
+[node name="Bar" parent="TestGlowyThings/GreenLightPillarInteractable" index="2"]
+material = SubResource( 6 )
 
-[node name="Light" parent="TestGlowyThings/LightPillarGreen" index="1"]
+[node name="Light" parent="TestGlowyThings/GreenLightPillarInteractable" index="3"]
 light_color = Color( 0.48, 1, 0.235294, 1 )
 
-[node name="ViewCollider" parent="TestGlowyThings/LightPillarGreen" index="2"]
-look_text = "Love. (I have found something here.)"
-collider_type = 1
-
-[node name="CollisionShape" parent="TestGlowyThings/LightPillarGreen/ViewCollider" index="0"]
-transform = Transform( 1, 0, -1.19209e-07, 0, 1, 0, 1.49012e-08, 0, 3.65825, 0, 0, 0 )
-
-[node name="AkEvent" parent="TestGlowyThings/LightPillarGreen" index="3"]
+[node name="HummingAkEvent" parent="TestGlowyThings/GreenLightPillarInteractable" index="4"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
 }
 
-[node name="LightPillarBlue" parent="TestGlowyThings" instance=ExtResource( 2 )]
+[node name="DepositAkEvent" parent="TestGlowyThings/GreenLightPillarInteractable" index="5"]
+event = {
+"Id": 3709765321,
+"Name": "DEPOSIT2"
+}
+
+[node name="BlueLightPillarInteractable" parent="TestGlowyThings" instance=ExtResource( 3 )]
 transform = Transform( 0.900076, 0, 0.435734, 0, 0.544357, 0, -0.435734, 0, 0.900076, 17.7017, 1.21612, 7.25467 )
+interactable_text = "Truth. (I have found something here.)"
+interactable_type = 3
 hue = 0.6
-collider_type = 2
 
-[node name="Bar" parent="TestGlowyThings/LightPillarBlue" index="0"]
-material = SubResource( 3 )
+[node name="Bar" parent="TestGlowyThings/BlueLightPillarInteractable" index="2"]
+material = SubResource( 7 )
 
-[node name="Light" parent="TestGlowyThings/LightPillarBlue" index="1"]
+[node name="Light" parent="TestGlowyThings/BlueLightPillarInteractable" index="3"]
 light_color = Color( 0.235294, 0.541176, 1, 1 )
 
-[node name="ViewCollider" parent="TestGlowyThings/LightPillarBlue" index="2"]
-look_text = "Truth. (I have found something here.)"
-collider_type = 2
-
-[node name="CollisionShape" parent="TestGlowyThings/LightPillarBlue/ViewCollider" index="0"]
-transform = Transform( 3.99969, 0, -2.98023e-08, 0, 1, 0, 2.38419e-07, 0, 1, 0, 0, 0 )
-
-[node name="AkEvent" parent="TestGlowyThings/LightPillarBlue" index="3"]
+[node name="HummingAkEvent" parent="TestGlowyThings/BlueLightPillarInteractable" index="4"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
+}
+
+[node name="DepositAkEvent" parent="TestGlowyThings/BlueLightPillarInteractable" index="5"]
+event = {
+"Id": 3709765320,
+"Name": "DEPOSIT3"
 }
 
 [node name="LightPillarPurple" type="Spatial" parent="TestGlowyThings"]
@@ -286,6 +272,10 @@ shadow_enabled = true
 omni_range = 10.0
 omni_attenuation = 1.7411
 
+[node name="InteractableMushroom" parent="TestGlowyThings" instance=ExtResource( 7 )]
+transform = Transform( -0.707107, 0, -0.707107, 0, 1, 0, 0.707107, 0, -0.707107, -0.735412, -0.00592947, 17.9973 )
+interactable_text = "I have found something here. (Press E to Interact)"
+
 [node name="TestViewColliderUI" type="CanvasLayer" parent="."]
 __meta__ = {
 "_editor_description_": "ui just to test the looking at system works fine
@@ -295,10 +285,10 @@ can be deleted after"
 
 [node name="DreamscapeTerrain" parent="TestViewColliderUI" instance=ExtResource( 6 )]
 
-[node name="FootStepAkEvent" parent="TestViewColliderUI/DreamscapeTerrain/Player Controller/Player" index="5"]
+[node name="AkEvent" parent="TestViewColliderUI/DreamscapeTerrain/Campfire" index="2"]
 event = {
-"Id": 4276063004,
-"Name": "PLAYER FS"
+"Id": 2359560878,
+"Name": "CAMPFIRE SMALL"
 }
 
 [node name="StaticBody" type="StaticBody" parent="."]
@@ -323,17 +313,8 @@ shape = SubResource( 5 )
 transform = Transform( 147.767, 0, 0.819182, 0, 50, 0, -211.056, 0, 0.573534, 0.930337, 0, -12.5891 )
 shape = SubResource( 5 )
 
-[connection signal="interacted_with" from="TestViewColliderUI/DreamscapeTerrain/Player Controller" to="." method="_on_Player_Controller_interacted_with"]
-[connection signal="started_looking_at" from="TestViewColliderUI/DreamscapeTerrain/Player Controller" to="." method="_on_Player_Controller_started_looking_at"]
-
 [editable path="gravestoneCrossLarge3"]
 [editable path="gravestoneCrossLarge2"]
-[editable path="TestGlowyThings/Mushroom"]
-[editable path="TestGlowyThings/LightPillarRed"]
-[editable path="TestGlowyThings/LightPillarRed/ViewCollider"]
-[editable path="TestGlowyThings/LightPillarGreen"]
-[editable path="TestGlowyThings/LightPillarGreen/ViewCollider"]
-[editable path="TestGlowyThings/LightPillarBlue"]
-[editable path="TestGlowyThings/LightPillarBlue/ViewCollider"]
+[editable path="TestGlowyThings/GreenLightPillarInteractable"]
+[editable path="TestGlowyThings/BlueLightPillarInteractable"]
 [editable path="TestViewColliderUI/DreamscapeTerrain"]
-[editable path="TestViewColliderUI/DreamscapeTerrain/Player Controller"]

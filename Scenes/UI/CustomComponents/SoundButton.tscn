@@ -1,11 +1,24 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://Scenes/UI/CustomComponents/SoundButton.gd" type="Script" id=1]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=2]
 
 [node name="SoundButton" type="Button"]
 rect_min_size = Vector2( 0, 40 )
 script = ExtResource( 1 )
 
-[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+[node name="ClickAkEvent2D" type="Node2D" parent="."]
+script = ExtResource( 2 )
+event = {
+"Id": 3013838884,
+"Name": "UIMOUSECLICK"
+}
 
-[connection signal="pressed" from="." to="." method="_on_Button_pressed"]
+[node name="HoverAkEvent2D" type="Node2D" parent="."]
+script = ExtResource( 2 )
+event = {
+"Id": 1271092770,
+"Name": "UIMOUSEOVER"
+}
+
+[connection signal="mouse_entered" from="." to="." method="_on_SoundButton_mouse_entered"]

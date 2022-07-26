@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Scenes/Interactive/Interactable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Interactive/LightPillar/InteractableLightPillar.gd" type="Script" id=3]
+
+[sub_resource type="SpatialMaterial" id=1]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 1, 0.59, 0.59, 1 )
+
+[node name="LightPillarInteractable" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+interactable_type = 1
+interaction_mode = 2
+
+[node name="CollisionShape" parent="ViewColliderArea" index="0"]
+disabled = true
+
+[node name="VisibilityNotifier" parent="." index="1"]
+visible = true
+
+[node name="Bar" type="CSGCylinder" parent="." index="2"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+radius = 0.1
+height = 6.0
+material = SubResource( 1 )
+
+[node name="Light" type="OmniLight" parent="." index="3"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, 0 )
+light_color = Color( 1, 0.235294, 0.235294, 1 )
+light_energy = 2.73
+light_indirect_energy = 2.0
+light_specular = 0.585
+shadow_enabled = true
+omni_range = 10.0
+omni_attenuation = 1.7411
+
+[node name="HummingAkEvent" type="Spatial" parent="." index="4"]
+script = ExtResource( 2 )
+event = {
+"Id": 2881812561,
+"Name": "DEPOSITPOINT"
+}
+
+[node name="DepositAkEvent" type="Spatial" parent="." index="5"]
+script = ExtResource( 2 )
+event = {
+"Id": 3709765322,
+"Name": "DEPOSIT1"
+}

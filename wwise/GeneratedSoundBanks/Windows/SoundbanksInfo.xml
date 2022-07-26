@@ -11,7 +11,7 @@
 	<StreamedFiles/>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
-		<SoundBank Id="1355168291" Language="SFX" Hash="381953211">
+		<SoundBank Id="1355168291" Language="SFX" Hash="1596357701">
 			<ObjectPath>Init</ObjectPath>
 			<ShortName>Init</ShortName>
 			<Path>1355168291.bnk</Path>
@@ -25,12 +25,28 @@
 				<GameParameter Id="2987841584" Name="BusVolume_Master" ObjectPath="\Game Parameters\Default Work Unit\BusVolume_Master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1509027703" Language="SFX" Hash="3297994376">
+		<SoundBank Id="1509027703" Language="SFX" Hash="1132508657">
 			<ObjectPath>\SoundBanks\Default Work Unit\KScopeMain</ObjectPath>
 			<ShortName>KScopeMain</ShortName>
 			<Path>1509027703.bnk</Path>
 			<IncludedEvents>
 				<Event Id="1931646578" Name="Campfire" ObjectPath="\Events\Default Work Unit\Campfire">
+					<IncludedMemoryFiles>
+						<File Id="63888302" Language="SFX">
+							<ShortName>Campfire Loop.wav</ShortName>
+							<Path>SFX/Campfire Loop_E84716CF.wem</Path>
+						</File>
+						<File Id="601672460" Language="SFX">
+							<ShortName>Campfire Crack 2.wav</ShortName>
+							<Path>SFX/Campfire Crack 2_569C59C1.wem</Path>
+						</File>
+						<File Id="1006155988" Language="SFX">
+							<ShortName>Campfire Crack 1.wav</ShortName>
+							<Path>SFX/Campfire Crack 1_569C59C1.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+				</Event>
+				<Event Id="2359560878" Name="Campfire_Small" ObjectPath="\Events\Default Work Unit\Campfire_Small">
 					<IncludedMemoryFiles>
 						<File Id="63888302" Language="SFX">
 							<ShortName>Campfire Loop.wav</ShortName>
@@ -61,7 +77,7 @@
 					<IncludedMemoryFiles>
 						<File Id="266672359" Language="SFX">
 							<ShortName>GemDeposit 1.wav</ShortName>
-							<Path>SFX/GemDeposit 1_569C59C1.wem</Path>
+							<Path>SFX/GemDeposit 1_EA5CE4A6.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -69,7 +85,7 @@
 					<IncludedMemoryFiles>
 						<File Id="622929681" Language="SFX">
 							<ShortName>GemDeposit 2.wav</ShortName>
-							<Path>SFX/GemDeposit 2_569C59C1.wem</Path>
+							<Path>SFX/GemDeposit 2_4F973416.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -77,7 +93,7 @@
 					<IncludedMemoryFiles>
 						<File Id="598576478" Language="SFX">
 							<ShortName>GemDeposit 3.wav</ShortName>
-							<Path>SFX/GemDeposit 3_569C59C1.wem</Path>
+							<Path>SFX/GemDeposit 3_E510566F.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -109,15 +125,21 @@
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
+				<Event Id="4213109959" Name="InGameMenu_In" ObjectPath="\Events\Default Work Unit\InGameMenu_In">
+					<ActionSetState>
+						<ActionSetStateEntry Id="3450645083" Name="InGameMenu" ObjectPath="\States\Default Work Unit\MenuGame\InGameMenu"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="834664890" Name="InGameMenu_Out" ObjectPath="\Events\Default Work Unit\InGameMenu_Out">
+					<ActionSetState>
+						<ActionSetStateEntry Id="702482391" Name="Game" ObjectPath="\States\Default Work Unit\MenuGame\Game"/>
+					</ActionSetState>
+				</Event>
 				<Event Id="1001937282" Name="Level1_Loaded" ObjectPath="\Events\Default Work Unit\Level1_Loaded">
 					<IncludedMemoryFiles>
 						<File Id="98034395" Language="SFX">
 							<ShortName>Voices - Loop 3.wav</ShortName>
 							<Path>SFX/Voices - Loop 3_E84716CF.wem</Path>
-						</File>
-						<File Id="98866934" Language="SFX">
-							<ShortName>MussarFixed - Spooky.wav</ShortName>
-							<Path>SFX/MussarFixed - Spooky_E84716CF.wem</Path>
 						</File>
 						<File Id="113341532" Language="SFX">
 							<ShortName>Voices - Loop 1.wav</ShortName>
@@ -135,29 +157,21 @@
 							<ShortName>Ambience - DarkScary.wav</ShortName>
 							<Path>SFX/Ambience - DarkScary_E84716CF.wem</Path>
 						</File>
-						<File Id="346177194" Language="SFX">
-							<ShortName>Ambience - Random - Animal B 5.wav</ShortName>
-							<Path>SFX/Ambience - Random - Animal B 5_569C59C1.wem</Path>
-						</File>
-						<File Id="389307754" Language="SFX">
-							<ShortName>MussarFixed - Trippy.wav</ShortName>
-							<Path>SFX/MussarFixed - Trippy_E84716CF.wem</Path>
-						</File>
 						<File Id="400888509" Language="SFX">
 							<ShortName>Ambience - Random - Animal 3.wav</ShortName>
 							<Path>SFX/Ambience - Random - Animal 3_569C59C1.wem</Path>
 						</File>
-						<File Id="484956033" Language="SFX">
-							<ShortName>Ambience - Random - Animal B 3.wav</ShortName>
-							<Path>SFX/Ambience - Random - Animal B 3_569C59C1.wem</Path>
+						<File Id="491047670" Language="SFX">
+							<ShortName>Level 1 - Calm.wav</ShortName>
+							<Path>SFX/Level 1 - Calm_E84716CF.wem</Path>
+						</File>
+						<File Id="506880194" Language="SFX">
+							<ShortName>Level 1 - Trippy.wav</ShortName>
+							<Path>SFX/Level 1 - Trippy_E84716CF.wem</Path>
 						</File>
 						<File Id="526657529" Language="SFX">
 							<ShortName>Ambience - Random - Animal B 1.wav</ShortName>
 							<Path>SFX/Ambience - Random - Animal B 1_569C59C1.wem</Path>
-						</File>
-						<File Id="528835070" Language="SFX">
-							<ShortName>Ambience - Random - Animal B 4.wav</ShortName>
-							<Path>SFX/Ambience - Random - Animal B 4_569C59C1.wem</Path>
 						</File>
 						<File Id="576107041" Language="SFX">
 							<ShortName>K_Scope - Ethereal loop.wav</ShortName>
@@ -170,10 +184,6 @@
 						<File Id="716666757" Language="SFX">
 							<ShortName>Ambience - Random - Animal 1.wav</ShortName>
 							<Path>SFX/Ambience - Random - Animal 1_569C59C1.wem</Path>
-						</File>
-						<File Id="737132242" Language="SFX">
-							<ShortName>MussarFixed - Calm.wav</ShortName>
-							<Path>SFX/MussarFixed - Calm_E84716CF.wem</Path>
 						</File>
 						<File Id="740570988" Language="SFX">
 							<ShortName>HeartbeatA.wav</ShortName>
@@ -195,9 +205,9 @@
 							<ShortName>Ambience - Random - Animal B 6.wav</ShortName>
 							<Path>SFX/Ambience - Random - Animal B 6_569C59C1.wem</Path>
 						</File>
-						<File Id="893622980" Language="SFX">
-							<ShortName>Ambience - Random - Animal B 2.wav</ShortName>
-							<Path>SFX/Ambience - Random - Animal B 2_569C59C1.wem</Path>
+						<File Id="895274775" Language="SFX">
+							<ShortName>Level 1 - Scary.wav</ShortName>
+							<Path>SFX/Level 1 - Scary_E84716CF.wem</Path>
 						</File>
 						<File Id="912074038" Language="SFX">
 							<ShortName>HorrorStrings.wav</ShortName>
@@ -219,17 +229,17 @@
 					<SwitchContainers>
 						<SwitchContainer SwitchValue="{A999F13E-94F8-448A-9671-6138870A604B}">
 							<Media>
-								<File Id="737132242"/>
+								<File Id="491047670"/>
 							</Media>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{07C83298-3580-47AC-B946-8FDC1E4D0683}">
 							<Media>
-								<File Id="389307754"/>
+								<File Id="506880194"/>
 							</Media>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{A99B6341-675B-44B6-BC71-7916EF658254}">
 							<Media>
-								<File Id="98866934"/>
+								<File Id="895274775"/>
 							</Media>
 						</SwitchContainer>
 						<SwitchContainer SwitchValue="{CD215408-033D-4216-BF15-D186DC08BC8B}">
@@ -481,6 +491,7 @@
 			</IncludedEvents>
 			<GameParameters>
 				<GameParameter Id="749828935" Name="PlayerHighness" ObjectPath="\Game Parameters\Default Work Unit\PlayerHighness"/>
+				<GameParameter Id="2827693126" Name="WorldChangeLoudness" ObjectPath="\Game Parameters\Default Work Unit\WorldChangeLoudness"/>
 				<GameParameter Id="3982513867" Name="TumblerSpeed" ObjectPath="\Game Parameters\Default Work Unit\TumblerSpeed"/>
 			</GameParameters>
 			<StateGroups>
@@ -491,6 +502,9 @@
 					<States/>
 				</StateGroup>
 				<StateGroup Id="2607556080" Name="Menu" ObjectPath="\States\Default Work Unit\MenuGame\Menu" GUID="{3E8F1127-0DD2-4397-AC7A-9CC3237A6B8F}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="3450645083" Name="InGameMenu" ObjectPath="\States\Default Work Unit\MenuGame\InGameMenu" GUID="{2BD4B589-035A-4707-B2CB-BADEAAC0146A}">
 					<States/>
 				</StateGroup>
 				<StateGroup Id="4184794294" Name="Outro" ObjectPath="\States\Default Work Unit\MenuGame\Outro" GUID="{421ACB63-F075-42C8-B4E8-024129178338}">
