@@ -29,6 +29,16 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/zylann.hterrain/hterrain_resource_saver.gd"
 }, {
+"base": "Spatial",
+"class": "Interactable3D",
+"language": "GDScript",
+"path": "res://Scenes/Interactive/Interactable.gd"
+}, {
+"base": "Camera",
+"class": "PlayerCamera",
+"language": "GDScript",
+"path": "res://Scenes/Player/Camera/PlayerCamera.gd"
+}, {
 "base": "Button",
 "class": "SoundButton",
 "language": "GDScript",
@@ -38,20 +48,16 @@ _global_script_classes=[ {
 "class": "TumblerSceneBase",
 "language": "GDScript",
 "path": "res://Scenes/Kaleidoscope/TumblerScenes/TumblerSceneBase.gd"
-}, {
-"base": "Area",
-"class": "ViewCollider",
-"language": "GDScript",
-"path": "res://Scenes/Interactive/ViewCollider.gd"
 } ]
 _global_script_class_icons={
 "AK": "",
 "AkUtils": "",
 "HTerrainDataLoader": "",
 "HTerrainDataSaver": "",
+"Interactable3D": "",
+"PlayerCamera": "",
 "SoundButton": "",
-"TumblerSceneBase": "",
-"ViewCollider": ""
+"TumblerSceneBase": ""
 }
 
 [application]
