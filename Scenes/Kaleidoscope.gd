@@ -5,6 +5,7 @@ signal intensity_changed(intensity)
 onready var tumbler = $KaleidoscopeViewport/TumblerScene
 onready var kaleidoscopeViewport = $KaleidoscopeViewport
 
+export var enabled = true;
 export var intensity_change_rate = 50.0;
 export var intensity_min = 0.0;
 export var intensity_max = 100.0;
@@ -18,8 +19,11 @@ var lerp_max = 100.0
 #shader params
 var segments_name = "segments"
 var segments_val = 3.0
-export var _min_segments = 3.0
-export var _max_segments = 16.0
+#export var _min_segments = 3.0
+#export var _max_segments = 16.0
+export var segments = 4;
+export var segments_pulse = 0.1;
+var prev_segments = 0;
 
 var center_radius_name = "center_radius"
 var center_radius_val = 0.33
@@ -76,13 +80,16 @@ func start_kaleidoscope():
 func reset_kaleidoscope():
 	time = 0.0
 	intensity = 0.0
-	lerp_intensity(0.0)
+	lerp_intensity(0.0, 0.0)
 	
 func stop_kaleidoscope():
 	reset_kaleidoscope();
 	kaleidoscope_enabled = false;
 	material.set_shader_param("enabled", false)
 
+func set_segments(seg):
+	prev_segments = segments;
+	segments = seg;
 
 func set_range(i_min, i_max):
 
@@ -111,21 +118,27 @@ func inv_lerp(a, b, v):
 	
 func set_intensity (i):
 	var t = inv_lerp(0.0, 100.0, i)
-	lerp_intensity(t)
+	var tr = inv_lerp (lerp_min, lerp_max, i);
+	lerp_intensity(t, tr)
 	
 func lerp_intensity_in_range(tr):
 	var target_intensity = lerp(lerp_min, lerp_max, tr)
 	var t = inv_lerp(0.0, 100.0, target_intensity)
-	lerp_intensity(t)
+	lerp_intensity(t, tr)
 	if (_changing_intensity_range):
 		if (intensity >= intensity_min && intensity <= intensity_max):
 			_changing_intensity_range = false
 			set_range(intensity_min, intensity_max)
 		
 
-func lerp_intensity(t):
+func lerp_intensity(t, tr):
 	intensity = lerp(0.0, 100.0, t);
-	segments_val = lerp (_min_segments, _max_segments, ease(t, 3));
+	#segments_val = lerp (_min_segments, _max_segments, ease(t, 3));
+	if (_changing_intensity_range):
+		segments_val = lerp (prev_segments, segments  - segments_pulse, tr);
+	else:
+		segments_val = lerp (segments - segments_pulse, segments + segments_pulse, tr);
+
 	center_radius_val = lerp (_center_radius_min, _center_radius_max, 1.0 - t)
 	reflect_outside_val = t > reflect_outside_thresh;
 	_tri_multiplier_val = lerp(_tri_multiplier_min, _tri_multiplier_max, ease(t, _tri_multiplier_curve))
@@ -165,7 +178,8 @@ func _set_tumbler():
 	
 		
 func _ready():
-	stop_kaleidoscope() # Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if (enabled):
+		stop_kaleidoscope() # Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 func _pulse():
 	#const float pi = 3.14;
@@ -174,6 +188,8 @@ func _pulse():
 		#return 0.5*(1+sin(2 * PI * intensity_change_rate * time))
 
 func _process(delta):
+	if (!enabled):
+		return;
 	if (kaleidoscope_enabled):
 		time += delta
 		var t = _pulse()
