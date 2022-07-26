@@ -1,21 +1,19 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Environment/AnimatedWorldEnvironment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/DreamscapeInteractive.tscn" type="PackedScene" id=5]
 
-[sub_resource type="SpatialMaterial" id=6]
-flags_unshaded = true
-albedo_color = Color( 1, 0.773438, 0.773438, 1 )
-
-[sub_resource type="SpatialMaterial" id=8]
-flags_unshaded = true
-albedo_color = Color( 0.383984, 0.893636, 0.672787, 1 )
-
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=13]
 resource_local_to_scene = true
 render_priority = -1
 flags_unshaded = true
-albedo_color = Color( 0.59, 0.83026, 1, 1 )
+albedo_color = Color( 0.7212, 1, 0.59, 1 )
+
+[sub_resource type="SpatialMaterial" id=14]
+resource_local_to_scene = true
+render_priority = -1
+flags_unshaded = true
+albedo_color = Color( 0.59, 0.754, 1, 1 )
 
 [sub_resource type="SpatialMaterial" id=7]
 flags_unshaded = true
@@ -57,60 +55,37 @@ preprocess = 0.0
 
 [node name="DreamscapeInteractive" parent="." instance=ExtResource( 5 )]
 
-[node name="Mushroom" parent="DreamscapeInteractive/TestGlowyThings" index="0"]
-transform = Transform( -0.277298, 0, -0.960784, 0, 1, 0, 0.960784, 0, -0.277298, -0.585772, 0.0336815, 18.1063 )
+[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable" index="2"]
+material = SubResource( 13 )
 
-[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/Mushroom" index="2"]
-event = {
-"Id": 2103799123,
-"Name": "MUSHROOMEAT"
-}
-
-[node name="LightPillarRed" parent="DreamscapeInteractive/TestGlowyThings" index="1"]
-transform = Transform( 0.0633823, 0, -0.997989, 0, 0.640106, 0, 0.997989, 0, 0.0633823, 14.1325, 0.960638, -12.5247 )
-
-[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="0"]
-material = SubResource( 6 )
-
-[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="3"]
+[node name="HummingAkEvent" parent="DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable" index="4"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
 }
 
-[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="0"]
-transform = Transform( 1, 0, -5.96046e-08, 0, 1, 0, 5.96046e-08, 0, 1, 0.694763, 2.52342, -0.0379732 )
-material = SubResource( 8 )
+[node name="DepositAkEvent" parent="DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable" index="5"]
+event = {
+"Id": 3709765321,
+"Name": "DEPOSIT2"
+}
 
-[node name="ViewCollider" parent="DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="2"]
-transform = Transform( 2.73485, 0, -0.744703, 0, 1, 0, 5.52619, 0, 1.58065, 0, 3, 9.53674e-07 )
+[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable" index="2"]
+material = SubResource( 14 )
 
-[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="3"]
+[node name="HummingAkEvent" parent="DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable" index="4"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
 }
 
-[node name="LightPillarBlue" parent="DreamscapeInteractive/TestGlowyThings" index="3"]
-transform = Transform( 0.0279914, 0, 0.999608, 0, 0.544357, 0, -0.999608, 0, 0.0279914, 17.8837, 1.21612, 6.9423 )
-hue = 0.569
-
-[node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="0"]
-material = SubResource( 5 )
-
-[node name="Light" parent="DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="1"]
-light_color = Color( 0.235294, 0.683412, 1, 1 )
-
-[node name="ViewCollider" parent="DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="2"]
-transform = Transform( 0.532677, 0, 0.0613269, 0, 1, 0, 0.0613268, 0, 2.72102, 0, 3, 0 )
-
-[node name="AkEvent" parent="DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="3"]
+[node name="DepositAkEvent" parent="DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable" index="5"]
 event = {
-"Id": 2881812561,
-"Name": "DEPOSITPOINT"
+"Id": 3709765320,
+"Name": "DEPOSIT3"
 }
 
-[node name="LightPillarPurple" parent="DreamscapeInteractive/TestGlowyThings" index="4"]
+[node name="LightPillarPurple" parent="DreamscapeInteractive/TestGlowyThings" index="3"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4.76688, 0.139503, 1.00002 )
 
 [node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple" index="0"]
@@ -143,10 +118,10 @@ material = SubResource( 11 )
 [node name="Bar" parent="DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarBlue3" index="0"]
 material = SubResource( 12 )
 
-[node name="FootStepAkEvent" parent="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller/Player" index="5"]
+[node name="AkEvent" parent="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Campfire" index="2"]
 event = {
-"Id": 4276063004,
-"Name": "PLAYER FS"
+"Id": 2359560878,
+"Name": "CAMPFIRE SMALL"
 }
 
 [node name="OmniLight" type="OmniLight" parent="."]
@@ -158,12 +133,6 @@ light_energy = 0.182
 [editable path="DreamscapeInteractive"]
 [editable path="DreamscapeInteractive/gravestoneCrossLarge3"]
 [editable path="DreamscapeInteractive/gravestoneCrossLarge2"]
-[editable path="DreamscapeInteractive/TestGlowyThings/Mushroom"]
-[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarRed"]
-[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarRed/ViewCollider"]
-[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarGreen"]
-[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarGreen/ViewCollider"]
-[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarBlue"]
-[editable path="DreamscapeInteractive/TestGlowyThings/LightPillarBlue/ViewCollider"]
+[editable path="DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable"]
+[editable path="DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable"]
 [editable path="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain"]
-[editable path="DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller"]

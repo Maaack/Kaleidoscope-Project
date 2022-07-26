@@ -13,6 +13,7 @@ export(String) var version_name : String
 var menu_state : int = States.NONE
 
 func _ready() -> void:
+	Wwise.set_pause_mode(PAUSE_MODE_PROCESS)
 	if version_name != "":
 		$Control/BordersMarginContainer/Control/VersionName.text = "v %s" % version_name
 

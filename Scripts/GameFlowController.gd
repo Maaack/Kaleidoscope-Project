@@ -1,11 +1,11 @@
 extends Node
 
-signal trip_started()
-signal trip_ended()
-
 onready var kaleidoscope = $Kaleidoscope
 onready var tumbler_control = $Kaleidoscope/KaleidoscopeViewport
 onready var gem_control = $Kaleidoscope/GemControl
+onready var animated_world_env = $Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment
+onready var player = $Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player
+onready var fire_particles : Particles = $Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Campfire/FireParticles
 
 export (PackedScene) var tumbler
 export (PackedScene)  var red_gemstone
@@ -71,14 +71,17 @@ func start_trip():
 	kaleidoscope.set_range(40, 45)
 	kaleidoscope.set_segments(4.0);
 	#add_gems()
-	
-	emit_signal("trip_started")
+	player.slow_down()
+	animated_world_env.start_trip()
 	yield(get_tree().create_timer(15), "timeout")
 	kaleidoscope.start_kaleidoscope()
-	yield(get_tree().create_timer(15), "timeout")
+	yield(get_tree().create_timer(1), "timeout")
+	$WorldChangeAkEvent2D.post_event()
+	yield(get_tree().create_timer(14), "timeout")
 	kaleidoscope.intensity_change_rate = transition_rate
 	kaleidoscope.set_range(50, 55)
 	kaleidoscope.set_segments(4.0);
+	fire_particles.speed_scale = 0.6
 	red_pillar.show()
 	
 func on_interact_red_pillar():
@@ -98,7 +101,7 @@ func on_interact_green_pillar():
 func on_interact_blue_pillar():
 	#gem_control.remove_gemstone(blue_gem)
 
-	
+
 	blue_pillar.hide()
 	on_enlightenment()
 
@@ -110,6 +113,7 @@ func on_enlightenment():
 	kaleidoscope.set_segments(16.0);
 	_etheral_music()
 	_enlightened = true
+	fire_particles.speed_scale = 0.2
 	yield(get_tree().create_timer(30), "timeout")
 	on_clarity()
 	
@@ -119,24 +123,10 @@ func on_clarity():
 	purple_pillar.hide()
 
 	kaleidoscope.set_range(0, 1)
-	emit_signal("trip_ended")
-	#the end
-
-
-	
-func _on_DreamscapeInteractive_pillar_interaction(pillar):
-	match(pillar):
-		ViewCollider.Type.RED:
-			on_interact_red_pillar()
-		ViewCollider.Type.GREEN:
-			on_interact_green_pillar()
-		ViewCollider.Type.BLUE:
-			on_interact_blue_pillar()
-
-
-
-func _on_DreamscapeInteractive_mushroom_eated():
-	start_trip()
+	fire_particles.speed_scale = 0.6
+	yield(get_tree().create_timer(3), "timeout")
+	fire_particles.speed_scale = 1.0
+	animated_world_env.end_trip()
 
 
 func _on_Kaleidoscope_intensity_changed(intensity):
@@ -152,3 +142,14 @@ func _etheral_music():
 
 func _on_AnimatedWorldEnvironment_world_ended():
 	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
+
+func _on_Player_interacted(interactable_type):
+	match(interactable_type):
+		Interactable3D.InteractableType.MUSHROOM:
+			start_trip()
+		Interactable3D.InteractableType.RED:
+			on_interact_red_pillar()
+		Interactable3D.InteractableType.GREEN:
+			on_interact_green_pillar()
+		Interactable3D.InteractableType.BLUE:
+			on_interact_blue_pillar()
