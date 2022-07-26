@@ -7,6 +7,7 @@
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
+height = 1.77
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.4, 0.1, 0.4 )
@@ -51,7 +52,7 @@ tracks/0/keys = {
 script = ExtResource( 4 )
 
 [node name="Body" type="CollisionShape" parent="."]
-transform = Transform( 0.570637, 0, 0, 0, -0.0193902, 0.631897, 0, -0.632563, -0.0165597, 0, -0.508582, 0 )
+transform = Transform( 0.570637, 0, 0, 0, -0.0193902, 0.631897, 0, -0.632563, -0.0165597, 0, -0.272214, 0 )
 shape = SubResource( 1 )
 
 [node name="Feet" type="CollisionShape" parent="."]
@@ -59,6 +60,7 @@ transform = Transform( 0.433847, 0, 0, 0, 0.123179, 0, 0, 0, 0.744858, 0, -1.155
 shape = SubResource( 2 )
 
 [node name="Pivot" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.586677, 0 )
 
 [node name="PlayerCamera" parent="Pivot" instance=ExtResource( 3 )]
 
