@@ -64,10 +64,12 @@ func _physics_process(delta):
 
 	if Input.is_action_just_pressed("interact") and current_interactable != null:
 		if current_interactable is Interactable3D:
+			var interactable_type : int = current_interactable.interactable_type
+			var interactable_text : String = current_interactable.interactable_text
 			current_interactable.interact()
-			emit_signal("interacted", current_interactable.interactable_type)
-			emit_signal("interactable_exited", current_interactable.interactable_text)
 			current_interactable = null
+			emit_signal("interacted", interactable_type)
+			emit_signal("interactable_exited", interactable_text)
 
 func slow_down():
 	max_speed = 2
