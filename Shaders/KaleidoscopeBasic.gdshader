@@ -349,7 +349,7 @@ vec2 refl(vec2 p,vec2 o,vec2 n)
 	return 2.0*o+2.0*n*dot(p-o,n)-p;
 }
 
-vec2 triangleUV (vec2 uv, vec2 frag_coord) {
+vec2 triangleUV (vec2 uv) {
 	float tri_sides =3.0;
 	float l = sqrt(4.0/tri_sides);
 	float size = sqrt(.75);
@@ -362,7 +362,11 @@ vec2 triangleUV (vec2 uv, vec2 frag_coord) {
     if(uv.y < 2.0*uv.x/l) uv = refl(uv, vec2(0), vec2(0.5,size));
     if(uv.y > 1.0) uv = refl(uv, vec2(0.0, 1.0), vec2(1.0, 0.0));
     if(uv.y < -2.0*uv.x/l) uv = refl(uv, vec2(0), vec2(-0.5, size));
-	uv.x = -uv.x * frag_coord.y / frag_coord.x + 0.5;
+	//uv.x = -uv.x * frag_coord.y / frag_coord.x + 0.5;
+	uv.x = uv.x  + 0.5;
+	uv.y = uv.y + 0.3
+	;
+	
 
 	return uv;
 }
@@ -418,19 +422,28 @@ void fragment(){
 		COLOR = texture(TEXTURE, uv);
 		samp = uv;
 	} else {
-		float texRotationOffset =  triangles? triInRotationOffset : polarInRotationOffset;
-		vec2 texOffset = triangles ? triInOffset : polarInOffset;
-		vec2 viewOffset = triangles ? triOutOffset : polarOutOffset;
+		//float texRotationOffset =  triangles? triInRotationOffset : polarInRotationOffset;
+		//vec2 texOffset = triangles ? triInOffset : polarInOffset;
+		//vec2 viewOffset = triangles ? triOutOffset : polarOutOffset;
 		
-		uv = rot(uv, CENTER, texRotationOffset);
-		uv = uv + texOffset;
+		//uv = rot(uv, CENTER, texRotationOffset);
+		//uv = uv + texOffset;
 
 		if (triangles) {
-			vec2 res = vec2 (1080., 1080.);
-			vec2 tri_uv = (uv * res - res.xy*0.5)/min(res.x,res.y);
+			//vec2 res = vec2 (1080., 1080.);
+			float res = 1080.;
+			vec2 tri_uv = uv;// + CENTER;
+			//tri_uv = (tri_uv * res - res * 0.5) / res;
+			//tri_uv = tri_uv + triInOffset;
+			//tri_uv = rot(tri_uv, CENTER, triInRotationOffset);
+
 			
-			tri_uv = (tri_uv - CENTER) * texMultiplier + CENTER;
-			samp = triangleUV(tri_uv, res);
+			//tri_uv = tri_uv * texMultiplier;// (tri_uv - CENTER) * texMultiplier + CENTER;
+			
+			tri_uv = (tri_uv * res - res*0.5)/res;
+						
+			samp = triangleUV(tri_uv);
+			samp += triOutOffset;
 			if (triangle_blend < 1.0){
 				vec2 samp2 = sliceUV(uv);
 				samp = mix (samp2, samp, triangle_blend );
@@ -444,16 +457,16 @@ void fragment(){
 				}
 			}
 		}
-	    /*samp = rot(samp, vec2(0.5), viewRotationOffset);
+	    samp = rot(samp, vec2(0.5), viewRotationOffset);
 		if (rotation_speed > 0.){
 		samp = rot (samp, vec2(0.5), TIME * rotation_speed);
 		}
-		samp += viewOffset;
-		samp = (samp - CENTER) * zoom + CENTER;*/
+		//samp += viewOffset;
+		samp = (samp - CENTER) * zoom + CENTER;
 		
 		COLOR = texture(TEXTURE, samp);// vec4(UV,0, 1.0);	
 		//if (uvRadius < normality_radius){
-		/*if (normality_radius > 0.){
+		if (normality_radius > 0.){
 			vec2 c = triangles? uv - CENTER : uv - CENTER;
 			float dist = sqrt(dot(c,c));
 			float fade = smoothstep (normality_radius - .1, normality_radius,  dist);
@@ -464,7 +477,7 @@ void fragment(){
 				vec4 normalCol = texture (TEXTURE, UV);
 				COLOR = mix (COLOR, normalCol, 1. - fade);
 			}
-		}*/
+		}
 	//}
 	
 		
