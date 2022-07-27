@@ -81,7 +81,6 @@ event = {
 }
 
 [node name="PathFollow" type="PathFollow" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.21227, 0, 26.1445 )
 rotation_mode = 4
 loop = false
 
