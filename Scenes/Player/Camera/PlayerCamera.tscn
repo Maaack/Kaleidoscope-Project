@@ -3,7 +3,6 @@
 [ext_resource path="res://Scenes/Player/Camera/PlayerCamera.gd" type="Script" id=1]
 
 [node name="PlayerCamera" type="Camera"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.183741, 0.461391 )
 current = true
 script = ExtResource( 1 )
 
