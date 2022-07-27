@@ -80,5 +80,11 @@ event = {
 "Name": "PLAYER FS"
 }
 
+[node name="PathFollow" type="PathFollow" parent="."]
+rotation_mode = 4
+loop = false
+
+[node name="Pivot" type="Spatial" parent="PathFollow"]
+
 [connection signal="interactable_entered" from="Pivot/PlayerCamera" to="." method="_on_PlayerCamera_interactable_entered"]
 [connection signal="interactable_exited" from="Pivot/PlayerCamera" to="." method="_on_PlayerCamera_interactable_exited"]
