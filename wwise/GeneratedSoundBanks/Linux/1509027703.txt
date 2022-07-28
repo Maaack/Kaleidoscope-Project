@@ -51,10 +51,10 @@ State	ID	Name	State Group			Notes
 Custom State	ID	Name	State Group	Owner		Notes
 	9900197	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerRotation		
 	23620184	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit1		
+	24098481	InGameMenu	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MenuMusic		
 	29161004	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionB		
 	47192441	Menu	MenuGame	\Interactive Music Hierarchy\Default Work Unit\GameplayMusic		
 	57508917	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit3		
-	64203882	Credits	MenuGame	\Interactive Music Hierarchy\Default Work Unit\OutroMusic\OutroMusic		
 	95015298	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerStop		
 	98396430	Game	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\UI\UIMouseClick		
 	116989768	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit1		
@@ -63,6 +63,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 	169823267	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerStop		
 	172500040	Credits	MenuGame	\Interactive Music Hierarchy\Default Work Unit\GameplayMusic		
 	196122277	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA		
+	198836080	Game	MenuGame	\Interactive Music Hierarchy\Default Work Unit\OutroMusic		
 	208697173	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material		
 	216472289	Outro	MenuGame	\Interactive Music Hierarchy\Default Work Unit\GameplayMusic		
 	220339743	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation\EmanationBlend		
@@ -73,31 +74,33 @@ Custom State	ID	Name	State Group	Owner		Notes
 	327991084	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\WorldChange		
 	335538122	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA		
 	377772940	InGameMenu	MenuGame	\Interactive Music Hierarchy\Default Work Unit\GameplayMusic		
+	393000505	Outro	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MenuMusic		
 	407037225	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\WorldChange		
+	407137921	InGameMenu	MenuGame	\Interactive Music Hierarchy\Default Work Unit\OutroMusic		
+	427575369	Menu	MenuGame	\Interactive Music Hierarchy\Default Work Unit\OutroMusic		
+	427614787	Game	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MenuMusic		
 	453890354	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Mushroom\MushroomEat		
+	523008279	Credits	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MenuMusic		
 	523576206	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material		
 	530806493	Menu	MenuGame	\Interactive Music Hierarchy\Default Work Unit\CreditsMusic		
 	538140743	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience		
 	544906095	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit1		
-	545070707	Menu	MenuGame	\Interactive Music Hierarchy\Default Work Unit\OutroMusic\OutroMusic		
 	554793873	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit3		
 	571970783	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\ObstacleImpact		
 	576381119	Game	MenuGame	\Interactive Music Hierarchy\Default Work Unit\GameplayMusic		
-	651779166	Game	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MenuMusic\MenuMusic		
 	668417156	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material		
 	668485378	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\WorldChange		
+	685283155	InGameMenu	MenuGame	\Interactive Music Hierarchy\Default Work Unit\CreditsMusic		
 	689443732	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerRotation		
 	692228481	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit3		
 	710975738	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA		
 	721179918	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionB		
 	734342888	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit2		
-	736580968	Credits	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MenuMusic\MenuMusic		
 	741309490	Game	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\UI\UIMouseOver		
 	749906089	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit2		
 	773456548	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat		
 	788028339	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit2		
 	789515186	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerStop		
-	796285973	Game	MenuGame	\Interactive Music Hierarchy\Default Work Unit\OutroMusic\OutroMusic		
 	805576034	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionB		
 	817407580	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience		
 	844144177	Outro	MenuGame	\Interactive Music Hierarchy\Default Work Unit\CreditsMusic		
@@ -107,8 +110,8 @@ Custom State	ID	Name	State Group	Owner		Notes
 	935733476	InGameMenu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat		
 	949846891	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience		
 	970064076	Game	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience		
+	988457385	Credits	MenuGame	\Interactive Music Hierarchy\Default Work Unit\OutroMusic		
 	1018247803	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat		
-	1019486484	Outro	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MenuMusic\MenuMusic		
 	1032548290	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat		
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
@@ -140,7 +143,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	246426695	FSteps_Dirt4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\FSteps_Dirt4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Dirt\FSteps_Dirt4		8669
 	247232381	Ambience - ThrobbingHeadache	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - ThrobbingHeadache_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Ambience - ThrobbingHeadache		12495
 	262163400	MushroomEat	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Mushroom_Eat_v2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Mushroom\MushroomEat		70878
-	266672359	Deposit1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\GemDeposit 1_EA5CE4A6.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit1		83679
+	266672359	Deposit1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\GemDeposit 1_294DC750.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit1		83679
 	269996936	KScope_Outro_MUX_NoLoop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\KScope_Outro_MUX_NoLoop_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\OutroMusic\OutroMusic\KScope_Outro_MUX_NoLoop		1953679
 	311014044	Obstacle Impact 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Obstacle Impact 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\ObstacleImpact\Obstacle Impact 1		10227
 	340761794	Amb_Dark	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - DarkScary_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Amb_Dark		113942
@@ -148,23 +151,23 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	400888509	Ambience - Random - Animal 3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal 3_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Dark\Ambience - Random - Animal 3		17903
 	450197938	Kaleidoscope - Rotation 2 Loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Kaleidoscope - Rotation 2 Loop_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerRotation\TumblerCCWise\Kaleidoscope - Rotation 2 Loop		31133
 	459367388	Emanation4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\GemEmanation 4_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation\EmanationBlend\Emanation4		114484
-	479181028	KScope_Menu_MUX_NoLoop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\KScope_Menu_MUX_NoLoop_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\MenuMusic\MenuMusic\KScope_Menu_MUX_NoLoop		3132443
 	486078552	Obstacle Impact 4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Obstacle Impact 4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\ObstacleImpact\Obstacle Impact 4		6661
 	491047670	Level 1 - Calm	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Level 1 - Calm_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicCalm\Level 1 - Calm\Level 1 - Calm		1267119
 	506880194	Level 1 - Trippy	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Level 1 - Trippy_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicTrippy\Level 1 - Trippy\Level 1 - Trippy		1434244
 	513649078	FSteps_Grass4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\FSteps_Grass4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material\FS_Grass\FSteps_Grass4		8658
 	526657529	Ambience - Random - Animal B 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal B 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 1		18176
 	532517796	PieceCollisionA 4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\PieceCollisionA 4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA\PieceCollisionA 4		5732
+	557298176	K_Scope - Menu Loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - Menu Loop_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\MenuMusic\K_Scope - Menu Loop\K_Scope - Menu Loop		2684264
 	575296685	PieceCollisionB 4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\PieceCollisionB 4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionB\PieceCollisionB 4		7526
 	576107041	K_Scope - Ethereal loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - Ethereal loop_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicEthereal\K_Scope - Ethereal loop\K_Scope - Ethereal loop		2520644
 	579737665	PieceCollisionA 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\PieceCollisionA 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA\PieceCollisionA 1		5801
 	581337223	WorldChange	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Mushroom_WorldChanges_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\WorldChange		91478
 	593943935	PieceCollisionB 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\PieceCollisionB 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionB\PieceCollisionB 1		6120
-	598576478	Deposit3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\GemDeposit 3_E510566F.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit3		83684
+	598576478	Deposit3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\GemDeposit 3_E1331C54.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit3		83684
 	601672460	Campfire Crack 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Campfire Crack 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\CampfireAM\Campfire\CampfireCracks\Campfire Crack 2		5060
 	616143977	Obstacle Impact 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Obstacle Impact 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\ObstacleImpact\Obstacle Impact 2		12845
 	619237890	UIMouseClick	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\UI - Mouse Press_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\UI\UIMouseClick		6899
-	622929681	Deposit2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\GemDeposit 2_4F973416.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit2		83802
+	622929681	Deposit2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\GemDeposit 2_C011F65B.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit2		83802
 	647230748	Emanation1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\GemEmanation 1_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation\EmanationBlend\Emanation1		123218
 	677484880	Kaleidoscope - Rotation StartStop 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Kaleidoscope - Rotation StartStop 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerRotation\TumblerCCWise\Kaleidoscope - Rotation StartStop 2		3251
 	690940518	Ambience - Random - Animal B 7	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal B 7_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 7		8487
@@ -173,6 +176,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	779190182	PieceCollisionA 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\PieceCollisionA 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA\PieceCollisionA 2		4683
 	803345895	Ambience - Random - Animal 4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal 4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Dark\Ambience - Random - Animal 4		23401
 	805631408	Amb_Park	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Park General_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Amb_Park		345848
+	807965758	easteregg_song	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\easteregg_song_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Easter Egg Song\easteregg_song		1624595
 	814904498	Voices - Loop 4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Voices - Loop 4_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\VoicesJudging\Voices - Loop 4		129801
 	815667857	K_Scope - Credits - wav	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - Credits - wav_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\CreditsMusic\K_Scope - Credits - wav\K_Scope - Credits - wav		2921453
 	822044708	Ambience - Random - Animal B 6	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal B 6_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 6		10815
@@ -183,10 +187,12 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	895274775	Level 1 - Scary	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Level 1 - Scary_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicSpooky\Level 1 - Scary\Level 1 - Scary		1120920
 	902218819	Obstacle Impact 3	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Obstacle Impact 3_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\ObstacleImpact\Obstacle Impact 3		11871
 	912074038	HorrorStrings	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\HorrorStrings_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\HorrorStrings		244311
-	912545632	easteregg_song	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\easteregg_song_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\EasterEggSong\easteregg_song		1624595
 	931420305	Voices - Loop 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Voices - Loop 2_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\VoicesJudging\Voices - Loop 2		89388
 	936907132	Ambience - Random - Animal 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Ambience - Random - Animal 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Ambience\Ambience\Animals_Dark\Ambience - Random - Animal 2		14370
 	1006155988	Campfire Crack 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\Campfire Crack 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\CampfireAM\Campfire\CampfireCracks\Campfire Crack 1		7453
 	1044882533	PieceCollisionB 2	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\PieceCollisionB 2_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionB\PieceCollisionB 2		6403
 	1068827005	HeartbeatB	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\HeartbeatB_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat\HeartbeatB		18821
+
+Streamed Audio	ID	Name	Audio source file	Generated audio file	Wwise Object Path	Notes
+	198401690	K_Scope - Menu Intro	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Linux\SFX\K_Scope - Menu Intro_E84716CF.wem	198401690.wem	\Interactive Music Hierarchy\Default Work Unit\MenuMusic\K_Scope - Menu Intro\K_Scope - Menu Intro	
 

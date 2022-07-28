@@ -19,16 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/wwise/runtime/helpers/ak_utils.gd"
 }, {
-"base": "ResourceFormatLoader",
-"class": "HTerrainDataLoader",
-"language": "GDScript",
-"path": "res://addons/zylann.hterrain/hterrain_resource_loader.gd"
-}, {
-"base": "ResourceFormatSaver",
-"class": "HTerrainDataSaver",
-"language": "GDScript",
-"path": "res://addons/zylann.hterrain/hterrain_resource_saver.gd"
-}, {
 "base": "Button",
 "class": "SoundButton",
 "language": "GDScript",
@@ -47,8 +37,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AK": "",
 "AkUtils": "",
-"HTerrainDataLoader": "",
-"HTerrainDataSaver": "",
 "SoundButton": "",
 "TumblerSceneBase": "",
 "ViewCollider": ""
@@ -77,7 +65,7 @@ window/size/fullscreen=true
 
 [editor_plugins]
 
-enabled=PoolStringArray( "res://addons/wwise/plugin.cfg", "res://addons/zylann.hterrain/plugin.cfg", "res://addons/zylann.scatter/plugin.cfg" )
+enabled=PoolStringArray( "res://addons/wwise/plugin.cfg" )
 
 [global]
 
