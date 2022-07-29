@@ -61,7 +61,7 @@ func _input(event):
 		camera.rotation.x = clamp(camera.rotation.x, -0.90, 1)
 
 func _physics_process(delta):
-	velocity = Vector3.ZERO
+	velocity.y += gravity * delta
 	if (path_node && Input.is_action_pressed("auto_walk")):
 		if (Input.is_action_just_pressed("auto_walk")):
 			path_follower.set_offset(
@@ -88,7 +88,6 @@ func _physics_process(delta):
 			velocity = path_follower.get_child(0).global_transform.origin - global_transform.origin
 			velocity = move_and_slide(velocity, Vector3.UP, true)
 	else:
-		velocity.y += gravity * delta
 		var desired_velocity = get_input() * max_speed
 
 		velocity.x = desired_velocity.x
