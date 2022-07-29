@@ -61,6 +61,7 @@ func _input(event):
 		camera.rotation.x = clamp(camera.rotation.x, -0.90, 1)
 
 func _physics_process(delta):
+	velocity.y += gravity * delta
 	if (path_node && Input.is_action_pressed("auto_walk")):
 		if (Input.is_action_just_pressed("auto_walk")):
 			path_follower.set_offset(
@@ -83,24 +84,20 @@ func _physics_process(delta):
 			var spd = max_speed 
 			if reverse_direction:
 				spd = -spd
-			path_follower.set_offset (path_follower.get_offset() + delta * spd );
-			var y = global_transform.origin.y;
-			global_transform.origin = path_follower.get_child(0).global_transform.origin;
-			global_transform.origin.y = y;
+			path_follower.set_offset (path_follower.get_offset() + delta * spd )
+			velocity = path_follower.get_child(0).global_transform.origin - global_transform.origin
+			velocity = move_and_slide(velocity, Vector3.UP, true)
 	else:
-		velocity.y += gravity * delta
 		var desired_velocity = get_input() * max_speed
 
 		velocity.x = desired_velocity.x
 		velocity.z = desired_velocity.z
 		velocity = move_and_slide(velocity, Vector3.UP, true)
-		var walk_detection : Vector3 = velocity * Vector3(1, 0, 1)
-		if walk_detection.length_squared() > jogging_vector_min:
-			$AnimationPlayer.play("Jogging")
-		elif walk_detection.length_squared() > footstep_vector_min:
-			$AnimationPlayer.play("Walking")
-		if Input.is_action_pressed("jump") and is_on_floor():
-			velocity.y = jump_force
+	var walk_detection : Vector3 = velocity * Vector3(1, 0, 1)
+	if walk_detection.length_squared() > jogging_vector_min:
+		$AnimationPlayer.play("Jogging")
+	elif walk_detection.length_squared() > footstep_vector_min:
+		$AnimationPlayer.play("Walking")
 
 	if Input.is_action_just_pressed("interact") and current_interactable != null:
 		if current_interactable is Interactable3D:
