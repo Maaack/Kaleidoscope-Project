@@ -82,7 +82,6 @@ event = {
 
 [node name="PathFollow" type="PathFollow" parent="."]
 rotation_mode = 4
-loop = false
 
 [node name="Pivot" type="Spatial" parent="PathFollow"]
 
