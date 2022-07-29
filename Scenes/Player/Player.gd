@@ -12,15 +12,16 @@ export(float, 0.0, 10.0) var jogging_vector_min : float = 5.0
 onready var camera = $Pivot/PlayerCamera
 onready var path_follower = $PathFollow;
 
-var path_node;
-var path_node_beginning;
-var path_node_end;
-var reverse_direction = false;
+var path_node
+var path_node_beginning
+var path_node_end
+var reverse_direction = false
 
 var gravity = -30
 var max_speed = 6
 var jump_force = 0
 var current_interactable
+var was_crouched : bool = false
 
 #camera vars
 var mouse_sensitivity : float = 0.02  #radians/pixel
@@ -61,6 +62,12 @@ func _input(event):
 		camera.rotation.x = clamp(camera.rotation.x, -0.90, 1)
 
 func _physics_process(delta):
+	var is_crouched : bool = Input.is_action_pressed("crouch")
+	if was_crouched and not is_crouched:
+		transform.origin.y += (0.05) + $CrouchedBody.transform.origin.y - $Body.transform.origin.y
+	$Body.disabled = is_crouched
+	$CrouchedBody.disabled = !(is_crouched)
+	was_crouched = is_crouched
 	velocity.y += gravity * delta
 	if (path_node && Input.is_action_pressed("auto_walk")):
 		if (Input.is_action_just_pressed("auto_walk")):
