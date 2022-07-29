@@ -19,6 +19,7 @@
 shader = ExtResource( 2 )
 shader_param/enabled = true
 shader_param/triangles = false
+shader_param/triangle_blend = 0.0
 shader_param/polarOutOffset = Vector2( 0, 0 )
 shader_param/polarInOffset = Vector2( 0, 0 )
 shader_param/polarInRotationOffset = 0.0
@@ -33,6 +34,7 @@ shader_param/center_radius = 0.25
 shader_param/vignette_radius = 0.0
 shader_param/normality_radius = 0.0
 shader_param/segments = 12.0
+shader_param/reflect_in_segment = false
 shader_param/use_polygon_radius = false
 shader_param/reflect_outside = false
 shader_param/select_outside_slice = false
@@ -195,6 +197,12 @@ material = SubResource( 10 )
 [node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarBlue3" index="0"]
 material = SubResource( 11 )
 
+[node name="FootStepAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player" index="5"]
+event = {
+"Id": 4276063004,
+"Name": "PLAYER FS"
+}
+
 [node name="AkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Campfire" index="2"]
 event = {
 "Id": 2359560878,
@@ -235,3 +243,5 @@ event = {
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain"]
+[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player"]
+[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player/Pivot/PlayerCamera"]

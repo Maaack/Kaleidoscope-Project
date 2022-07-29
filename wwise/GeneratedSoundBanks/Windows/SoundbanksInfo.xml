@@ -30,7 +30,7 @@
 				<GameParameter Id="2987841584" Name="BusVolume_Master" ObjectPath="\Game Parameters\Default Work Unit\BusVolume_Master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1509027703" Language="SFX" Hash="3250709453">
+		<SoundBank Id="1509027703" Language="SFX" Hash="3533432130">
 			<ObjectPath>\SoundBanks\Default Work Unit\KScopeMain</ObjectPath>
 			<ShortName>KScopeMain</ShortName>
 			<Path>1509027703.bnk</Path>
