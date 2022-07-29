@@ -571,7 +571,7 @@ __meta__ = {
 }
 
 [node name="Title" type="Label" parent="Control/TitleSection"]
-modulate = Color( 1, 1, 1, 0.333333 )
+modulate = Color( 1, 1, 1, 0 )
 anchor_left = 0.5
 anchor_right = 0.5
 margin_left = -330.5
@@ -647,9 +647,9 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterMarginContainer/CenterContainer"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 862.0
-margin_top = 234.0
+margin_top = 202.0
 margin_right = 1058.0
-margin_bottom = 466.0
+margin_bottom = 498.0
 rect_min_size = Vector2( 196, 0 )
 custom_constants/separation = 24
 
@@ -659,24 +659,31 @@ margin_bottom = 40.0
 disabled = true
 text = "Play"
 
-[node name="OptionsButton" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer" instance=ExtResource( 10 )]
+[node name="PlaygroundButton" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer" instance=ExtResource( 10 )]
 margin_top = 64.0
 margin_right = 196.0
 margin_bottom = 104.0
 disabled = true
-text = "Options"
+text = "Playground Test"
 
-[node name="CreditsButton" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer" instance=ExtResource( 10 )]
+[node name="OptionsButton" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer" instance=ExtResource( 10 )]
 margin_top = 128.0
 margin_right = 196.0
 margin_bottom = 168.0
 disabled = true
-text = "Credits"
+text = "Options"
 
-[node name="QuitButton" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer" instance=ExtResource( 10 )]
+[node name="CreditsButton" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer" instance=ExtResource( 10 )]
 margin_top = 192.0
 margin_right = 196.0
 margin_bottom = 232.0
+disabled = true
+text = "Credits"
+
+[node name="QuitButton" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer" instance=ExtResource( 10 )]
+margin_top = 256.0
+margin_right = 196.0
+margin_bottom = 296.0
 disabled = true
 text = "Quit"
 
@@ -754,6 +761,7 @@ event = {
 }
 
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
+[connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/PlaygroundButton" to="." method="_on_PlaygroundButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]

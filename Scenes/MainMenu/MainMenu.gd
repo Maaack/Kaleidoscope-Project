@@ -88,3 +88,10 @@ func _on_PlayButton_pressed():
 	$MenuAnimationPlayer.play("Outro")
 	yield($MenuAnimationPlayer, "animation_finished")
 	SceneLoader.load_scene("res://Scenes/MainKaleidoscope.tscn")
+
+
+func _on_PlaygroundButton_pressed():
+	menu_state = States.EXIT
+	$MenuAnimationPlayer.play("Outro")
+	yield($MenuAnimationPlayer, "animation_finished")
+	SceneLoader.load_scene("res://Scenes/Experimental/Marek/PlaygroundWorld.tscn")
