@@ -1,11 +1,10 @@
 extends Node
 
-signal trip_started()
-signal trip_ended()
-
 onready var kaleidoscope = $Kaleidoscope
 onready var tumbler_control = $Kaleidoscope/KaleidoscopeViewport
 onready var gem_control = $Kaleidoscope/GemControl
+onready var animated_world_env = $Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment
+onready var player = $Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player
 onready var fire_particles : Particles = $Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Campfire/FireParticles
 
 export (PackedScene) var tumbler
@@ -66,11 +65,14 @@ func add_gems():
 	
 func start_trip():
 	kaleidoscope.reset_kaleidoscope()
+
 	var transition_rate = kaleidoscope.intensity_change_rate
 	kaleidoscope.intensity_change_rate = transition_rate * 2.0
 	kaleidoscope.set_range(40, 45)
+	kaleidoscope.set_segments(4.0);
 	#add_gems()
-	emit_signal("trip_started")
+	player.slow_down()
+	animated_world_env.start_trip()
 	yield(get_tree().create_timer(15), "timeout")
 	kaleidoscope.start_kaleidoscope()
 	yield(get_tree().create_timer(1), "timeout")
@@ -78,23 +80,28 @@ func start_trip():
 	yield(get_tree().create_timer(14), "timeout")
 	kaleidoscope.intensity_change_rate = transition_rate
 	kaleidoscope.set_range(50, 55)
+	kaleidoscope.set_segments(4.0);
 	fire_particles.speed_scale = 0.6
 	red_pillar.show()
 	
 func on_interact_red_pillar():
 	red_pillar.hide()
 	#gem_control.remove_gemstone(red_gem)
+	kaleidoscope.set_segments(6.0);
 	kaleidoscope.set_range(60, 70)
 	green_pillar.show()
 	
 func on_interact_green_pillar():
 	blue_pillar.show()
+	kaleidoscope.set_segments(8.0);
 	#gem_control.remove_gemstone(green_gem)
 	kaleidoscope.set_range(60, 78)
 	green_pillar.hide()
 
 func on_interact_blue_pillar():
 	#gem_control.remove_gemstone(blue_gem)
+
+
 	blue_pillar.hide()
 	on_enlightenment()
 
@@ -103,6 +110,7 @@ func on_enlightenment():
 	purple_pillar.show()
 	
 	kaleidoscope.set_range(95,100)
+	kaleidoscope.set_segments(16.0);
 	_etheral_music()
 	_enlightened = true
 	fire_particles.speed_scale = 0.2
@@ -111,30 +119,14 @@ func on_enlightenment():
 	
 func on_clarity():
 	_enlightened = false
+	kaleidoscope.set_segments(2.0);
 	purple_pillar.hide()
 
 	kaleidoscope.set_range(0, 1)
 	fire_particles.speed_scale = 0.6
 	yield(get_tree().create_timer(3), "timeout")
 	fire_particles.speed_scale = 1.0
-	emit_signal("trip_ended")
-	#the end
-
-
-	
-func _on_DreamscapeInteractive_pillar_interaction(pillar):
-	match(pillar):
-		ViewCollider.Type.RED:
-			on_interact_red_pillar()
-		ViewCollider.Type.GREEN:
-			on_interact_green_pillar()
-		ViewCollider.Type.BLUE:
-			on_interact_blue_pillar()
-
-
-
-func _on_DreamscapeInteractive_mushroom_eated():
-	start_trip()
+	animated_world_env.end_trip()
 
 
 func _on_Kaleidoscope_intensity_changed(intensity):
@@ -150,3 +142,14 @@ func _etheral_music():
 
 func _on_AnimatedWorldEnvironment_world_ended():
 	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
+
+func _on_Player_interacted(interactable_type):
+	match(interactable_type):
+		Interactable3D.InteractableType.MUSHROOM:
+			start_trip()
+		Interactable3D.InteractableType.RED:
+			on_interact_red_pillar()
+		Interactable3D.InteractableType.GREEN:
+			on_interact_green_pillar()
+		Interactable3D.InteractableType.BLUE:
+			on_interact_blue_pillar()

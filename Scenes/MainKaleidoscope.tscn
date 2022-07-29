@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scenes/DreamscapeEnvironment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Shaders/KaleidoscopeBasic.gdshader" type="Shader" id=2]
@@ -17,7 +17,7 @@
 
 [sub_resource type="ShaderMaterial" id=3]
 shader = ExtResource( 2 )
-shader_param/enabled = false
+shader_param/enabled = true
 shader_param/triangles = false
 shader_param/polarOutOffset = Vector2( 0, 0 )
 shader_param/polarInOffset = Vector2( 0, 0 )
@@ -32,28 +32,22 @@ shader_param/border_radius = 0.48
 shader_param/center_radius = 0.25
 shader_param/vignette_radius = 0.0
 shader_param/normality_radius = 0.0
-shader_param/segments = 4.0
+shader_param/segments = 12.0
 shader_param/use_polygon_radius = false
-shader_param/reflect_outside = true
+shader_param/reflect_outside = false
 shader_param/select_outside_slice = false
 shader_param/show_slice_only = false
 shader_param/rotation_speed = 0.0
 shader_param/color_enabled = Vector3( 1, 1, 1 )
 shader_param/show_debug = false
 
-[sub_resource type="SpatialMaterial" id=4]
-resource_local_to_scene = true
-render_priority = -1
-flags_unshaded = true
-albedo_color = Color( 1, 0.59, 0.59, 1 )
-
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=12]
 resource_local_to_scene = true
 render_priority = -1
 flags_unshaded = true
 albedo_color = Color( 0.7212, 1, 0.59, 1 )
 
-[sub_resource type="SpatialMaterial" id=6]
+[sub_resource type="SpatialMaterial" id=13]
 resource_local_to_scene = true
 render_priority = -1
 flags_unshaded = true
@@ -95,9 +89,9 @@ tumbler = ExtResource( 14 )
 red_gemstone = ExtResource( 11 )
 green_gemstone = ExtResource( 13 )
 blue_gemstone = ExtResource( 12 )
-red_pillar_path = NodePath("Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarRed")
-green_pillar_path = NodePath("Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarGreen")
-blue_pillar_path = NodePath("Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarBlue")
+red_pillar_path = NodePath("Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/RedLightPillarInteractable")
+green_pillar_path = NodePath("Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable")
+blue_pillar_path = NodePath("Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable")
 purple_pillar_path = NodePath("Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarPurple")
 
 [node name="Kaleidoscope" type="ViewportContainer" parent="."]
@@ -112,8 +106,8 @@ margin_right = 540.0
 margin_bottom = 540.0
 script = ExtResource( 3 )
 intensity_change_rate = 15.333
-_max_segments = 8.0
-rotation_thresh = 0.4
+segments = 0
+rotation_thresh = 0.9
 rot_speed_max = 0.1
 
 [node name="GemControl" type="Node" parent="Kaleidoscope"]
@@ -147,52 +141,31 @@ transform = Transform( -0.509869, 0.499134, -0.700642, -0.271842, 0.679242, 0.68
 [node name="AnimationPlayer" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment" index="1"]
 autoplay = "GettingPumped (copy)"
 
-[node name="AkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/Mushroom" index="2"]
-event = {
-"Id": 2103799123,
-"Name": "MUSHROOMEAT"
-}
+[node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable" index="2"]
+material = SubResource( 12 )
 
-[node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="0"]
-material = SubResource( 4 )
-
-[node name="HummingAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="3"]
+[node name="HummingAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable" index="4"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
 }
 
-[node name="DepositAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarRed" index="4"]
-event = {
-"Id": 3709765322,
-"Name": "DEPOSIT1"
-}
-
-[node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="0"]
-material = SubResource( 5 )
-
-[node name="HummingAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="3"]
-event = {
-"Id": 2881812561,
-"Name": "DEPOSITPOINT"
-}
-
-[node name="DepositAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarGreen" index="4"]
+[node name="DepositAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable" index="5"]
 event = {
 "Id": 3709765321,
 "Name": "DEPOSIT2"
 }
 
-[node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="0"]
-material = SubResource( 6 )
+[node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable" index="2"]
+material = SubResource( 13 )
 
-[node name="HummingAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="3"]
+[node name="HummingAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable" index="4"]
 event = {
 "Id": 2881812561,
 "Name": "DEPOSITPOINT"
 }
 
-[node name="DepositAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarBlue" index="4"]
+[node name="DepositAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable" index="5"]
 event = {
 "Id": 3709765320,
 "Name": "DEPOSIT3"
@@ -222,10 +195,10 @@ material = SubResource( 10 )
 [node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarBlue3" index="0"]
 material = SubResource( 11 )
 
-[node name="FootStepAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller/Player" index="5"]
+[node name="AkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Campfire" index="2"]
 event = {
-"Id": 4276063004,
-"Name": "PLAYER FS"
+"Id": 2359560878,
+"Name": "CAMPFIRE SMALL"
 }
 
 [node name="TextDisplay" parent="." instance=ExtResource( 15 )]
@@ -245,17 +218,13 @@ event = {
 "Name": "WORLDCHANGE"
 }
 
-[connection signal="trip_ended" from="." to="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment" method="_on_MainKaleidoscope_trip_ended"]
-[connection signal="trip_started" from="." to="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment" method="_on_MainKaleidoscope_trip_started"]
-[connection signal="trip_started" from="." to="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller/Player" method="_on_MainKaleidoscope_trip_started"]
 [connection signal="intensity_changed" from="Kaleidoscope" to="." method="_on_Kaleidoscope_intensity_changed"]
 [connection signal="tumbler_changed" from="Kaleidoscope/KaleidoscopeViewport" to="Kaleidoscope" method="_on_KaleidoscopeViewport_tumbler_changed"]
 [connection signal="tumbler_changed" from="Kaleidoscope/KaleidoscopeViewport" to="Kaleidoscope/GemControl" method="_on_KaleidoscopeViewport_tumbler_changed"]
 [connection signal="world_ended" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment" to="." method="_on_AnimatedWorldEnvironment_world_ended"]
-[connection signal="mushroom_eated" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="." method="_on_DreamscapeInteractive_mushroom_eated"]
-[connection signal="mushroom_eated" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="Kaleidoscope" method="_on_DreamscapeInteractive_mushroom_eated"]
-[connection signal="pillar_interaction" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="." method="_on_DreamscapeInteractive_pillar_interaction"]
-[connection signal="player_started_looking_at" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive" to="TextDisplay" method="started_looking_at"]
+[connection signal="interactable_entered" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player" to="TextDisplay" method="_on_Player_interactable_entered"]
+[connection signal="interactable_exited" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player" to="TextDisplay" method="_on_Player_interactable_exited"]
+[connection signal="interacted" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player" to="." method="_on_Player_interacted"]
 
 [editable path="Kaleidoscope/KaleidoscopeViewport/TumblerScene"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment"]
@@ -263,12 +232,6 @@ event = {
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/gravestoneCrossLarge3"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/gravestoneCrossLarge2"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/Mushroom"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarRed"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarRed/ViewCollider"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarGreen"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarGreen/ViewCollider"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarBlue"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarBlue/ViewCollider"]
+[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable"]
+[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player Controller"]

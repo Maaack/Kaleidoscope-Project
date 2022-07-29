@@ -1,0 +1,90 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=1]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/Player/Camera/PlayerCamera.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=4]
+
+[sub_resource type="CapsuleShape" id=1]
+radius = 0.35
+height = 1.6
+
+[sub_resource type="BoxShape" id=2]
+extents = Vector3( 0.4, 0.02, 0.4 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Jogging"
+length = 0.3
+tracks/0/type = "method"
+tracks/0/path = NodePath("Player/FootStepAkEvent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.2 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "post_event"
+} ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Walking"
+length = 0.6
+tracks/0/type = "method"
+tracks/0/path = NodePath("Player/FootStepAkEvent")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.3 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "post_event"
+} ]
+}
+
+[node name="Player" type="KinematicBody"]
+script = ExtResource( 4 )
+
+[node name="Body" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, 0, -1.1, 0 )
+shape = SubResource( 1 )
+
+[node name="Feet" type="CollisionShape" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.2, 0 )
+shape = SubResource( 2 )
+disabled = true
+
+[node name="Pivot" type="Spatial" parent="."]
+
+[node name="PlayerCamera" parent="Pivot" instance=ExtResource( 3 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+anims/Jogging = SubResource( 4 )
+anims/Walking = SubResource( 3 )
+
+[node name="AkListener" type="Spatial" parent="."]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
+script = ExtResource( 2 )
+
+[node name="FootStepAkEvent" type="Spatial" parent="."]
+script = ExtResource( 1 )
+event = {
+"Id": 4276063004,
+"Name": "PLAYER FS"
+}
+
+[node name="PathFollow" type="PathFollow" parent="."]
+rotation_mode = 4
+loop = false
+
+[node name="Pivot" type="Spatial" parent="PathFollow"]
+
+[connection signal="interactable_entered" from="Pivot/PlayerCamera" to="." method="_on_PlayerCamera_interactable_entered"]
+[connection signal="interactable_exited" from="Pivot/PlayerCamera" to="." method="_on_PlayerCamera_interactable_exited"]

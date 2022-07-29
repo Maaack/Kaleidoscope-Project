@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/OptionsMenu/OptionsMenu.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/PauseMenu/PauseMenu.gd" type="Script" id=2]
 [ext_resource path="res://Themes/TitleFont.tres" type="DynamicFont" id=3]
 [ext_resource path="res://Scenes/UI/CustomComponents/SoundButton.tscn" type="PackedScene" id=4]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=5]
 
 [node name="PauseMenu" type="CanvasLayer"]
 pause_mode = 2
@@ -75,6 +76,22 @@ dialog_text = "Quit the game ?"
 
 [node name="OptionsMenu" parent="." instance=ExtResource( 1 )]
 visible = false
+
+[node name="StartInGameMenuAkEvent2D" type="Node2D" parent="."]
+script = ExtResource( 5 )
+event = {
+"Id": 4213109959,
+"Name": "INGAMEMENU IN"
+}
+trigger_on = 3
+
+[node name="EndInGameMenuAkEvent2D" type="Node2D" parent="."]
+script = ExtResource( 5 )
+event = {
+"Id": 834664890,
+"Name": "INGAMEMENU OUT"
+}
+trigger_on = 2
 
 [connection signal="pressed" from="ButtonsContainer/ResumeBtn" to="." method="_on_ResumeBtn_pressed"]
 [connection signal="pressed" from="ButtonsContainer/OptionsBtn" to="." method="_on_OptionsBtn_pressed"]

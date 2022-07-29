@@ -1,4 +1,4 @@
-[gd_scene load_steps=35 format=2]
+[gd_scene load_steps=37 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=2]
@@ -7,7 +7,7 @@
 [ext_resource path="res://Assets/Sourced/FBXs/LowpolyForestPack/TreesTexture/SpruceTreeLeaf.png" type="Texture" id=5]
 [ext_resource path="res://Assets/Textures/vmilaalg_2K_Roughness.jpg" type="Texture" id=6]
 [ext_resource path="res://Data/WorldTerrain/data.hterrain" type="Resource" id=7]
-[ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Player/Player.tscn" type="PackedScene" id=8]
 [ext_resource path="res://addons/zylann.scatter/scatter3d.gd" type="Script" id=9]
 [ext_resource path="res://Scenes/LowPolyObjects/Grass/Grass1.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/LowPolyObjects/Mushrooms/Mushroom3.tscn" type="PackedScene" id=11]
@@ -26,6 +26,7 @@
 [ext_resource path="res://Assets/Sourced/FBXs/KenneySurvivalKit1.1/woodDark.material" type="Material" id=24]
 [ext_resource path="res://Assets/Sourced/FBXs/KenneySurvivalKit1.1/wood.material" type="Material" id=25]
 [ext_resource path="res://Assets/Sourced/FBXs/KenneySurvivalKit1.1/rock.material" type="Material" id=26]
+[ext_resource path="res://Scenes/DreamscapeTerrain.gd" type="Script" id=27]
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 3 )
@@ -135,15 +136,19 @@ tracks/1/keys = {
 "values": [ 1.0 ]
 }
 
+[sub_resource type="Curve3D" id=11]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -11.272, -11.3655, 29.6738, 0, 0, 0, 0, 0, 0, 5.29939, -10.526, 20.0094, 0, 0, 0, 0, 0, 0, 12.4859, -7.55551, 10.2404, 0, 0, 0, 0, 0, 0, 8.74555, -3.81006, 4.00108, 0, 0, 0, 0, 0, 0, 8.88764, -2.67029e-05, -4.21979, 0, 0, 0, 0, 0, 0, 13.0622, 1.54981, -9.51845, 0, 0, 0, 0, 0, 0, 19.331, 1.03319, -11.3893 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0 )
+}
+
 [node name="DreamscapeTerrain" type="Spatial"]
+script = ExtResource( 27 )
 
-[node name="Player Controller" parent="." instance=ExtResource( 8 )]
-transform = Transform( 0.698485, 0.000547031, -0.715624, -0.00127874, 0.999999, -0.000483692, 0.715624, 0.00125296, 0.698486, -12.2369, 1.6744, 29.574 )
+[node name="Player" parent="." instance=ExtResource( 8 )]
+transform = Transform( 0.698485, 0.000547031, -0.715624, -0.00127874, 0.999999, -0.000483692, 0.715624, 0.00125296, 0.698486, -12.2369, 2.63688, 29.574 )
 
-[node name="Camera" parent="Player Controller/Player/Pivot" index="0"]
-transform = Transform( 1, -2.50293e-09, -8.04663e-07, 1.16415e-10, 1, -1.43773e-08, 0, -5.82077e-11, 1, 1.90735e-06, 0.183741, 0.461391 )
-
-[node name="FootStepAkEvent" parent="Player Controller/Player" index="5"]
+[node name="FootStepAkEvent" parent="Player" index="5"]
 event = {
 "Id": 4276063004,
 "Name": "PLAYER FS"
@@ -946,8 +951,8 @@ material/0 = ExtResource( 24 )
 [node name="AkEvent" type="Spatial" parent="Campfire"]
 script = ExtResource( 2 )
 event = {
-"Id": 1931646578,
-"Name": "CAMPFIRE"
+"Id": 2359560878,
+"Name": "CAMPFIRE SMALL"
 }
 trigger_on = 3
 stop_on = 2
@@ -972,4 +977,8 @@ autoplay = "FireFlicker"
 anims/FireFlicker = SubResource( 9 )
 anims/RESET = SubResource( 10 )
 
-[editable path="Player Controller"]
+[node name="Path" type="Path" parent="."]
+curve = SubResource( 11 )
+
+[editable path="Player"]
+[editable path="Player/Pivot/PlayerCamera"]
