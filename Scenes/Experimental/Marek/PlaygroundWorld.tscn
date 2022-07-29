@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -11,6 +11,7 @@
 [ext_resource path="res://Scenes/LowPolyObjects/POIs/Playground.tscn" type="PackedScene" id=9]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Experimental/Marek/PlaygroundWorld.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/LowPolyObjects/POIs/WoodenFence.tscn" type="PackedScene" id=12]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
@@ -591,3 +592,39 @@ load_on = 1
 [node name="Path" type="Path" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.77526, 0 )
 curve = SubResource( 2 )
+
+[node name="LowPolyFence" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.981823, 0, 0.189798, 0, 1, 0, -0.189798, 0, 0.981823, -1.72202, 0, -8.03355 )
+
+[node name="LowPolyFence2" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.955695, 0, 0.294357, 0, 1, 0, -0.294357, 0, 0.955695, -4.48879, 0, -7.29842 )
+
+[node name="LowPolyFence3" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.888905, 0, 0.458091, 0, 1, 0, -0.458091, 0, 0.888905, -7.16632, 0, -6.19419 )
+
+[node name="LowPolyFence4" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.786482, 0, 0.617613, 0, 1, 0, -0.617613, 0, 0.786482, -9.63115, 0, -4.72233 )
+
+[node name="LowPolyFence5" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.715449, 0, 0.698665, 0, 1, 0, -0.698665, 0, 0.715449, -11.7559, 0, -2.80377 )
+
+[node name="LowPolyFence6" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.5812, 0, 0.813761, 0, 1, 0, -0.813761, 0, 0.5812, -13.6326, 0, -0.59773 )
+
+[node name="LowPolyFence7" parent="." instance=ExtResource( 12 )]
+transform = Transform( -0.0234725, 0, 0.999725, 0, 1, 0, -0.999725, 0, -0.0234725, -14.5566, 0, 2.09831 )
+
+[node name="LowPolyFence8" parent="." instance=ExtResource( 12 )]
+transform = Transform( -0.130924, 0, 0.991392, 0, 1, 0, -0.991392, 0, -0.130924, -14.293, 0, 4.94891 )
+
+[node name="LowPolyFence9" parent="." instance=ExtResource( 12 )]
+transform = Transform( -0.303501, 0, 0.952831, 0, 1, 0, -0.952831, 0, -0.303501, -13.6506, 0, 7.77305 )
+
+[node name="LowPolyFence10" parent="." instance=ExtResource( 12 )]
+transform = Transform( -0.477864, 0, 0.878434, 0, 1, 0, -0.878434, 0, -0.477864, -12.6102, 0, 10.4488 )
+
+[node name="LowPolyFence11" parent="." instance=ExtResource( 12 )]
+transform = Transform( -0.569624, 0, 0.821905, 0, 1, 0, -0.821905, 0, -0.569624, -11.0727, 0, 12.8636 )
+
+[node name="LowPolyFence12" parent="." instance=ExtResource( 12 )]
+transform = Transform( -0.705488, 0, 0.708722, 0, 1, 0, -0.708722, 0, -0.705488, -9.21035, 0, 15.0817 )
