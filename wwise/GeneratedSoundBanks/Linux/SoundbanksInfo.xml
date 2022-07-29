@@ -8,7 +8,12 @@
 		<ExternalSourcesOutputRoot>/Users/mikezimean/Library/Application Support/Wwise2019/Bottles/Wwise2019x64/dosdevices/y:/Documents/WwiseProjects/K_Scope_1/GeneratedSoundBanks/Linux</ExternalSourcesOutputRoot>
 	</RootPaths>
 	<DialogueEvents/>
-	<StreamedFiles/>
+	<StreamedFiles>
+		<File Id="198401690" Language="SFX">
+			<ShortName>K_Scope - Menu Intro.wav</ShortName>
+			<Path>SFX/K_Scope - Menu Intro_E84716CF.wem</Path>
+		</File>
+	</StreamedFiles>
 	<MediaFilesNotInAnyBank/>
 	<SoundBanks>
 		<SoundBank Id="1355168291" Language="SFX" Hash="572949162">
@@ -25,7 +30,7 @@
 				<GameParameter Id="2987841584" Name="BusVolume_Master" ObjectPath="\Game Parameters\Default Work Unit\BusVolume_Master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1509027703" Language="SFX" Hash="1132508657">
+		<SoundBank Id="1509027703" Language="SFX" Hash="3250709453">
 			<ObjectPath>\SoundBanks\Default Work Unit\KScopeMain</ObjectPath>
 			<ShortName>KScopeMain</ShortName>
 			<Path>1509027703.bnk</Path>
@@ -77,7 +82,7 @@
 					<IncludedMemoryFiles>
 						<File Id="266672359" Language="SFX">
 							<ShortName>GemDeposit 1.wav</ShortName>
-							<Path>SFX/GemDeposit 1_EA5CE4A6.wem</Path>
+							<Path>SFX/GemDeposit 1_294DC750.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -85,7 +90,7 @@
 					<IncludedMemoryFiles>
 						<File Id="622929681" Language="SFX">
 							<ShortName>GemDeposit 2.wav</ShortName>
-							<Path>SFX/GemDeposit 2_4F973416.wem</Path>
+							<Path>SFX/GemDeposit 2_C011F65B.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -93,7 +98,7 @@
 					<IncludedMemoryFiles>
 						<File Id="598576478" Language="SFX">
 							<ShortName>GemDeposit 3.wav</ShortName>
-							<Path>SFX/GemDeposit 3_E510566F.wem</Path>
+							<Path>SFX/GemDeposit 3_E1331C54.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 				</Event>
@@ -119,7 +124,7 @@
 				</Event>
 				<Event Id="3766922154" Name="Easteregg" ObjectPath="\Events\Default Work Unit\Easteregg">
 					<IncludedMemoryFiles>
-						<File Id="912545632" Language="SFX">
+						<File Id="807965758" Language="SFX">
 							<ShortName>easteregg_song.wav</ShortName>
 							<Path>SFX/easteregg_song_569C59C1.wem</Path>
 						</File>
@@ -259,10 +264,16 @@
 					</AuxBusSends>
 				</Event>
 				<Event Id="1785415464" Name="Menu_Loaded" ObjectPath="\Events\Default Work Unit\Menu_Loaded">
+					<ReferencedStreamedFiles>
+						<File Id="198401690" Language="SFX">
+							<ShortName>K_Scope - Menu Intro.wav</ShortName>
+							<Path>SFX/K_Scope - Menu Intro_E84716CF.wem</Path>
+						</File>
+					</ReferencedStreamedFiles>
 					<IncludedMemoryFiles>
-						<File Id="479181028" Language="SFX">
-							<ShortName>KScope_Menu_MUX_NoLoop.wav</ShortName>
-							<Path>SFX/KScope_Menu_MUX_NoLoop_E84716CF.wem</Path>
+						<File Id="557298176" Language="SFX">
+							<ShortName>K_Scope - Menu Loop.wav</ShortName>
+							<Path>SFX/K_Scope - Menu Loop_E84716CF.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 					<ActionSetState>
