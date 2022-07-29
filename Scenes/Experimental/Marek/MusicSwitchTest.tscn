@@ -1,0 +1,71 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Scenes/Experimental/Marek/MusicSwitchTest.gd" type="Script" id=1]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=2]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=3]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=4]
+
+[sub_resource type="Animation" id=1]
+resource_name = "SwitchMusic"
+length = 12.0
+loop = true
+tracks/0/type = "method"
+tracks/0/path = NodePath("MenuMusicEvent2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "post_event"
+} ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath("LevelMusicEvent2D")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 6.5 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "post_event"
+} ]
+}
+
+[node name="MusicSwitchTest" type="Node"]
+script = ExtResource( 1 )
+
+[node name="AkBank" type="Node" parent="."]
+script = ExtResource( 4 )
+bank = {
+"Id": 1509027703,
+"Name": "KSCOPEMAIN"
+}
+load_on = 1
+
+[node name="AkListener2D" type="Node2D" parent="."]
+script = ExtResource( 2 )
+
+[node name="MenuMusicEvent2D" type="Node2D" parent="."]
+script = ExtResource( 3 )
+event = {
+"Id": 1785415464,
+"Name": "MENU LOADED"
+}
+
+[node name="LevelMusicEvent2D" type="Node2D" parent="."]
+script = ExtResource( 3 )
+event = {
+"Id": 1001937282,
+"Name": "LEVEL1 LOADED"
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "SwitchMusic"
+anims/SwitchMusic = SubResource( 1 )

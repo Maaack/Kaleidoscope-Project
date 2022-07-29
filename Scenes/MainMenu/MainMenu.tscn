@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Themes/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Credits/Credits.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=7]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/UI/CustomComponents/SoundButton.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/OptionsMenu/OptionsMenu.tscn" type="PackedScene" id=11]
 
@@ -647,9 +646,9 @@ __meta__ = {
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/CenterMarginContainer/CenterContainer"]
 modulate = Color( 1, 1, 1, 0 )
 margin_left = 862.0
-margin_top = 202.0
+margin_top = 170.0
 margin_right = 1058.0
-margin_bottom = 498.0
+margin_bottom = 530.0
 rect_min_size = Vector2( 196, 0 )
 custom_constants/separation = 24
 
@@ -666,24 +665,31 @@ margin_bottom = 104.0
 disabled = true
 text = "Playground Test"
 
-[node name="OptionsButton" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer" instance=ExtResource( 10 )]
+[node name="MusicTestButton" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer" instance=ExtResource( 10 )]
 margin_top = 128.0
 margin_right = 196.0
 margin_bottom = 168.0
 disabled = true
-text = "Options"
+text = "Music Test"
 
-[node name="CreditsButton" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer" instance=ExtResource( 10 )]
+[node name="OptionsButton" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer" instance=ExtResource( 10 )]
 margin_top = 192.0
 margin_right = 196.0
 margin_bottom = 232.0
 disabled = true
-text = "Credits"
+text = "Options"
 
-[node name="QuitButton" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer" instance=ExtResource( 10 )]
+[node name="CreditsButton" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer" instance=ExtResource( 10 )]
 margin_top = 256.0
 margin_right = 196.0
 margin_bottom = 296.0
+disabled = true
+text = "Credits"
+
+[node name="QuitButton" parent="Control/CenterMarginContainer/CenterContainer/VBoxContainer" instance=ExtResource( 10 )]
+margin_top = 320.0
+margin_right = 196.0
+margin_bottom = 360.0
 disabled = true
 text = "Quit"
 
@@ -734,14 +740,6 @@ custom_fonts/font = ExtResource( 3 )
 text = "Headphones recommended"
 align = 1
 
-[node name="AkBank" type="Node" parent="."]
-script = ExtResource( 8 )
-bank = {
-"Id": 1509027703,
-"Name": "KSCOPEMAIN"
-}
-load_on = 1
-
 [node name="AkListener2D" type="Node2D" parent="."]
 script = ExtResource( 7 )
 
@@ -752,6 +750,8 @@ event = {
 "Name": "MENU LOADED"
 }
 trigger_on = 3
+stop_on = 2
+stop_fade_time = 5
 
 [node name="CreditMusicAkEvent2D" type="Node2D" parent="."]
 script = ExtResource( 2 )
@@ -762,6 +762,7 @@ event = {
 
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/PlaygroundButton" to="." method="_on_PlaygroundButton_pressed"]
+[connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/MusicTestButton" to="." method="_on_MusicTestButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/OptionsButton" to="." method="_on_OptionsButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/QuitButton" to="." method="_on_QuitButton_pressed"]
