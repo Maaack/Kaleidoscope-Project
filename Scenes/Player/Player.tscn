@@ -54,30 +54,30 @@ tracks/0/keys = {
 [sub_resource type="AnimationNodeAnimation" id=11]
 animation = "Crouch"
 
-[sub_resource type="AnimationNodeAnimation" id=12]
-animation = "RESET"
-
 [sub_resource type="AnimationNodeAnimation" id=13]
 animation = "Stand"
+
+[sub_resource type="AnimationNodeAnimation" id=18]
+animation = "Standing"
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=15]
 switch_mode = 2
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=16]
-switch_mode = 2
+[sub_resource type="AnimationNodeStateMachineTransition" id=19]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+[sub_resource type="AnimationNodeStateMachineTransition" id=20]
+switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id=9]
 states/Crouch/node = SubResource( 11 )
 states/Crouch/position = Vector2( 411, 43 )
-states/RESET/node = SubResource( 12 )
-states/RESET/position = Vector2( 632, -89 )
 states/Stand/node = SubResource( 13 )
-states/Stand/position = Vector2( 632, 43 )
-transitions = [ "Crouch", "Stand", SubResource( 15 ), "Stand", "Crouch", SubResource( 16 ), "RESET", "Stand", SubResource( 18 ) ]
-start_node = "RESET"
-graph_offset = Vector2( 36, -148 )
+states/Stand/position = Vector2( 221, 137 )
+states/Standing/node = SubResource( 18 )
+states/Standing/position = Vector2( 36, 43 )
+transitions = [ "Crouch", "Stand", SubResource( 15 ), "Standing", "Crouch", SubResource( 19 ), "Stand", "Standing", SubResource( 20 ) ]
+start_node = "Standing"
+graph_offset = Vector2( -196.595, -148 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
@@ -119,8 +119,8 @@ anims/Walking = SubResource( 3 )
 
 [node name="BodyAnimationPlayer" type="AnimationPlayer" parent="."]
 anims/Crouch = ExtResource( 5 )
-anims/RESET = ExtResource( 7 )
 anims/Stand = ExtResource( 6 )
+anims/Standing = ExtResource( 7 )
 
 [node name="BodyAnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource( 9 )

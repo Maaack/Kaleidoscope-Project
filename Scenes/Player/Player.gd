@@ -66,7 +66,7 @@ func _physics_process(delta):
 	if is_crouched:
 		animation_playback.travel("Crouch")
 	elif stand_up_colliders == 0:
-		animation_playback.travel("Stand")
+		animation_playback.travel("Standing")
 	velocity.y += gravity * delta
 	if (followed_path && Input.is_action_pressed("auto_walk")):
 		#followed_path.set_to_nearby_closest_offset(translation, 10.0)
