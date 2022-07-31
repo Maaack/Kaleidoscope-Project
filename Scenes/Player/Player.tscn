@@ -60,24 +60,24 @@ animation = "RESET"
 [sub_resource type="AnimationNodeAnimation" id=13]
 animation = "Stand"
 
-[sub_resource type="AnimationNodeStateMachineTransition" id=14]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id=15]
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id=16]
 switch_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id=18]
+
 [sub_resource type="AnimationNodeStateMachine" id=9]
 states/Crouch/node = SubResource( 11 )
 states/Crouch/position = Vector2( 411, 43 )
 states/RESET/node = SubResource( 12 )
-states/RESET/position = Vector2( 182, 43 )
+states/RESET/position = Vector2( 632, -89 )
 states/Stand/node = SubResource( 13 )
 states/Stand/position = Vector2( 632, 43 )
-transitions = [ "RESET", "Crouch", SubResource( 14 ), "Crouch", "Stand", SubResource( 15 ), "Stand", "Crouch", SubResource( 16 ) ]
+transitions = [ "Crouch", "Stand", SubResource( 15 ), "Stand", "Crouch", SubResource( 16 ), "RESET", "Stand", SubResource( 18 ) ]
 start_node = "RESET"
-graph_offset = Vector2( 37, -53 )
+graph_offset = Vector2( 36, -148 )
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=10]
 
@@ -85,6 +85,7 @@ graph_offset = Vector2( 37, -53 )
 radius = 0.35
 
 [node name="Player" type="KinematicBody"]
+collision_layer = 8
 script = ExtResource( 4 )
 
 [node name="Body" type="CollisionShape" parent="."]

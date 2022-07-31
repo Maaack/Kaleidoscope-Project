@@ -69,6 +69,7 @@ func _physics_process(delta):
 		animation_playback.travel("Stand")
 	velocity.y += gravity * delta
 	if (followed_path && Input.is_action_pressed("auto_walk")):
+		#followed_path.set_to_nearby_closest_offset(translation, 10.0)
 		if (Input.is_action_just_pressed("auto_walk")):
 			followed_path.set_to_closest_offset(translation)
 			# check which direction we're facing the most and go towards that point
@@ -88,9 +89,11 @@ func _physics_process(delta):
 			var spd = max_speed 
 			if reverse_direction:
 				spd = -spd
-			followed_path.follower_offset += delta * spd
-			velocity = followed_path.get_follower_global_origin() - global_transform.origin
-			velocity = move_and_slide(velocity, Vector3.UP, true)
+			followed_path.follower_offset += spd * delta
+			var translation_diff = followed_path.get_follower_global_origin() - global_transform.origin
+			translation_diff.normalized()
+			translation_diff *= max_speed
+			velocity = move_and_slide(translation_diff, Vector3.UP, true)
 	else:
 		var desired_velocity = get_input() * max_speed
 
@@ -130,10 +133,10 @@ func _on_PlayerCamera_interactable_exited(interactable_node):
 		emit_signal("interactable_exited", current_interactable.interactable_text)
 	current_interactable = null
 
-func _on_StandUpArea_body_entered(body):
+func _on_StandUpArea_body_entered(_body):
 	stand_up_colliders += 1
 
-func _on_StandUpArea_body_exited(body):
+func _on_StandUpArea_body_exited(_body):
 	stand_up_colliders -= 1
 	if stand_up_colliders < 0:
 		stand_up_colliders = 0
