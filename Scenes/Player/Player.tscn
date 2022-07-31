@@ -6,7 +6,7 @@
 [ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=4]
 [ext_resource path="res://Scenes/Player/Animations/PlayerCrouch.tres" type="Animation" id=5]
 [ext_resource path="res://Scenes/Player/Animations/PlayerStand.tres" type="Animation" id=6]
-[ext_resource path="res://Scenes/Player/Animations/PlayerReset.tres" type="Animation" id=7]
+[ext_resource path="res://Scenes/Player/Animations/PlayerStanding.tres" type="Animation" id=7]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.35
