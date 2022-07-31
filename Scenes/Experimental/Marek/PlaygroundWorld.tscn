@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=10]
 [ext_resource path="res://Scenes/Experimental/Marek/PlaygroundWorld.gd" type="Script" id=11]
 [ext_resource path="res://Scenes/LowPolyObjects/POIs/WoodenFence.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Paths/FollowedPath.tscn" type="PackedScene" id=13]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
@@ -20,7 +21,7 @@ textures = [ [  ], [  ] ]
 
 [sub_resource type="Curve3D" id=2]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -5.94885, -1.8039, -0.80903, 0, 0, 0, 0, 0, 0, -5.95415, -1.97483, 10.234, 0, 0, 0, 0, 0, 0, 4.41191, -1.89944, 10.4198, 0, 0, 0, 0, 0, 0, 3.95987, -1.60361, -1.36828, 0, 0, 0, 0, 0, 0, -0.873332, -2.00983, -7.03546, 0, 0, 0, 0, 0, 0, -5.94885, -1.8039, -0.80903 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -5.94885, 0.240939, -0.91995, 0, 0, 0, 0, 0, 0, -5.95415, 0.394265, 10.3166, 0, 0, 0, 0, 0, 0, 4.41191, 0.394265, 10.3166, 0, 0, 0, 0, 0, 0, 3.95987, 0.284747, -1.44564, 0, 0, 0, 0, 0, 0, -0.873337, 0.30665, -7.49102, 0, 0, 0, 0, 0, 0, -5.94885, 0.240939, -0.941854 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
 }
 
@@ -589,10 +590,6 @@ bank = {
 }
 load_on = 1
 
-[node name="Path" type="Path" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.77526, 0 )
-curve = SubResource( 2 )
-
 [node name="LowPolyFence" parent="." instance=ExtResource( 12 )]
 transform = Transform( 0.981823, 0, 0.189798, 0, 1, 0, -0.189798, 0, 0.981823, -1.72202, 0, -8.03355 )
 
@@ -628,3 +625,6 @@ transform = Transform( -0.569624, 0, 0.821905, 0, 1, 0, -0.821905, 0, -0.569624,
 
 [node name="LowPolyFence12" parent="." instance=ExtResource( 12 )]
 transform = Transform( -0.705488, 0, 0.708722, 0, 1, 0, -0.708722, 0, -0.705488, -9.21035, 0, 15.0817 )
+
+[node name="FollowedPath" parent="." instance=ExtResource( 13 )]
+curve = SubResource( 2 )

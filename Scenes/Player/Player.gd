@@ -10,9 +10,8 @@ export(float, 0.0, 5.0) var footstep_vector_min : float = 2.0
 export(float, 0.0, 10.0) var jogging_vector_min : float = 5.0
 
 onready var camera = $Pivot/PlayerCamera
-onready var path_follower = $PathFollow;
 
-var path_node
+var followed_path : FollowedPath setget set_followed_path
 var path_node_beginning
 var path_node_end
 var reverse_direction = false
@@ -34,12 +33,12 @@ var mouseDelta = Vector2()
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-func set_current_path(path):
-	path_node = path;
-	path_node_beginning = path_node.get_curve().get_point_position(0);
-	path_node_end = path_node.get_curve().get_point_position(path_node.get_curve().get_point_count()-1)
-	path_follower.get_parent().remove_child(path_follower)
-	path_node.add_child(path_follower);
+func set_followed_path(value : FollowedPath):
+	followed_path = value
+	if followed_path == null:
+		return
+	path_node_beginning = followed_path.get_start_point_position()
+	path_node_end = followed_path.get_end_point_position()
 
 func get_input():
 	var input_dir = Vector3()
@@ -69,11 +68,9 @@ func _physics_process(delta):
 	elif stand_up_colliders == 0:
 		animation_playback.travel("Stand")
 	velocity.y += gravity * delta
-	if (path_node && Input.is_action_pressed("auto_walk")):
+	if (followed_path && Input.is_action_pressed("auto_walk")):
 		if (Input.is_action_just_pressed("auto_walk")):
-			path_follower.set_offset(
-				path_node.get_curve().get_closest_offset(global_transform.origin)
-			)
+			followed_path.set_to_closest_offset(translation)
 			# check which direction we're facing the most and go towards that point
 			var forward = -global_transform.basis.z
 			var begin_offset = ( path_node_beginning 
@@ -91,8 +88,8 @@ func _physics_process(delta):
 			var spd = max_speed 
 			if reverse_direction:
 				spd = -spd
-			path_follower.set_offset (path_follower.get_offset() + delta * spd )
-			velocity = path_follower.get_child(0).global_transform.origin - global_transform.origin
+			followed_path.follower_offset += delta * spd
+			velocity = followed_path.get_follower_global_origin() - global_transform.origin
 			velocity = move_and_slide(velocity, Vector3.UP, true)
 	else:
 		var desired_velocity = get_input() * max_speed

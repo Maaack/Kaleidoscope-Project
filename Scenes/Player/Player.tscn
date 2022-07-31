@@ -111,11 +111,6 @@ event = {
 "Name": "PLAYER FS"
 }
 
-[node name="PathFollow" type="PathFollow" parent="."]
-rotation_mode = 4
-
-[node name="Pivot" type="Spatial" parent="PathFollow"]
-
 [node name="FootstepsAnimationPlayer" type="AnimationPlayer" parent="."]
 root_node = NodePath("../..")
 anims/Jogging = SubResource( 4 )

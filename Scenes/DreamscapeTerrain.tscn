@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=2]
+[gd_scene load_steps=39 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=1]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=2]
@@ -27,6 +27,9 @@
 [ext_resource path="res://Assets/Sourced/FBXs/KenneySurvivalKit1.1/wood.material" type="Material" id=25]
 [ext_resource path="res://Assets/Sourced/FBXs/KenneySurvivalKit1.1/rock.material" type="Material" id=26]
 [ext_resource path="res://Scenes/DreamscapeTerrain.gd" type="Script" id=27]
+[ext_resource path="res://Scenes/Paths/FollowedPath.tscn" type="PackedScene" id=28]
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=12]
 
 [sub_resource type="Resource" id=2]
 script = ExtResource( 3 )
@@ -148,11 +151,14 @@ script = ExtResource( 27 )
 [node name="Player" parent="." instance=ExtResource( 8 )]
 transform = Transform( 0.698485, 0.000547031, -0.715624, -0.00127874, 0.999999, -0.000483692, 0.715624, 0.00125296, 0.698486, -12.2369, 2.63688, 29.574 )
 
-[node name="FootStepAkEvent" parent="Player" index="5"]
+[node name="FootStepAkEvent" parent="Player" index="4"]
 event = {
 "Id": 4276063004,
 "Name": "PLAYER FS"
 }
+
+[node name="BodyAnimationTree" parent="Player" index="7"]
+parameters/playback = SubResource( 12 )
 
 [node name="Scatter3D" type="Spatial" parent="."]
 script = ExtResource( 9 )
@@ -977,7 +983,7 @@ autoplay = "FireFlicker"
 anims/FireFlicker = SubResource( 9 )
 anims/RESET = SubResource( 10 )
 
-[node name="Path" type="Path" parent="."]
+[node name="FollowedPath" parent="." instance=ExtResource( 28 )]
 curve = SubResource( 11 )
 
 [editable path="Player"]
