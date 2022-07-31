@@ -1,17 +1,16 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=1]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_listener.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/Player/Camera/PlayerCamera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Player/Player.gd" type="Script" id=4]
+[ext_resource path="res://Scenes/Player/Animations/PlayerCrouch.tres" type="Animation" id=5]
+[ext_resource path="res://Scenes/Player/Animations/PlayerStand.tres" type="Animation" id=6]
+[ext_resource path="res://Scenes/Player/Animations/PlayerReset.tres" type="Animation" id=7]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.35
 height = 1.6
-
-[sub_resource type="CapsuleShape" id=5]
-radius = 0.35
-height = 0.6
 
 [sub_resource type="BoxShape" id=2]
 extents = Vector3( 0.4, 0.02, 0.4 )
@@ -52,17 +51,45 @@ tracks/0/keys = {
 } ]
 }
 
+[sub_resource type="AnimationNodeAnimation" id=11]
+animation = "Crouch"
+
+[sub_resource type="AnimationNodeAnimation" id=12]
+animation = "RESET"
+
+[sub_resource type="AnimationNodeAnimation" id=13]
+animation = "Stand"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=14]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=15]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id=16]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachine" id=9]
+states/Crouch/node = SubResource( 11 )
+states/Crouch/position = Vector2( 411, 43 )
+states/RESET/node = SubResource( 12 )
+states/RESET/position = Vector2( 182, 43 )
+states/Stand/node = SubResource( 13 )
+states/Stand/position = Vector2( 632, 43 )
+transitions = [ "RESET", "Crouch", SubResource( 14 ), "Crouch", "Stand", SubResource( 15 ), "Stand", "Crouch", SubResource( 16 ) ]
+start_node = "RESET"
+graph_offset = Vector2( 37, -53 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=10]
+
+[sub_resource type="SphereShape" id=17]
+radius = 0.35
+
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 4 )
 
 [node name="Body" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, 0, -0.994296, 0 )
+transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, 0, -1, 0 )
 shape = SubResource( 1 )
-
-[node name="CrouchedBody" type="CollisionShape" parent="."]
-transform = Transform( 1, 0, 0, 0, 0, -1, 0, 1, 0, 0, -0.495824, 0 )
-shape = SubResource( 5 )
-disabled = true
 
 [node name="Feet" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.0943, 0 )
@@ -72,11 +99,6 @@ disabled = true
 [node name="Pivot" type="Spatial" parent="."]
 
 [node name="PlayerCamera" parent="Pivot" instance=ExtResource( 3 )]
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../..")
-anims/Jogging = SubResource( 4 )
-anims/Walking = SubResource( 3 )
 
 [node name="AkListener" type="Spatial" parent="."]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 0 )
@@ -94,5 +116,30 @@ rotation_mode = 4
 
 [node name="Pivot" type="Spatial" parent="PathFollow"]
 
+[node name="FootstepsAnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+anims/Jogging = SubResource( 4 )
+anims/Walking = SubResource( 3 )
+
+[node name="BodyAnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Crouch = ExtResource( 5 )
+anims/RESET = ExtResource( 7 )
+anims/Stand = ExtResource( 6 )
+
+[node name="BodyAnimationTree" type="AnimationTree" parent="."]
+tree_root = SubResource( 9 )
+anim_player = NodePath("../BodyAnimationPlayer")
+active = true
+parameters/playback = SubResource( 10 )
+
+[node name="StandUpArea" type="Area" parent="."]
+collision_layer = 0
+
+[node name="ImpactDetection" type="CollisionShape" parent="StandUpArea"]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0.55, 0 )
+shape = SubResource( 17 )
+
 [connection signal="interactable_entered" from="Pivot/PlayerCamera" to="." method="_on_PlayerCamera_interactable_entered"]
 [connection signal="interactable_exited" from="Pivot/PlayerCamera" to="." method="_on_PlayerCamera_interactable_exited"]
+[connection signal="body_entered" from="StandUpArea" to="." method="_on_StandUpArea_body_entered"]
+[connection signal="body_exited" from="StandUpArea" to="." method="_on_StandUpArea_body_exited"]

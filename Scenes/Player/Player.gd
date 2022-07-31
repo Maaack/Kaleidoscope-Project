@@ -20,8 +20,8 @@ var reverse_direction = false
 var gravity = -30
 var max_speed = 6
 var jump_force = 0
+var stand_up_colliders : int = 0
 var current_interactable
-var was_crouched : bool = false
 
 #camera vars
 var mouse_sensitivity : float = 0.02  #radians/pixel
@@ -63,11 +63,11 @@ func _input(event):
 
 func _physics_process(delta):
 	var is_crouched : bool = Input.is_action_pressed("crouch")
-	if was_crouched and not is_crouched:
-		transform.origin.y += (0.05) + $CrouchedBody.transform.origin.y - $Body.transform.origin.y
-	$Body.disabled = is_crouched
-	$CrouchedBody.disabled = !(is_crouched)
-	was_crouched = is_crouched
+	var animation_playback : AnimationNodeStateMachinePlayback = $BodyAnimationTree.get("parameters/playback")
+	if is_crouched:
+		animation_playback.travel("Crouch")
+	elif stand_up_colliders == 0:
+		animation_playback.travel("Stand")
 	velocity.y += gravity * delta
 	if (path_node && Input.is_action_pressed("auto_walk")):
 		if (Input.is_action_just_pressed("auto_walk")):
@@ -102,9 +102,9 @@ func _physics_process(delta):
 		velocity = move_and_slide(velocity, Vector3.UP, true)
 	var walk_detection : Vector3 = velocity * Vector3(1, 0, 1)
 	if walk_detection.length_squared() > jogging_vector_min:
-		$AnimationPlayer.play("Jogging")
+		$FootstepsAnimationPlayer.play("Jogging")
 	elif walk_detection.length_squared() > footstep_vector_min:
-		$AnimationPlayer.play("Walking")
+		$FootstepsAnimationPlayer.play("Walking")
 
 	if Input.is_action_just_pressed("interact") and current_interactable != null:
 		if current_interactable is Interactable3D:
@@ -132,3 +132,11 @@ func _on_PlayerCamera_interactable_exited(interactable_node):
 	if current_interactable is Interactable3D:
 		emit_signal("interactable_exited", current_interactable.interactable_text)
 	current_interactable = null
+
+func _on_StandUpArea_body_entered(body):
+	stand_up_colliders += 1
+
+func _on_StandUpArea_body_exited(body):
+	stand_up_colliders -= 1
+	if stand_up_colliders < 0:
+		stand_up_colliders = 0
