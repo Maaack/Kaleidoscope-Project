@@ -64,7 +64,7 @@ _global_script_class_icons={
 
 config/name="Camping Trip"
 config/description="You were meant to find yourself. Then the woods found you."
-run/main_scene="res://Scenes/MainMenu/MainMenu.tscn"
+run/main_scene="res://Scenes/GameStart/GameStart.tscn"
 config/icon="res://icon.png"
 
 [autoload]
