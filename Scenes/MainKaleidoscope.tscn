@@ -203,6 +203,12 @@ event = {
 "Name": "PLAYER FS"
 }
 
+[node name="FootStepAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player" index="6"]
+event = {
+"Id": 4276063004,
+"Name": "PLAYER FS"
+}
+
 [node name="AkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Campfire" index="2"]
 event = {
 "Id": 2359560878,
@@ -245,5 +251,7 @@ event = {
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain"]
+[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player"]
+[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player/Pivot/PlayerCamera"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player/Pivot/PlayerCamera"]
