@@ -90,10 +90,12 @@ func _physics_process(delta):
 			if reverse_direction:
 				spd = -spd
 			followed_path.follower_offset += spd * delta
-			var translation_diff = followed_path.get_follower_global_origin() - global_transform.origin
+			var translation_diff = followed_path.get_vector_to_follower(global_transform.origin)
 			translation_diff.normalized()
 			translation_diff *= max_speed
-			velocity = move_and_slide(translation_diff, Vector3.UP, true)
+			velocity.x = translation_diff.x
+			velocity.z = translation_diff.z
+			velocity = move_and_slide(velocity, Vector3.UP, true)
 	else:
 		var desired_velocity = get_input() * max_speed
 

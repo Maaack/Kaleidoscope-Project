@@ -5,6 +5,7 @@ onready var path_follower = $PathFollow
 onready var path_follower_spatial = $PathFollow/Spatial
 
 export(bool) var bidirectional : bool = false
+export(Vector3) var vector_mod : Vector3 = Vector3.ONE
 export(bool) onready var looping : bool = true setget set_looping
 export(float) onready var follower_offset : float = 0.0 setget set_follower_offset
 
@@ -33,6 +34,9 @@ func set_to_nearby_closest_offset(to_origin : Vector3, max_range : float) -> voi
 	if diff > max_range:
 		return
 	self.follower_offset = closest_offset
+
+func get_vector_to_follower(from_origin : Vector3) -> Vector3:
+	return (path_follower_spatial.global_transform.origin - from_origin) * vector_mod
 
 func get_follower_global_origin() -> Vector3:
 	return path_follower_spatial.global_transform.origin

@@ -636,6 +636,7 @@ trigger_area = SubResource( 3 )
 [node name="TriggeredFollowedPath2" parent="." instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.21293, 2.10514, 2.07993 )
 curve = SubResource( 5 )
+vector_mod = Vector3( 1, 0, 1 )
 trigger_area = SubResource( 4 )
 
 [node name="LevelMusicAkEvent" type="Spatial" parent="."]
