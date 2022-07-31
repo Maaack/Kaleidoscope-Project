@@ -13,7 +13,7 @@ func _process(delta):
 		$VBoxContainer/ProgressBar.value = 100
 		get_tree().change_scene_to(loader.get_resource())
 	else:
-		$ErrorMsg.dialog_text = err
+		$ErrorMsg.dialog_text = "Error: %d" % err
 		$ErrorMsg.popup_centered()
 
 
