@@ -95,11 +95,3 @@ func _on_PlaygroundButton_pressed():
 	$MenuAnimationPlayer.play("Outro")
 	yield($MenuAnimationPlayer, "animation_finished")
 	SceneLoader.load_scene("res://Scenes/Experimental/Marek/PlaygroundWorld.tscn")
-
-
-func _on_MusicTestButton_pressed():
-	menu_state = States.EXIT
-	$MenuAnimationPlayer.play("Outro")
-	yield($MenuAnimationPlayer, "animation_finished")
-	SceneLoader.load_scene("res://Scenes/Experimental/Marek/MusicSwitchTest.tscn")
-
