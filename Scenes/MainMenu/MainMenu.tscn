@@ -751,7 +751,7 @@ event = {
 }
 trigger_on = 3
 stop_on = 2
-stop_fade_time = 5
+stop_fade_time = 5000
 
 [node name="CreditMusicAkEvent2D" type="Node2D" parent="."]
 script = ExtResource( 2 )
@@ -759,6 +759,8 @@ event = {
 "Id": 2687372615,
 "Name": "CREDITS LOADED"
 }
+stop_on = 2
+stop_fade_time = 5000
 
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/PlaygroundButton" to="." method="_on_PlaygroundButton_pressed"]
