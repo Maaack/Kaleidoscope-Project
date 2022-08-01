@@ -46,6 +46,7 @@ State	ID	Name	State Group			Notes
 	2201105581	Credits	MenuGame			
 	2607556080	Menu	MenuGame			
 	3450645083	InGameMenu	MenuGame			
+	3573931707	Loading	MenuGame			
 	4184794294	Outro	MenuGame			
 
 Custom State	ID	Name	State Group	Owner		Notes
@@ -53,14 +54,20 @@ Custom State	ID	Name	State Group	Owner		Notes
 	9900197	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerRotation		
 	23620184	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit1		
 	24098481	InGameMenu	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MenuMusic		
+	24243459	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit3		
 	29161004	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionB		
+	39583319	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat		
+	45583539	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material		
 	47192441	Menu	MenuGame	\Interactive Music Hierarchy\Default Work Unit\GameplayMusic		
 	57508917	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit3		
+	63110257	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Mushroom\MushroomEat		
 	95015298	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerStop		
 	97128213	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\CampfireAM		
 	98396430	Game	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\UI\UIMouseClick		
+	100533372	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\ObstacleImpact		
 	116989768	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit1		
 	125612517	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\ObstacleImpact		
+	132412467	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit2		
 	134481036	InGameMenu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\Level1_Ambience\Ambience		
 	169823267	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerStop		
 	172500040	Credits	MenuGame	\Interactive Music Hierarchy\Default Work Unit\GameplayMusic		
@@ -73,6 +80,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 	220339743	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation\EmanationBlend		
 	267682704	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation\EmanationBlend		
 	287906099	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Mushroom\MushroomEat		
+	294592297	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\Loading_Ambience\Loading_Ambience		
 	302697838	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation\EmanationBlend		
 	310264210	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\ObstacleImpact		
 	327991084	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\WorldChange		
@@ -81,14 +89,20 @@ Custom State	ID	Name	State Group	Owner		Notes
 	374524843	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation		
 	377772940	InGameMenu	MenuGame	\Interactive Music Hierarchy\Default Work Unit\GameplayMusic		
 	393000505	Outro	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MenuMusic		
+	393571359	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\Loading_Ambience\Loading_Ambience		
+	403845395	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\CampfireAM_Small		
 	407037225	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\WorldChange		
 	407137921	InGameMenu	MenuGame	\Interactive Music Hierarchy\Default Work Unit\OutroMusic		
 	413313547	InGameMenu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material		
+	426119375	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\WorldChange		
 	427575369	Menu	MenuGame	\Interactive Music Hierarchy\Default Work Unit\OutroMusic		
 	427614787	Game	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MenuMusic		
 	432991907	InGameMenu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA		
+	433410405	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation		
 	433923256	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\CampfireAM_Small		
 	453890354	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Mushroom\MushroomEat		
+	488814321	InGameMenu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\Loading_Ambience\Loading_Ambience		
+	492298410	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA		
 	505373710	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation		
 	507793429	InGameMenu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\CampfireAM		
 	523008279	Credits	MenuGame	\Interactive Music Hierarchy\Default Work Unit\MenuMusic		
@@ -100,6 +114,7 @@ Custom State	ID	Name	State Group	Owner		Notes
 	558111710	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\CampfireAM		
 	571970783	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\ObstacleImpact		
 	576381119	Game	MenuGame	\Interactive Music Hierarchy\Default Work Unit\GameplayMusic		
+	596943838	InGameMenu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\WorldChange		
 	643326773	InGameMenu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation		
 	668417156	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Footsteps\FS_Material		
 	668485378	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\WorldChange		
@@ -110,30 +125,38 @@ Custom State	ID	Name	State Group	Owner		Notes
 	692228481	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit3		
 	701072250	InGameMenu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit1		
 	710975738	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA		
+	716190777	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\CampfireAM		
 	721179918	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionB		
 	734342888	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit2		
 	741309490	Game	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\UI\UIMouseOver		
 	749906089	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit2		
 	771637939	InGameMenu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Mushroom\MushroomEat		
 	773456548	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat		
+	776460331	Game	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\Loading_Ambience\Loading_Ambience		
 	788028339	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit2		
 	789515186	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerStop		
+	796103466	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\Level1_Ambience\Ambience		
 	804813271	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Emanation		
 	805576034	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionB		
 	817407580	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\Level1_Ambience\Ambience		
+	818255361	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerStop		
+	822163167	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\Loading_Ambience\Loading_Ambience		
 	844072580	InGameMenu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerRotation		
 	844144177	Outro	MenuGame	\Interactive Music Hierarchy\Default Work Unit\CreditsMusic		
 	858231914	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\CampfireAM		
 	877028601	Game	MenuGame	\Interactive Music Hierarchy\Default Work Unit\CreditsMusic		
 	883839909	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerRotation		
+	918701989	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionB		
 	921848575	Credits	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\Mushroom\MushroomEat		
 	935733476	InGameMenu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat		
 	949846891	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\Level1_Ambience\Ambience		
+	953790356	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\TumblerRotation		
 	970064076	Game	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\Level1_Ambience\Ambience		
 	988457385	Credits	MenuGame	\Interactive Music Hierarchy\Default Work Unit\OutroMusic		
 	1018247803	Menu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat		
 	1032548290	Outro	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Heartbeat		
 	1037714265	InGameMenu	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit3		
+	1063823786	Loading	MenuGame	\Actor-Mixer Hierarchy\Default Work Unit\SFX\Deposit1		
 
 Game Parameter	ID	Name			Wwise Object Path	Notes
 	749828935	PlayerHighness			\Default Work Unit\PlayerHighness	
@@ -179,6 +202,7 @@ In Memory Audio	ID	Name	Audio source file		Wwise Object Path	Notes	Data Size
 	526657529	Ambience - Random - Animal B 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Ambience - Random - Animal B 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\Level1_Ambience\Ambience\Animals_Normal\Ambience - Random - Animal B 1		18176
 	532517796	PieceCollisionA 4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\PieceCollisionA 4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA\PieceCollisionA 4		5732
 	557298176	K_Scope - Menu Loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\K_Scope - Menu Loop_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\MenuMusic\K_Scope - Menu Loop\K_Scope - Menu Loop		2684264
+	568236825	Loading_Ambience	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\Ambience - Loading_E84716CF.wem		\Actor-Mixer Hierarchy\Default Work Unit\Loading_Ambience\Loading_Ambience		115680
 	575296685	PieceCollisionB 4	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\PieceCollisionB 4_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionB\PieceCollisionB 4		7526
 	576107041	K_Scope - Ethereal loop	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\K_Scope - Ethereal loop_E84716CF.wem		\Interactive Music Hierarchy\Default Work Unit\GameplayMusic\MusicEthereal\K_Scope - Ethereal loop\K_Scope - Ethereal loop		2520644
 	579737665	PieceCollisionA 1	Y:\Documents\WwiseProjects\K_Scope_1\.cache\Mac\SFX\PieceCollisionA 1_569C59C1.wem		\Actor-Mixer Hierarchy\Default Work Unit\PlayerActions\PieceCollision\PieceCollisionA\PieceCollisionA 1		5801

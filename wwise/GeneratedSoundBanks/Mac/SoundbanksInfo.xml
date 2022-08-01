@@ -30,7 +30,7 @@
 				<GameParameter Id="2987841584" Name="BusVolume_Master" ObjectPath="\Game Parameters\Default Work Unit\BusVolume_Master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1509027703" Language="SFX" Hash="3533432130">
+		<SoundBank Id="1509027703" Language="SFX" Hash="1200908874">
 			<ObjectPath>\SoundBanks\Default Work Unit\KScopeMain</ObjectPath>
 			<ShortName>KScopeMain</ShortName>
 			<Path>1509027703.bnk</Path>
@@ -274,6 +274,10 @@
 						<File Id="557298176" Language="SFX">
 							<ShortName>K_Scope - Menu Loop.wav</ShortName>
 							<Path>SFX/K_Scope - Menu Loop_E84716CF.wem</Path>
+						</File>
+						<File Id="568236825" Language="SFX">
+							<ShortName>Ambience - Loading.wav</ShortName>
+							<Path>SFX/Ambience - Loading_E84716CF.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 					<ActionSetState>

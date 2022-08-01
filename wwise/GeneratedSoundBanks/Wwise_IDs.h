@@ -48,6 +48,7 @@ namespace AK
                 static const AkUniqueID CREDITS = 2201105581U;
                 static const AkUniqueID GAME = 702482391U;
                 static const AkUniqueID INGAMEMENU = 3450645083U;
+                static const AkUniqueID LOADING = 3573931707U;
                 static const AkUniqueID MENU = 2607556080U;
                 static const AkUniqueID NONE = 748895195U;
                 static const AkUniqueID OUTRO = 4184794294U;
