@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Themes/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_event_2d.gd" type="Script" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Scenes/MainMenu/MainMenu.gd" type="Script" id=5]
 [ext_resource path="res://Scenes/Credits/Credits.tscn" type="PackedScene" id=6]
 [ext_resource path="res://addons/wwise/runtime/nodes/ak_listener_2d.gd" type="Script" id=7]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=8]
 [ext_resource path="res://Scenes/UI/CustomComponents/SoundButton.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/OptionsMenu/OptionsMenu.tscn" type="PackedScene" id=11]
 
@@ -734,14 +733,6 @@ custom_fonts/font = ExtResource( 3 )
 text = "Headphones recommended"
 align = 1
 
-[node name="AkBank" type="Node" parent="."]
-script = ExtResource( 8 )
-bank = {
-"Id": 1509027703,
-"Name": "KSCOPEMAIN"
-}
-load_on = 1
-
 [node name="AkListener2D" type="Node2D" parent="."]
 script = ExtResource( 7 )
 
@@ -752,6 +743,8 @@ event = {
 "Name": "MENU LOADED"
 }
 trigger_on = 3
+stop_on = 2
+stop_fade_time = 5000
 
 [node name="CreditMusicAkEvent2D" type="Node2D" parent="."]
 script = ExtResource( 2 )
@@ -759,6 +752,8 @@ event = {
 "Id": 2687372615,
 "Name": "CREDITS LOADED"
 }
+stop_on = 2
+stop_fade_time = 5000
 
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/PlayButton" to="." method="_on_PlayButton_pressed"]
 [connection signal="pressed" from="Control/CenterMarginContainer/CenterContainer/VBoxContainer/PlaygroundButton" to="." method="_on_PlaygroundButton_pressed"]
