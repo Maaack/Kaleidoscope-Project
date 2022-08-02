@@ -67,7 +67,6 @@ func _physics_process(delta):
 		animation_playback.travel("Crouch")
 	elif stand_up_colliders == 0:
 		animation_playback.travel("Standing")
-	velocity.y += gravity * delta
 	if (followed_path && Input.is_action_pressed("auto_walk")):
 		#followed_path.set_to_nearby_closest_offset(translation, 10.0)
 		if (Input.is_action_just_pressed("auto_walk")):
@@ -85,6 +84,9 @@ func _physics_process(delta):
 				reverse_direction = true
 			else:
 				reverse_direction = false
+			if followed_path.disables_physics:
+				$Body.disabled = true
+
 		else:
 			var spd = max_speed 
 			if reverse_direction:
@@ -93,10 +95,11 @@ func _physics_process(delta):
 			var translation_diff = followed_path.get_vector_to_follower(global_transform.origin)
 			translation_diff.normalized()
 			translation_diff *= max_speed
-			velocity.x = translation_diff.x
-			velocity.z = translation_diff.z
+			velocity = translation_diff
 			velocity = move_and_slide(velocity, Vector3.UP, true)
 	else:
+		velocity.y += (gravity_mod + gravity) * delta
+		$Body.disabled = false
 		var desired_velocity = get_input() * max_speed
 
 		velocity.x = desired_velocity.x

@@ -4,10 +4,11 @@ extends Path
 onready var path_follower = $PathFollow
 onready var path_follower_spatial = $PathFollow/Spatial
 
-export(bool) var bidirectional : bool = false
+export(bool) var disables_physics : bool = false
 export(Vector3) var vector_mod : Vector3 = Vector3.ONE
-export(bool) onready var looping : bool = true setget set_looping
-export(float) onready var follower_offset : float = 0.0 setget set_follower_offset
+export(bool) var looping : bool = true setget set_looping
+
+onready var follower_offset : float = 0.0 setget set_follower_offset
 
 func set_looping(value : bool) -> void:
 	looping = value
@@ -20,6 +21,9 @@ func set_follower_offset(value : float) -> void:
 	if follower_offset == null or path_follower == null:
 		return
 	path_follower.offset = follower_offset
+
+func _ready():
+	self.looping = looping
 
 func get_closest_offset(to_origin : Vector3) -> float:
 	return get_curve().get_closest_offset(to_origin)
