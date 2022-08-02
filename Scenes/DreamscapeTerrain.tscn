@@ -26,8 +26,7 @@
 [ext_resource path="res://Assets/Sourced/FBXs/KenneySurvivalKit1.1/woodDark.material" type="Material" id=24]
 [ext_resource path="res://Assets/Sourced/FBXs/KenneySurvivalKit1.1/wood.material" type="Material" id=25]
 [ext_resource path="res://Assets/Sourced/FBXs/KenneySurvivalKit1.1/rock.material" type="Material" id=26]
-[ext_resource path="res://Scenes/DreamscapeTerrain.gd" type="Script" id=27]
-[ext_resource path="res://Scenes/Paths/FollowedPath.tscn" type="PackedScene" id=28]
+[ext_resource path="res://Scenes/Paths/TriggeredFollowedPath.tscn" type="PackedScene" id=29]
 
 [sub_resource type="AnimationNodeStateMachinePlayback" id=12]
 
@@ -139,14 +138,16 @@ tracks/1/keys = {
 "values": [ 1.0 ]
 }
 
-[sub_resource type="Curve3D" id=11]
+[sub_resource type="Curve3D" id=14]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -11.3455, 1.47803, 29.3643, 0, 0, 0, 0, 0, 0, 5.67331, 1.58506, 20.3842, 0, 0, 0, 0, 0, 0, 12.3096, 1.74562, 11.1547, 0, 0, 0, 0, 0, 0, 8.61681, 1.79914, 4.6691, 0, 0, 0, 0, 0, 0, 8.93793, 1.41736, -4.60377, 0, 0, 0, 0, 0, 0, 13.7584, 1.60432, -8.6301, 0, 0, 0, 0, 0, 0, 21.062, 0.902237, -8.6301, 0, 0, 0, 0, 0, 0, 23.7273, 1.47979, -1.66985, 0, 0, 0, 0, 0, 0, 15.4368, 1.35494, 3.51132, 0, 0, 0, 0, 0, 0, 4.93909, 1.04282, 1.82588, 0, 0, 0, 0, 0, 0, -1.33758, 1.37099, 6.81229, 0, 0, 0, 0, 0, 0, -7.5457, 1.37099, 16.4023, 0, 0, 0, 0, 0, 0, -11.3455, 1.42451, 29.3643 ),
-"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.371015, -4.76837e-06, 0.0161209, 0, 0, 0, 0, 0, 0, 15.8294, -4.76837e-06, -8.23555, 0, 0, 0, 0, 0, 0, 18.2152, -4.76837e-06, -16.4856, 0, 0, 0, 0, 0, 0, 17.9594, -4.76837e-06, -24.0865, 0, 0, 0, 0, 0, 0, 18.6015, -0.0554476, -30.5165, 0, 0, 0, 0, 0, 0, 21.2018, 0.031579, -37.0574, 0, 0, 0, 0, 0, 0, 25.231, -4.76837e-06, -40.6278, 0, 0, 0, 0, 0, 0, 30.7081, -4.76837e-06, -40.6278, 0, 0, 0, 0, 0, 0, 34.7266, -0.270602, -37.0974, 0, 0, 0, 0, 0, 0, 35.5739, -0.156459, -32.4697, 0, 0, 0, 0, 0, 0, 32.7471, 0.0620337, -27.5687, 0, 0, 0, 0, 0, 0, 26.863, 0.0521612, -24.8272, 0, 0, 0, 0, 0, 0, 15.7936, 0.10426, -24.3148, 0, 0, 0, 0, 0, 0, 5.00706, -4.76837e-06, -15.6272, 0, 0, 0, 0, 0, 0, 0.371015, -4.76837e-06, 0.0161209 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0 )
 }
 
+[sub_resource type="BoxShape" id=13]
+extents = Vector3( 10, 1, 10 )
+
 [node name="DreamscapeTerrain" type="Spatial"]
-script = ExtResource( 27 )
 
 [node name="Player" parent="." instance=ExtResource( 8 )]
 transform = Transform( 0.698485, 0.000547031, -0.715624, -0.00127874, 0.999999, -0.000483692, 0.715624, 0.00125296, 0.698486, -12.2369, 2.15509, 29.574 )
@@ -983,8 +984,11 @@ autoplay = "FireFlicker"
 anims/FireFlicker = SubResource( 9 )
 anims/RESET = SubResource( 10 )
 
-[node name="FollowedPath" parent="." instance=ExtResource( 28 )]
-curve = SubResource( 11 )
+[node name="TriggeredFollowedPath" parent="." instance=ExtResource( 29 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7932, 1.00229, 29.6698 )
+curve = SubResource( 14 )
+vector_mod = Vector3( 1, 0, 1 )
+trigger_area = SubResource( 13 )
 
 [editable path="Player"]
 [editable path="Player/Pivot/PlayerCamera"]
