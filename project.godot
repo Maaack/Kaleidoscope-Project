@@ -19,16 +19,6 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://addons/wwise/runtime/helpers/ak_utils.gd"
 }, {
-"base": "ResourceFormatLoader",
-"class": "HTerrainDataLoader",
-"language": "GDScript",
-"path": "res://addons/zylann.hterrain/hterrain_resource_loader.gd"
-}, {
-"base": "ResourceFormatSaver",
-"class": "HTerrainDataSaver",
-"language": "GDScript",
-"path": "res://addons/zylann.hterrain/hterrain_resource_saver.gd"
-}, {
 "base": "Spatial",
 "class": "Interactable3D",
 "language": "GDScript",
@@ -52,8 +42,6 @@ _global_script_classes=[ {
 _global_script_class_icons={
 "AK": "",
 "AkUtils": "",
-"HTerrainDataLoader": "",
-"HTerrainDataSaver": "",
 "Interactable3D": "",
 "PlayerCamera": "",
 "SoundButton": "",

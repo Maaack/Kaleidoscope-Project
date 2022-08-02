@@ -24,6 +24,8 @@ namespace AK
         static const AkUniqueID INGAMEMENU_IN = 4213109959U;
         static const AkUniqueID INGAMEMENU_OUT = 834664890U;
         static const AkUniqueID LEVEL1_LOADED = 1001937282U;
+        static const AkUniqueID LOADING_IN = 270586343U;
+        static const AkUniqueID LOADING_OUT = 1672418138U;
         static const AkUniqueID MENU_LOADED = 1785415464U;
         static const AkUniqueID MUSHROOMEAT = 2103799123U;
         static const AkUniqueID OBSTACLEIMPACT = 3047133404U;

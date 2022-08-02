@@ -1,9 +1,11 @@
 Event	ID	Name			Wwise Object Path	Notes
+	270586343	Loading_In			\Default Work Unit\Loading_In	
 	834664890	InGameMenu_Out			\Default Work Unit\InGameMenu_Out	
 	910559594	Outro_Loaded			\Default Work Unit\Outro_Loaded	
 	1001937282	Level1_Loaded			\Default Work Unit\Level1_Loaded	
 	1207294690	TumblerStop			\Default Work Unit\TumblerStop	
 	1271092770	UIMouseOver			\Default Work Unit\UIMouseOver	
+	1672418138	Loading_Out			\Default Work Unit\Loading_Out	
 	1785415464	Menu_Loaded			\Default Work Unit\Menu_Loaded	
 	1931646578	Campfire			\Default Work Unit\Campfire	
 	2103799123	MushroomEat			\Default Work Unit\MushroomEat	
