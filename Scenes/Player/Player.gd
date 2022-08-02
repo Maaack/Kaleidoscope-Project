@@ -71,7 +71,7 @@ func _physics_process(delta):
 	if (followed_path && Input.is_action_pressed("auto_walk")):
 		#followed_path.set_to_nearby_closest_offset(translation, 10.0)
 		if (Input.is_action_just_pressed("auto_walk")):
-			followed_path.set_to_closest_offset(translation)
+			followed_path.set_to_closest_offset(global_transform.origin)
 			# check which direction we're facing the most and go towards that point
 			var forward = -global_transform.basis.z
 			var begin_offset = ( path_node_beginning 

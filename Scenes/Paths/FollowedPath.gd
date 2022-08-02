@@ -25,6 +25,7 @@ func get_closest_offset(to_origin : Vector3) -> float:
 	return get_curve().get_closest_offset(to_origin)
 
 func set_to_closest_offset(to_origin : Vector3) -> void:
+	to_origin -= global_transform.origin
 	self.follower_offset = get_closest_offset(to_origin)
 
 func set_to_nearby_closest_offset(to_origin : Vector3, max_range : float) -> void:
