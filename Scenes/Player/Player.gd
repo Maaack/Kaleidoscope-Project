@@ -5,9 +5,10 @@ signal interactable_exited(interactable_text)
 signal interacted(interactable_type)
 
 const NONE_INTERACTABLE_TYPE = 0
+const FOOTSTEP_VECTOR_MIN = 2.0
+const JOGGING_VECTOR_MIN = 5.0
 
-export(float, 0.0, 5.0) var footstep_vector_min : float = 2.0
-export(float, 0.0, 10.0) var jogging_vector_min : float = 5.0
+export(float, -60, 60) var gravity_mod : float = 0.0
 
 onready var camera = $Pivot/PlayerCamera
 
@@ -18,7 +19,6 @@ var reverse_direction = false
 
 var gravity = -30
 var max_speed = 6
-var jump_force = 0
 var stand_up_colliders : int = 0
 var current_interactable
 
@@ -106,9 +106,9 @@ func _physics_process(delta):
 		velocity.z = desired_velocity.z
 		velocity = move_and_slide(velocity, Vector3.UP, true)
 	var walk_detection : Vector3 = velocity * Vector3(1, 0, 1)
-	if walk_detection.length_squared() > jogging_vector_min:
+	if walk_detection.length_squared() > JOGGING_VECTOR_MIN:
 		$FootstepsAnimationPlayer.play("Jogging")
-	elif walk_detection.length_squared() > footstep_vector_min:
+	elif walk_detection.length_squared() > FOOTSTEP_VECTOR_MIN:
 		$FootstepsAnimationPlayer.play("Walking")
 
 	if Input.is_action_just_pressed("interact") and current_interactable != null:

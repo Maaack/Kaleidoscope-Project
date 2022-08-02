@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -36,8 +36,27 @@ _data = {
 
 [sub_resource type="BoxShape" id=4]
 
+[sub_resource type="Curve3D" id=6]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.00241733, -0.00538206, 0.00465727, 0, 0, 0, 0, 0, 0, 1.55514, -0.428022, 0.0439615, 0, 0, 0, 0, 0, 0, 1.97081, -0.937212, 0.161851, 0, 0, 0, 0, 0, 0, 2.12668, -1.23857, 0.370788, 0, 0, 0, 0, 0, 0, 2.26177, -1.48797, 0.717668, 0, 0, 0, 0, 0, 0, 2.3902, -1.64948, 1.68629, 0, 0, 0, 0, 0, 0, 2.33402, -1.67529, 3.18355, 0, 0, 0, 0, 0, 0, 2.33402, -0.28622, 3.73918 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.5, 0.5, 0.5 )
+
 [node name="PlaygroundWorld" type="Spatial"]
 script = ExtResource( 11 )
+
+[node name="LevelMusicAkEvent" type="Spatial" parent="."]
+script = ExtResource( 13 )
+event = {
+"Id": 1001937282,
+"Name": "LEVEL1 LOADED"
+}
+trigger_on = 3
+stop_on = 2
+stop_fade_time = 5000
 
 [node name="HTerrain" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, -64 )
@@ -639,12 +658,9 @@ curve = SubResource( 5 )
 vector_mod = Vector3( 1, 0, 1 )
 trigger_area = SubResource( 4 )
 
-[node name="LevelMusicAkEvent" type="Spatial" parent="."]
-script = ExtResource( 13 )
-event = {
-"Id": 1001937282,
-"Name": "LEVEL1 LOADED"
-}
-trigger_on = 3
-stop_on = 2
-stop_fade_time = 5000
+[node name="TriggeredFollowedPath3" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.261618, 2.20779, 5.28107 )
+curve = SubResource( 6 )
+disables_physics = true
+looping = false
+trigger_area = SubResource( 7 )

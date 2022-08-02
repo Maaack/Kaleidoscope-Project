@@ -987,6 +987,7 @@ anims/RESET = SubResource( 10 )
 [node name="TriggeredFollowedPath" parent="." instance=ExtResource( 29 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7932, 1.00229, 29.6698 )
 curve = SubResource( 14 )
+disables_physics = null
 vector_mod = Vector3( 1, 0, 1 )
 trigger_area = SubResource( 13 )
 
