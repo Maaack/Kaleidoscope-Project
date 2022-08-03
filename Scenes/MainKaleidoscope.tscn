@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Scenes/DreamscapeEnvironment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Shaders/KaleidoscopeBasic.gdshader" type="Shader" id=2]
@@ -84,6 +84,8 @@ resource_local_to_scene = true
 render_priority = -1
 flags_unshaded = true
 albedo_color = Color( 0.588235, 0.829529, 1, 1 )
+
+[sub_resource type="AnimationNodeStateMachinePlayback" id=14]
 
 [node name="MainKaleidoscope" type="Node"]
 script = ExtResource( 10 )
@@ -197,19 +199,16 @@ material = SubResource( 10 )
 [node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarBlue3" index="0"]
 material = SubResource( 11 )
 
-[node name="FootStepAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player" index="5"]
+[node name="FootStepAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player" index="3"]
 event = {
 "Id": 4276063004,
 "Name": "PLAYER FS"
 }
 
-[node name="FootStepAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player" index="6"]
-event = {
-"Id": 4276063004,
-"Name": "PLAYER FS"
-}
+[node name="BodyAnimationTree" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player" index="6"]
+parameters/playback = SubResource( 14 )
 
-[node name="AkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Campfire" index="2"]
+[node name="AkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Campfire" index="2"]
 event = {
 "Id": 2359560878,
 "Name": "CAMPFIRE SMALL"
@@ -238,9 +237,9 @@ event = {
 [connection signal="tumbler_changed" from="Kaleidoscope/KaleidoscopeViewport" to="Kaleidoscope" method="_on_KaleidoscopeViewport_tumbler_changed"]
 [connection signal="tumbler_changed" from="Kaleidoscope/KaleidoscopeViewport" to="Kaleidoscope/GemControl" method="_on_KaleidoscopeViewport_tumbler_changed"]
 [connection signal="world_ended" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment" to="." method="_on_AnimatedWorldEnvironment_world_ended"]
-[connection signal="interactable_entered" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player" to="TextDisplay" method="_on_Player_interactable_entered"]
-[connection signal="interactable_exited" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player" to="TextDisplay" method="_on_Player_interactable_exited"]
-[connection signal="interacted" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player" to="." method="_on_Player_interacted"]
+[connection signal="interactable_entered" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player" to="TextDisplay" method="_on_Player_interactable_entered"]
+[connection signal="interactable_exited" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player" to="TextDisplay" method="_on_Player_interactable_exited"]
+[connection signal="interacted" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player" to="." method="_on_Player_interacted"]
 
 [editable path="Kaleidoscope/KaleidoscopeViewport/TumblerScene"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment"]
@@ -250,8 +249,6 @@ event = {
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/gravestoneCrossLarge2"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player/Pivot/PlayerCamera"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player"]
-[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player/Pivot/PlayerCamera"]
+[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain"]
+[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player"]
+[editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player/Pivot/PlayerCamera"]
