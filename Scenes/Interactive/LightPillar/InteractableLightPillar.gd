@@ -19,3 +19,6 @@ func show() -> void:
 func hide() -> void:
 	.hide()
 	$HummingAkEvent.stop_event()
+
+func pulse() -> void:
+	$PulseAnimationPlayer.play("Pulse")

@@ -225,6 +225,8 @@ event = {
 trigger_on = 3
 stop_on = 2
 stop_fade_time = 5000
+use_callback = true
+callback_flag = 256
 
 [node name="WorldChangeAkEvent2D" type="Node2D" parent="."]
 script = ExtResource( 5 )
@@ -240,6 +242,7 @@ event = {
 [connection signal="interactable_entered" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player" to="TextDisplay" method="_on_Player_interactable_entered"]
 [connection signal="interactable_exited" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player" to="TextDisplay" method="_on_Player_interactable_exited"]
 [connection signal="interacted" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player" to="." method="_on_Player_interacted"]
+[connection signal="music_sync_beat" from="LevelMusicAkEvent2D" to="." method="_on_LevelMusicAkEvent2D_music_sync_beat"]
 
 [editable path="Kaleidoscope/KaleidoscopeViewport/TumblerScene"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment"]

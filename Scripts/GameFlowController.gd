@@ -153,3 +153,9 @@ func _on_Player_interacted(interactable_type):
 			on_interact_green_pillar()
 		Interactable3D.InteractableType.BLUE:
 			on_interact_blue_pillar()
+
+func _on_LevelMusicAkEvent2D_music_sync_beat(data):
+	red_pillar.pulse()
+	green_pillar.pulse()
+	blue_pillar.pulse()
+	purple_pillar.pulse()
