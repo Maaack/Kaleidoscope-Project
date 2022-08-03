@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Scenes/DreamscapeEnvironment.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Shaders/KaleidoscopeBasic.gdshader" type="Shader" id=2]
@@ -55,36 +55,6 @@ render_priority = -1
 flags_unshaded = true
 albedo_color = Color( 0.59, 0.754, 1, 1 )
 
-[sub_resource type="SpatialMaterial" id=7]
-resource_local_to_scene = true
-render_priority = -1
-flags_unshaded = true
-albedo_color = Color( 0.672, 0.59, 1, 1 )
-
-[sub_resource type="SpatialMaterial" id=8]
-resource_local_to_scene = true
-render_priority = -1
-flags_unshaded = true
-albedo_color = Color( 0.672, 0.59, 1, 1 )
-
-[sub_resource type="SpatialMaterial" id=9]
-resource_local_to_scene = true
-render_priority = -1
-flags_unshaded = true
-albedo_color = Color( 0.980392, 1, 0.588235, 1 )
-
-[sub_resource type="SpatialMaterial" id=10]
-resource_local_to_scene = true
-render_priority = -1
-flags_unshaded = true
-albedo_color = Color( 0.588235, 0.721569, 1, 1 )
-
-[sub_resource type="SpatialMaterial" id=11]
-resource_local_to_scene = true
-render_priority = -1
-flags_unshaded = true
-albedo_color = Color( 0.588235, 0.829529, 1, 1 )
-
 [sub_resource type="AnimationNodeStateMachinePlayback" id=14]
 
 [node name="MainKaleidoscope" type="Node"]
@@ -96,7 +66,7 @@ blue_gemstone = ExtResource( 12 )
 red_pillar_path = NodePath("Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/RedLightPillarInteractable")
 green_pillar_path = NodePath("Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable")
 blue_pillar_path = NodePath("Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable")
-purple_pillar_path = NodePath("Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarPurple")
+rainbow_pillar_path = NodePath("Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/RainbowLightPillars")
 
 [node name="Kaleidoscope" type="ViewportContainer" parent="."]
 material = SubResource( 3 )
@@ -175,30 +145,6 @@ event = {
 "Name": "DEPOSIT3"
 }
 
-[node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarPurple" index="0"]
-material = SubResource( 7 )
-
-[node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarPurple4" index="0"]
-material = SubResource( 8 )
-
-[node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarRed2" index="0"]
-material = SubResource( 9 )
-
-[node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarGreen2" index="0"]
-material = SubResource( 10 )
-
-[node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarBlue2" index="0"]
-material = SubResource( 11 )
-
-[node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarRed3" index="0"]
-material = SubResource( 9 )
-
-[node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarGreen3" index="0"]
-material = SubResource( 10 )
-
-[node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/LightPillarPurple/LightPillarBlue3" index="0"]
-material = SubResource( 11 )
-
 [node name="FootStepAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player" index="3"]
 event = {
 "Id": 4276063004,
@@ -225,6 +171,8 @@ event = {
 trigger_on = 3
 stop_on = 2
 stop_fade_time = 5000
+use_callback = true
+callback_flag = 256
 
 [node name="WorldChangeAkEvent2D" type="Node2D" parent="."]
 script = ExtResource( 5 )
@@ -240,6 +188,7 @@ event = {
 [connection signal="interactable_entered" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player" to="TextDisplay" method="_on_Player_interactable_entered"]
 [connection signal="interactable_exited" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player" to="TextDisplay" method="_on_Player_interactable_exited"]
 [connection signal="interacted" from="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player" to="." method="_on_Player_interacted"]
+[connection signal="music_sync_beat" from="LevelMusicAkEvent2D" to="." method="_on_LevelMusicAkEvent2D_music_sync_beat"]
 
 [editable path="Kaleidoscope/KaleidoscopeViewport/TumblerScene"]
 [editable path="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment"]
