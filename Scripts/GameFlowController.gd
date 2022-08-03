@@ -31,8 +31,8 @@ var green_pillar
 export(NodePath) var blue_pillar_path
 var blue_pillar
 
-export(NodePath) var purple_pillar_path
-var purple_pillar
+export(NodePath) var rainbow_pillar_path
+var rainbow_pillar
 
 var _enlightened = false
 
@@ -44,12 +44,12 @@ func _ready():
 	red_pillar = get_node_or_null(red_pillar_path) # Replace with function body.
 	green_pillar = get_node_or_null(green_pillar_path)
 	blue_pillar = get_node_or_null(blue_pillar_path)
-	purple_pillar = get_node_or_null(purple_pillar_path)
+	rainbow_pillar = get_node_or_null(rainbow_pillar_path)
 	
 	red_pillar.hide()
 	green_pillar.hide()
 	blue_pillar.hide()
-	purple_pillar.hide()
+	rainbow_pillar.hide()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
@@ -107,7 +107,7 @@ func on_interact_blue_pillar():
 
 func on_enlightenment():
 	kaleidoscope.intensity_change_rate = kaleidoscope.intensity_change_rate  * 4.0
-	purple_pillar.show()
+	rainbow_pillar.show()
 	
 	kaleidoscope.set_range(95,100)
 	kaleidoscope.set_segments(16.0);
@@ -120,7 +120,7 @@ func on_enlightenment():
 func on_clarity():
 	_enlightened = false
 	kaleidoscope.set_segments(2.0);
-	purple_pillar.hide()
+	rainbow_pillar.hide()
 
 	kaleidoscope.set_range(0, 1)
 	fire_particles.speed_scale = 0.6
@@ -158,4 +158,8 @@ func _on_LevelMusicAkEvent2D_music_sync_beat(data):
 	red_pillar.pulse()
 	green_pillar.pulse()
 	blue_pillar.pulse()
-	purple_pillar.pulse()
+	if not _enlightened:
+		return
+	for node in rainbow_pillar.get_children():
+		if node.has_method("pulse"):
+			node.pulse()
