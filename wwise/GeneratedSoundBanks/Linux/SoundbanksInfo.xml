@@ -30,7 +30,7 @@
 				<GameParameter Id="2987841584" Name="BusVolume_Master" ObjectPath="\Game Parameters\Default Work Unit\BusVolume_Master"/>
 			</GameParameters>
 		</SoundBank>
-		<SoundBank Id="1509027703" Language="SFX" Hash="3533432130">
+		<SoundBank Id="1509027703" Language="SFX" Hash="3763730216">
 			<ObjectPath>\SoundBanks\Default Work Unit\KScopeMain</ObjectPath>
 			<ShortName>KScopeMain</ShortName>
 			<Path>1509027703.bnk</Path>
@@ -263,6 +263,18 @@
 						<AuxBus Id="2847424927" Name="Aux_Rev" ObjectPath="\Master-Mixer Hierarchy\Default Work Unit\Master Audio Bus\Aux_Rev"/>
 					</AuxBusSends>
 				</Event>
+				<Event Id="270586343" Name="Loading_In" ObjectPath="\Events\Default Work Unit\Loading_In">
+					<IncludedMemoryFiles>
+						<File Id="568236825" Language="SFX">
+							<ShortName>Ambience - Loading.wav</ShortName>
+							<Path>SFX/Ambience - Loading_E84716CF.wem</Path>
+						</File>
+					</IncludedMemoryFiles>
+					<ActionSetState>
+						<ActionSetStateEntry Id="3573931707" Name="Loading" ObjectPath="\States\Default Work Unit\MenuGame\Loading"/>
+					</ActionSetState>
+				</Event>
+				<Event Id="1672418138" Name="Loading_Out" ObjectPath="\Events\Default Work Unit\Loading_Out"/>
 				<Event Id="1785415464" Name="Menu_Loaded" ObjectPath="\Events\Default Work Unit\Menu_Loaded">
 					<ReferencedStreamedFiles>
 						<File Id="198401690" Language="SFX">
@@ -274,6 +286,10 @@
 						<File Id="557298176" Language="SFX">
 							<ShortName>K_Scope - Menu Loop.wav</ShortName>
 							<Path>SFX/K_Scope - Menu Loop_E84716CF.wem</Path>
+						</File>
+						<File Id="568236825" Language="SFX">
+							<ShortName>Ambience - Loading.wav</ShortName>
+							<Path>SFX/Ambience - Loading_E84716CF.wem</Path>
 						</File>
 					</IncludedMemoryFiles>
 					<ActionSetState>
@@ -516,6 +532,9 @@
 					<States/>
 				</StateGroup>
 				<StateGroup Id="3450645083" Name="InGameMenu" ObjectPath="\States\Default Work Unit\MenuGame\InGameMenu" GUID="{2BD4B589-035A-4707-B2CB-BADEAAC0146A}">
+					<States/>
+				</StateGroup>
+				<StateGroup Id="3573931707" Name="Loading" ObjectPath="\States\Default Work Unit\MenuGame\Loading" GUID="{F0091EAD-8601-4E44-BC53-B4D16CF73DA1}">
 					<States/>
 				</StateGroup>
 				<StateGroup Id="4184794294" Name="Outro" ObjectPath="\States\Default Work Unit\MenuGame\Outro" GUID="{421ACB63-F075-42C8-B4E8-024129178338}">

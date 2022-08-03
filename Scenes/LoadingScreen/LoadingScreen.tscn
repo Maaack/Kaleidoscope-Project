@@ -1,8 +1,10 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Themes/MainTheme.tres" type="Theme" id=1]
 [ext_resource path="res://Themes/TitleFont.tres" type="DynamicFont" id=2]
 [ext_resource path="res://Scenes/LoadingScreen/LoadingScreen.gd" type="Script" id=3]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=4]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_listener.gd" type="Script" id=5]
 
 [node name="LoadingScreen" type="Control"]
 anchor_right = 1.0
@@ -38,5 +40,26 @@ margin_right = 107.0
 margin_bottom = 72.0
 popup_exclusive = true
 window_title = "Alerte !"
+
+[node name="AkListener" type="Spatial" parent="."]
+script = ExtResource( 5 )
+
+[node name="LoadingInAkEvent" type="Spatial" parent="."]
+script = ExtResource( 4 )
+event = {
+"Id": 270586343,
+"Name": "LOADING IN"
+}
+trigger_on = 3
+stop_on = 2
+stop_fade_time = 5000
+
+[node name="LoadingOutAkEvent" type="Spatial" parent="."]
+script = ExtResource( 4 )
+event = {
+"Id": 1672418138,
+"Name": "LOADING OUT"
+}
+trigger_on = 2
 
 [connection signal="confirmed" from="ErrorMsg" to="." method="_on_ErrorMsg_confirmed"]

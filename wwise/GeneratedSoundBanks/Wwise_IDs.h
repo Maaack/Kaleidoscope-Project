@@ -24,6 +24,8 @@ namespace AK
         static const AkUniqueID INGAMEMENU_IN = 4213109959U;
         static const AkUniqueID INGAMEMENU_OUT = 834664890U;
         static const AkUniqueID LEVEL1_LOADED = 1001937282U;
+        static const AkUniqueID LOADING_IN = 270586343U;
+        static const AkUniqueID LOADING_OUT = 1672418138U;
         static const AkUniqueID MENU_LOADED = 1785415464U;
         static const AkUniqueID MUSHROOMEAT = 2103799123U;
         static const AkUniqueID OBSTACLEIMPACT = 3047133404U;
@@ -48,6 +50,7 @@ namespace AK
                 static const AkUniqueID CREDITS = 2201105581U;
                 static const AkUniqueID GAME = 702482391U;
                 static const AkUniqueID INGAMEMENU = 3450645083U;
+                static const AkUniqueID LOADING = 3573931707U;
                 static const AkUniqueID MENU = 2607556080U;
                 static const AkUniqueID NONE = 748895195U;
                 static const AkUniqueID OUTRO = 4184794294U;
