@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Assets/Sourced/FBXs/CGTrader/playground1.fbx" type="PackedScene" id=1]
 
@@ -19,6 +19,18 @@ extents = Vector3( 0.05, 0.6, 0.746107 )
 
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 0.05, 0.455144, 0.746107 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 0.05, 0.05, 0.8 )
+
+[sub_resource type="BoxShape" id=10]
+extents = Vector3( 0.8, 0.05, 0.05 )
+
+[sub_resource type="BoxShape" id=11]
+extents = Vector3( 0.075, 0.7, 0.075 )
+
+[sub_resource type="BoxShape" id=9]
+extents = Vector3( 0.5, 0.1, 1.4 )
 
 [node name="Playground" instance=ExtResource( 1 )]
 
@@ -74,3 +86,23 @@ shape = SubResource( 7 )
 [node name="Wall7" type="CollisionShape" parent="StaticBody" index="11"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -1.56401, 2.01982, -3.90985 )
 shape = SubResource( 5 )
+
+[node name="Beam" type="CollisionShape" parent="StaticBody" index="12"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -1.55417, 2.66952, 0.780127 )
+shape = SubResource( 8 )
+
+[node name="Beam2" type="CollisionShape" parent="StaticBody" index="13"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.778406, 2.65162, -3.11479 )
+shape = SubResource( 10 )
+
+[node name="Strut" type="CollisionShape" parent="StaticBody" index="14"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.78087, 0.69971, -0.785737 )
+shape = SubResource( 11 )
+
+[node name="Strut2" type="CollisionShape" parent="StaticBody" index="15"]
+transform = Transform( -4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0.78087, 0.69971, 0.789888 )
+shape = SubResource( 11 )
+
+[node name="SlideDown" type="CollisionShape" parent="StaticBody" index="16"]
+transform = Transform( 1, 0, 0, 0, 0.913546, -0.406737, 0, 0.406737, 0.913545, -1.55841, 0.605844, 2.04184 )
+shape = SubResource( 9 )
