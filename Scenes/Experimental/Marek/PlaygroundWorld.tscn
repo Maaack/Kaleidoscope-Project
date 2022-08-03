@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -9,8 +9,10 @@
 [ext_resource path="res://Scenes/LowPolyObjects/Trees/SpruceTree3.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Scenes/LowPolyObjects/Trees/SpruceTree2.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/LowPolyObjects/POIs/Playground.tscn" type="PackedScene" id=9]
-[ext_resource path="res://addons/wwise/runtime/nodes/ak_bank.gd" type="Script" id=10]
+[ext_resource path="res://Scenes/Paths/TriggeredFollowedPath.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Scenes/Experimental/Marek/PlaygroundWorld.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/LowPolyObjects/POIs/WoodenFence.tscn" type="PackedScene" id=12]
+[ext_resource path="res://addons/wwise/runtime/nodes/ak_event.gd" type="Script" id=13]
 
 [sub_resource type="Resource" id=1]
 script = ExtResource( 1 )
@@ -19,12 +21,45 @@ textures = [ [  ], [  ] ]
 
 [sub_resource type="Curve3D" id=2]
 _data = {
-"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -5.94885, -1.8039, -0.80903, 0, 0, 0, 0, 0, 0, -5.95415, -1.97483, 10.234, 0, 0, 0, 0, 0, 0, 4.41191, -1.89944, 10.4198, 0, 0, 0, 0, 0, 0, 3.95987, -1.60361, -1.36828, 0, 0, 0, 0, 0, 0, -0.873332, -2.00983, -7.03546, 0, 0, 0, 0, 0, 0, -5.94885, -1.8039, -0.80903 ),
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, -5.94885, 0.240939, -0.91995, 0, 0, 0, 0, 0, 0, -5.95415, 0.394265, 10.3166, 0, 0, 0, 0, 0, 0, 4.41191, 0.394265, 10.3166, 0, 0, 0, 0, 0, 0, 3.95987, 0.284747, -1.44564, 0, 0, 0, 0, 0, 0, -0.873337, 0.30665, -7.49102, 0, 0, 0, 0, 0, 0, -5.94885, 0.240939, -0.941854 ),
 "tilts": PoolRealArray( 0, 0, 0, 0, 0, 0 )
 }
 
+[sub_resource type="BoxShape" id=3]
+extents = Vector3( 10, 1, 10 )
+
+[sub_resource type="Curve3D" id=5]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.0157244, 7.39098e-06, 0.0900679, 0, 0, 0, 0, 0, 0, -0.00844455, 7.39098e-06, 3.28032, 0, 0, 0, 0, 0, 0, 1.58668, 7.39098e-06, 3.32866, 0, 0, 0, 0, 0, 0, 0.145028, 7.39098e-06, 3.11599, 0, 0, 0, 0, 0, 0, 0.0157244, 7.39098e-06, 0.0900679 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="BoxShape" id=4]
+
+[sub_resource type="Curve3D" id=6]
+_data = {
+"points": PoolVector3Array( 0, 0, 0, 0, 0, 0, 0.00241733, -0.00538206, 0.00465727, 0, 0, 0, 0, 0, 0, 1.55514, -0.428022, 0.0439615, 0, 0, 0, 0, 0, 0, 1.97081, -0.937212, 0.161851, 0, 0, 0, 0, 0, 0, 2.12668, -1.23857, 0.370788, 0, 0, 0, 0, 0, 0, 2.26177, -1.48797, 0.717668, 0, 0, 0, 0, 0, 0, 2.3902, -1.64948, 1.68629, 0, 0, 0, 0, 0, 0, 2.33402, -1.67529, 3.18355, 0, 0, 0, 0, 0, 0, 2.33402, -0.28622, 3.73918 ),
+"tilts": PoolRealArray( 0, 0, 0, 0, 0, 0, 0, 0 )
+}
+
+[sub_resource type="BoxShape" id=7]
+extents = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 80, 1, 80 )
+
 [node name="PlaygroundWorld" type="Spatial"]
 script = ExtResource( 11 )
+
+[node name="LevelMusicAkEvent" type="Spatial" parent="."]
+script = ExtResource( 13 )
+event = {
+"Id": 1001937282,
+"Name": "LEVEL1 LOADED"
+}
+trigger_on = 3
+stop_on = 2
+stop_fade_time = 5000
 
 [node name="HTerrain" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -64, 0, -64 )
@@ -46,7 +81,7 @@ shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [node name="Player" parent="." instance=ExtResource( 4 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.03949, 0 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.21067, 0 )
 
 [node name="Scatter3D" type="Spatial" parent="."]
 script = ExtResource( 5 )
@@ -580,14 +615,65 @@ transform = Transform( 0.287399, 0, -0.957811, 0, 1, 0, 0.957811, 0, 0.287399, -
 [node name="Playground" parent="." instance=ExtResource( 9 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.612995, 0, 5.24757 )
 
-[node name="AkBank" type="Node" parent="."]
-script = ExtResource( 10 )
-bank = {
-"Id": 1509027703,
-"Name": "KSCOPEMAIN"
-}
-load_on = 1
+[node name="LowPolyFence" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.981823, 0, 0.189798, 0, 1, 0, -0.189798, 0, 0.981823, -1.72202, 0, -8.03355 )
 
-[node name="Path" type="Path" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.77526, 0 )
+[node name="LowPolyFence2" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.955695, 0, 0.294357, 0, 1, 0, -0.294357, 0, 0.955695, -4.48879, 0, -7.29842 )
+
+[node name="LowPolyFence3" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.888905, 0, 0.458091, 0, 1, 0, -0.458091, 0, 0.888905, -7.16632, 0, -6.19419 )
+
+[node name="LowPolyFence4" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.786482, 0, 0.617613, 0, 1, 0, -0.617613, 0, 0.786482, -9.63115, 0, -4.72233 )
+
+[node name="LowPolyFence5" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.715449, 0, 0.698665, 0, 1, 0, -0.698665, 0, 0.715449, -11.7559, 0, -2.80377 )
+
+[node name="LowPolyFence6" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.5812, 0, 0.813761, 0, 1, 0, -0.813761, 0, 0.5812, -13.6326, 0, -0.59773 )
+
+[node name="LowPolyFence7" parent="." instance=ExtResource( 12 )]
+transform = Transform( -0.0234725, 0, 0.999725, 0, 1, 0, -0.999725, 0, -0.0234725, -14.5566, 0, 2.09831 )
+
+[node name="LowPolyFence8" parent="." instance=ExtResource( 12 )]
+transform = Transform( -0.130924, 0, 0.991392, 0, 1, 0, -0.991392, 0, -0.130924, -14.293, 0, 4.94891 )
+
+[node name="LowPolyFence9" parent="." instance=ExtResource( 12 )]
+transform = Transform( -0.303501, 0, 0.952831, 0, 1, 0, -0.952831, 0, -0.303501, -13.6506, 0, 7.77305 )
+
+[node name="LowPolyFence10" parent="." instance=ExtResource( 12 )]
+transform = Transform( -0.477864, 0, 0.878434, 0, 1, 0, -0.878434, 0, -0.477864, -12.6102, 0, 10.4488 )
+
+[node name="LowPolyFence11" parent="." instance=ExtResource( 12 )]
+transform = Transform( -0.569624, 0, 0.821905, 0, 1, 0, -0.821905, 0, -0.569624, -11.0727, 0, 12.8636 )
+
+[node name="LowPolyFence12" parent="." instance=ExtResource( 12 )]
+transform = Transform( -0.705488, 0, 0.708722, 0, 1, 0, -0.708722, 0, -0.705488, -9.21035, 0, 15.0817 )
+
+[node name="TriggeredFollowedPath" parent="." instance=ExtResource( 10 )]
 curve = SubResource( 2 )
+lock_player_direction = true
+trigger_area = SubResource( 3 )
+
+[node name="TriggeredFollowedPath2" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -2.21293, 2.10514, 2.07993 )
+curve = SubResource( 5 )
+vector_mod = Vector3( 1, 0, 1 )
+trigger_area = SubResource( 4 )
+
+[node name="TriggeredFollowedPath3" parent="." instance=ExtResource( 10 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.261618, 2.20779, 5.28107 )
+curve = SubResource( 6 )
+disables_physics = true
+lock_player_direction = true
+looping = false
+trigger_area = SubResource( 7 )
+
+[node name="ResetArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.19067, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ResetArea"]
+shape = SubResource( 8 )
+
+[connection signal="body_entered" from="ResetArea" to="." method="_on_ResetArea_body_entered"]
