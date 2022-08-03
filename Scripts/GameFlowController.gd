@@ -4,8 +4,8 @@ onready var kaleidoscope = $Kaleidoscope
 onready var tumbler_control = $Kaleidoscope/KaleidoscopeViewport
 onready var gem_control = $Kaleidoscope/GemControl
 onready var animated_world_env = $Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment
-onready var player = $Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Player
-onready var fire_particles : Particles = $Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestViewColliderUI/DreamscapeTerrain/Campfire/FireParticles
+onready var player = $Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player
+onready var fire_particles : Particles = $Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Campfire/FireParticles
 
 export (PackedScene) var tumbler
 export (PackedScene)  var red_gemstone

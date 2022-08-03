@@ -1,7 +1,7 @@
 # Camping Trip
 A Godot Wild Jam #47 gamejam game. Theme was "Symmetry".
 
-Made in Godot 3.4.4
+Made in Godot 3.4.5
 
 ## Installation
 ### Addons
