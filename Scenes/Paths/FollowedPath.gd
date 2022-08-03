@@ -5,6 +5,7 @@ onready var path_follower = $PathFollow
 onready var path_follower_spatial = $PathFollow/Spatial
 
 export(bool) var disables_physics : bool = false
+export(bool) var lock_player_direction : bool = false
 export(Vector3) var vector_mod : Vector3 = Vector3.ONE
 export(bool) var looping : bool = true setget set_looping
 

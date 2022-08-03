@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=1]
 [ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=2]
@@ -44,6 +44,9 @@ _data = {
 
 [sub_resource type="BoxShape" id=7]
 extents = Vector3( 0.5, 0.5, 0.5 )
+
+[sub_resource type="BoxShape" id=8]
+extents = Vector3( 80, 1, 80 )
 
 [node name="PlaygroundWorld" type="Spatial"]
 script = ExtResource( 11 )
@@ -650,6 +653,7 @@ transform = Transform( -0.705488, 0, 0.708722, 0, 1, 0, -0.708722, 0, -0.705488,
 
 [node name="TriggeredFollowedPath" parent="." instance=ExtResource( 10 )]
 curve = SubResource( 2 )
+lock_player_direction = true
 trigger_area = SubResource( 3 )
 
 [node name="TriggeredFollowedPath2" parent="." instance=ExtResource( 10 )]
@@ -662,5 +666,14 @@ trigger_area = SubResource( 4 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.261618, 2.20779, 5.28107 )
 curve = SubResource( 6 )
 disables_physics = true
+lock_player_direction = true
 looping = false
 trigger_area = SubResource( 7 )
+
+[node name="ResetArea" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -6.19067, 0 )
+
+[node name="CollisionShape" type="CollisionShape" parent="ResetArea"]
+shape = SubResource( 8 )
+
+[connection signal="body_entered" from="ResetArea" to="." method="_on_ResetArea_body_entered"]

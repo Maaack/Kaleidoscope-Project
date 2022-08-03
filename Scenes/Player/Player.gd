@@ -60,6 +60,15 @@ func _input(event):
 		camera.rotate_x(deg2rad(event.relative.y * mouse_sensitivity * -6))
 		camera.rotation.x = clamp(camera.rotation.x, -0.90, 1)
 
+func _get_angle_on_y_axis(to_origin : Vector3):
+	var vector_mask : Vector3 = Vector3.FORWARD + Vector3.RIGHT
+	var masked_translation : Vector3 = (global_transform.origin - to_origin) * vector_mask
+	var cross : Vector3 = Vector3.FORWARD.cross(masked_translation).normalized()
+	var angle : float = Vector3.FORWARD.angle_to(masked_translation)
+	if cross.y > 0:
+		angle *= -1.0
+	return angle
+
 func _physics_process(delta):
 	var is_crouched : bool = Input.is_action_pressed("crouch")
 	var animation_playback : AnimationNodeStateMachinePlayback = $BodyAnimationTree.get("parameters/playback")
@@ -96,7 +105,11 @@ func _physics_process(delta):
 			translation_diff.normalized()
 			translation_diff *= max_speed
 			velocity = translation_diff
+			if not followed_path.disables_physics:
+				velocity.y += (gravity_mod + gravity) * delta
 			velocity = move_and_slide(velocity, Vector3.UP, true)
+			if followed_path.lock_player_direction:
+				self.rotation.y = _get_angle_on_y_axis(followed_path.get_follower_global_origin())
 	else:
 		velocity.y += (gravity_mod + gravity) * delta
 		$Body.disabled = false
