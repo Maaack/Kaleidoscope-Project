@@ -16,6 +16,8 @@ func _ready() -> void:
 	Wwise.set_pause_mode(PAUSE_MODE_PROCESS)
 	if version_name != "":
 		$Control/BordersMarginContainer/Control/VersionName.text = "v %s" % version_name
+	if PlayerRecorder.recording:
+		PlayerRecorder.recording = false
 
 func _disable_menu_buttons(disabled : bool = true) -> void:
 	for node in $Control/CenterMarginContainer/CenterContainer/VBoxContainer.get_children():

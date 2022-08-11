@@ -50,6 +50,8 @@ func _ready():
 	green_pillar.hide()
 	blue_pillar.hide()
 	rainbow_pillar.hide()
+	
+	PlayerRecorder.recording = true
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

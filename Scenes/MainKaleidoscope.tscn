@@ -115,50 +115,20 @@ transform = Transform( -0.509869, 0.499134, -0.700642, -0.271842, 0.679242, 0.68
 [node name="AnimationPlayer" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment" index="1"]
 autoplay = "GettingPumped (copy)"
 
+[node name="RedLightPillarInteractable" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings" index="0"]
+hue = 0.0
+
 [node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable" index="2"]
 material = SubResource( 12 )
-
-[node name="HummingAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable" index="4"]
-event = {
-"Id": 2881812561,
-"Name": "DEPOSITPOINT"
-}
-
-[node name="DepositAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable" index="5"]
-event = {
-"Id": 3709765321,
-"Name": "DEPOSIT2"
-}
 
 [node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable" index="2"]
 material = SubResource( 13 )
 
-[node name="HummingAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable" index="4"]
-event = {
-"Id": 2881812561,
-"Name": "DEPOSITPOINT"
-}
-
-[node name="DepositAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/BlueLightPillarInteractable" index="5"]
-event = {
-"Id": 3709765320,
-"Name": "DEPOSIT3"
-}
-
-[node name="FootStepAkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player" index="3"]
-event = {
-"Id": 4276063004,
-"Name": "PLAYER FS"
-}
-
 [node name="BodyAnimationTree" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player" index="6"]
 parameters/playback = SubResource( 14 )
 
-[node name="AkEvent" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Campfire" index="2"]
-event = {
-"Id": 2359560878,
-"Name": "CAMPFIRE SMALL"
-}
+[node name="HTerrain" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain" index="2"]
+lod_scale = 2.0
 
 [node name="TextDisplay" parent="." instance=ExtResource( 15 )]
 
