@@ -14,10 +14,22 @@ func _physics_process(delta):
 	recorded_frames.append_array([player.translation, player.rotation])
 
 
+func save_recorded_to_disk():
+	var file_name = str("Record-", Time.get_datetime_string_from_system(), ".ctpbck")
+	var file = File.new()
+	file.open("user://" + file_name, File.WRITE)
+	file.store_buffer(PoolByteArray(recorded_frames))
+	file.close()
+
+
+func load_recorded_from_disk(file_name):
+	var file = File.new()
+	if file.file_exists(file_name):
+		file.open(file_name, File.READ)
+		recorded_frames = Array(file.get_buffer(file.get_len()))
+
+
 func set_recording(value):
 	recording = value
 	if recording:
 		recorded_frames = []
-	else:
-		pass
-		 # might add code to save to disk when stop recording here
