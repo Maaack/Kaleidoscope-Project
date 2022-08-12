@@ -31,6 +31,7 @@ __meta__ = {
 }
 
 [node name="MasterHSlider" type="HSlider" parent="MasterControl"]
+unique_name_in_owner = true
 margin_left = 105.0
 margin_right = 305.0
 margin_bottom = 16.0
@@ -61,6 +62,7 @@ __meta__ = {
 }
 
 [node name="SFXHSlider" type="HSlider" parent="SFXControl"]
+unique_name_in_owner = true
 margin_left = 105.0
 margin_right = 305.0
 margin_bottom = 16.0
@@ -91,6 +93,7 @@ __meta__ = {
 }
 
 [node name="MusicHSlider" type="HSlider" parent="MusicControl"]
+unique_name_in_owner = true
 margin_left = 105.0
 margin_right = 305.0
 margin_bottom = 16.0
@@ -106,6 +109,7 @@ __meta__ = {
 }
 
 [node name="MuteControl" type="HBoxContainer" parent="."]
+visible = false
 margin_top = 108.0
 margin_right = 305.0
 margin_bottom = 148.0
@@ -119,6 +123,7 @@ size_flags_horizontal = 3
 text = "Mute :"
 
 [node name="MuteButton" type="CheckButton" parent="MuteControl"]
+unique_name_in_owner = true
 margin_left = 229.0
 margin_right = 305.0
 margin_bottom = 40.0
@@ -128,9 +133,9 @@ __meta__ = {
 }
 
 [node name="FullscreenControl" type="HBoxContainer" parent="."]
-margin_top = 168.0
+margin_top = 108.0
 margin_right = 305.0
-margin_bottom = 208.0
+margin_bottom = 148.0
 rect_min_size = Vector2( 0, 40 )
 
 [node name="FullscreenLabel" type="Label" parent="FullscreenControl"]
