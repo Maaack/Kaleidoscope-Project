@@ -13,10 +13,17 @@ onready var sfx_slider = $"%SFXHSlider"
 onready var music_slider = $"%MusicHSlider"
 onready var mute_button = $"%MuteButton"
 
+export(float, 0.0, 10.0) var audio_warm_up : float = 2.0
+
+var is_warming_up : bool = false
+var audio_warm_up_timer : float = 0.0
+
 func _get_bus(ak_bus_id : int) -> float:
 	return Wwise.get_rtpc_id(ak_bus_id, null)
 
 func _set_bus(ak_bus_id : int, value : float) -> void:
+	if is_warming_up:
+		return
 	Wwise.set_rtpc_id(ak_bus_id, value, null)
 	Config.set_config(AUDIO_SECTION, str(ak_bus_id), value)
 
@@ -54,15 +61,33 @@ func _set_fullscreen_enabled_from_config() -> void:
 	fullscreen_enabled = Config.get_config(VIDEO_SECTION, FULLSCREEN_ENABLED, fullscreen_enabled)
 	OS.window_fullscreen = fullscreen_enabled
 
+func _start_warm_up() -> void:
+	is_warming_up = true
+	audio_warm_up_timer = 0.0
+
 func _sync_with_config() -> void:
 	_set_init_config_if_empty()
 	_set_fullscreen_enabled_from_config()
 	_set_audio_buses_from_config()
-	yield(get_tree().create_timer(2.5), "timeout")
+	_start_warm_up()
+
+func _warming_up_calls() -> void:
 	_update_ui()
+
+func _warm_up(delta : float) -> void:
+	if not is_warming_up:
+		return
+	audio_warm_up_timer += delta
+	if audio_warm_up_timer >= audio_warm_up:
+		is_warming_up = false
+		return
+	_warming_up_calls()
 
 func _ready():
 	_sync_with_config()
+
+func _process(delta):
+	_warm_up(delta)
 
 func _on_MasterHSlider_value_changed(value):
 	_set_bus(MASTER_AUDIO_BUS, value)

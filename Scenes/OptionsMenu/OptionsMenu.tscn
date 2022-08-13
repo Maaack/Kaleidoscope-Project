@@ -15,6 +15,7 @@ margin_bottom = 150.0
 rect_min_size = Vector2( 305, 300 )
 custom_constants/separation = 20
 script = ExtResource( 2 )
+audio_warm_up = 2.2
 
 [node name="MasterControl" type="HBoxContainer" parent="."]
 margin_right = 305.0
