@@ -81,6 +81,7 @@ Waapi="*res://addons/wwise/bin/waapi-gdnative.gdns"
 PauseMenuController="*res://Scripts/PauseMenuController.gd"
 SceneLoader="*res://Scenes/LoadingScreen/SceneLoader.gd"
 Config="*res://Scripts/Config.gd"
+GameLog="*res://Scripts/GameLog.gd"
 
 [display]
 
