@@ -89,6 +89,7 @@ func _on_PlayButton_pressed():
 	menu_state = States.EXIT
 	$MenuAnimationPlayer.play("Outro")
 	yield($MenuAnimationPlayer, "animation_finished")
+	PlayerRecorder.recording = true
 	SceneLoader.load_scene("res://Scenes/MainKaleidoscope.tscn")
 
 
