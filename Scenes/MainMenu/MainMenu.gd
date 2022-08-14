@@ -6,6 +6,7 @@ enum States{
 	MENU,
 	CREDITS,
 	OPTIONS,
+	REPLAYS,
 	EXIT
 }
 
@@ -16,8 +17,7 @@ func _ready() -> void:
 	Wwise.set_pause_mode(PAUSE_MODE_PROCESS)
 	if version_name != "":
 		$Control/BordersMarginContainer/Control/VersionName.text = "v %s" % version_name
-	if PlayerRecorder.recording:
-		PlayerRecorder.recording = false
+
 
 func _disable_menu_buttons(disabled : bool = true) -> void:
 	for node in $Control/CenterMarginContainer/CenterContainer/VBoxContainer.get_children():
@@ -62,6 +62,14 @@ func open_options():
 func close_options():
 	$MenuAnimationPlayer.play("CloseOptions")
 
+func open_replays():
+	close_menu()
+	menu_state = States.REPLAYS
+	$MenuAnimationPlayer.play("OpenReplays")
+
+func close_replays():
+	$MenuAnimationPlayer.play("CloseReplays")
+
 func _on_CreditsButton_pressed():
 	open_credits()
 
@@ -78,6 +86,8 @@ func _on_BackButton_pressed():
 			close_credits()
 		States.OPTIONS:
 			close_options()
+		States.REPLAYS:
+			close_replays()
 
 func _input(event):
 	if menu_state == States.INTRO and \
@@ -98,3 +108,7 @@ func _on_PlaygroundButton_pressed():
 	$MenuAnimationPlayer.play("Outro")
 	yield($MenuAnimationPlayer, "animation_finished")
 	SceneLoader.load_scene("res://Scenes/Experimental/Marek/PlaygroundWorld.tscn")
+
+
+func _on_ReplayButton_pressed():
+	open_replays()

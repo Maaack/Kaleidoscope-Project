@@ -44,13 +44,16 @@ func _on_file_button_pressed(selected):
 
 
 func _on_PlayButton_pressed():
-	pass # Replace with function body.
+	if selected_file:
+		PlayerRecorder.load_recorded_from_disk(selected_file.text)
+		SceneLoader.load_scene("res://Scenes/ReplayMenu/ReplayScene.tscn")
 
 
 func _on_DeleteButton_pressed():
 	if selected_file:
 		dir.remove(selected_file.text)
 		selected_file.free()
+		selected_file = null
 
 
 func _on_SaveButton_pressed():

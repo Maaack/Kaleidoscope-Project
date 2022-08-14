@@ -15,14 +15,15 @@ func _physics_process(delta):
 	if not player: return
 	
 	if recording:
-		recorded_frames.append_array([player.translation, player.rotation, player.get_node("Pivot/PlayerCamera").rotation])
+		recorded_frames.append([player.translation, player.rotation, player.get_node("Pivot/PlayerCamera").rotation])
 	elif playing_back and recorded_frames.size() > 0:
-		var frame = recorded_frames.pop_front()
+		var frame = recorded_frames.pop_back()
 		player.translation = frame[0]
 		player.rotation = frame[1]
 		player.get_node("Pivot/PlayerCamera").rotation = frame[2]
 		
 		if recorded_frames.size() == 0:
+			playing_back = false
 			emit_signal("playback_ended")
 	
 
@@ -31,16 +32,17 @@ func save_recorded_to_disk():
 	var file_name = str("Record-", Time.get_datetime_string_from_system(), ".ctpbck").replace(":", "-")
 	var file = File.new()
 	file.open("user://" + file_name, File.WRITE)
-	file.store_buffer(PoolByteArray(previous_recorded_frames))
+	file.store_var(previous_recorded_frames)
 	file.close()
 
 
 func load_recorded_from_disk(file_name):
 	var file = File.new()
-	if file.file_exists(file_name):
+	if file.file_exists("user://" + file_name):
 		file.open("user://" + file_name, File.READ)
-		recorded_frames = Array(file.get_buffer(file.get_len()))
+		recorded_frames = file.get_var()
 		recorded_frames.invert()
+		file.close()
 
 
 func set_recording(value):
@@ -57,6 +59,8 @@ func set_playing_back(value):
 		var player = get_player()
 		if player:
 			player.playback_mode = true
+	else:
+		recorded_frames = [] # clear the recorded frames
 
 
 func get_player() -> KinematicBody :
