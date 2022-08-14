@@ -9,6 +9,8 @@ func start_trip():
 func end_trip():
 	$AnimationPlayer.play_backwards ("GettingPumped")
 	yield(get_tree().create_timer(15), "timeout")
+	if PlayerRecorder.recording:
+		PlayerRecorder.recording = false
 	$AnimationPlayer.play("FadeOut")
 
 func end_world() -> void:
