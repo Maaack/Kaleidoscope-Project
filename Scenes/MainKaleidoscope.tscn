@@ -115,9 +115,6 @@ transform = Transform( -0.509869, 0.499134, -0.700642, -0.271842, 0.679242, 0.68
 [node name="AnimationPlayer" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/AnimatedWorldEnvironment" index="1"]
 autoplay = "GettingPumped (copy)"
 
-[node name="RedLightPillarInteractable" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings" index="0"]
-hue = 0.0
-
 [node name="Bar" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/TestGlowyThings/GreenLightPillarInteractable" index="2"]
 material = SubResource( 12 )
 
@@ -126,9 +123,6 @@ material = SubResource( 13 )
 
 [node name="BodyAnimationTree" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain/Player" index="6"]
 parameters/playback = SubResource( 14 )
-
-[node name="HTerrain" parent="Kaleidoscope/KaleidoscopeViewport/DreamEnvironment/DreamscapeInteractive/DreamscapeTerrain" index="2"]
-lod_scale = 2.0
 
 [node name="TextDisplay" parent="." instance=ExtResource( 15 )]
 
