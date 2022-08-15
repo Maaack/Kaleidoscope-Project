@@ -85,13 +85,14 @@ func _input(event):
 
 func _on_PlayButton_pressed():
 	menu_state = States.EXIT
+	GameLog.set_version_played(version_name)
 	$MenuAnimationPlayer.play("Outro")
 	yield($MenuAnimationPlayer, "animation_finished")
 	SceneLoader.load_scene("res://Scenes/MainKaleidoscope.tscn")
 
-
 func _on_PlaygroundButton_pressed():
 	menu_state = States.EXIT
+	GameLog.set_version_played(version_name)
 	$MenuAnimationPlayer.play("Outro")
 	yield($MenuAnimationPlayer, "animation_finished")
 	SceneLoader.load_scene("res://Scenes/Experimental/Marek/PlaygroundWorld.tscn")
