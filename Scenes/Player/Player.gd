@@ -30,6 +30,8 @@ var maxLookAngle : float = 90
 var velocity = Vector3()
 var mouseDelta = Vector2()
 
+var playback_mode = false # when true the player should ignore user input
+
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
@@ -41,6 +43,8 @@ func set_followed_path(value : FollowedPath):
 	path_node_end = followed_path.get_end_point_position()
 
 func get_input():
+	if playback_mode: return
+	
 	var input_dir = Vector3()
 	# desired move in camera direction
 	if Input.is_action_pressed("move_forward"):
@@ -55,7 +59,7 @@ func get_input():
 	return input_dir
 	
 func _input(event):
-	if event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
+	if not playback_mode and event is InputEventMouseMotion and Input.get_mouse_mode() == Input.MOUSE_MODE_CAPTURED:
 		self.rotate_y(deg2rad(event.relative.x * mouse_sensitivity * -6))
 		camera.rotate_x(deg2rad(event.relative.y * mouse_sensitivity * -6))
 		camera.rotation.x = clamp(camera.rotation.x, -0.90, 1)
@@ -70,6 +74,7 @@ func _get_angle_on_y_axis(to_origin : Vector3):
 	return angle
 
 func _physics_process(delta):
+	if playback_mode: return
 	var is_crouched : bool = Input.is_action_pressed("crouch")
 	var animation_playback : AnimationNodeStateMachinePlayback = $BodyAnimationTree.get("parameters/playback")
 	if is_crouched:

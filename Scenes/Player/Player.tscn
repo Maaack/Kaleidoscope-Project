@@ -81,7 +81,7 @@ graph_offset = Vector2( -181.595, -43 )
 [sub_resource type="SphereShape" id=17]
 radius = 0.35
 
-[node name="Player" type="KinematicBody"]
+[node name="Player" type="KinematicBody" groups=["Player"]]
 collision_layer = 8
 script = ExtResource( 4 )
 

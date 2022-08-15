@@ -39,6 +39,10 @@ func _on_ExitBtn_pressed():
 func _on_ConfirmMainMenu_confirmed():
 	PauseMenuController.paused = false
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	if PlayerRecorder.recording:
+		PlayerRecorder.recording = false
+	if PlayerRecorder.playing_back:
+		PlayerRecorder.playing_back = false
 	get_tree().change_scene("res://Scenes/MainMenu/MainMenu.tscn")
 
 
